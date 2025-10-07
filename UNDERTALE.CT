@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"HP 1"</Description>
+      <VariableType>Double</VariableType>
+      <Address>19021B40</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"HP 2"</Description>
+      <VariableType>Double</VariableType>
+      <Address>18841B40</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"HP"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>Double</VariableType>
+      <Address>UNDERTALE.exe+13DE06</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>25</ID>
+      <Description>"EXP/GOLD"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Double</VariableType>
+      <Address>UNDERTALE.exe+13DDB4</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :mov [edi],ebx</Description>
+      <AddressString>UNDERTALE.exe+13DDB4</AddressString>
+      <Before>
+        <Byte>0C</Byte>
+        <Byte>05</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>1F</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>48</Byte>
+        <Byte>0C</Byte>
+        <Byte>89</Byte>
+        <Byte>4F</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

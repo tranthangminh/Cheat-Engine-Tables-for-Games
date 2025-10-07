@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>21</ID>
+      <Description>"Currency"</Description>
+      <ShowAsHex>1</ShowAsHex>
+      <VariableType>Array of byte</VariableType>
+      <ByteLength>7</ByteLength>
+      <Address>1EF42DB6095</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Currency - won't reduce"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Harem of Lust
+  Version: 
+  Date   : 2025-08-15
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 48 04 48 63 47 1C) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rax+04],ecx
+  movsxd  rax,dword ptr [rdi+1C]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 48 04 48 63 47 1C
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 23D3399B565
+
+23D3399B53E: 3B F0                          - cmp esi,eax
+23D3399B540: 0F 83 39 00 00 00              - jae 23D3399B57F
+23D3399B546: 48 8B 47 10                    - mov rax,[rdi+10]
+23D3399B54A: 48 63 CE                       - movsxd  rcx,esi
+23D3399B54D: 39 48 18                       - cmp [rax+18],ecx
+23D3399B550: 0F 86 3F 00 00 00              - jbe 23D3399B595
+23D3399B556: 48 8D 44 C8 20                 - lea rax,[rax+rcx*8+20]
+23D3399B55B: 48 63 4D E8                    - movsxd  rcx,dword ptr [rbp-18]
+23D3399B55F: 89 08                          - mov [rax],ecx
+23D3399B561: 48 63 4D EC                    - movsxd  rcx,dword ptr [rbp-14]
+// ---------- INJECTING HERE ----------
+23D3399B565: 89 48 04                       - mov [rax+04],ecx
+// ---------- DONE INJECTING  ----------
+23D3399B568: 48 63 47 1C                    - movsxd  rax,dword ptr [rdi+1C]
+23D3399B56C: FF C0                          - inc eax
+23D3399B56E: 89 47 1C                       - mov [rdi+1C],eax
+23D3399B571: 48 8B 75 F0                    - mov rsi,[rbp-10]
+23D3399B575: 48 8B 7D F8                    - mov rdi,[rbp-08]
+23D3399B579: 48 8D 65 00                    - lea rsp,[rbp+00]
+23D3399B57D: 5D                             - pop rbp
+23D3399B57E: C3                             - ret 
+23D3399B57F: 48 8D AD 00 00 00 00           - lea rbp,[rbp+00000000]
+23D3399B586: 49 BB 89 16 4A 38 3C 02 00 00  - mov r11,0000023C384A1689
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>22</ID>
+      <Description>"Set Currency to 99.999.999"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Harem of Lust
+  Version: 
+  Date   : 2025-08-15
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 48 04 48 63 47 1C) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rax+04],ecx
+  mov [rax+04],98967F
+  movsxd  rax,dword ptr [rdi+1C]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 48 04 48 63 47 1C
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 23D3399B565
+
+23D3399B53E: 3B F0                          - cmp esi,eax
+23D3399B540: 0F 83 39 00 00 00              - jae 23D3399B57F
+23D3399B546: 48 8B 47 10                    - mov rax,[rdi+10]
+23D3399B54A: 48 63 CE                       - movsxd  rcx,esi
+23D3399B54D: 39 48 18                       - cmp [rax+18],ecx
+23D3399B550: 0F 86 3F 00 00 00              - jbe 23D3399B595
+23D3399B556: 48 8D 44 C8 20                 - lea rax,[rax+rcx*8+20]
+23D3399B55B: 48 63 4D E8                    - movsxd  rcx,dword ptr [rbp-18]
+23D3399B55F: 89 08                          - mov [rax],ecx
+23D3399B561: 48 63 4D EC                    - movsxd  rcx,dword ptr [rbp-14]
+// ---------- INJECTING HERE ----------
+23D3399B565: 89 48 04                       - mov [rax+04],ecx
+// ---------- DONE INJECTING  ----------
+23D3399B568: 48 63 47 1C                    - movsxd  rax,dword ptr [rdi+1C]
+23D3399B56C: FF C0                          - inc eax
+23D3399B56E: 89 47 1C                       - mov [rdi+1C],eax
+23D3399B571: 48 8B 75 F0                    - mov rsi,[rbp-10]
+23D3399B575: 48 8B 7D F8                    - mov rdi,[rbp-08]
+23D3399B579: 48 8D 65 00                    - lea rsp,[rbp+00]
+23D3399B57D: 5D                             - pop rbp
+23D3399B57E: C3                             - ret 
+23D3399B57F: 48 8D AD 00 00 00 00           - lea rbp,[rbp+00000000]
+23D3399B586: 49 BB 89 16 4A 38 3C 02 00 00  - mov r11,0000023C384A1689
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of mov [rax+04],ecx</Description>
+      <AddressString>1EF42DB6095</AddressString>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>4D</Byte>
+        <Byte>EC</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>63</Byte>
+        <Byte>47</Byte>
+        <Byte>1C</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

@@ -1,0 +1,1978 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>64</ID>
+      <Description>"..Pointers"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>168</ID>
+          <Description>"0 HP 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>63D18150</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>172</ID>
+          <Description>"0 HP 2"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>6408BCC0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>282</ID>
+          <Description>"7 Sniper 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>6836F778</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>171</ID>
+          <Description>"7 Devastator 2"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>63D18850</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>52</ID>
+          <Description>"7 Devastator 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>639CBD90</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>49</ID>
+          <Description>"6 Laser 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>639CBDA0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>143</ID>
+          <Description>"6 Laser 2"</Description>
+          <LastState Value="4278584838" RealAddress="0158F150"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>0158F150</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>174</ID>
+          <Description>"5 Rocket 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>6408C380</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>53</ID>
+          <Description>"4 Minigun 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>639CBD70</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>170</ID>
+          <Description>"4 Minigun 2"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>63D18830</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>55</ID>
+          <Description>"4 Assault Rifle 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>639CBD40</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>173</ID>
+          <Description>"4 Assault Rifle 2"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>6408C370</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>54</ID>
+          <Description>"3 Shotgun 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>639CBD30</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>175</ID>
+          <Description>"3 Shotgun 2"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>1C1F36F0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>169</ID>
+          <Description>"8 Canon 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>63D18840</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>218</ID>
+          <Description>"8 Canon 2"</Description>
+          <LastState Value="2206302593" RealAddress="4349EFD0"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>4349EFD0</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>283</ID>
+      <Description>"ALL ARE IMMORTAL"</Description>
+      <LastState/>
+      <Color>4040BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Serious Sam 3
+  Version: 
+  Date   : 2025-07-10
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Sam3.exe,89 01 8B 02 8B 10) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  mov eax,[edx]
+  mov edx,[eax]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 01 8B 02 8B 10
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Sam3.exe+4D4DBF
+
+Sam3.exe+4D4DAD: CC        - int 3 
+Sam3.exe+4D4DAE: CC        - int 3 
+Sam3.exe+4D4DAF: CC        - int 3 
+Sam3.exe+4D4DB0: 55        - push ebp
+Sam3.exe+4D4DB1: 8B EC     - mov ebp,esp
+Sam3.exe+4D4DB3: 8B 45 0C  - mov eax,[ebp+0C]
+Sam3.exe+4D4DB6: 8B 00     - mov eax,[eax]
+Sam3.exe+4D4DB8: 39 01     - cmp [ecx],eax
+Sam3.exe+4D4DBA: 74 13     - je Sam3.exe+4D4DCF
+Sam3.exe+4D4DBC: 8B 55 08  - mov edx,[ebp+08]
+// ---------- INJECTING HERE ----------
+Sam3.exe+4D4DBF: 89 01     - mov [ecx],eax
+// ---------- DONE INJECTING  ----------
+Sam3.exe+4D4DC1: 8B 02     - mov eax,[edx]
+Sam3.exe+4D4DC3: 8B 10     - mov edx,[eax]
+Sam3.exe+4D4DC5: 8B 01     - mov eax,[ecx]
+Sam3.exe+4D4DC7: 33 C1     - xor eax,ecx
+Sam3.exe+4D4DC9: 89 51 08  - mov [ecx+08],edx
+Sam3.exe+4D4DCC: 89 41 04  - mov [ecx+04],eax
+Sam3.exe+4D4DCF: 5D        - pop ebp
+Sam3.exe+4D4DD0: C2 08 00  - ret 0008
+Sam3.exe+4D4DD3: CC        - int 3 
+Sam3.exe+4D4DD4: CC        - int 3 
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>285</ID>
+      <Description>"HEALTH"</Description>
+      <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BFBF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>93</ID>
+          <Description>"_0 Armor (MAX 200)"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry ValueOnActivate="50000">
+              <ID>65</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="47037" RealAddress="59533794"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFDC58</Address>
+              <Offsets>
+                <Offset>454</Offset>
+                <Offset>48</Offset>
+                <Offset>16C</Offset>
+                <Offset>14</Offset>
+                <Offset>20</Offset>
+                <Offset>0</Offset>
+                <Offset>A8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="50000">
+              <ID>66</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="47037" RealAddress="59533794"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>454</Offset>
+                <Offset>48</Offset>
+                <Offset>16C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>50</Offset>
+                <Offset>C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="50000">
+              <ID>70</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="47037" RealAddress="59533794"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFFEB8</Address>
+              <Offsets>
+                <Offset>454</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>58</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="50000">
+              <ID>74</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="47037" RealAddress="59533794"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C001D8</Address>
+              <Offsets>
+                <Offset>454</Offset>
+                <Offset>48</Offset>
+                <Offset>158</Offset>
+                <Offset>14</Offset>
+                <Offset>20</Offset>
+                <Offset>0</Offset>
+                <Offset>A8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="50000">
+              <ID>80</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="47037" RealAddress="59533794"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B92290</Address>
+              <Offsets>
+                <Offset>454</Offset>
+                <Offset>48</Offset>
+                <Offset>50</Offset>
+                <Offset>85C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>C8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="50000">
+              <ID>92</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="47037" RealAddress="59533794"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C00820</Address>
+              <Offsets>
+                <Offset>454</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>54</Offset>
+                <Offset>94</Offset>
+                <Offset>D0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>47</ID>
+          <Description>"0 HP (MAX 200)"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" Activated="1" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry ValueOnActivate="200">
+              <ID>19</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="200" Activated="1" RealAddress="59533780"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>440</Offset>
+                <Offset>48</Offset>
+                <Offset>158</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>50</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="200">
+              <ID>43</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="200" Activated="1" RealAddress="59533780"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFFEB8</Address>
+              <Offsets>
+                <Offset>440</Offset>
+                <Offset>48</Offset>
+                <Offset>4</Offset>
+                <Offset>160</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>284</ID>
+      <Description>"_AMMO"</Description>
+      <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BFBF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>260</ID>
+          <Description>"_3 Shotgun (MAX 100)"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>240</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>48</Offset>
+                <Offset>150</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>C8</Offset>
+                <Offset>18</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>241</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>10</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>C8</Offset>
+                <Offset>E8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>242</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>48</Offset>
+                <Offset>168</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>50</Offset>
+                <Offset>6C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>243</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFEF18</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>86C</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>244</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C004F8</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>9B8</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>245</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFE298</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>AF0</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>246</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFFEB8</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>2F4</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>247</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFEBF8</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>11C</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>248</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFE298</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>3A4</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>249</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C004F8</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>4D4</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>250</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFDC58</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>1A0</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>251</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C00818</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>65C</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>252</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C00B38</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>B54</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>253</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFE298</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>C54</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>254</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFFB98</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>D3C</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>256</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFEBF8</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>E40</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>257</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFE298</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>FCC</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>258</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFEBF8</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>69C</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>259</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="996" RealAddress="59533E20"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BF481C</Address>
+              <Offsets>
+                <Offset>AE0</Offset>
+                <Offset>2C</Offset>
+                <Offset>0</Offset>
+                <Offset>10</Offset>
+                <Offset>0</Offset>
+                <Offset>A8</Offset>
+                <Offset>D0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>196</ID>
+          <Description>"_4 Minigun (MAX 500)"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>176</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="4644" RealAddress="59533E60"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFE298</Address>
+              <Offsets>
+                <Offset>B20</Offset>
+                <Offset>2C</Offset>
+                <Offset>4</Offset>
+                <Offset>10</Offset>
+                <Offset>0</Offset>
+                <Offset>A8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>177</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="4644" RealAddress="59533E60"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C004F8</Address>
+              <Offsets>
+                <Offset>B20</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>71C</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>178</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="4644" RealAddress="59533E60"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C001D8</Address>
+              <Offsets>
+                <Offset>B20</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>1A0</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>179</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="4644" RealAddress="59533E60"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFF558</Address>
+              <Offsets>
+                <Offset>B20</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>EF0</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>182</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="4644" RealAddress="59533E60"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C001D8</Address>
+              <Offsets>
+                <Offset>B20</Offset>
+                <Offset>14</Offset>
+                <Offset>20</Offset>
+                <Offset>0</Offset>
+                <Offset>A8</Offset>
+                <Offset>D0</Offset>
+                <Offset>88</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>185</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="4644" RealAddress="59533E60"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFF238</Address>
+              <Offsets>
+                <Offset>B20</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>CEC</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>186</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="4644" RealAddress="59533E60"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFEBF8</Address>
+              <Offsets>
+                <Offset>B20</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>7E8</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>187</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="4644" RealAddress="59533E60"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFE2A0</Address>
+              <Offsets>
+                <Offset>B20</Offset>
+                <Offset>48</Offset>
+                <Offset>160</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>D0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>189</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="4644" RealAddress="59533E60"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C004F8</Address>
+              <Offsets>
+                <Offset>B20</Offset>
+                <Offset>10</Offset>
+                <Offset>28</Offset>
+                <Offset>14</Offset>
+                <Offset>20</Offset>
+                <Offset>0</Offset>
+                <Offset>A8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>192</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="4644" RealAddress="59533E60"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFDF78</Address>
+              <Offsets>
+                <Offset>B20</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>44</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>195</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="4644" RealAddress="59533E60"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C001D8</Address>
+              <Offsets>
+                <Offset>B20</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>6B4</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>142</ID>
+          <Description>"_5 Rocket (MAX 50)"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry ValueOnActivate="500">
+              <ID>124</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="499" RealAddress="59533E40"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFFB98</Address>
+              <Offsets>
+                <Offset>B00</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>208</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="500">
+              <ID>125</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="499" RealAddress="59533E40"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFF558</Address>
+              <Offsets>
+                <Offset>B00</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>6BC</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="500">
+              <ID>126</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="499" RealAddress="59533E40"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFEBF8</Address>
+              <Offsets>
+                <Offset>B00</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>7F0</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>120</ID>
+          <Description>"_6 C4 (MAX 10)"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry ValueOnActivate="100">
+              <ID>97</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="59533E50"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C00818</Address>
+              <Offsets>
+                <Offset>B10</Offset>
+                <Offset>4</Offset>
+                <Offset>14C</Offset>
+                <Offset>54</Offset>
+                <Offset>24</Offset>
+                <Offset>18</Offset>
+                <Offset>A0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="100">
+              <ID>104</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="59533E50"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B10</Offset>
+                <Offset>4</Offset>
+                <Offset>128</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>50</Offset>
+                <Offset>28</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="100">
+              <ID>112</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="59533E50"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C00B38</Address>
+              <Offsets>
+                <Offset>B10</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>8</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="100">
+              <ID>113</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="59533E50"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BF4DD8</Address>
+              <Offsets>
+                <Offset>B10</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>100</Offset>
+                <Offset>4C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="100">
+              <ID>114</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="59533E50"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BF4F24</Address>
+              <Offsets>
+                <Offset>B10</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>D0</Offset>
+                <Offset>88</Offset>
+                <Offset>124</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="100">
+              <ID>115</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="59436BD8"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFE298</Address>
+              <Offsets>
+                <Offset>B10</Offset>
+                <Offset>B4</Offset>
+                <Offset>24</Offset>
+                <Offset>18</Offset>
+                <Offset>A0</Offset>
+                <Offset>124</Offset>
+                <Offset>88</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="100">
+              <ID>116</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B92290</Address>
+              <Offsets>
+                <Offset>B10</Offset>
+                <Offset>15C</Offset>
+                <Offset>120</Offset>
+                <Offset>54</Offset>
+                <Offset>24</Offset>
+                <Offset>10</Offset>
+                <Offset>140</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>167</ID>
+          <Description>"_6 Laser (MAX 500)"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry ValueOnActivate="4000">
+              <ID>261</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="3935" RealAddress="59533E90"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFF238</Address>
+              <Offsets>
+                <Offset>B50</Offset>
+                <Offset>48</Offset>
+                <Offset>158</Offset>
+                <Offset>14</Offset>
+                <Offset>20</Offset>
+                <Offset>0</Offset>
+                <Offset>A8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="4000">
+              <ID>264</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="3935" RealAddress="59533E90"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BF4D48</Address>
+              <Offsets>
+                <Offset>B50</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>48</Offset>
+                <Offset>44</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="4000">
+              <ID>271</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="3935" RealAddress="59533E90"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFFB98</Address>
+              <Offsets>
+                <Offset>B50</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>7FC</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="4000">
+              <ID>273</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="3935" RealAddress="59533E90"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFFB98</Address>
+              <Offsets>
+                <Offset>B50</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>530</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="4000">
+              <ID>274</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="3935" RealAddress="59533E90"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFE298</Address>
+              <Offsets>
+                <Offset>B50</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>658</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="4000">
+              <ID>275</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="3935" RealAddress="59533E90"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C00818</Address>
+              <Offsets>
+                <Offset>B50</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>C20</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="4000">
+              <ID>276</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="3935" RealAddress="59533E90"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C00818</Address>
+              <Offsets>
+                <Offset>B50</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>E1C</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="4000">
+              <ID>277</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="3935" RealAddress="59533E90"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFF238</Address>
+              <Offsets>
+                <Offset>B50</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>F8C</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="4000">
+              <ID>279</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="3935" RealAddress="59533E90"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFF238</Address>
+              <Offsets>
+                <Offset>B50</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>29C</Offset>
+                <Offset>920</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="4000">
+              <ID>280</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="3935" RealAddress="59533E90"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C00B38</Address>
+              <Offsets>
+                <Offset>B50</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>44</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="4000">
+              <ID>281</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="3935" RealAddress="59533E90"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C00818</Address>
+              <Offsets>
+                <Offset>B50</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>84</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>217</ID>
+          <Description>"_7 Devastator"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>197</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>48</Offset>
+                <Offset>168</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>50</Offset>
+                <Offset>E0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>198</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>48</Offset>
+                <Offset>160</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>140</Offset>
+                <Offset>88</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>199</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>4</Offset>
+                <Offset>14C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>140</Offset>
+                <Offset>A8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>200</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>48</Offset>
+                <Offset>164</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>C8</Offset>
+                <Offset>F4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>201</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>50</Offset>
+                <Offset>90</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>202</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>48</Offset>
+                <Offset>12C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>C8</Offset>
+                <Offset>D4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>203</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>10</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>50</Offset>
+                <Offset>B4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>205</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BF4C48</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>48</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>206</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BF4860</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>48</Offset>
+                <Offset>10</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>208</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BF4F68</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>48</Offset>
+                <Offset>54</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>209</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BF5068</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>48</Offset>
+                <Offset>A8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>210</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>48</Offset>
+                <Offset>154</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>C8</Offset>
+                <Offset>5C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>212</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="1000" RealAddress="59436C08"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>54</Offset>
+                <Offset>28</Offset>
+                <Offset>10</Offset>
+                <Offset>C8</Offset>
+                <Offset>24</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>213</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>4</Offset>
+                <Offset>128</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>140</Offset>
+                <Offset>14</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>214</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BF4AF0</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>48</Offset>
+                <Offset>78</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>215</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>48</Offset>
+                <Offset>150</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>C8</Offset>
+                <Offset>94</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>216</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="989" RealAddress="59533E80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BF4708</Address>
+              <Offsets>
+                <Offset>B40</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>48</Offset>
+                <Offset>188</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>239</ID>
+          <Description>"_8 Canon"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry ValueOnActivate="600">
+              <ID>219</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="574" RealAddress="59533E70"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BF4F68</Address>
+              <Offsets>
+                <Offset>B30</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>48</Offset>
+                <Offset>B8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="600">
+              <ID>220</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="574" RealAddress="59533E70"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFFEB8</Address>
+              <Offsets>
+                <Offset>B30</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>74</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="600">
+              <ID>221</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="574" RealAddress="59533E70"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C00B38</Address>
+              <Offsets>
+                <Offset>B30</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>8C</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="600">
+              <ID>227</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="574" RealAddress="59533E70"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C004F8</Address>
+              <Offsets>
+                <Offset>B30</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>10C</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="600">
+              <ID>228</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="574" RealAddress="59533E70"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BF4B80</Address>
+              <Offsets>
+                <Offset>B30</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>48</Offset>
+                <Offset>48</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="600">
+              <ID>229</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="574" RealAddress="59533E70"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BF4578</Address>
+              <Offsets>
+                <Offset>B30</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>48</Offset>
+                <Offset>4A4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="600">
+              <ID>230</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="574" RealAddress="59533E70"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BF4960</Address>
+              <Offsets>
+                <Offset>B30</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>48</Offset>
+                <Offset>BA4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="600">
+              <ID>232</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="600" RealAddress="59436BF8"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B30</Offset>
+                <Offset>54</Offset>
+                <Offset>28</Offset>
+                <Offset>10</Offset>
+                <Offset>140</Offset>
+                <Offset>10C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="600">
+              <ID>233</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="574" RealAddress="59533E70"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B30</Offset>
+                <Offset>48</Offset>
+                <Offset>160</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>140</Offset>
+                <Offset>64</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="600">
+              <ID>234</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C004F8</Address>
+              <Offsets>
+                <Offset>B30</Offset>
+                <Offset>48</Offset>
+                <Offset>158</Offset>
+                <Offset>54</Offset>
+                <Offset>28</Offset>
+                <Offset>18</Offset>
+                <Offset>A0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="600">
+              <ID>235</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="574" RealAddress="59533E70"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C004F8</Address>
+              <Offsets>
+                <Offset>B30</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+                <Offset>24</Offset>
+                <Offset>68</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="600">
+              <ID>236</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="574" RealAddress="59533E70"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00C001D8</Address>
+              <Offsets>
+                <Offset>B30</Offset>
+                <Offset>48</Offset>
+                <Offset>C</Offset>
+                <Offset>168</Offset>
+                <Offset>30</Offset>
+                <Offset>28</Offset>
+                <Offset>A0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="600">
+              <ID>237</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="574" RealAddress="59533E70"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00B922A0</Address>
+              <Offsets>
+                <Offset>B30</Offset>
+                <Offset>48</Offset>
+                <Offset>16C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>50</Offset>
+                <Offset>C0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="600">
+              <ID>238</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="574" RealAddress="59533E70"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Sam3.exe"+00BFF558</Address>
+              <Offsets>
+                <Offset>B30</Offset>
+                <Offset>48</Offset>
+                <Offset>124</Offset>
+                <Offset>54</Offset>
+                <Offset>24</Offset>
+                <Offset>18</Offset>
+                <Offset>A0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Code :mov [esi+00000450],ecx</Description>
+      <AddressString>Sam3.exe+30D932</AddressString>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>1C</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>8E</Byte>
+        <Byte>50</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>86</Byte>
+        <Byte>10</Byte>
+        <Byte>08</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>HP change</Description>
+      <AddressString>Sam3.exe+4D4DBF</AddressString>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>13</Byte>
+        <Byte>8B</Byte>
+        <Byte>55</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>02</Byte>
+        <Byte>8B</Byte>
+        <Byte>10</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>HP change</Description>
+      <AddressString>Sam3.exe+4D4DBF</AddressString>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>13</Byte>
+        <Byte>8B</Byte>
+        <Byte>55</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>02</Byte>
+        <Byte>8B</Byte>
+        <Byte>10</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :nop </Description>
+      <AddressString>Sam3.exe+4D4DBF</AddressString>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>13</Byte>
+        <Byte>8B</Byte>
+        <Byte>55</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>02</Byte>
+        <Byte>8B</Byte>
+        <Byte>10</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [ecx],eax</Description>
+      <AddressString>Sam3.exe+4D4DBF</AddressString>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>13</Byte>
+        <Byte>8B</Byte>
+        <Byte>55</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>02</Byte>
+        <Byte>8B</Byte>
+        <Byte>10</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je Sam3.exe+4D4DCF</Description>
+      <AddressString>Sam3.exe+4D4DBA</AddressString>
+      <Before>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>00</Byte>
+        <Byte>39</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>13</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>55</Byte>
+        <Byte>08</Byte>
+        <Byte>89</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov eax,[edx]</Description>
+      <AddressString>Sam3.exe+4D4DC1</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>55</Byte>
+        <Byte>08</Byte>
+        <Byte>89</Byte>
+        <Byte>01</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>02</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>10</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+        <Byte>33</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

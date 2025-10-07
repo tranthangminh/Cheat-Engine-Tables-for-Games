@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"Energy"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"GameAssembly.dll"+7F608C</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Energy/Coins/Money/ locked"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Kinky Cats
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,41 89 2E 41 0F B6 D4 49 8B CF E8 05) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [r14],ebp
+  movzx edx,r12b
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 41 89 2E 41 0F B6 D4
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+7F608C
+
+GameAssembly.dll+7F6063: 48 8B CE              - mov rcx,rsi
+GameAssembly.dll+7F6066: 4D 8B 88 88 01 00 00  - mov r9,[r8+00000188]
+GameAssembly.dll+7F606D: 4D 8B 80 90 01 00 00  - mov r8,[r8+00000190]
+GameAssembly.dll+7F6074: 41 FF D1              - call r9
+GameAssembly.dll+7F6077: 4C 8B 47 38           - mov r8,[rdi+38]
+GameAssembly.dll+7F607B: 8B D5                 - mov edx,ebp
+GameAssembly.dll+7F607D: 49 8B CF              - mov rcx,r15
+GameAssembly.dll+7F6080: 4D 8B 40 38           - mov r8,[r8+38]
+GameAssembly.dll+7F6084: E8 27 E6 FF FF        - call GameAssembly.dll+7F46B0
+GameAssembly.dll+7F6089: 45 33 C0              - xor r8d,r8d
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+7F608C: 41 89 2E              - mov [r14],ebp
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+7F608F: 41 0F B6 D4           - movzx edx,r12b
+GameAssembly.dll+7F6093: 49 8B CF              - mov rcx,r15
+GameAssembly.dll+7F6096: E8 05 BE C0 FF        - call GameAssembly.dll+401EA0
+GameAssembly.dll+7F609B: B0 01                 - mov al,01
+GameAssembly.dll+7F609D: EB 02                 - jmp GameAssembly.dll+7F60A1
+GameAssembly.dll+7F609F: 32 C0                 - xor al,al
+GameAssembly.dll+7F60A1: 48 8B 5C 24 50        - mov rbx,[rsp+50]
+GameAssembly.dll+7F60A6: 48 8B 6C 24 58        - mov rbp,[rsp+58]
+GameAssembly.dll+7F60AB: 48 83 C4 20           - add rsp,20
+GameAssembly.dll+7F60AF: 41 5F                 - pop r15
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedhack_wantedspeed</Name>
+      <Address>19509FB0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

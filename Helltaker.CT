@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>22</ID>
+      <Description>"Infinite Moves"</Description>
+      <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <Color>BFBF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>24</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>BFBF40</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"+0049AC48</Address>
+          <Offsets>
+            <Offset>7C8</Offset>
+            <Offset>70</Offset>
+            <Offset>60</Offset>
+            <Offset>0</Offset>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>25</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>BFBF40</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"+00492DE0</Address>
+          <Offsets>
+            <Offset>7C8</Offset>
+            <Offset>70</Offset>
+            <Offset>30</Offset>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>BFBF40</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"+0049AC48</Address>
+          <Offsets>
+            <Offset>7C8</Offset>
+            <Offset>70</Offset>
+            <Offset>30</Offset>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>23</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>BFBF40</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"+00492DE0</Address>
+          <Offsets>
+            <Offset>7C8</Offset>
+            <Offset>70</Offset>
+            <Offset>60</Offset>
+            <Offset>0</Offset>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>33</ID>
+      <Description>"Infinite Moves"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>32</ID>
+          <Description>"Auto Assemble script"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Helltaker
+  Version: 
+  Date   : 2025-08-18
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 86 54 01 00 00 0F) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rsi+00000154],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 86 54 01 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 23FBA7DAAE8
+
+23FBA7DAAC0: 55                    - push rbp
+23FBA7DAAC1: 48 8B EC              - mov rbp,rsp
+23FBA7DAAC4: 48 83 EC 30           - sub rsp,30
+23FBA7DAAC8: 48 89 75 F8           - mov [rbp-08],rsi
+23FBA7DAACC: 48 8B F1              - mov rsi,rcx
+23FBA7DAACF: 48 63 86 54 01 00 00  - movsxd  rax,dword ptr [rsi+00000154]
+23FBA7DAAD6: 83 F8 32              - cmp eax,32
+23FBA7DAAD9: 0F 8D 89 01 00 00     - jnl 23FBA7DAC68
+23FBA7DAADF: 48 63 86 54 01 00 00  - movsxd  rax,dword ptr [rsi+00000154]
+23FBA7DAAE6: FF C8                 - dec eax
+// ---------- INJECTING HERE ----------
+23FBA7DAAE8: 89 86 54 01 00 00     - mov [rsi+00000154],eax
+// ---------- DONE INJECTING  ----------
+23FBA7DAAEE: 0F B6 86 6A 01 00 00  - movzx eax,byte ptr [rsi+0000016A]
+23FBA7DAAF5: 85 C0                 - test eax,eax
+23FBA7DAAF7: 0F 84 F8 00 00 00     - je 23FBA7DABF5
+23FBA7DAAFD: 48 63 86 54 01 00 00  - movsxd  rax,dword ptr [rsi+00000154]
+23FBA7DAB04: 83 F8 0A              - cmp eax,0A
+23FBA7DAB07: 0F 8D 76 00 00 00     - jnl 23FBA7DAB83
+23FBA7DAB0D: 48 63 86 54 01 00 00  - movsxd  rax,dword ptr [rsi+00000154]
+23FBA7DAB14: 85 C0                 - test eax,eax
+23FBA7DAB16: 0F 84 67 00 00 00     - je 23FBA7DAB83
+23FBA7DAB1C: 48 8B 86 88 00 00 00  - mov rax,[rsi+00000088]
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>34</ID>
+      <Description>"HP"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Helltaker
+  Version: 
+  Date   : 2025-09-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,UnityPlayer.dll,48 FF 48 18 49 FF C2) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  cmp [rax+18],2
+  je return
+  dec qword ptr [rax+18]
+  inc r10
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 48 FF 48 18 49 FF C2
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: UnityPlayer.dll+767516
+
+UnityPlayer.dll+7674F4: 4C 03 40 08        - add r8,[rax+08]
+UnityPlayer.dll+7674F8: 49 8B 10           - mov rdx,[r8]
+UnityPlayer.dll+7674FB: 49 63 48 08        - movsxd  rcx,dword ptr [r8+08]
+UnityPlayer.dll+7674FF: 48 83 C2 08        - add rdx,08
+UnityPlayer.dll+767503: 83 F9 FF           - cmp ecx,-01
+UnityPlayer.dll+767506: 74 0A              - je UnityPlayer.dll+767512
+UnityPlayer.dll+767508: 48 C1 E1 04        - shl rcx,04
+UnityPlayer.dll+76750C: 48 03 0A           - add rcx,[rdx]
+UnityPlayer.dll+76750F: 48 8B D1           - mov rdx,rcx
+UnityPlayer.dll+767512: 44 89 4A 08        - mov [rdx+08],r9d
+// ---------- INJECTING HERE ----------
+UnityPlayer.dll+767516: 48 FF 48 18        - dec qword ptr [rax+18]
+// ---------- DONE INJECTING  ----------
+UnityPlayer.dll+76751A: 49 FF C2           - inc r10
+UnityPlayer.dll+76751D: 49 83 C3 10        - add r11,10
+UnityPlayer.dll+767521: 4C 3B 53 18        - cmp r10,[rbx+18]
+UnityPlayer.dll+767525: 0F 82 75 FF FF FF  - jb UnityPlayer.dll+7674A0
+UnityPlayer.dll+76752B: 48 8B 4B 08        - mov rcx,[rbx+08]
+UnityPlayer.dll+76752F: 48 85 C9           - test rcx,rcx
+UnityPlayer.dll+767532: 74 12              - je UnityPlayer.dll+767546
+UnityPlayer.dll+767534: 0F B6 43 20        - movzx eax,byte ptr [rbx+20]
+UnityPlayer.dll+767538: F6 D0              - not al
+UnityPlayer.dll+76753A: A8 01              - test al,01
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>35</ID>
+      <Description>"HP"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>UnityPlayer.dll+767516</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of mov [rsp+08],rbx</Description>
+      <AddressString>UnityPlayer.dll+8670A0</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>89</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>10</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of push rbx</Description>
+      <AddressString>UnityPlayer.dll+8D4E10</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>40</Byte>
+        <Byte>53</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>50</Byte>
+        <Byte>44</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsi+00000154],eax</Description>
+      <AddressString>1D836138938</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>FF</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>54</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>86</Byte>
+        <Byte>6A</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of add [rax],al</Description>
+      <AddressString>23F82458AF8</AddressString>
+      <Before>
+        <Byte>EB</Byte>
+        <Byte>05</Byte>
+        <Byte>B8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>34</Byte>
+        <Byte>24</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsi+00000154],eax</Description>
+      <AddressString>23F8201A8A8</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>FF</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>54</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>86</Byte>
+        <Byte>6A</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of nop </Description>
+      <AddressString>23FEF930820</AddressString>
+      <Before>
+        <Byte>81</Byte>
+        <Byte>0E</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>90</Byte>
+      </Actual>
+      <After>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>E8</Byte>
+        <Byte>77</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsi+00000154],eax</Description>
+      <AddressString>258E863A808</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>FF</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>54</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>86</Byte>
+        <Byte>6A</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsi+00000154],eax</Description>
+      <AddressString>222114FAA58</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>FF</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>54</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>86</Byte>
+        <Byte>6A</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec qword ptr [rax+18]</Description>
+      <AddressString>UnityPlayer.dll+767516</AddressString>
+      <Before>
+        <Byte>D1</Byte>
+        <Byte>44</Byte>
+        <Byte>89</Byte>
+        <Byte>4A</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>FF</Byte>
+        <Byte>48</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>FF</Byte>
+        <Byte>C2</Byte>
+        <Byte>49</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsi+00000154],eax</Description>
+      <AddressString>1E25231C678</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>FF</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>54</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>86</Byte>
+        <Byte>6A</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsi+00000154],eax </Description>
+      <AddressString>14696F3A628</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>FF</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>54</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>86</Byte>
+        <Byte>6A</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsi+00000154],eax</Description>
+      <AddressString>14FA140BF88</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>FF</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>54</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>86</Byte>
+        <Byte>6A</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rsi+00000154],eax</Description>
+      <AddressString>235D07FC1C8</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>FF</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>54</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>86</Byte>
+        <Byte>6A</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedhack_wantedspeed</Name>
+      <Address>235D03B0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

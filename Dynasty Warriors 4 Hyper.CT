@@ -1,0 +1,2213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>140</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>81</ID>
+          <Description>"EXP"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>2 Bytes</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+B5B32</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>121</ID>
+          <Description>"Points"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>2 Bytes</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+B4D0F</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>137</ID>
+          <Description>"Musou"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>2 Bytes</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+16F6A </Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>139</ID>
+          <Description>"HP"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>2 Bytes</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+16E97 </Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>144</ID>
+          <Description>"x2 ITEMS get?"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>2 Bytes</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+16C74</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>134</ID>
+      <Description>"All are Invincible"</Description>
+      <LastState/>
+      <Color>4040BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
+  Version: 
+  Date   : 2025-10-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,66 89 96 EE 01 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi+000001EE],dx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 66 89 96 EE 01 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+16E97
+
+Dynasty Warriors 4 Hyper.exe+16E77: 0F BF 96 EC 01 00 00  - movsx edx,word ptr [esi+000001EC]
+Dynasty Warriors 4 Hyper.exe+16E7E: C1 E2 04              - shl edx,04
+Dynasty Warriors 4 Hyper.exe+16E81: 3B C2                 - cmp eax,edx
+Dynasty Warriors 4 Hyper.exe+16E83: 0F 4D C2              - cmovge eax,edx
+Dynasty Warriors 4 Hyper.exe+16E86: 33 D2                 - xor edx,edx
+Dynasty Warriors 4 Hyper.exe+16E88: 85 C0                 - test eax,eax
+Dynasty Warriors 4 Hyper.exe+16E8A: 0F 9E C2              - setle dl
+Dynasty Warriors 4 Hyper.exe+16E8D: 83 EA 01              - sub edx,01
+Dynasty Warriors 4 Hyper.exe+16E90: 23 D0                 - and edx,eax
+Dynasty Warriors 4 Hyper.exe+16E92: 83 7C 24 10 00        - cmp dword ptr [esp+10],00
+// ---------- INJECTING HERE ----------
+Dynasty Warriors 4 Hyper.exe+16E97: 66 89 96 EE 01 00 00  - mov [esi+000001EE],dx
+// ---------- DONE INJECTING  ----------
+Dynasty Warriors 4 Hyper.exe+16E9E: 74 20                 - je "Dynasty Warriors 4 Hyper.exe"+16EC0
+Dynasty Warriors 4 Hyper.exe+16EA0: F6 05 70 08 8C 00 10  - test byte ptr ["Dynasty Warriors 4 Hyper.exe"+4C0870],10
+Dynasty Warriors 4 Hyper.exe+16EA7: 74 09                 - je "Dynasty Warriors 4 Hyper.exe"+16EB2
+Dynasty Warriors 4 Hyper.exe+16EA9: E8 12 11 03 00        - call "Dynasty Warriors 4 Hyper.exe"+47FC0
+Dynasty Warriors 4 Hyper.exe+16EAE: 85 C0                 - test eax,eax
+Dynasty Warriors 4 Hyper.exe+16EB0: 75 0E                 - jne "Dynasty Warriors 4 Hyper.exe"+16EC0
+Dynasty Warriors 4 Hyper.exe+16EB2: 33 C0                 - xor eax,eax
+Dynasty Warriors 4 Hyper.exe+16EB4: 66 39 86 EE 01 00 00  - cmp [esi+000001EE],ax
+Dynasty Warriors 4 Hyper.exe+16EBB: 5E                    - pop esi
+Dynasty Warriors 4 Hyper.exe+16EBC: 0F 94 C0              - sete al
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>206</ID>
+      <Description>"FoV stuff"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>207</ID>
+          <Description>"aspect ratio (16:9 = 1.777, 21:9 = 2.4, Default 1.212121248)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>Float</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+256138</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>88</Key>
+              </Keys>
+              <Value>1.777</Value>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>208</ID>
+          <Description>"FoV-Y (best is 0.03, Default 0.01745329425)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>Float</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+24DEC4</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>88</Key>
+              </Keys>
+              <Value>0.02545</Value>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>209</ID>
+          <Description>"near plane (Default 64)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>Float</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+24DEFC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>210</ID>
+          <Description>"far plane (Default 800)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>Float</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+24E2E8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>211</ID>
+          <Description>"frustrum (Default 0.008726647124)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>Float</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+24DED0</Address>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Set Value</Action>
+              <Keys>
+                <Key>88</Key>
+              </Keys>
+              <Value>0.0167</Value>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>205</ID>
+      <Description>"After Battle"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>130</ID>
+          <Description>"+EXP (After Battle)"</Description>
+          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>125</ID>
+              <Description>"+6000 EXP (Lv4)"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
+  Version: 
+  Date   : 2025-10-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,66 89 08 C3 CC CC CC CC CC CC CC) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [eax],(int)6000
+  //mov [eax],cx
+  ret 
+  int 3 
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 66 89 08 C3 CC
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+B5B32
+
+Dynasty Warriors 4 Hyper.exe+B5B13: 0F B7 04 45 C2 14 65 00  - movzx eax,word ptr [eax*2+"Dynasty Warriors 4 Hyper.exe"+2514C2]
+Dynasty Warriors 4 Hyper.exe+B5B1B: 2B C1                    - sub eax,ecx
+Dynasty Warriors 4 Hyper.exe+B5B1D: C3                       - ret 
+Dynasty Warriors 4 Hyper.exe+B5B1E: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B1F: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B20: 8B 44 24 04              - mov eax,[esp+04]
+Dynasty Warriors 4 Hyper.exe+B5B24: 50                       - push eax
+Dynasty Warriors 4 Hyper.exe+B5B25: E8 D6 CA FF FF           - call "Dynasty Warriors 4 Hyper.exe"+B2600
+Dynasty Warriors 4 Hyper.exe+B5B2A: 66 8B 4C 24 0C           - mov cx,[esp+0C]
+Dynasty Warriors 4 Hyper.exe+B5B2F: 83 C4 04                 - add esp,04
+// ---------- INJECTING HERE ----------
+Dynasty Warriors 4 Hyper.exe+B5B32: 66 89 08                 - mov [eax],cx
+// ---------- DONE INJECTING  ----------
+Dynasty Warriors 4 Hyper.exe+B5B35: C3                       - ret 
+Dynasty Warriors 4 Hyper.exe+B5B36: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B37: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B38: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B39: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3A: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3B: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3C: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3D: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3E: CC                       - int 3 
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>128</ID>
+              <Description>"+21000 EXP (Lv7)"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
+  Version: 
+  Date   : 2025-10-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,66 89 08 C3 CC CC CC CC CC CC CC) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [eax],(int)21000
+  //mov [eax],cx
+  ret 
+  int 3 
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 66 89 08 C3 CC
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+B5B32
+
+Dynasty Warriors 4 Hyper.exe+B5B13: 0F B7 04 45 C2 14 65 00  - movzx eax,word ptr [eax*2+"Dynasty Warriors 4 Hyper.exe"+2514C2]
+Dynasty Warriors 4 Hyper.exe+B5B1B: 2B C1                    - sub eax,ecx
+Dynasty Warriors 4 Hyper.exe+B5B1D: C3                       - ret 
+Dynasty Warriors 4 Hyper.exe+B5B1E: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B1F: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B20: 8B 44 24 04              - mov eax,[esp+04]
+Dynasty Warriors 4 Hyper.exe+B5B24: 50                       - push eax
+Dynasty Warriors 4 Hyper.exe+B5B25: E8 D6 CA FF FF           - call "Dynasty Warriors 4 Hyper.exe"+B2600
+Dynasty Warriors 4 Hyper.exe+B5B2A: 66 8B 4C 24 0C           - mov cx,[esp+0C]
+Dynasty Warriors 4 Hyper.exe+B5B2F: 83 C4 04                 - add esp,04
+// ---------- INJECTING HERE ----------
+Dynasty Warriors 4 Hyper.exe+B5B32: 66 89 08                 - mov [eax],cx
+// ---------- DONE INJECTING  ----------
+Dynasty Warriors 4 Hyper.exe+B5B35: C3                       - ret 
+Dynasty Warriors 4 Hyper.exe+B5B36: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B37: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B38: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B39: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3A: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3B: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3C: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3D: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3E: CC                       - int 3 
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>122</ID>
+              <Description>"+36000 EXP (Lv9)"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
+  Version: 
+  Date   : 2025-10-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,66 89 08 C3 CC CC CC CC CC CC CC) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [eax],(int)36000
+  //mov [eax],cx
+  ret 
+  int 3 
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 66 89 08 C3 CC
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+B5B32
+
+Dynasty Warriors 4 Hyper.exe+B5B13: 0F B7 04 45 C2 14 65 00  - movzx eax,word ptr [eax*2+"Dynasty Warriors 4 Hyper.exe"+2514C2]
+Dynasty Warriors 4 Hyper.exe+B5B1B: 2B C1                    - sub eax,ecx
+Dynasty Warriors 4 Hyper.exe+B5B1D: C3                       - ret 
+Dynasty Warriors 4 Hyper.exe+B5B1E: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B1F: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B20: 8B 44 24 04              - mov eax,[esp+04]
+Dynasty Warriors 4 Hyper.exe+B5B24: 50                       - push eax
+Dynasty Warriors 4 Hyper.exe+B5B25: E8 D6 CA FF FF           - call "Dynasty Warriors 4 Hyper.exe"+B2600
+Dynasty Warriors 4 Hyper.exe+B5B2A: 66 8B 4C 24 0C           - mov cx,[esp+0C]
+Dynasty Warriors 4 Hyper.exe+B5B2F: 83 C4 04                 - add esp,04
+// ---------- INJECTING HERE ----------
+Dynasty Warriors 4 Hyper.exe+B5B32: 66 89 08                 - mov [eax],cx
+// ---------- DONE INJECTING  ----------
+Dynasty Warriors 4 Hyper.exe+B5B35: C3                       - ret 
+Dynasty Warriors 4 Hyper.exe+B5B36: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B37: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B38: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B39: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3A: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3B: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3C: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3D: CC                       - int 3 
+Dynasty Warriors 4 Hyper.exe+B5B3E: CC                       - int 3 
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>131</ID>
+          <Description>"+Points (After Battle)"</Description>
+          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>78</ID>
+              <Description>"+6000 Points (Rank 12)"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
+  Version: 
+  Date   : 2025-10-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,04 89 70 10 5E C3) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [eax+10],(int)6000
+  //mov [eax+10],esi
+  pop esi
+  ret 
+  jmp return
+
+INJECT+01:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT+01:
+  db 89 70 10 5E C3
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+B4D0F
+
+Dynasty Warriors 4 Hyper.exe+B4CEF: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4CF0: 56                 - push esi
+Dynasty Warriors 4 Hyper.exe+B4CF1: 8B 74 24 0C        - mov esi,[esp+0C]
+Dynasty Warriors 4 Hyper.exe+B4CF5: 81 FE 9F 86 01 00  - cmp esi,0001869F
+Dynasty Warriors 4 Hyper.exe+B4CFB: 7C 05              - jl "Dynasty Warriors 4 Hyper.exe"+B4D02
+Dynasty Warriors 4 Hyper.exe+B4CFD: BE 9F 86 01 00     - mov esi,0001869F
+Dynasty Warriors 4 Hyper.exe+B4D02: 8B 44 24 08        - mov eax,[esp+08]
+Dynasty Warriors 4 Hyper.exe+B4D06: 50                 - push eax
+Dynasty Warriors 4 Hyper.exe+B4D07: E8 B4 D8 FF FF     - call "Dynasty Warriors 4 Hyper.exe"+B25C0
+Dynasty Warriors 4 Hyper.exe+B4D0C: 83 C4 04           - add esp,04
+// ---------- INJECTING HERE ----------
+Dynasty Warriors 4 Hyper.exe+B4D0F: 89 70 10           - mov [eax+10],esi
+// ---------- DONE INJECTING  ----------
+Dynasty Warriors 4 Hyper.exe+B4D12: 5E                 - pop esi
+Dynasty Warriors 4 Hyper.exe+B4D13: C3                 - ret 
+Dynasty Warriors 4 Hyper.exe+B4D14: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D15: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D16: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D17: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D18: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D19: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D1A: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D1B: CC                 - int 3 
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>133</ID>
+              <Description>"+20000 Points (Rank 7)"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
+  Version: 
+  Date   : 2025-10-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,04 89 70 10 5E C3) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [eax+10],(int)20000
+  //mov [eax+10],esi
+  pop esi
+  ret 
+  jmp return
+
+INJECT+01:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT+01:
+  db 89 70 10 5E C3
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+B4D0F
+
+Dynasty Warriors 4 Hyper.exe+B4CEF: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4CF0: 56                 - push esi
+Dynasty Warriors 4 Hyper.exe+B4CF1: 8B 74 24 0C        - mov esi,[esp+0C]
+Dynasty Warriors 4 Hyper.exe+B4CF5: 81 FE 9F 86 01 00  - cmp esi,0001869F
+Dynasty Warriors 4 Hyper.exe+B4CFB: 7C 05              - jl "Dynasty Warriors 4 Hyper.exe"+B4D02
+Dynasty Warriors 4 Hyper.exe+B4CFD: BE 9F 86 01 00     - mov esi,0001869F
+Dynasty Warriors 4 Hyper.exe+B4D02: 8B 44 24 08        - mov eax,[esp+08]
+Dynasty Warriors 4 Hyper.exe+B4D06: 50                 - push eax
+Dynasty Warriors 4 Hyper.exe+B4D07: E8 B4 D8 FF FF     - call "Dynasty Warriors 4 Hyper.exe"+B25C0
+Dynasty Warriors 4 Hyper.exe+B4D0C: 83 C4 04           - add esp,04
+// ---------- INJECTING HERE ----------
+Dynasty Warriors 4 Hyper.exe+B4D0F: 89 70 10           - mov [eax+10],esi
+// ---------- DONE INJECTING  ----------
+Dynasty Warriors 4 Hyper.exe+B4D12: 5E                 - pop esi
+Dynasty Warriors 4 Hyper.exe+B4D13: C3                 - ret 
+Dynasty Warriors 4 Hyper.exe+B4D14: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D15: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D16: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D17: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D18: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D19: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D1A: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D1B: CC                 - int 3 
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>132</ID>
+              <Description>"+60000 Points (Rank MAX)"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
+  Version: 
+  Date   : 2025-10-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,04 89 70 10 5E C3) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [eax+10],(int)60000
+  //mov [eax+10],esi
+  pop esi
+  ret 
+  jmp return
+
+INJECT+01:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT+01:
+  db 89 70 10 5E C3
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+B4D0F
+
+Dynasty Warriors 4 Hyper.exe+B4CEF: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4CF0: 56                 - push esi
+Dynasty Warriors 4 Hyper.exe+B4CF1: 8B 74 24 0C        - mov esi,[esp+0C]
+Dynasty Warriors 4 Hyper.exe+B4CF5: 81 FE 9F 86 01 00  - cmp esi,0001869F
+Dynasty Warriors 4 Hyper.exe+B4CFB: 7C 05              - jl "Dynasty Warriors 4 Hyper.exe"+B4D02
+Dynasty Warriors 4 Hyper.exe+B4CFD: BE 9F 86 01 00     - mov esi,0001869F
+Dynasty Warriors 4 Hyper.exe+B4D02: 8B 44 24 08        - mov eax,[esp+08]
+Dynasty Warriors 4 Hyper.exe+B4D06: 50                 - push eax
+Dynasty Warriors 4 Hyper.exe+B4D07: E8 B4 D8 FF FF     - call "Dynasty Warriors 4 Hyper.exe"+B25C0
+Dynasty Warriors 4 Hyper.exe+B4D0C: 83 C4 04           - add esp,04
+// ---------- INJECTING HERE ----------
+Dynasty Warriors 4 Hyper.exe+B4D0F: 89 70 10           - mov [eax+10],esi
+// ---------- DONE INJECTING  ----------
+Dynasty Warriors 4 Hyper.exe+B4D12: 5E                 - pop esi
+Dynasty Warriors 4 Hyper.exe+B4D13: C3                 - ret 
+Dynasty Warriors 4 Hyper.exe+B4D14: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D15: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D16: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D17: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D18: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D19: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D1A: CC                 - int 3 
+Dynasty Warriors 4 Hyper.exe+B4D1B: CC                 - int 3 
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>136</ID>
+      <Description>"INGAME (Cheat)"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>149</ID>
+          <Description>"Active this"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>142</ID>
+              <Description>"x2 ATK Timer - STOP"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
+  Version: 
+  Date   : 2025-10-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,66 89 10 7F 07 83 A1 B0 01 00 00 F7) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [eax],dx
+  jg "Dynasty Warriors 4 Hyper.exe"+16BED
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 66 89 10 7F 07
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+16BE1
+
+Dynasty Warriors 4 Hyper.exe+16BBB: 2B C1                 - sub eax,ecx
+Dynasty Warriors 4 Hyper.exe+16BBD: 8D 0C 80              - lea ecx,[eax+eax*4]
+Dynasty Warriors 4 Hyper.exe+16BC0: C1 E1 04              - shl ecx,04
+Dynasty Warriors 4 Hyper.exe+16BC3: 03 0D 7C 64 69 00     - add ecx,["Dynasty Warriors 4 Hyper.exe"+29647C]
+Dynasty Warriors 4 Hyper.exe+16BC9: 66 8B 91 C0 01 00 00  - mov dx,[ecx+000001C0]
+Dynasty Warriors 4 Hyper.exe+16BD0: 66 85 D2              - test dx,dx
+Dynasty Warriors 4 Hyper.exe+16BD3: 8D 81 C0 01 00 00     - lea eax,[ecx+000001C0]
+Dynasty Warriors 4 Hyper.exe+16BD9: 7E 12                 - jle "Dynasty Warriors 4 Hyper.exe"+16BED
+Dynasty Warriors 4 Hyper.exe+16BDB: 83 C2 FF              - add edx,-01
+Dynasty Warriors 4 Hyper.exe+16BDE: 66 85 D2              - test dx,dx
+// ---------- INJECTING HERE ----------
+Dynasty Warriors 4 Hyper.exe+16BE1: 66 89 10              - mov [eax],dx
+// ---------- DONE INJECTING  ----------
+Dynasty Warriors 4 Hyper.exe+16BE4: 7F 07                 - jg "Dynasty Warriors 4 Hyper.exe"+16BED
+Dynasty Warriors 4 Hyper.exe+16BE6: 83 A1 B0 01 00 00 F7  - and dword ptr [ecx+000001B0],-09
+Dynasty Warriors 4 Hyper.exe+16BED: 66 8B 50 04           - mov dx,[eax+04]
+Dynasty Warriors 4 Hyper.exe+16BF1: 83 C0 04              - add eax,04
+Dynasty Warriors 4 Hyper.exe+16BF4: 66 85 D2              - test dx,dx
+Dynasty Warriors 4 Hyper.exe+16BF7: 7E 12                 - jle "Dynasty Warriors 4 Hyper.exe"+16C0B
+Dynasty Warriors 4 Hyper.exe+16BF9: 83 C2 FF              - add edx,-01
+Dynasty Warriors 4 Hyper.exe+16BFC: 66 85 D2              - test dx,dx
+Dynasty Warriors 4 Hyper.exe+16BFF: 66 89 10              - mov [eax],dx
+Dynasty Warriors 4 Hyper.exe+16C02: 7F 07                 - jg "Dynasty Warriors 4 Hyper.exe"+16C0B
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>146</ID>
+              <Description>"x2 DEF Timer - STOP"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
+  Version: 
+  Date   : 2025-10-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,66 89 10 7F 07 83 A1 B0 01 00 00 EF) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [eax],dx
+  jg "Dynasty Warriors 4 Hyper.exe"+16C0B
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 66 89 10 7F 07
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+16BFF
+
+Dynasty Warriors 4 Hyper.exe+16BDB: 83 C2 FF              - add edx,-01
+Dynasty Warriors 4 Hyper.exe+16BDE: 66 85 D2              - test dx,dx
+INJECT: E9 1A 94 CD 00        - jmp 010F0000
+Dynasty Warriors 4 Hyper.exe+16BE6: 83 A1 B0 01 00 00 F7  - and dword ptr [ecx+000001B0],-09
+Dynasty Warriors 4 Hyper.exe+16BED: 66 8B 50 04           - mov dx,[eax+04]
+Dynasty Warriors 4 Hyper.exe+16BF1: 83 C0 04              - add eax,04
+Dynasty Warriors 4 Hyper.exe+16BF4: 66 85 D2              - test dx,dx
+Dynasty Warriors 4 Hyper.exe+16BF7: 7E 12                 - jle "Dynasty Warriors 4 Hyper.exe"+16C0B
+Dynasty Warriors 4 Hyper.exe+16BF9: 83 C2 FF              - add edx,-01
+Dynasty Warriors 4 Hyper.exe+16BFC: 66 85 D2              - test dx,dx
+// ---------- INJECTING HERE ----------
+Dynasty Warriors 4 Hyper.exe+16BFF: 66 89 10              - mov [eax],dx
+// ---------- DONE INJECTING  ----------
+Dynasty Warriors 4 Hyper.exe+16C02: 7F 07                 - jg "Dynasty Warriors 4 Hyper.exe"+16C0B
+Dynasty Warriors 4 Hyper.exe+16C04: 83 A1 B0 01 00 00 EF  - and dword ptr [ecx+000001B0],-11
+Dynasty Warriors 4 Hyper.exe+16C0B: 66 8B 50 04           - mov dx,[eax+04]
+Dynasty Warriors 4 Hyper.exe+16C0F: 83 C0 04              - add eax,04
+Dynasty Warriors 4 Hyper.exe+16C12: 66 85 D2              - test dx,dx
+Dynasty Warriors 4 Hyper.exe+16C15: 7E 12                 - jle "Dynasty Warriors 4 Hyper.exe"+16C29
+Dynasty Warriors 4 Hyper.exe+16C17: 83 C2 FF              - add edx,-01
+Dynasty Warriors 4 Hyper.exe+16C1A: 66 85 D2              - test dx,dx
+Dynasty Warriors 4 Hyper.exe+16C1D: 66 89 10              - mov [eax],dx
+Dynasty Warriors 4 Hyper.exe+16C20: 7F 07                 - jg "Dynasty Warriors 4 Hyper.exe"+16C29
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>148</ID>
+              <Description>"x2 Speed Timer - STOP"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
+  Version: 
+  Date   : 2025-10-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,66 89 10 7F 07 83 A1 B0 01 00 00 DF) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [eax],dx
+  jg "Dynasty Warriors 4 Hyper.exe"+16C29
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 66 89 10 7F 07
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+16C1D
+
+Dynasty Warriors 4 Hyper.exe+16BF9: 83 C2 FF              - add edx,-01
+Dynasty Warriors 4 Hyper.exe+16BFC: 66 85 D2              - test dx,dx
+Dynasty Warriors 4 Hyper.exe+16BFF: E9 FC 93 CE 00        - jmp 01100000
+Dynasty Warriors 4 Hyper.exe+16C04: 83 A1 B0 01 00 00 EF  - and dword ptr [ecx+000001B0],-11
+Dynasty Warriors 4 Hyper.exe+16C0B: 66 8B 50 04           - mov dx,[eax+04]
+Dynasty Warriors 4 Hyper.exe+16C0F: 83 C0 04              - add eax,04
+Dynasty Warriors 4 Hyper.exe+16C12: 66 85 D2              - test dx,dx
+Dynasty Warriors 4 Hyper.exe+16C15: 7E 12                 - jle "Dynasty Warriors 4 Hyper.exe"+16C29
+Dynasty Warriors 4 Hyper.exe+16C17: 83 C2 FF              - add edx,-01
+Dynasty Warriors 4 Hyper.exe+16C1A: 66 85 D2              - test dx,dx
+// ---------- INJECTING HERE ----------
+Dynasty Warriors 4 Hyper.exe+16C1D: 66 89 10              - mov [eax],dx
+// ---------- DONE INJECTING  ----------
+Dynasty Warriors 4 Hyper.exe+16C20: 7F 07                 - jg "Dynasty Warriors 4 Hyper.exe"+16C29
+Dynasty Warriors 4 Hyper.exe+16C22: 83 A1 B0 01 00 00 DF  - and dword ptr [ecx+000001B0],-21
+Dynasty Warriors 4 Hyper.exe+16C29: 66 8B 50 04           - mov dx,[eax+04]
+Dynasty Warriors 4 Hyper.exe+16C2D: 83 C0 04              - add eax,04
+Dynasty Warriors 4 Hyper.exe+16C30: 66 85 D2              - test dx,dx
+Dynasty Warriors 4 Hyper.exe+16C33: 7E 12                 - jle "Dynasty Warriors 4 Hyper.exe"+16C47
+Dynasty Warriors 4 Hyper.exe+16C35: 83 C2 FF              - add edx,-01
+Dynasty Warriors 4 Hyper.exe+16C38: 66 85 D2              - test dx,dx
+Dynasty Warriors 4 Hyper.exe+16C3B: 66 89 10              - mov [eax],dx
+Dynasty Warriors 4 Hyper.exe+16C3E: 7F 07                 - jg "Dynasty Warriors 4 Hyper.exe"+16C47
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>151</ID>
+              <Description>"Musou Timer - STOP"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
+  Version: 
+  Date   : 2025-10-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,66 89 10 7F 07) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [eax],dx
+  jg "Dynasty Warriors 4 Hyper.exe"+16C47
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 66 89 10 7F 07
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+16C3B
+
+Dynasty Warriors 4 Hyper.exe+16C17: 83 C2 FF              - add edx,-01
+Dynasty Warriors 4 Hyper.exe+16C1A: 66 85 D2              - test dx,dx
+Dynasty Warriors 4 Hyper.exe+16C1D: E9 DE 93 BF 00        - jmp 01010000
+Dynasty Warriors 4 Hyper.exe+16C22: 83 A1 B0 01 00 00 DF  - and dword ptr [ecx+000001B0],-21
+Dynasty Warriors 4 Hyper.exe+16C29: 66 8B 50 04           - mov dx,[eax+04]
+Dynasty Warriors 4 Hyper.exe+16C2D: 83 C0 04              - add eax,04
+Dynasty Warriors 4 Hyper.exe+16C30: 66 85 D2              - test dx,dx
+Dynasty Warriors 4 Hyper.exe+16C33: 7E 12                 - jle "Dynasty Warriors 4 Hyper.exe"+16C47
+Dynasty Warriors 4 Hyper.exe+16C35: 83 C2 FF              - add edx,-01
+Dynasty Warriors 4 Hyper.exe+16C38: 66 85 D2              - test dx,dx
+// ---------- INJECTING HERE ----------
+Dynasty Warriors 4 Hyper.exe+16C3B: 66 89 10              - mov [eax],dx
+// ---------- DONE INJECTING  ----------
+Dynasty Warriors 4 Hyper.exe+16C3E: 7F 07                 - jg "Dynasty Warriors 4 Hyper.exe"+16C47
+Dynasty Warriors 4 Hyper.exe+16C40: 83 A1 B0 01 00 00 BF  - and dword ptr [ecx+000001B0],-41
+Dynasty Warriors 4 Hyper.exe+16C47: C3                    - ret 
+Dynasty Warriors 4 Hyper.exe+16C48: CC                    - int 3 
+Dynasty Warriors 4 Hyper.exe+16C49: CC                    - int 3 
+Dynasty Warriors 4 Hyper.exe+16C4A: CC                    - int 3 
+Dynasty Warriors 4 Hyper.exe+16C4B: CC                    - int 3 
+Dynasty Warriors 4 Hyper.exe+16C4C: CC                    - int 3 
+Dynasty Warriors 4 Hyper.exe+16C4D: CC                    - int 3 
+Dynasty Warriors 4 Hyper.exe+16C4E: CC                    - int 3 
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>141</ID>
+              <Description>"Musou Gauge fill up Super Fast &amp; won't reduce"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
+  Version: 
+  Date   : 2025-10-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,66 01 01 66 8B 11) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [ecx],(int)1000
+  //add [ecx],ax
+  mov dx,[ecx]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 66 01 01 66 8B 11
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+16F6A
+
+Dynasty Warriors 4 Hyper.exe+16F4D: 8B 5C 24 18     - mov ebx,[esp+18]
+Dynasty Warriors 4 Hyper.exe+16F51: 0F BF C3        - movsx eax,bx
+Dynasty Warriors 4 Hyper.exe+16F54: 0F AF D0        - imul edx,eax
+Dynasty Warriors 4 Hyper.exe+16F57: B8 1F 85 EB 51  - mov eax,atiumdag.dll+17851F
+Dynasty Warriors 4 Hyper.exe+16F5C: F7 EA           - imul edx
+Dynasty Warriors 4 Hyper.exe+16F5E: C1 FA 05        - sar edx,05
+Dynasty Warriors 4 Hyper.exe+16F61: 8B C2           - mov eax,edx
+Dynasty Warriors 4 Hyper.exe+16F63: C1 E8 1F        - shr eax,1F
+Dynasty Warriors 4 Hyper.exe+16F66: 03 C2           - add eax,edx
+Dynasty Warriors 4 Hyper.exe+16F68: 03 C3           - add eax,ebx
+// ---------- INJECTING HERE ----------
+Dynasty Warriors 4 Hyper.exe+16F6A: 66 01 01        - add [ecx],ax
+// ---------- DONE INJECTING  ----------
+Dynasty Warriors 4 Hyper.exe+16F6D: 66 8B 11        - mov dx,[ecx]
+Dynasty Warriors 4 Hyper.exe+16F70: 0F BF 07        - movsx eax,word ptr [edi]
+Dynasty Warriors 4 Hyper.exe+16F73: 0F BF D2        - movsx edx,dx
+Dynasty Warriors 4 Hyper.exe+16F76: C1 E0 04        - shl eax,04
+Dynasty Warriors 4 Hyper.exe+16F79: 3B D0           - cmp edx,eax
+Dynasty Warriors 4 Hyper.exe+16F7B: 7D 02           - jnl "Dynasty Warriors 4 Hyper.exe"+16F7F
+Dynasty Warriors 4 Hyper.exe+16F7D: 8B C2           - mov eax,edx
+Dynasty Warriors 4 Hyper.exe+16F7F: 66 85 C0        - test ax,ax
+Dynasty Warriors 4 Hyper.exe+16F82: 66 89 01        - mov [ecx],ax
+Dynasty Warriors 4 Hyper.exe+16F85: 7E 05           - jle "Dynasty Warriors 4 Hyper.exe"+16F8C
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>138</ID>
+          <Description>"HP [1600 = 100 HP (Current)❤️❤️❤️]"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>2 Bytes</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+306D4E</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>204</ID>
+          <Description>"HP (Max)"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FC0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>152</ID>
+          <Description>"HP (Current)❤️❤️❤️"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FC4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>135</ID>
+          <Description>"Musou"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>2 Bytes</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+306D54</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"K.O.Count"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>2 Bytes</VariableType>
+          <Address>"Dynasty Warriors 4 Hyper.exe"+5C9A58</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"Arrows &lt;=255"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>2 Bytes</VariableType>
+          <Address>"Dynasty Warriors 4 Hyper.exe"+5D22FC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>143</ID>
+          <Description>"x2 ATK Timer (1800 = 30s)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>2 Bytes</VariableType>
+          <Address>"Dynasty Warriors 4 Hyper.exe"+306D20</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>145</ID>
+          <Description>"x2 DEF Timer (1800 = 30s)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>2 Bytes</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+306D24</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>147</ID>
+          <Description>"x2 Speed Timer (1800 = 30s)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>2 Bytes</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+306D28</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>150</ID>
+          <Description>"Musou Timer"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>2 Bytes</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+306D2C</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>84</ID>
+      <Description>"Weapon EXP (MAX 36000)"</Description>
+      <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BFBF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>161</ID>
+          <Description>"??? - EXP"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>2 Bytes</VariableType>
+          <Address>Dynasty Warriors 4 Hyper.exe+498EB8</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>85</ID>
+          <Description>"OTHERS"</Description>
+          <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>82</ID>
+              <Description>"Diao Chan - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EBA</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>158</ID>
+              <Description>"Lu Bu - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EC0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>181</ID>
+              <Description>"Dong Zhou - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498ECA</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>180</ID>
+              <Description>"Yuan Shao - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498ECC</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>195</ID>
+              <Description>"Meng Huo - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EEE</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>194</ID>
+              <Description>"Zhu Rong - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EF0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>171</ID>
+              <Description>"Zhang Jiao - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498Ede</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>199</ID>
+              <Description>"EDIT Pike - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498F04</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>188</ID>
+              <Description>"EDIT Great Sword - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EFC</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>187</ID>
+              <Description>"EDIT Rapier - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EFE</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>186</ID>
+              <Description>"EDIT Sword - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498F00</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>185</ID>
+              <Description>"EDIT Spear - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498F02</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>95</ID>
+          <Description>"WEI"</Description>
+          <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>166</ID>
+              <Description>"Xiahou Dun - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EAE</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>165</ID>
+              <Description>"Dian Wei - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EB0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>164</ID>
+              <Description>"Xu Zhu - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EB2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>159</ID>
+              <Description>"Cao Cao - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EBE</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>177</ID>
+              <Description>"Xiahou Yuan - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498ED2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>176</ID>
+              <Description>"Zhang Liao - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498ED4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>175</ID>
+              <Description>"Sima Yi - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498ED6</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>170</ID>
+              <Description>"Xu Huang - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498Ee0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>169</ID>
+              <Description>"Zhang He - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498Ee2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>168</ID>
+              <Description>"Zhen Ji - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498Ee4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>191</ID>
+              <Description>"Cao Ren - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EF6</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>107</ID>
+          <Description>"WU"</Description>
+          <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>163</ID>
+              <Description>"Zhou Yu - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EB4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>162</ID>
+              <Description>"Lu Xun - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EB6</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>157</ID>
+              <Description>"SunShangXiang - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EC2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>183</ID>
+              <Description>"Sun Jian - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EC6</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>182</ID>
+              <Description>"Sun Quan - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EC8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>174</ID>
+              <Description>"Lu Meng - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498ED8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>173</ID>
+              <Description>"Gan Ning - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EDA</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>167</ID>
+              <Description>"Huang Gai - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EE6</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>198</ID>
+              <Description>"Sun Ce - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EE8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>193</ID>
+              <Description>"Da Qiao - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EF2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>192</ID>
+              <Description>"Xiao Qiao - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EF4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79</ID>
+              <Description>"Zhou Tai - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498EF8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>120</ID>
+          <Description>"SHU"</Description>
+          <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>153</ID>
+              <Description>"Zhao Yun - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EA8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>154</ID>
+              <Description>"Guan Yu - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EAA</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>155</ID>
+              <Description>"Zhang Fei - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EAC</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>160</ID>
+              <Description>"Zhuge Liang - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EBC</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>184</ID>
+              <Description>"Liu Bei - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EC4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>179</ID>
+              <Description>"Ma Chao - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498ECE</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>178</ID>
+              <Description>"Huang Zhong - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498ED0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>172</ID>
+              <Description>"Jiang Wei - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498Edc</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>197</ID>
+              <Description>"Wei Yan - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EEA</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>196</ID>
+              <Description>"Pang Tong - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EEC</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>189</ID>
+              <Description>"Yue Ying - EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>Dynasty Warriors 4 Hyper.exe+498EFA</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>77</ID>
+      <Description>"Officers Points (MAX 99999)"</Description>
+      <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BFBF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>203</ID>
+          <Description>"??? - RANK"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Dynasty Warriors 4 Hyper.exe"+498898</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>49</ID>
+          <Description>"_OTHERS"</Description>
+          <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>48</ID>
+              <Description>"Diao Chan - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+4988B0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>50</ID>
+              <Description>"Lu Bu - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+4988F8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>58</ID>
+              <Description>"Dong Zhou - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498970</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>68</ID>
+              <Description>"Yuan Shao - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498988</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>69</ID>
+              <Description>"Zhang Jiao - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498A60</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>201</ID>
+              <Description>"Meng Huo - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498B20</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>51</ID>
+              <Description>"Zhu Rong - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498B38</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>52</ID>
+              <Description>"Player 1 - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498BC8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>53</ID>
+              <Description>"Player 2 - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498BE0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>54</ID>
+              <Description>"Player 3 - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498BF8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>202</ID>
+              <Description>"Player 4 - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498B10</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>44</ID>
+          <Description>"_WEI"</Description>
+          <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>64</ID>
+              <Description>"Xiahou Dun - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498820</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>42</ID>
+              <Description>"Xu Zhu - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498850</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63</ID>
+              <Description>"Dian Wei - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498838</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>43</ID>
+              <Description>"Cao Cao - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+4988E0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>66</ID>
+              <Description>"Zhang Liao - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+4989E8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>67</ID>
+              <Description>"Sima Yi - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498A00</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>71</ID>
+              <Description>"Xu Huang - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498A78</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>45</ID>
+              <Description>"Xiahou Yuan - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+4989D0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>46</ID>
+              <Description>"Zhang He - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498A90</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>47</ID>
+              <Description>"Zhen Ji - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498AA8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>73</ID>
+              <Description>"Cao Ren - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498B80</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>32</ID>
+          <Description>"_WU"</Description>
+          <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>62</ID>
+              <Description>"Zhou Yu - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498868</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>34</ID>
+              <Description>"Lu Xun - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498880</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>35</ID>
+              <Description>"SunShangXiang - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498910</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>61</ID>
+              <Description>"Sun Jian - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498940</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>36</ID>
+              <Description>"Sun Quan - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498958</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>37</ID>
+              <Description>"Lu Meng - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498A18</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>38</ID>
+              <Description>"Gan Ning - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498A30</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>22</ID>
+              <Description>"Huang Gai - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498AC0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>23</ID>
+              <Description>"Sun Ce - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498AD8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"Da Qiao - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498B50</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>40</ID>
+              <Description>"Xiao Qiao - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498B68</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>41</ID>
+              <Description>"Zhou Tai - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498B98</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>28</ID>
+          <Description>"_SHU"</Description>
+          <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>24</ID>
+              <Description>"Zhao Yun - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+4987D8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>25</ID>
+              <Description>"Guan Yu - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+4987F0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>29</ID>
+              <Description>"Zhang Fei - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498808</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>30</ID>
+              <Description>"Liu Bei - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498928</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26</ID>
+              <Description>"Zhuang Liang - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+4988C8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>31</ID>
+              <Description>"Ma Chao - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+4989A0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>27</ID>
+              <Description>"Huang Zhong - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+4989B8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>56</ID>
+              <Description>"Jiang Wei - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498A48</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>55</ID>
+              <Description>"Wei Yan - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498AF0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>57</ID>
+              <Description>"Pang Tong - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498B08</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>33</ID>
+              <Description>"Yue Ying - RANK"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+498BB0</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>76</ID>
+      <Description>"INGAME (View Only)"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>72</ID>
+          <Description>"HP (Max)"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FC0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>70</ID>
+          <Description>"HP (Current)❤️❤️❤️"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FC4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>74</ID>
+          <Description>"Musou (Max)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FCC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>75</ID>
+          <Description>"Musou (Current)⚡⚡⚡"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FD0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>59</ID>
+          <Description>"Lastest EXP⭐⭐⭐"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Dynasty Warriors 4 Hyper.exe"+62473C</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of mov [esi+000001F0],ax</Description>
+      <AddressString>Dynasty Warriors 4 Hyper.exe+16E64</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>66</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>89</Byte>
+        <Byte>86</Byte>
+        <Byte>F0</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>7A</Byte>
+        <Byte>0F</Byte>
+        <Byte>BF</Byte>
+        <Byte>54</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [esi+000001EE],dx</Description>
+      <AddressString>Dynasty Warriors 4 Hyper.exe+16E97</AddressString>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>10</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>89</Byte>
+        <Byte>96</Byte>
+        <Byte>EE</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>20</Byte>
+        <Byte>F6</Byte>
+        <Byte>05</Byte>
+        <Byte>70</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [ecx+000001F4],ax</Description>
+      <AddressString>Dynasty Warriors 4 Hyper.exe+BA178</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>C2</Byte>
+        <Byte>C1</Byte>
+        <Byte>E0</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>89</Byte>
+        <Byte>81</Byte>
+        <Byte>F4</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C3</Byte>
+        <Byte>56</Byte>
+        <Byte>6A</Byte>
+        <Byte>01</Byte>
+        <Byte>68</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [ecx],ax</Description>
+      <AddressString>Dynasty Warriors 4 Hyper.exe+16F82</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>C2</Byte>
+        <Byte>66</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>89</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>7E</Byte>
+        <Byte>05</Byte>
+        <Byte>0F</Byte>
+        <Byte>BF</Byte>
+        <Byte>C0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [ecx],ax</Description>
+      <AddressString>Dynasty Warriors 4 Hyper.exe+16F90</AddressString>
+      <Before>
+        <Byte>02</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+        <Byte>85</Byte>
+        <Byte>ED</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>89</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>25</Byte>
+        <Byte>A1</Byte>
+        <Byte>7C</Byte>
+        <Byte>64</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of add [ecx],ax</Description>
+      <AddressString>Dynasty Warriors 4 Hyper.exe+16F6A</AddressString>
+      <Before>
+        <Byte>1F</Byte>
+        <Byte>03</Byte>
+        <Byte>C2</Byte>
+        <Byte>03</Byte>
+        <Byte>C3</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>01</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>8B</Byte>
+        <Byte>11</Byte>
+        <Byte>0F</Byte>
+        <Byte>BF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [eax],dx</Description>
+      <AddressString>Dynasty Warriors 4 Hyper.exe+16BE1</AddressString>
+      <Before>
+        <Byte>C2</Byte>
+        <Byte>FF</Byte>
+        <Byte>66</Byte>
+        <Byte>85</Byte>
+        <Byte>D2</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>89</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>7F</Byte>
+        <Byte>07</Byte>
+        <Byte>83</Byte>
+        <Byte>A1</Byte>
+        <Byte>B0</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov ["Dynasty Warriors 4 Hyper.exe"+463358],eax</Description>
+      <AddressString>Dynasty Warriors 4 Hyper.exe+A3A84</AddressString>
+      <Before>
+        <Byte>23</Byte>
+        <Byte>C1</Byte>
+        <Byte>3B</Byte>
+        <Byte>C2</Byte>
+        <Byte>5E</Byte>
+      </Before>
+      <Actual>
+        <Byte>A3</Byte>
+        <Byte>58</Byte>
+        <Byte>33</Byte>
+        <Byte>86</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>7C</Byte>
+        <Byte>06</Byte>
+        <Byte>89</Byte>
+        <Byte>15</Byte>
+        <Byte>58</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

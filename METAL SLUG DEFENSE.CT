@@ -1,0 +1,1762 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>47</ID>
+      <Description>"Hidden Items Left"</Description>
+      <LastState Value="2568259839" RealAddress="0058EC73"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"msdf-steam.exe"+8EC73</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>73</ID>
+      <Description>"POWs rescued"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>69</ID>
+          <Description>"The addresses of the rescued POW counters are spaced by 2."</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry NoCheckbox="1">
+          <ID>70</ID>
+          <Description>"Example: Stage 1 → 032611A4, Stage 2 → 032611A6."</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>71</ID>
+          <Description>"However, sometimes when going from Stage 5 to Stage 1 (in next chapters), the difference can be 4 instead of 2."</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry NoCheckbox="1">
+          <ID>72</ID>
+          <Description>"e.g., Stage 1 Stage 5 Chapter 2 → 0326119C, Chapter 3 → 032611A0"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>74</ID>
+          <Description>"⚠️Important note: Always leave at least 1 POW unrescued and finish the Chapter normally instead of cheating it completely."</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry NoCheckbox="1">
+          <ID>75</ID>
+          <Description>"Otherwise, it may affect your progress, and you might not receive the completion rewards or Steam achievements."</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>56</ID>
+          <Description>"POWs - World 2"</Description>
+          <LastState Value="1220118886" RealAddress="0058D524"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"msdf-steam.exe"+8D524 </Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>66</ID>
+          <Description>"POWs - World 3"</Description>
+          <LastState Value="4282026342" RealAddress="0058D4FD"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"msdf-steam.exe"+8D4FD</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>67</ID>
+          <Description>"POWs - Daily Mission"</Description>
+          <LastState Value="1220118886" RealAddress="0058D524"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"msdf-steam.exe"+8D524 </Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>49</ID>
+      <Description>"Timer"</Description>
+      <LastState Value="4294967295" RealAddress="00A38F30"/>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"msdf-steam.exe"+538F30</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>48</ID>
+      <Description>"Get Resources"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"Metals = 9.999 on collect/use"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,29 BB E4 3B 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [ebx+00003BE4],(int)9999
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 29 BB E4 3B 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+B8FFF
+
+"msdf-steam.exe"+B8FE1: E8 DA C2 02 00        - call "msdf-steam.exe"+E52C0
+"msdf-steam.exe"+B8FE6: 6A 00                 - push 00
+"msdf-steam.exe"+B8FE8: 51                    - push ecx
+"msdf-steam.exe"+B8FE9: C7 04 24 00 00 00 00  - mov [esp],00000000
+"msdf-steam.exe"+B8FF0: 8B CB                 - mov ecx,ebx
+"msdf-steam.exe"+B8FF2: 6A 00                 - push 00
+"msdf-steam.exe"+B8FF4: 6A 00                 - push 00
+"msdf-steam.exe"+B8FF6: 6A 00                 - push 00
+"msdf-steam.exe"+B8FF8: 6A 09                 - push 09
+"msdf-steam.exe"+B8FFA: E8 C1 C2 02 00        - call "msdf-steam.exe"+E52C0
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+B8FFF: 29 BB E4 3B 00 00     - sub [ebx+00003BE4],edi
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+B9005: 33 C9                 - xor ecx,ecx
+"msdf-steam.exe"+B9007: 8B 83 E4 3B 00 00     - mov eax,[ebx+00003BE4]
+"msdf-steam.exe"+B900D: 85 C0                 - test eax,eax
+"msdf-steam.exe"+B900F: 8B BD EC FE FF FF     - mov edi,[ebp-00000114]
+"msdf-steam.exe"+B9015: 8B 95 E8 FE FF FF     - mov edx,[ebp-00000118]
+"msdf-steam.exe"+B901B: 0F 4F C8              - cmovg ecx,eax
+"msdf-steam.exe"+B901E: B8 3F 42 0F 00        - mov eax,000F423F
+"msdf-steam.exe"+B9023: 3B C8                 - cmp ecx,eax
+"msdf-steam.exe"+B9025: 0F 4C C1              - cmovl eax,ecx
+"msdf-steam.exe"+B9028: FF 83 60 76 00 00     - inc [ebx+00007660]
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>39</ID>
+          <Description>"Money = 99.999 on collect/use"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>36</ID>
+              <Description>"Money = 99.999 on collect/use - Home"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,29 BB E0 3B 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [ebx+00003BE0],(int)99999
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 29 BB E0 3B 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+999E1
+
+"msdf-steam.exe"+999B8: 8B 01                 - mov eax,[ecx]
+"msdf-steam.exe"+999BA: FF 50 08              - call dword ptr [eax+08]
+"msdf-steam.exe"+999BD: 8B 4F 50              - mov ecx,[edi+50]
+"msdf-steam.exe"+999C0: 8B 01                 - mov eax,[ecx]
+"msdf-steam.exe"+999C2: FF 50 0C              - call dword ptr [eax+0C]
+"msdf-steam.exe"+999C5: 8B 8B 18 8F 00 00     - mov ecx,[ebx+00008F18]
+"msdf-steam.exe"+999CB: 8B 0C 8D A0 68 28 01  - mov ecx,[ecx*4+"msdf-steam.exe"+5368A0]
+"msdf-steam.exe"+999D2: E8 49 38 FE FF        - call "msdf-steam.exe"+7D220
+"msdf-steam.exe"+999D7: E9 76 02 00 00        - jmp "msdf-steam.exe"+99C52
+"msdf-steam.exe"+999DC: E8 DF B8 04 00        - call "msdf-steam.exe"+E52C0
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+999E1: 29 BB E0 3B 00 00     - sub [ebx+00003BE0],edi
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+999E7: 33 C9                 - xor ecx,ecx
+"msdf-steam.exe"+999E9: 8B 83 E0 3B 00 00     - mov eax,[ebx+00003BE0]
+"msdf-steam.exe"+999EF: 85 C0                 - test eax,eax
+"msdf-steam.exe"+999F1: 0F 4F C8              - cmovg ecx,eax
+"msdf-steam.exe"+999F4: B8 FF E0 F5 05        - mov eax,05F5E0FF
+"msdf-steam.exe"+999F9: 3B C8                 - cmp ecx,eax
+"msdf-steam.exe"+999FB: 0F 4C C1              - cmovl eax,ecx
+"msdf-steam.exe"+999FE: FF 83 60 76 00 00     - inc [ebx+00007660]
+"msdf-steam.exe"+99A04: 89 83 E0 3B 00 00     - mov [ebx+00003BE0],eax
+"msdf-steam.exe"+99A0A: 8B 86 24 02 00 00     - mov eax,[esi+00000224]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>43</ID>
+              <Description>"Money = 99.999 on collect/use - Unit ∞"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,29 BB E0 3B 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //sub [ebx+00003BE0],edi
+  mov [ebx+00003BE0],(int)99999
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 29 BB E0 3B 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+999E1
+
+"msdf-steam.exe"+999B8: 8B 01                 - mov eax,[ecx]
+"msdf-steam.exe"+999BA: FF 50 08              - call dword ptr [eax+08]
+"msdf-steam.exe"+999BD: 8B 4F 50              - mov ecx,[edi+50]
+"msdf-steam.exe"+999C0: 8B 01                 - mov eax,[ecx]
+"msdf-steam.exe"+999C2: FF 50 0C              - call dword ptr [eax+0C]
+"msdf-steam.exe"+999C5: 8B 8B 18 8F 00 00     - mov ecx,[ebx+00008F18]
+"msdf-steam.exe"+999CB: 8B 0C 8D A0 68 28 01  - mov ecx,[ecx*4+"msdf-steam.exe"+5368A0]
+"msdf-steam.exe"+999D2: E8 49 38 FE FF        - call "msdf-steam.exe"+7D220
+"msdf-steam.exe"+999D7: E9 76 02 00 00        - jmp "msdf-steam.exe"+99C52
+"msdf-steam.exe"+999DC: E8 DF B8 04 00        - call "msdf-steam.exe"+E52C0
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+999E1: 29 BB E0 3B 00 00     - sub [ebx+00003BE0],edi
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+999E7: 33 C9                 - xor ecx,ecx
+"msdf-steam.exe"+999E9: 8B 83 E0 3B 00 00     - mov eax,[ebx+00003BE0]
+"msdf-steam.exe"+999EF: 85 C0                 - test eax,eax
+"msdf-steam.exe"+999F1: 0F 4F C8              - cmovg ecx,eax
+"msdf-steam.exe"+999F4: B8 FF E0 F5 05        - mov eax,05F5E0FF
+"msdf-steam.exe"+999F9: 3B C8                 - cmp ecx,eax
+"msdf-steam.exe"+999FB: 0F 4C C1              - cmovl eax,ecx
+"msdf-steam.exe"+999FE: FF 83 60 76 00 00     - inc [ebx+00007660]
+"msdf-steam.exe"+99A04: 89 83 E0 3B 00 00     - mov [ebx+00003BE0],eax
+"msdf-steam.exe"+99A0A: 8B 86 24 02 00 00     - mov eax,[esi+00000224]
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>40</ID>
+          <Description>"Energy = 300 on collect/use"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>41</ID>
+              <Description>"Energy = 300 on collect/use - Sortie"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,01 87 E8 3B 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //add [edi+00003BE8],eax
+  mov [edi+00003BE8],(int)300
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 87 E8 3B 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+8CFBA
+
+"msdf-steam.exe"+8CFAC: CC                 - int 3 
+"msdf-steam.exe"+8CFAD: CC                 - int 3 
+"msdf-steam.exe"+8CFAE: CC                 - int 3 
+"msdf-steam.exe"+8CFAF: CC                 - int 3 
+"msdf-steam.exe"+8CFB0: 55                 - push ebp
+"msdf-steam.exe"+8CFB1: 8B EC              - mov ebp,esp
+"msdf-steam.exe"+8CFB3: 8B 45 08           - mov eax,[ebp+08]
+"msdf-steam.exe"+8CFB6: 56                 - push esi
+"msdf-steam.exe"+8CFB7: 57                 - push edi
+"msdf-steam.exe"+8CFB8: 8B F9              - mov edi,ecx
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+8CFBA: 01 87 E8 3B 00 00  - add [edi+00003BE8],eax
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+8CFC0: E8 9B EB FF FF     - call "msdf-steam.exe"+8BB60
+"msdf-steam.exe"+8CFC5: 8B 97 E8 3B 00 00  - mov edx,[edi+00003BE8]
+"msdf-steam.exe"+8CFCB: 33 F6              - xor esi,esi
+"msdf-steam.exe"+8CFCD: 85 D2              - test edx,edx
+"msdf-steam.exe"+8CFCF: 0F 4F F2           - cmovg esi,edx
+"msdf-steam.exe"+8CFD2: 3B F0              - cmp esi,eax
+"msdf-steam.exe"+8CFD4: 0F 4C C6           - cmovl eax,esi
+"msdf-steam.exe"+8CFD7: FF 87 60 76 00 00  - inc [edi+00007660]
+"msdf-steam.exe"+8CFDD: 89 87 E8 3B 00 00  - mov [edi+00003BE8],eax
+"msdf-steam.exe"+8CFE3: 5F                 - pop edi
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>42</ID>
+              <Description>"Energy = 300 on collect/use - Mission"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,89 83 E8 3B 00 00 E8) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [ebx+00003BE8],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 83 E8 3B 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+BF85C
+
+"msdf-steam.exe"+BF849: 5F                             - pop edi
+"msdf-steam.exe"+BF84A: 5E                             - pop esi
+"msdf-steam.exe"+BF84B: 5B                             - pop ebx
+"msdf-steam.exe"+BF84C: 8B 4D FC                       - mov ecx,[ebp-04]
+"msdf-steam.exe"+BF84F: 33 CD                          - xor ecx,ebp
+"msdf-steam.exe"+BF851: E8 A6 F5 06 00                 - call "msdf-steam.exe"+12EDFC
+"msdf-steam.exe"+BF856: 8B E5                          - mov esp,ebp
+"msdf-steam.exe"+BF858: 5D                             - pop ebp
+"msdf-steam.exe"+BF859: C3                             - ret 
+"msdf-steam.exe"+BF85A: 2B C1                          - sub eax,ecx
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+BF85C: 89 83 E8 3B 00 00              - mov [ebx+00003BE8],eax
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+BF862: E8 F9 C2 FC FF                 - call "msdf-steam.exe"+8BB60
+"msdf-steam.exe"+BF867: 8B 8B E8 3B 00 00              - mov ecx,[ebx+00003BE8]
+"msdf-steam.exe"+BF86D: 33 D2                          - xor edx,edx
+"msdf-steam.exe"+BF86F: 85 C9                          - test ecx,ecx
+"msdf-steam.exe"+BF871: C7 83 0C 97 00 00 00 00 00 00  - mov [ebx+0000970C],00000000
+"msdf-steam.exe"+BF87B: C7 83 10 97 00 00 00 00 00 00  - mov [ebx+00009710],00000000
+"msdf-steam.exe"+BF885: 0F 4F D1                       - cmovg edx,ecx
+"msdf-steam.exe"+BF888: C7 83 F0 AB 00 00 02 00 00 00  - mov [ebx+0000ABF0],00000002
+"msdf-steam.exe"+BF892: 3B D0                          - cmp edx,eax
+"msdf-steam.exe"+BF894: C7 83 5C 8E 00 00 6A 00 00 00  - mov [ebx+00008E5C],0000006A
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>31</ID>
+      <Description>"Active ALL"</Description>
+      <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"BEFORE GAME START"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" Activated="1" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>37</ID>
+              <Description>"Energy (SP) - Sortie ∞"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,01 87 E8 3B 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //add [edi+00003BE8],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 87 E8 3B 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+8CFBA
+
+"msdf-steam.exe"+8CFAC: CC                 - int 3 
+"msdf-steam.exe"+8CFAD: CC                 - int 3 
+"msdf-steam.exe"+8CFAE: CC                 - int 3 
+"msdf-steam.exe"+8CFAF: CC                 - int 3 
+"msdf-steam.exe"+8CFB0: 55                 - push ebp
+"msdf-steam.exe"+8CFB1: 8B EC              - mov ebp,esp
+"msdf-steam.exe"+8CFB3: 8B 45 08           - mov eax,[ebp+08]
+"msdf-steam.exe"+8CFB6: 56                 - push esi
+"msdf-steam.exe"+8CFB7: 57                 - push edi
+"msdf-steam.exe"+8CFB8: 8B F9              - mov edi,ecx
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+8CFBA: 01 87 E8 3B 00 00  - add [edi+00003BE8],eax
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+8CFC0: E8 9B EB FF FF     - call "msdf-steam.exe"+8BB60
+"msdf-steam.exe"+8CFC5: 8B 97 E8 3B 00 00  - mov edx,[edi+00003BE8]
+"msdf-steam.exe"+8CFCB: 33 F6              - xor esi,esi
+"msdf-steam.exe"+8CFCD: 85 D2              - test edx,edx
+"msdf-steam.exe"+8CFCF: 0F 4F F2           - cmovg esi,edx
+"msdf-steam.exe"+8CFD2: 3B F0              - cmp esi,eax
+"msdf-steam.exe"+8CFD4: 0F 4C C6           - cmovl eax,esi
+"msdf-steam.exe"+8CFD7: FF 87 60 76 00 00  - inc [edi+00007660]
+"msdf-steam.exe"+8CFDD: 89 87 E8 3B 00 00  - mov [edi+00003BE8],eax
+"msdf-steam.exe"+8CFE3: 5F                 - pop edi
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>38</ID>
+              <Description>"Energy (SP) - Mission ∞"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,89 83 E8 3B 00 00 E8) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [ebx+00003BE8],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 83 E8 3B 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+BF85C
+
+"msdf-steam.exe"+BF849: 5F                             - pop edi
+"msdf-steam.exe"+BF84A: 5E                             - pop esi
+"msdf-steam.exe"+BF84B: 5B                             - pop ebx
+"msdf-steam.exe"+BF84C: 8B 4D FC                       - mov ecx,[ebp-04]
+"msdf-steam.exe"+BF84F: 33 CD                          - xor ecx,ebp
+"msdf-steam.exe"+BF851: E8 A6 F5 06 00                 - call "msdf-steam.exe"+12EDFC
+"msdf-steam.exe"+BF856: 8B E5                          - mov esp,ebp
+"msdf-steam.exe"+BF858: 5D                             - pop ebp
+"msdf-steam.exe"+BF859: C3                             - ret 
+"msdf-steam.exe"+BF85A: 2B C1                          - sub eax,ecx
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+BF85C: 89 83 E8 3B 00 00              - mov [ebx+00003BE8],eax
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+BF862: E8 F9 C2 FC FF                 - call "msdf-steam.exe"+8BB60
+"msdf-steam.exe"+BF867: 8B 8B E8 3B 00 00              - mov ecx,[ebx+00003BE8]
+"msdf-steam.exe"+BF86D: 33 D2                          - xor edx,edx
+"msdf-steam.exe"+BF86F: 85 C9                          - test ecx,ecx
+"msdf-steam.exe"+BF871: C7 83 0C 97 00 00 00 00 00 00  - mov [ebx+0000970C],00000000
+"msdf-steam.exe"+BF87B: C7 83 10 97 00 00 00 00 00 00  - mov [ebx+00009710],00000000
+"msdf-steam.exe"+BF885: 0F 4F D1                       - cmovg edx,ecx
+"msdf-steam.exe"+BF888: C7 83 F0 AB 00 00 02 00 00 00  - mov [ebx+0000ABF0],00000002
+"msdf-steam.exe"+BF892: 3B D0                          - cmp edx,eax
+"msdf-steam.exe"+BF894: C7 83 5C 8E 00 00 6A 00 00 00  - mov [ebx+00008E5C],0000006A
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12</ID>
+              <Description>"Money (MSP) - Home ∞"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,5D 04 00 29 BB E0 3B 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //sub [ebx+00003BE0],edi
+  jmp return
+
+INJECT+03:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT+03:
+  db 29 BB E0 3B 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+9F504
+
+"msdf-steam.exe"+9F4E2: 6A 32              - push 32
+"msdf-steam.exe"+9F4E4: 68 22 01 00 00     - push 00000122
+"msdf-steam.exe"+9F4E9: 6A 00              - push 00
+"msdf-steam.exe"+9F4EB: 68 B0 EC DE 00     - push "msdf-steam.exe"+9ECB0
+"msdf-steam.exe"+9F4F0: 6A 00              - push 00
+"msdf-steam.exe"+9F4F2: 50                 - push eax
+"msdf-steam.exe"+9F4F3: E8 F8 63 01 00     - call "msdf-steam.exe"+B58F0
+"msdf-steam.exe"+9F4F8: E9 E1 01 00 00     - jmp "msdf-steam.exe"+9F6DE
+"msdf-steam.exe"+9F4FD: 6A 02              - push 02
+"msdf-steam.exe"+9F4FF: E8 BC 5D 04 00     - call "msdf-steam.exe"+E52C0
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+9F504: 29 BB E0 3B 00 00  - sub [ebx+00003BE0],edi
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+9F50A: 33 C9              - xor ecx,ecx
+"msdf-steam.exe"+9F50C: 8B 83 E0 3B 00 00  - mov eax,[ebx+00003BE0]
+"msdf-steam.exe"+9F512: 85 C0              - test eax,eax
+"msdf-steam.exe"+9F514: 0F 4F C8           - cmovg ecx,eax
+"msdf-steam.exe"+9F517: B8 FF E0 F5 05     - mov eax,05F5E0FF
+"msdf-steam.exe"+9F51C: 3B C8              - cmp ecx,eax
+"msdf-steam.exe"+9F51E: 0F 4C C1           - cmovl eax,ecx
+"msdf-steam.exe"+9F521: FF 83 60 76 00 00  - inc [ebx+00007660]
+"msdf-steam.exe"+9F527: 89 83 E0 3B 00 00  - mov [ebx+00003BE0],eax
+"msdf-steam.exe"+9F52D: 8B 86 24 02 00 00  - mov eax,[esi+00000224]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17</ID>
+              <Description>"Money (MSP) - Unit ∞"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,29 BB E0 3B 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //sub [ebx+00003BE0],edi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 29 BB E0 3B 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+999E1
+
+"msdf-steam.exe"+999B8: 8B 01                 - mov eax,[ecx]
+"msdf-steam.exe"+999BA: FF 50 08              - call dword ptr [eax+08]
+"msdf-steam.exe"+999BD: 8B 4F 50              - mov ecx,[edi+50]
+"msdf-steam.exe"+999C0: 8B 01                 - mov eax,[ecx]
+"msdf-steam.exe"+999C2: FF 50 0C              - call dword ptr [eax+0C]
+"msdf-steam.exe"+999C5: 8B 8B 18 8F 00 00     - mov ecx,[ebx+00008F18]
+"msdf-steam.exe"+999CB: 8B 0C 8D A0 68 28 01  - mov ecx,[ecx*4+"msdf-steam.exe"+5368A0]
+"msdf-steam.exe"+999D2: E8 49 38 FE FF        - call "msdf-steam.exe"+7D220
+"msdf-steam.exe"+999D7: E9 76 02 00 00        - jmp "msdf-steam.exe"+99C52
+"msdf-steam.exe"+999DC: E8 DF B8 04 00        - call "msdf-steam.exe"+E52C0
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+999E1: 29 BB E0 3B 00 00     - sub [ebx+00003BE0],edi
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+999E7: 33 C9                 - xor ecx,ecx
+"msdf-steam.exe"+999E9: 8B 83 E0 3B 00 00     - mov eax,[ebx+00003BE0]
+"msdf-steam.exe"+999EF: 85 C0                 - test eax,eax
+"msdf-steam.exe"+999F1: 0F 4F C8              - cmovg ecx,eax
+"msdf-steam.exe"+999F4: B8 FF E0 F5 05        - mov eax,05F5E0FF
+"msdf-steam.exe"+999F9: 3B C8                 - cmp ecx,eax
+"msdf-steam.exe"+999FB: 0F 4C C1              - cmovl eax,ecx
+"msdf-steam.exe"+999FE: FF 83 60 76 00 00     - inc [ebx+00007660]
+"msdf-steam.exe"+99A04: 89 83 E0 3B 00 00     - mov [ebx+00003BE0],eax
+"msdf-steam.exe"+99A0A: 8B 86 24 02 00 00     - mov eax,[esi+00000224]
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"IN GAME"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" Activated="1" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>50</ID>
+              <Description>"Stop Timer"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-21
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,89 47 10 85 C0 7E 1D) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [edi+10],eax
+  test eax,eax
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 47 10 85 C0
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+6C45C
+
+"msdf-steam.exe"+6C44D: CC        - int 3 
+"msdf-steam.exe"+6C44E: CC        - int 3 
+"msdf-steam.exe"+6C44F: CC        - int 3 
+"msdf-steam.exe"+6C450: 55        - push ebp
+"msdf-steam.exe"+6C451: 8B EC     - mov ebp,esp
+"msdf-steam.exe"+6C453: 8B 45 08  - mov eax,[ebp+08]
+"msdf-steam.exe"+6C456: 56        - push esi
+"msdf-steam.exe"+6C457: 57        - push edi
+"msdf-steam.exe"+6C458: 8B F9     - mov edi,ecx
+"msdf-steam.exe"+6C45A: 8B 37     - mov esi,[edi]
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+6C45C: 89 47 10  - mov [edi+10],eax
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+6C45F: 85 C0     - test eax,eax
+"msdf-steam.exe"+6C461: 7E 1D     - jle "msdf-steam.exe"+6C480
+"msdf-steam.exe"+6C463: 8B 06     - mov eax,[esi]
+"msdf-steam.exe"+6C465: 8B CE     - mov ecx,esi
+"msdf-steam.exe"+6C467: FF 77 10  - push [edi+10]
+"msdf-steam.exe"+6C46A: FF 50 48  - call dword ptr [eax+48]
+"msdf-steam.exe"+6C46D: 8B 76 08  - mov esi,[esi+08]
+"msdf-steam.exe"+6C470: 3B 37     - cmp esi,[edi]
+"msdf-steam.exe"+6C472: 75 EF     - jne "msdf-steam.exe"+6C463
+"msdf-steam.exe"+6C474: 5F        - pop edi
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>58</ID>
+              <Description>"Metal - Shop ∞"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,29 BB E4 3B 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //sub [ebx+00003BE4],edi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 29 BB E4 3B 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+B8FFF
+
+"msdf-steam.exe"+B8FE1: E8 DA C2 02 00        - call "msdf-steam.exe"+E52C0
+"msdf-steam.exe"+B8FE6: 6A 00                 - push 00
+"msdf-steam.exe"+B8FE8: 51                    - push ecx
+"msdf-steam.exe"+B8FE9: C7 04 24 00 00 00 00  - mov [esp],00000000
+"msdf-steam.exe"+B8FF0: 8B CB                 - mov ecx,ebx
+"msdf-steam.exe"+B8FF2: 6A 00                 - push 00
+"msdf-steam.exe"+B8FF4: 6A 00                 - push 00
+"msdf-steam.exe"+B8FF6: 6A 00                 - push 00
+"msdf-steam.exe"+B8FF8: 6A 09                 - push 09
+"msdf-steam.exe"+B8FFA: E8 C1 C2 02 00        - call "msdf-steam.exe"+E52C0
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+B8FFF: 29 BB E4 3B 00 00     - sub [ebx+00003BE4],edi
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+B9005: 33 C9                 - xor ecx,ecx
+"msdf-steam.exe"+B9007: 8B 83 E4 3B 00 00     - mov eax,[ebx+00003BE4]
+"msdf-steam.exe"+B900D: 85 C0                 - test eax,eax
+"msdf-steam.exe"+B900F: 8B BD EC FE FF FF     - mov edi,[ebp-00000114]
+"msdf-steam.exe"+B9015: 8B 95 E8 FE FF FF     - mov edx,[ebp-00000118]
+"msdf-steam.exe"+B901B: 0F 4F C8              - cmovg ecx,eax
+"msdf-steam.exe"+B901E: B8 3F 42 0F 00        - mov eax,000F423F
+"msdf-steam.exe"+B9023: 3B C8                 - cmp ecx,eax
+"msdf-steam.exe"+B9025: 0F 4C C1              - cmovl eax,ecx
+"msdf-steam.exe"+B9028: FF 83 60 76 00 00     - inc [ebx+00007660]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>51</ID>
+              <Description>"Metal - Relief Supplies ∞"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-21
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,29 B7 E4 3B 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //sub [edi+00003BE4],esi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 29 B7 E4 3B 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+9658E
+
+"msdf-steam.exe"+96570: E8 DB EE 04 00                 - call "msdf-steam.exe"+E5450
+"msdf-steam.exe"+96575: 6A 00                          - push 00
+"msdf-steam.exe"+96577: 51                             - push ecx
+"msdf-steam.exe"+96578: C7 04 24 00 00 00 00           - mov [esp],00000000
+"msdf-steam.exe"+9657F: 8B CF                          - mov ecx,edi
+"msdf-steam.exe"+96581: 6A 00                          - push 00
+"msdf-steam.exe"+96583: 6A 00                          - push 00
+"msdf-steam.exe"+96585: 6A 00                          - push 00
+"msdf-steam.exe"+96587: 6A 09                          - push 09
+"msdf-steam.exe"+96589: E8 32 ED 04 00                 - call "msdf-steam.exe"+E52C0
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+9658E: 29 B7 E4 3B 00 00              - sub [edi+00003BE4],esi
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+96594: 33 C9                          - xor ecx,ecx
+"msdf-steam.exe"+96596: 8B 87 E4 3B 00 00              - mov eax,[edi+00003BE4]
+"msdf-steam.exe"+9659C: 85 C0                          - test eax,eax
+"msdf-steam.exe"+9659E: C7 87 5C 8E 00 00 65 00 00 00  - mov [edi+00008E5C],00000065
+"msdf-steam.exe"+965A8: 0F 4F C8                       - cmovg ecx,eax
+"msdf-steam.exe"+965AB: C7 87 60 8E 00 00 67 00 00 00  - mov [edi+00008E60],00000067
+"msdf-steam.exe"+965B5: B8 3F 42 0F 00                 - mov eax,000F423F
+"msdf-steam.exe"+965BA: 3B C8                          - cmp ecx,eax
+"msdf-steam.exe"+965BC: 0F 4C C1                       - cmovl eax,ecx
+"msdf-steam.exe"+965BF: FF 87 60 76 00 00              - inc [edi+00007660]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>30</ID>
+              <Description>"AP - 999 on start"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-14
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,F3 0F 11 86 AC 02 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [esi+000002AC],xmm0
+  mov [esi+000002AC],(float)999
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 86 AC 02 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+695E3
+
+"msdf-steam.exe"+695BE: B9 0F 27 00 00           - mov ecx,0000270F
+"msdf-steam.exe"+695C3: 3B C1                    - cmp eax,ecx
+"msdf-steam.exe"+695C5: 0F 4E C8                 - cmovle ecx,eax
+"msdf-steam.exe"+695C8: 66 0F 6E C9              - movd xmm1,ecx
+"msdf-steam.exe"+695CC: 0F 5B C9                 - cvtdq2ps xmm1,xmm1
+"msdf-steam.exe"+695CF: 0F 2F CA                 - comiss xmm1,xmm2
+"msdf-steam.exe"+695D2: 76 21                    - jna "msdf-steam.exe"+695F5
+"msdf-steam.exe"+695D4: F3 0F 10 86 B0 02 00 00  - movss xmm0,[esi+000002B0]
+"msdf-steam.exe"+695DC: F3 0F 58 C2              - addss xmm0,xmm2
+"msdf-steam.exe"+695E0: 0F 2F C1                 - comiss xmm0,xmm1
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+695E3: F3 0F 11 86 AC 02 00 00  - movss [esi+000002AC],xmm0
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+695EB: 76 08                    - jna "msdf-steam.exe"+695F5
+"msdf-steam.exe"+695ED: F3 0F 11 8E AC 02 00 00  - movss [esi+000002AC],xmm1
+"msdf-steam.exe"+695F5: 8B 8E B4 02 00 00        - mov ecx,[esi+000002B4]
+"msdf-steam.exe"+695FB: 81 F9 A0 86 01 00        - cmp ecx,000186A0
+"msdf-steam.exe"+69601: 7D 56                    - jnl "msdf-steam.exe"+69659
+"msdf-steam.exe"+69603: 8B 86 B8 02 00 00        - mov eax,[esi+000002B8]
+"msdf-steam.exe"+69609: 03 C1                    - add eax,ecx
+"msdf-steam.exe"+6960B: E9 F0 69 52 10           - jmp 10E60000
+"msdf-steam.exe"+69610: 90                       - nop 
+"msdf-steam.exe"+69611: 3D A0 86 01 00           - cmp eax,000186A0
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>8</ID>
+              <Description>"AP - Unit ∞"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,F3 0F 11 8E AC 02 00 00 76) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [esi+000002AC],xmm1
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 8E AC 02 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+6972E
+
+"msdf-steam.exe"+69706: 5D                             - pop ebp
+"msdf-steam.exe"+69707: C2 04 00                       - ret 0004
+"msdf-steam.exe"+6970A: F3 0F 10 8E AC 02 00 00        - movss xmm1,[esi+000002AC]
+"msdf-steam.exe"+69712: 8D 04 FD 00 00 00 00           - lea eax,[edi*8+00000000]
+"msdf-steam.exe"+69719: 2B C7                          - sub eax,edi
+"msdf-steam.exe"+6971B: 66 0F 6E 44 86 0C              - movd xmm0,[esi+eax*4+0C]
+"msdf-steam.exe"+69721: 0F 5B C0                       - cvtdq2ps xmm0,xmm0
+"msdf-steam.exe"+69724: F3 0F 5C C8                    - subss xmm1,xmm0
+"msdf-steam.exe"+69728: 0F 57 C0                       - xorps xmm0,xmm0
+"msdf-steam.exe"+6972B: 0F 2F C1                       - comiss xmm0,xmm1
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+6972E: F3 0F 11 8E AC 02 00 00        - movss [esi+000002AC],xmm1
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+69736: 76 0A                          - jna "msdf-steam.exe"+69742
+"msdf-steam.exe"+69738: C7 86 AC 02 00 00 00 00 00 00  - mov [esi+000002AC],00000000
+"msdf-steam.exe"+69742: 8B 06                          - mov eax,[esi]
+"msdf-steam.exe"+69744: 8B CE                          - mov ecx,esi
+"msdf-steam.exe"+69746: 68 F4 01 00 00                 - push 000001F4
+"msdf-steam.exe"+6974B: FF 90 A0 00 00 00              - call dword ptr [eax+000000A0]
+"msdf-steam.exe"+69751: 5F                             - pop edi
+"msdf-steam.exe"+69752: B0 01                          - mov al,01
+"msdf-steam.exe"+69754: 5E                             - pop esi
+"msdf-steam.exe"+69755: 5D                             - pop ebp
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>10</ID>
+              <Description>"AP - Upgrade ∞"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,F3 0F 11 8A AC 02 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [edx+000002AC],xmm1
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 8A AC 02 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+6980A
+
+"msdf-steam.exe"+697E0: 8B D1                          - mov edx,ecx
+"msdf-steam.exe"+697E2: 8B 8A A4 02 00 00              - mov ecx,[edx+000002A4]
+"msdf-steam.exe"+697E8: 83 F9 0A                       - cmp ecx,0A
+"msdf-steam.exe"+697EB: 7D 77                          - jnl "msdf-steam.exe"+69864
+"msdf-steam.exe"+697ED: 66 0F 6E 82 A8 02 00 00        - movd xmm0,[edx+000002A8]
+"msdf-steam.exe"+697F5: F3 0F 10 8A AC 02 00 00        - movss xmm1,[edx+000002AC]
+"msdf-steam.exe"+697FD: 0F 5B C0                       - cvtdq2ps xmm0,xmm0
+"msdf-steam.exe"+69800: F3 0F 5C C8                    - subss xmm1,xmm0
+"msdf-steam.exe"+69804: 0F 57 C0                       - xorps xmm0,xmm0
+"msdf-steam.exe"+69807: 0F 2F C1                       - comiss xmm0,xmm1
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+6980A: F3 0F 11 8A AC 02 00 00        - movss [edx+000002AC],xmm1
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+69812: 76 0A                          - jna "msdf-steam.exe"+6981E
+"msdf-steam.exe"+69814: C7 82 AC 02 00 00 00 00 00 00  - mov [edx+000002AC],00000000
+"msdf-steam.exe"+6981E: F3 0F 10 8A BC 02 00 00        - movss xmm1,[edx+000002BC]
+"msdf-steam.exe"+69826: 41                             - inc ecx
+"msdf-steam.exe"+69827: 89 8A A4 02 00 00              - mov [edx+000002A4],ecx
+"msdf-steam.exe"+6982D: B8 0F 27 00 00                 - mov eax,0000270F
+"msdf-steam.exe"+69832: 66 0F 6E C1                    - movd xmm0,ecx
+"msdf-steam.exe"+69836: 41                             - inc ecx
+"msdf-steam.exe"+69837: 0F AF 8A 6C 02 00 00           - imul ecx,[edx+0000026C]
+"msdf-steam.exe"+6983E: 0F 5B C0                       - cvtdq2ps xmm0,xmm0
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>18</ID>
+              <Description>"HP ∞"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,89 86 C0 02 00 00 83) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  cmp [esi+64],0
+  je return
+  mov [esi+000002C0],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 86 C0 02 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+84BE6
+
+"msdf-steam.exe"+84BBA: F3 0F 10 15 DC 90 24 01        - movss xmm2,["msdf-steam.exe"+4F90DC]
+"msdf-steam.exe"+84BC2: 80 BE 01 03 00 00 00           - cmp byte ptr [esi+00000301],00
+"msdf-steam.exe"+84BC9: 75 21                          - jne "msdf-steam.exe"+84BEC
+"msdf-steam.exe"+84BCB: 66 0F 6E 45 10                 - movd xmm0,[ebp+10]
+"msdf-steam.exe"+84BD0: 0F 5B C0                       - cvtdq2ps xmm0,xmm0
+"msdf-steam.exe"+84BD3: 66 0F 6E C9                    - movd xmm1,ecx
+"msdf-steam.exe"+84BD7: 0F 5B C9                       - cvtdq2ps xmm1,xmm1
+"msdf-steam.exe"+84BDA: F3 0F 59 C2                    - mulss xmm0,xmm2
+"msdf-steam.exe"+84BDE: F3 0F 5C C8                    - subss xmm1,xmm0
+"msdf-steam.exe"+84BE2: F3 0F 2C C1                    - cvttss2si eax,xmm1
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+84BE6: 89 86 C0 02 00 00              - mov [esi+000002C0],eax
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+84BEC: 83 BE C0 02 00 00 00           - cmp dword ptr [esi+000002C0],00
+"msdf-steam.exe"+84BF3: 0F 8F 7D 00 00 00              - jg "msdf-steam.exe"+84C76
+"msdf-steam.exe"+84BF9: 8B 46 64                       - mov eax,[esi+64]
+"msdf-steam.exe"+84BFC: 83 CA 04                       - or edx,04
+"msdf-steam.exe"+84BFF: 89 45 10                       - mov [ebp+10],eax
+"msdf-steam.exe"+84C02: 8B CE                          - mov ecx,esi
+"msdf-steam.exe"+84C04: 8B 06                          - mov eax,[esi]
+"msdf-steam.exe"+84C06: 57                             - push edi
+"msdf-steam.exe"+84C07: C7 86 C0 02 00 00 00 00 00 00  - mov [esi+000002C0],00000000
+"msdf-steam.exe"+84C11: 89 56 60                       - mov [esi+60],edx
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>24</ID>
+              <Description>"Unit Spawn - No Cooldown"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,89 47 24 B0 01) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [edi+24],eax
+  mov al,01
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 47 24 B0 01
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+66FE7
+
+"msdf-steam.exe"+66FC2: 53                    - push ebx
+"msdf-steam.exe"+66FC3: E8 38 05 00 00        - call "msdf-steam.exe"+67500
+"msdf-steam.exe"+66FC8: 50                    - push eax
+"msdf-steam.exe"+66FC9: FF B6 3C 02 00 00     - push [esi+0000023C]
+"msdf-steam.exe"+66FCF: E8 2C 53 00 00        - call "msdf-steam.exe"+6C300
+"msdf-steam.exe"+66FD4: 8B C8                 - mov ecx,eax
+"msdf-steam.exe"+66FD6: E8 C5 54 00 00        - call "msdf-steam.exe"+6C4A0
+"msdf-steam.exe"+66FDB: 80 BE 46 02 00 00 00  - cmp byte ptr [esi+00000246],00
+"msdf-steam.exe"+66FE2: 75 0F                 - jne "msdf-steam.exe"+66FF3
+"msdf-steam.exe"+66FE4: 8B 47 10              - mov eax,[edi+10]
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+66FE7: 89 47 24              - mov [edi+24],eax
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+66FEA: B0 01                 - mov al,01
+"msdf-steam.exe"+66FEC: 5F                    - pop edi
+"msdf-steam.exe"+66FED: 5E                    - pop esi
+"msdf-steam.exe"+66FEE: 5B                    - pop ebx
+"msdf-steam.exe"+66FEF: 5D                    - pop ebp
+"msdf-steam.exe"+66FF0: C2 04 00              - ret 0004
+"msdf-steam.exe"+66FF3: C7 47 24 00 00 00 00  - mov [edi+24],00000000
+"msdf-steam.exe"+66FFA: 5F                    - pop edi
+"msdf-steam.exe"+66FFB: 5E                    - pop esi
+"msdf-steam.exe"+66FFC: B0 01                 - mov al,01
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>29</ID>
+              <Description>"Unit Skill - READY"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-14
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,89 86 D8 02 00 00 E8) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi+000002D8],eax
+  mov [esi+000002D8],0
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 86 D8 02 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+84811
+
+"msdf-steam.exe"+847F4: 8B 8E D8 02 00 00     - mov ecx,[esi+000002D8]
+"msdf-steam.exe"+847FA: 85 C9                 - test ecx,ecx
+"msdf-steam.exe"+847FC: 7E 19                 - jle "msdf-steam.exe"+84817
+"msdf-steam.exe"+847FE: 8B 46 60              - mov eax,[esi+60]
+"msdf-steam.exe"+84801: C1 E8 02              - shr eax,02
+"msdf-steam.exe"+84804: A8 01                 - test al,01
+"msdf-steam.exe"+84806: 75 0F                 - jne "msdf-steam.exe"+84817
+"msdf-steam.exe"+84808: 83 7E 70 32           - cmp dword ptr [esi+70],32
+"msdf-steam.exe"+8480C: 74 09                 - je "msdf-steam.exe"+84817
+"msdf-steam.exe"+8480E: 8D 41 FF              - lea eax,[ecx-01]
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+84811: 89 86 D8 02 00 00     - mov [esi+000002D8],eax
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+84817: E8 E4 7A FE FF        - call "msdf-steam.exe"+6C300
+"msdf-steam.exe"+8481C: 83 B8 28 48 00 00 05  - cmp dword ptr [eax+00004828],05
+"msdf-steam.exe"+84823: 74 65                 - je "msdf-steam.exe"+8488A
+"msdf-steam.exe"+84825: 8B 46 60              - mov eax,[esi+60]
+"msdf-steam.exe"+84828: C1 E8 0C              - shr eax,0C
+"msdf-steam.exe"+8482B: A8 01                 - test al,01
+"msdf-steam.exe"+8482D: 74 5B                 - je "msdf-steam.exe"+8488A
+"msdf-steam.exe"+8482F: 57                    - push edi
+"msdf-steam.exe"+84830: 8B 7E 64              - mov edi,[esi+64]
+"msdf-steam.exe"+84833: E8 98 1C 00 00        - call "msdf-steam.exe"+864D0
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>25</ID>
+              <Description>"Unit Skill - No Cooldown"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,89 86 D8 02 00 00 B0) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi+000002D8],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 86 D8 02 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+84D7A
+
+"msdf-steam.exe"+84D4E: 69 86 B8 02 00 00 D8 00 00 00  - imul eax,[esi+000002B8],000000D8
+"msdf-steam.exe"+84D58: 8B 84 30 90 01 00 00           - mov eax,[eax+esi+00000190]
+"msdf-steam.exe"+84D5F: 85 C0                          - test eax,eax
+"msdf-steam.exe"+84D61: 7F 11                          - jg "msdf-steam.exe"+84D74
+"msdf-steam.exe"+84D63: C7 86 D8 02 00 00 FF FF FF FF  - mov [esi+000002D8],FFFFFFFF
+"msdf-steam.exe"+84D6D: B0 01                          - mov al,01
+"msdf-steam.exe"+84D6F: 5E                             - pop esi
+"msdf-steam.exe"+84D70: 5D                             - pop ebp
+"msdf-steam.exe"+84D71: C2 04 00                       - ret 0004
+"msdf-steam.exe"+84D74: FF 86 DC 02 00 00              - inc [esi+000002DC]
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+84D7A: 89 86 D8 02 00 00              - mov [esi+000002D8],eax
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+84D80: B0 01                          - mov al,01
+"msdf-steam.exe"+84D82: 5E                             - pop esi
+"msdf-steam.exe"+84D83: 5D                             - pop ebp
+"msdf-steam.exe"+84D84: C2 04 00                       - ret 0004
+"msdf-steam.exe"+84D87: 83 F8 14                       - cmp eax,14
+"msdf-steam.exe"+84D8A: 75 0A                          - jne "msdf-steam.exe"+84D96
+"msdf-steam.exe"+84D8C: C7 86 04 03 00 00 00 00 00 00  - mov [esi+00000304],00000000
+"msdf-steam.exe"+84D96: B0 01                          - mov al,01
+"msdf-steam.exe"+84D98: 5E                             - pop esi
+"msdf-steam.exe"+84D99: 5D                             - pop ebp
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>28</ID>
+              <Description>"Slug Attack - READY"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,89 86 B4 02 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [esi+000002B4],(int)100000
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 86 B4 02 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+6960B
+
+"msdf-steam.exe"+695DC: F3 0F 58 C2                    - addss xmm0,xmm2
+"msdf-steam.exe"+695E0: 0F 2F C1                       - comiss xmm0,xmm1
+"msdf-steam.exe"+695E3: F3 0F 11 86 AC 02 00 00        - movss [esi+000002AC],xmm0
+"msdf-steam.exe"+695EB: 76 08                          - jna "msdf-steam.exe"+695F5
+"msdf-steam.exe"+695ED: F3 0F 11 8E AC 02 00 00        - movss [esi+000002AC],xmm1
+"msdf-steam.exe"+695F5: 8B 8E B4 02 00 00              - mov ecx,[esi+000002B4]
+"msdf-steam.exe"+695FB: 81 F9 A0 86 01 00              - cmp ecx,000186A0
+"msdf-steam.exe"+69601: 7D 56                          - jnl "msdf-steam.exe"+69659
+"msdf-steam.exe"+69603: 8B 86 B8 02 00 00              - mov eax,[esi+000002B8]
+"msdf-steam.exe"+69609: 03 C1                          - add eax,ecx
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+6960B: 89 86 B4 02 00 00              - mov [esi+000002B4],eax
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+69611: 3D A0 86 01 00                 - cmp eax,000186A0
+"msdf-steam.exe"+69616: 7C 41                          - jl "msdf-steam.exe"+69659
+"msdf-steam.exe"+69618: 53                             - push ebx
+"msdf-steam.exe"+69619: 57                             - push edi
+"msdf-steam.exe"+6961A: C7 86 B4 02 00 00 A0 86 01 00  - mov [esi+000002B4],000186A0
+"msdf-steam.exe"+69624: E8 D7 2C 00 00                 - call "msdf-steam.exe"+6C300
+"msdf-steam.exe"+69629: 8B D8                          - mov ebx,eax
+"msdf-steam.exe"+6962B: 8B 86 3C 02 00 00              - mov eax,[esi+0000023C]
+"msdf-steam.exe"+69631: 8B 3B                          - mov edi,[ebx]
+"msdf-steam.exe"+69633: 85 FF                          - test edi,edi
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>22</ID>
+              <Description>"Slug Attack - No Cooldown"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,C7 81 B4 02 00 00 00 00 00 00 E9) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [ecx+000002B4],00000000
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 5
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db C7 81 B4 02 00 00 00 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+698CC
+
+"msdf-steam.exe"+698AE: F3 0F 58 C1                    - addss xmm0,xmm1
+"msdf-steam.exe"+698B2: F3 0F 11 82 B0 02 00 00        - movss [edx+000002B0],xmm0
+"msdf-steam.exe"+698BA: C3                             - ret 
+"msdf-steam.exe"+698BB: CC                             - int 3 
+"msdf-steam.exe"+698BC: CC                             - int 3 
+"msdf-steam.exe"+698BD: CC                             - int 3 
+"msdf-steam.exe"+698BE: CC                             - int 3 
+"msdf-steam.exe"+698BF: CC                             - int 3 
+"msdf-steam.exe"+698C0: 81 B9 B4 02 00 00 A0 86 01 00  - cmp [ecx+000002B4],000186A0
+"msdf-steam.exe"+698CA: 75 0F                          - jne "msdf-steam.exe"+698DB
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+698CC: C7 81 B4 02 00 00 00 00 00 00  - mov [ecx+000002B4],00000000
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+698D6: E9 C5 DA FF FF                 - jmp "msdf-steam.exe"+673A0
+"msdf-steam.exe"+698DB: C3                             - ret 
+"msdf-steam.exe"+698DC: CC                             - int 3 
+"msdf-steam.exe"+698DD: CC                             - int 3 
+"msdf-steam.exe"+698DE: CC                             - int 3 
+"msdf-steam.exe"+698DF: CC                             - int 3 
+"msdf-steam.exe"+698E0: 8B 81 74 02 00 00              - mov eax,[ecx+00000274]
+"msdf-steam.exe"+698E6: C3                             - ret 
+"msdf-steam.exe"+698E7: CC                             - int 3 
+"msdf-steam.exe"+698E8: CC                             - int 3 
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>32</ID>
+      <Description>"All are Invincible"</Description>
+      <LastState/>
+      <Color>4040BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : METAL SLUG DEFENSE
+  Version: 
+  Date   : 2025-08-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,msdf-steam.exe,89 86 C0 02 00 00 83) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi+000002C0],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 86 C0 02 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "msdf-steam.exe"+84BE6
+
+"msdf-steam.exe"+84BBA: F3 0F 10 15 DC 90 24 01        - movss xmm2,["msdf-steam.exe"+4F90DC]
+"msdf-steam.exe"+84BC2: 80 BE 01 03 00 00 00           - cmp byte ptr [esi+00000301],00
+"msdf-steam.exe"+84BC9: 75 21                          - jne "msdf-steam.exe"+84BEC
+"msdf-steam.exe"+84BCB: 66 0F 6E 45 10                 - movd xmm0,[ebp+10]
+"msdf-steam.exe"+84BD0: 0F 5B C0                       - cvtdq2ps xmm0,xmm0
+"msdf-steam.exe"+84BD3: 66 0F 6E C9                    - movd xmm1,ecx
+"msdf-steam.exe"+84BD7: 0F 5B C9                       - cvtdq2ps xmm1,xmm1
+"msdf-steam.exe"+84BDA: F3 0F 59 C2                    - mulss xmm0,xmm2
+"msdf-steam.exe"+84BDE: F3 0F 5C C8                    - subss xmm1,xmm0
+"msdf-steam.exe"+84BE2: F3 0F 2C C1                    - cvttss2si eax,xmm1
+// ---------- INJECTING HERE ----------
+"msdf-steam.exe"+84BE6: 89 86 C0 02 00 00              - mov [esi+000002C0],eax
+// ---------- DONE INJECTING  ----------
+"msdf-steam.exe"+84BEC: 83 BE C0 02 00 00 00           - cmp dword ptr [esi+000002C0],00
+"msdf-steam.exe"+84BF3: 0F 8F 7D 00 00 00              - jg "msdf-steam.exe"+84C76
+"msdf-steam.exe"+84BF9: 8B 46 64                       - mov eax,[esi+64]
+"msdf-steam.exe"+84BFC: 83 CA 04                       - or edx,04
+"msdf-steam.exe"+84BFF: 89 45 10                       - mov [ebp+10],eax
+"msdf-steam.exe"+84C02: 8B CE                          - mov ecx,esi
+"msdf-steam.exe"+84C04: 8B 06                          - mov eax,[esi]
+"msdf-steam.exe"+84C06: 57                             - push edi
+"msdf-steam.exe"+84C07: C7 86 C0 02 00 00 00 00 00 00  - mov [esi+000002C0],00000000
+"msdf-steam.exe"+84C11: 89 56 60                       - mov [esi+60],edx
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry NoCheckbox="1">
+      <ID>76</ID>
+      <Description>"=========================================================================================="</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of mov [ecx+00005048],di</Description>
+      <AddressString>"msdf-steam.exe"+8D524</AddressString>
+      <Before>
+        <Byte>3B</Byte>
+        <Byte>C7</Byte>
+        <Byte>0F</Byte>
+        <Byte>4C</Byte>
+        <Byte>F8</Byte>
+      </Before>
+      <Actual>
+        <Byte>66</Byte>
+        <Byte>89</Byte>
+        <Byte>B9</Byte>
+        <Byte>48</Byte>
+        <Byte>50</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>FF</Byte>
+        <Byte>83</Byte>
+        <Byte>60</Byte>
+        <Byte>76</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedhack_wantedspeed</Name>
+      <Address>C50000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

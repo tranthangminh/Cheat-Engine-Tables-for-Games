@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"DELETABLE Addresses"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>22</ID>
+          <Description>"Pointers"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>23</ID>
+              <Description>"Spark 1"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>1DDF5B9ADB0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>24</ID>
+              <Description>"Spark 2"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>1CB75E1EAE0</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>21</ID>
+          <Description>"Memory Viewer"</Description>
+          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>BF4040</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1</ID>
+              <Description>"HP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>GameAssembly.dll+30085A </Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>3</ID>
+              <Description>"Sparks"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>GameAssembly.dll+6E1C3B</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20</ID>
+              <Description>"Total Sparks"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>UnityPlayer.dll+A8B53F</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>32</ID>
+      <Description>"Challenge Timer"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>GameAssembly.dll+3ECB3D</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>34</ID>
+      <Description>"Final Boss HP"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>GameAssembly.dll+6EF4E9</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>33</ID>
+      <Description>"STOP Challenge Timer"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Wavetale
+  Version: 
+  Date   : 2025-09-12
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F3 0F 11 77 18 0F) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rdi+18],xmm6
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 77 18
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+3ECB3D
+
+GameAssembly.dll+3ECB0F: 48 8B 05 82 38 15 02  - mov rax,[GameAssembly.dll+2540398]
+GameAssembly.dll+3ECB16: 48 85 C0              - test rax,rax
+GameAssembly.dll+3ECB19: 75 1C                 - jne GameAssembly.dll+3ECB37
+GameAssembly.dll+3ECB1B: 48 8D 0D 16 76 D2 01  - lea rcx,[GameAssembly.dll+2114138]
+GameAssembly.dll+3ECB22: E8 09 29 E7 FF        - call GameAssembly.DllCanUnloadNow+8960
+GameAssembly.dll+3ECB27: 48 85 C0              - test rax,rax
+GameAssembly.dll+3ECB2A: 0F 84 ED 00 00 00     - je GameAssembly.dll+3ECC1D
+GameAssembly.dll+3ECB30: 48 89 05 61 38 15 02  - mov [GameAssembly.dll+2540398],rax
+GameAssembly.dll+3ECB37: FF D0                 - call rax
+GameAssembly.dll+3ECB39: F3 0F 5C F0           - subss xmm6,xmm0
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+3ECB3D: F3 0F 11 77 18        - movss [rdi+18],xmm6
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+3ECB42: 0F 2F FE              - comiss xmm7,xmm6
+GameAssembly.dll+3ECB45: 0F 82 8C 00 00 00     - jb GameAssembly.dll+3ECBD7
+GameAssembly.dll+3ECB4B: 48 8B 7F 10           - mov rdi,[rdi+10]
+GameAssembly.dll+3ECB4F: 48 8B 8D C8 00 00 00  - mov rcx,[rbp+000000C8]
+GameAssembly.dll+3ECB56: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+3ECB59: 0F 84 B8 00 00 00     - je GameAssembly.dll+3ECC17
+GameAssembly.dll+3ECB5F: 4C 8B 05 DA F7 41 02  - mov r8,[GameAssembly.dll+280C340]
+GameAssembly.dll+3ECB66: 8B D3                 - mov edx,ebx
+GameAssembly.dll+3ECB68: E8 73 48 F2 00        - call GameAssembly.dll+13113E0
+GameAssembly.dll+3ECB6D: 48 8B 0D 1C 64 42 02  - mov rcx,[GameAssembly.dll+2812F90]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Invincible"</Description>
+      <LastState Activated="1"/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Wavetale
+  Version: 
+  Date   : 2025-08-05
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,89 5D 14 48 8B 47 78) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rbp+14],6
+  //mov [rbp+14],ebx
+  mov rax,[rdi+78]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 5D 14 48 8B 47 78
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+30085A
+
+GameAssembly.dll+30083E: E8 ED C9 F6 FF        - call GameAssembly.dll+26D230
+GameAssembly.dll+300843: 85 DB                 - test ebx,ebx
+GameAssembly.dll+300845: 78 08                 - js GameAssembly.dll+30084F
+GameAssembly.dll+300847: 3B DE                 - cmp ebx,esi
+GameAssembly.dll+300849: 7E 06                 - jle GameAssembly.dll+300851
+GameAssembly.dll+30084B: 8B DE                 - mov ebx,esi
+GameAssembly.dll+30084D: EB 02                 - jmp GameAssembly.dll+300851
+GameAssembly.dll+30084F: 33 DB                 - xor ebx,ebx
+GameAssembly.dll+300851: 48 85 ED              - test rbp,rbp
+GameAssembly.dll+300854: 0F 84 90 00 00 00     - je GameAssembly.dll+3008EA
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+30085A: 89 5D 14              - mov [rbp+14],ebx
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+30085D: 48 8B 47 78           - mov rax,[rdi+78]
+GameAssembly.dll+300861: 48 85 C0              - test rax,rax
+GameAssembly.dll+300864: 0F 84 80 00 00 00     - je GameAssembly.dll+3008EA
+GameAssembly.dll+30086A: 48 8B 40 18           - mov rax,[rax+18]
+GameAssembly.dll+30086E: 48 85 C0              - test rax,rax
+GameAssembly.dll+300871: 74 77                 - je GameAssembly.dll+3008EA
+GameAssembly.dll+300873: 48 8B 88 68 01 00 00  - mov rcx,[rax+00000168]
+GameAssembly.dll+30087A: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+30087D: 74 6B                 - je GameAssembly.dll+3008EA
+GameAssembly.dll+30087F: 8B 71 14              - mov esi,[rcx+14]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>31</ID>
+      <Description>"Collect more Sparks"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FFFFFF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>28</ID>
+          <Description>"Collect give 2 Sparks"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Wavetale
+  Version: 
+  Date   : 2025-08-19
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,FF 47 40 48 8B 0D 4B 13 13 02) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //inc [rdi+40]
+  add dword [rdi+40],2
+  mov rcx,[GameAssembly.dll+2812F90]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 5
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db FF 47 40 48 8B 0D 4B 13 13 02
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+6E1C3B
+
+GameAssembly.dll+6E1C0F: 48 8B 4F 38           - mov rcx,[rdi+38]
+GameAssembly.dll+6E1C13: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+6E1C16: 74 7F                 - je GameAssembly.dll+6E1C97
+GameAssembly.dll+6E1C18: 48 8B 05 99 C1 12 02  - mov rax,[GameAssembly.dll+280DDB8]
+GameAssembly.dll+6E1C1F: 48 8B 50 18           - mov rdx,[rax+18]
+GameAssembly.dll+6E1C23: 48 8B 82 C0 00 00 00  - mov rax,[rdx+000000C0]
+GameAssembly.dll+6E1C2A: 4C 8B 48 70           - mov r9,[rax+70]
+GameAssembly.dll+6E1C2E: 4D 8B C1              - mov r8,r9
+GameAssembly.dll+6E1C31: 48 8B 93 38 01 00 00  - mov rdx,[rbx+00000138]
+GameAssembly.dll+6E1C38: 41 FF 11              - call qword ptr [r9]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+6E1C3B: FF 47 40              - inc [rdi+40]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+6E1C3E: 48 8B 0D 4B 13 13 02  - mov rcx,[GameAssembly.dll+2812F90]
+GameAssembly.dll+6E1C45: F6 81 2F 01 00 00 02  - test byte ptr [rcx+0000012F],02
+GameAssembly.dll+6E1C4C: 74 0E                 - je GameAssembly.dll+6E1C5C
+GameAssembly.dll+6E1C4E: 83 B9 E0 00 00 00 00  - cmp dword ptr [rcx+000000E0],00
+GameAssembly.dll+6E1C55: 75 05                 - jne GameAssembly.dll+6E1C5C
+GameAssembly.dll+6E1C57: E8 D4 B5 B8 FF        - call GameAssembly.dll+26D230
+GameAssembly.dll+6E1C5C: 33 D2                 - xor edx,edx
+GameAssembly.dll+6E1C5E: 33 C9                 - xor ecx,ecx
+GameAssembly.dll+6E1C60: E8 EB 9A D0 FF        - call GameAssembly.dll+3EB750
+GameAssembly.dll+6E1C65: E8 F6 83 C6 FF        - call GameAssembly.dll+34A060
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>30</ID>
+          <Description>"Collect give 5 Sparks"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Wavetale
+  Version: 
+  Date   : 2025-08-19
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,FF 47 40 48 8B 0D 4B 13 13 02) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //inc [rdi+40]
+  add dword [rdi+40],5
+  mov rcx,[GameAssembly.dll+2812F90]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 5
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db FF 47 40 48 8B 0D 4B 13 13 02
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+6E1C3B
+
+GameAssembly.dll+6E1C0F: 48 8B 4F 38           - mov rcx,[rdi+38]
+GameAssembly.dll+6E1C13: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+6E1C16: 74 7F                 - je GameAssembly.dll+6E1C97
+GameAssembly.dll+6E1C18: 48 8B 05 99 C1 12 02  - mov rax,[GameAssembly.dll+280DDB8]
+GameAssembly.dll+6E1C1F: 48 8B 50 18           - mov rdx,[rax+18]
+GameAssembly.dll+6E1C23: 48 8B 82 C0 00 00 00  - mov rax,[rdx+000000C0]
+GameAssembly.dll+6E1C2A: 4C 8B 48 70           - mov r9,[rax+70]
+GameAssembly.dll+6E1C2E: 4D 8B C1              - mov r8,r9
+GameAssembly.dll+6E1C31: 48 8B 93 38 01 00 00  - mov rdx,[rbx+00000138]
+GameAssembly.dll+6E1C38: 41 FF 11              - call qword ptr [r9]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+6E1C3B: FF 47 40              - inc [rdi+40]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+6E1C3E: 48 8B 0D 4B 13 13 02  - mov rcx,[GameAssembly.dll+2812F90]
+GameAssembly.dll+6E1C45: F6 81 2F 01 00 00 02  - test byte ptr [rcx+0000012F],02
+GameAssembly.dll+6E1C4C: 74 0E                 - je GameAssembly.dll+6E1C5C
+GameAssembly.dll+6E1C4E: 83 B9 E0 00 00 00 00  - cmp dword ptr [rcx+000000E0],00
+GameAssembly.dll+6E1C55: 75 05                 - jne GameAssembly.dll+6E1C5C
+GameAssembly.dll+6E1C57: E8 D4 B5 B8 FF        - call GameAssembly.dll+26D230
+GameAssembly.dll+6E1C5C: 33 D2                 - xor edx,edx
+GameAssembly.dll+6E1C5E: 33 C9                 - xor ecx,ecx
+GameAssembly.dll+6E1C60: E8 EB 9A D0 FF        - call GameAssembly.dll+3EB750
+GameAssembly.dll+6E1C65: E8 F6 83 C6 FF        - call GameAssembly.dll+34A060
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>29</ID>
+          <Description>"Collect give 10 Sparks"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Wavetale
+  Version: 
+  Date   : 2025-08-19
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,FF 47 40 48 8B 0D 4B 13 13 02) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //inc [rdi+40]
+  add dword [rdi+40],A
+  mov rcx,[GameAssembly.dll+2812F90]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 5
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db FF 47 40 48 8B 0D 4B 13 13 02
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+6E1C3B
+
+GameAssembly.dll+6E1C0F: 48 8B 4F 38           - mov rcx,[rdi+38]
+GameAssembly.dll+6E1C13: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+6E1C16: 74 7F                 - je GameAssembly.dll+6E1C97
+GameAssembly.dll+6E1C18: 48 8B 05 99 C1 12 02  - mov rax,[GameAssembly.dll+280DDB8]
+GameAssembly.dll+6E1C1F: 48 8B 50 18           - mov rdx,[rax+18]
+GameAssembly.dll+6E1C23: 48 8B 82 C0 00 00 00  - mov rax,[rdx+000000C0]
+GameAssembly.dll+6E1C2A: 4C 8B 48 70           - mov r9,[rax+70]
+GameAssembly.dll+6E1C2E: 4D 8B C1              - mov r8,r9
+GameAssembly.dll+6E1C31: 48 8B 93 38 01 00 00  - mov rdx,[rbx+00000138]
+GameAssembly.dll+6E1C38: 41 FF 11              - call qword ptr [r9]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+6E1C3B: FF 47 40              - inc [rdi+40]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+6E1C3E: 48 8B 0D 4B 13 13 02  - mov rcx,[GameAssembly.dll+2812F90]
+GameAssembly.dll+6E1C45: F6 81 2F 01 00 00 02  - test byte ptr [rcx+0000012F],02
+GameAssembly.dll+6E1C4C: 74 0E                 - je GameAssembly.dll+6E1C5C
+GameAssembly.dll+6E1C4E: 83 B9 E0 00 00 00 00  - cmp dword ptr [rcx+000000E0],00
+GameAssembly.dll+6E1C55: 75 05                 - jne GameAssembly.dll+6E1C5C
+GameAssembly.dll+6E1C57: E8 D4 B5 B8 FF        - call GameAssembly.dll+26D230
+GameAssembly.dll+6E1C5C: 33 D2                 - xor edx,edx
+GameAssembly.dll+6E1C5E: 33 C9                 - xor ecx,ecx
+GameAssembly.dll+6E1C60: E8 EB 9A D0 FF        - call GameAssembly.dll+3EB750
+GameAssembly.dll+6E1C65: E8 F6 83 C6 FF        - call GameAssembly.dll+34A060
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>27</ID>
+          <Description>"Collect give 20 Sparks"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Wavetale
+  Version: 
+  Date   : 2025-08-19
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,FF 47 40 48 8B 0D 4B 13 13 02) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //inc [rdi+40]
+  add dword [rdi+40],14
+  mov rcx,[GameAssembly.dll+2812F90]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 5
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db FF 47 40 48 8B 0D 4B 13 13 02
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+6E1C3B
+
+GameAssembly.dll+6E1C0F: 48 8B 4F 38           - mov rcx,[rdi+38]
+GameAssembly.dll+6E1C13: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+6E1C16: 74 7F                 - je GameAssembly.dll+6E1C97
+GameAssembly.dll+6E1C18: 48 8B 05 99 C1 12 02  - mov rax,[GameAssembly.dll+280DDB8]
+GameAssembly.dll+6E1C1F: 48 8B 50 18           - mov rdx,[rax+18]
+GameAssembly.dll+6E1C23: 48 8B 82 C0 00 00 00  - mov rax,[rdx+000000C0]
+GameAssembly.dll+6E1C2A: 4C 8B 48 70           - mov r9,[rax+70]
+GameAssembly.dll+6E1C2E: 4D 8B C1              - mov r8,r9
+GameAssembly.dll+6E1C31: 48 8B 93 38 01 00 00  - mov rdx,[rbx+00000138]
+GameAssembly.dll+6E1C38: 41 FF 11              - call qword ptr [r9]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+6E1C3B: FF 47 40              - inc [rdi+40]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+6E1C3E: 48 8B 0D 4B 13 13 02  - mov rcx,[GameAssembly.dll+2812F90]
+GameAssembly.dll+6E1C45: F6 81 2F 01 00 00 02  - test byte ptr [rcx+0000012F],02
+GameAssembly.dll+6E1C4C: 74 0E                 - je GameAssembly.dll+6E1C5C
+GameAssembly.dll+6E1C4E: 83 B9 E0 00 00 00 00  - cmp dword ptr [rcx+000000E0],00
+GameAssembly.dll+6E1C55: 75 05                 - jne GameAssembly.dll+6E1C5C
+GameAssembly.dll+6E1C57: E8 D4 B5 B8 FF        - call GameAssembly.dll+26D230
+GameAssembly.dll+6E1C5C: 33 D2                 - xor edx,edx
+GameAssembly.dll+6E1C5E: 33 C9                 - xor ecx,ecx
+GameAssembly.dll+6E1C60: E8 EB 9A D0 FF        - call GameAssembly.dll+3EB750
+GameAssembly.dll+6E1C65: E8 F6 83 C6 FF        - call GameAssembly.dll+34A060
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26</ID>
+          <Description>"Collect give 50 Sparks"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Wavetale
+  Version: 
+  Date   : 2025-08-19
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,FF 47 40 48 8B 0D 4B 13 13 02) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //inc [rdi+40]
+  add dword [rdi+40],32
+  mov rcx,[GameAssembly.dll+2812F90]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 5
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db FF 47 40 48 8B 0D 4B 13 13 02
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+6E1C3B
+
+GameAssembly.dll+6E1C0F: 48 8B 4F 38           - mov rcx,[rdi+38]
+GameAssembly.dll+6E1C13: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+6E1C16: 74 7F                 - je GameAssembly.dll+6E1C97
+GameAssembly.dll+6E1C18: 48 8B 05 99 C1 12 02  - mov rax,[GameAssembly.dll+280DDB8]
+GameAssembly.dll+6E1C1F: 48 8B 50 18           - mov rdx,[rax+18]
+GameAssembly.dll+6E1C23: 48 8B 82 C0 00 00 00  - mov rax,[rdx+000000C0]
+GameAssembly.dll+6E1C2A: 4C 8B 48 70           - mov r9,[rax+70]
+GameAssembly.dll+6E1C2E: 4D 8B C1              - mov r8,r9
+GameAssembly.dll+6E1C31: 48 8B 93 38 01 00 00  - mov rdx,[rbx+00000138]
+GameAssembly.dll+6E1C38: 41 FF 11              - call qword ptr [r9]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+6E1C3B: FF 47 40              - inc [rdi+40]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+6E1C3E: 48 8B 0D 4B 13 13 02  - mov rcx,[GameAssembly.dll+2812F90]
+GameAssembly.dll+6E1C45: F6 81 2F 01 00 00 02  - test byte ptr [rcx+0000012F],02
+GameAssembly.dll+6E1C4C: 74 0E                 - je GameAssembly.dll+6E1C5C
+GameAssembly.dll+6E1C4E: 83 B9 E0 00 00 00 00  - cmp dword ptr [rcx+000000E0],00
+GameAssembly.dll+6E1C55: 75 05                 - jne GameAssembly.dll+6E1C5C
+GameAssembly.dll+6E1C57: E8 D4 B5 B8 FF        - call GameAssembly.dll+26D230
+GameAssembly.dll+6E1C5C: 33 D2                 - xor edx,edx
+GameAssembly.dll+6E1C5E: 33 C9                 - xor ecx,ecx
+GameAssembly.dll+6E1C60: E8 EB 9A D0 FF        - call GameAssembly.dll+3EB750
+GameAssembly.dll+6E1C65: E8 F6 83 C6 FF        - call GameAssembly.dll+34A060
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>19</ID>
+      <Description>"Sparks - Total"</Description>
+      <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BFBF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"THREADSTACK1"-00000810</Address>
+          <Offsets>
+            <Offset>40</Offset>
+            <Offset>A0</Offset>
+            <Offset>80</Offset>
+            <Offset>B8</Offset>
+            <Offset>98</Offset>
+            <Offset>E38</Offset>
+            <Offset>368</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"THREADSTACK1"-00000810</Address>
+          <Offsets>
+            <Offset>90</Offset>
+            <Offset>38</Offset>
+            <Offset>A0</Offset>
+            <Offset>80</Offset>
+            <Offset>B8</Offset>
+            <Offset>8E8</Offset>
+            <Offset>348</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"GameAssembly.dll"+0235A448</Address>
+          <Offsets>
+            <Offset>E0</Offset>
+            <Offset>28</Offset>
+            <Offset>F8</Offset>
+            <Offset>50</Offset>
+            <Offset>20</Offset>
+            <Offset>B8</Offset>
+            <Offset>48</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"GameAssembly.dll"+023DC288</Address>
+          <Offsets>
+            <Offset>40</Offset>
+            <Offset>60</Offset>
+            <Offset>90</Offset>
+            <Offset>30</Offset>
+            <Offset>20</Offset>
+            <Offset>B8</Offset>
+            <Offset>48</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"GameAssembly.dll"+023E73A8</Address>
+          <Offsets>
+            <Offset>40</Offset>
+            <Offset>18</Offset>
+            <Offset>B8</Offset>
+            <Offset>180</Offset>
+            <Offset>B0</Offset>
+            <Offset>178</Offset>
+            <Offset>90</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"GameAssembly.dll"+02531AA0</Address>
+          <Offsets>
+            <Offset>40</Offset>
+            <Offset>110</Offset>
+            <Offset>110</Offset>
+            <Offset>A8</Offset>
+            <Offset>B8</Offset>
+            <Offset>78</Offset>
+            <Offset>AB8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"GameAssembly.dll"+0254A420</Address>
+          <Offsets>
+            <Offset>40</Offset>
+            <Offset>A0</Offset>
+            <Offset>E0</Offset>
+            <Offset>C8</Offset>
+            <Offset>8F0</Offset>
+            <Offset>138</Offset>
+            <Offset>280</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"GameAssembly.dll"+02840B98</Address>
+          <Offsets>
+            <Offset>40</Offset>
+            <Offset>18</Offset>
+            <Offset>B8</Offset>
+            <Offset>0</Offset>
+            <Offset>90</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"GameAssembly.dll"+02829FA8</Address>
+          <Offsets>
+            <Offset>40</Offset>
+            <Offset>8</Offset>
+            <Offset>B8</Offset>
+            <Offset>48</Offset>
+            <Offset>70</Offset>
+            <Offset>80</Offset>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"UnityPlayer.dll"+01806CE8</Address>
+          <Offsets>
+            <Offset>40</Offset>
+            <Offset>110</Offset>
+            <Offset>60</Offset>
+            <Offset>D0</Offset>
+            <Offset>C8</Offset>
+            <Offset>E8</Offset>
+            <Offset>98</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"UnityPlayer.dll"+0184A0D0</Address>
+          <Offsets>
+            <Offset>40</Offset>
+            <Offset>110</Offset>
+            <Offset>60</Offset>
+            <Offset>38</Offset>
+            <Offset>8</Offset>
+            <Offset>128</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>17</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"UnityPlayer.dll"+01857530</Address>
+          <Offsets>
+            <Offset>40</Offset>
+            <Offset>110</Offset>
+            <Offset>60</Offset>
+            <Offset>D0</Offset>
+            <Offset>C8</Offset>
+            <Offset>E8</Offset>
+            <Offset>98</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>18</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"GameAssembly.dll"+02841690</Address>
+          <Offsets>
+            <Offset>40</Offset>
+            <Offset>110</Offset>
+            <Offset>110</Offset>
+            <Offset>A8</Offset>
+            <Offset>B8</Offset>
+            <Offset>50</Offset>
+            <Offset>48</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

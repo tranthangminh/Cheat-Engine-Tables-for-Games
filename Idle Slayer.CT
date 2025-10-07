@@ -1,0 +1,2841 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>14</ID>
+      <Description>"Boost - Timer"</Description>
+      <LastState Value="2.01455696134765E43" RealAddress="7FFA4F34BE8A"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>Double</VariableType>
+      <Address>GameAssembly.dll+37BE8A</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>86</ID>
+      <Description>"Multiplier - Timer"</Description>
+      <LastState Value="3.44525203399725E251" RealAddress="7FFA4F2ED8DB"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>Double</VariableType>
+      <Address>GameAssembly.dll+31D8DB</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>99</ID>
+      <Description>"Craft Items - Timer"</Description>
+      <LastState Value="4.31976995093149E-308" RealAddress="7FFA4F2FDD94"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>Double</VariableType>
+      <Address>GameAssembly.dll+32DD94</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>62</ID>
+      <Description>"Rage Mode - Cooldown Timer"</Description>
+      <LastState Value="3.23696090090088E-312" RealAddress="7FFA4F2D6458"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>Double</VariableType>
+      <Address>GameAssembly.dll+306458</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16</ID>
+      <Description>"Active this"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"Jewels - won't decrease on use"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F2 0F 11 81 08 03 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rcx+00000308],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 81 08 03 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+3F8F40
+
+GameAssembly.dll+3F8F09: C6 05 D3 12 E5 01 01     - mov byte ptr [GameAssembly.dll+224A1E3],01
+GameAssembly.dll+3F8F10: 48 8B 15 C1 A0 D0 01     - mov rdx,[GameAssembly.dll+2102FD8]
+GameAssembly.dll+3F8F17: 48 8B 82 B8 00 00 00     - mov rax,[rdx+000000B8]
+GameAssembly.dll+3F8F1E: 48 8B 08                 - mov rcx,[rax]
+GameAssembly.dll+3F8F21: 48 85 C9                 - test rcx,rcx
+GameAssembly.dll+3F8F24: 0F 84 D6 00 00 00        - je GameAssembly.dll+3F9000
+GameAssembly.dll+3F8F2A: F2 0F 10 81 08 03 00 00  - movsd xmm0,[rcx+00000308]
+GameAssembly.dll+3F8F32: 66 0F 2F C6              - comisd xmm0,xmm6
+GameAssembly.dll+3F8F36: 0F 82 AF 00 00 00        - jb GameAssembly.dll+3F8FEB
+GameAssembly.dll+3F8F3C: F2 0F 5C C6              - subsd xmm0,xmm6
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+3F8F40: F2 0F 11 81 08 03 00 00  - movsd [rcx+00000308],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+3F8F48: 48 8B 05 89 A0 D0 01     - mov rax,[GameAssembly.dll+2102FD8]
+GameAssembly.dll+3F8F4F: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
+GameAssembly.dll+3F8F56: 48 8B 09                 - mov rcx,[rcx]
+GameAssembly.dll+3F8F59: 48 85 C9                 - test rcx,rcx
+GameAssembly.dll+3F8F5C: 0F 84 9E 00 00 00        - je GameAssembly.dll+3F9000
+GameAssembly.dll+3F8F62: 48 81 C1 08 03 00 00     - add rcx,00000308
+GameAssembly.dll+3F8F69: 33 D2                    - xor edx,edx
+GameAssembly.dll+3F8F6B: E8 10 AE B5 00           - call System.Double.ToString
+GameAssembly.dll+3F8F70: 48 8B 0D 81 43 D2 01     - mov rcx,[GameAssembly.dll+211D2F8]
+GameAssembly.dll+3F8F77: 45 33 C0                 - xor r8d,r8d
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"+100.000 progress on Missions"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,89 4B 54 E9 E7 00 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [rbx+54],(int)100000
+  //mov [rbx+54],ecx
+  jmp GameAssembly.dll+3215E5
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 4B 54 E9 E7 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+3214F6
+
+GameAssembly.dll+3214D0: C6 05 0E 86 F2 01 01  - mov byte ptr [GameAssembly.dll+2249AE5],01
+GameAssembly.dll+3214D7: 8B 43 50              - mov eax,[rbx+50]
+GameAssembly.dll+3214DA: 39 43 54              - cmp [rbx+54],eax
+GameAssembly.dll+3214DD: 0F 8D 16 01 00 00     - jnl GameAssembly.dll+3215F9
+GameAssembly.dll+3214E3: 48 89 74 24 30        - mov [rsp+30],rsi
+GameAssembly.dll+3214E8: 8B 43 54              - mov eax,[rbx+54]
+GameAssembly.dll+3214EB: 8D 0C 07              - lea ecx,[rdi+rax]
+GameAssembly.dll+3214EE: 3B 4B 50              - cmp ecx,[rbx+50]
+GameAssembly.dll+3214F1: 7D 0B                 - jnl GameAssembly.dll+3214FE
+GameAssembly.dll+3214F3: 8D 0C 07              - lea ecx,[rdi+rax]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+3214F6: 89 4B 54              - mov [rbx+54],ecx
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+3214F9: E9 E7 00 00 00        - jmp GameAssembly.dll+3215E5
+GameAssembly.dll+3214FE: 8B 43 50              - mov eax,[rbx+50]
+GameAssembly.dll+321501: 89 43 54              - mov [rbx+54],eax
+GameAssembly.dll+321504: 48 8B 15 45 5D DE 01  - mov rdx,[GameAssembly.dll+2107250]
+GameAssembly.dll+32150B: 48 8B 82 B8 00 00 00  - mov rax,[rdx+000000B8]
+GameAssembly.dll+321512: 48 8B 38              - mov rdi,[rax]
+GameAssembly.dll+321515: 48 85 FF              - test rdi,rdi
+GameAssembly.dll+321518: 0F 84 E6 00 00 00     - je GameAssembly.dll+321604
+GameAssembly.dll+32151E: 4C 8B 05 43 16 E0 01  - mov r8,[GameAssembly.dll+2122B68]
+GameAssembly.dll+321525: 4C 8B 0B              - mov r9,[rbx]
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"Boost - last forever"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,C6 F3 0F 5C F8 F3 0F 11 7B 50) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rbx+50],xmm7
+  jmp return
+
+INJECT+05:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT+05:
+  db F3 0F 11 7B 50
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+37C135
+
+GameAssembly.dll+37C10F: 45 0F 57 C0           - xorps xmm8,xmm8
+GameAssembly.dll+37C113: 41 0F 2F C0           - comiss xmm0,xmm8
+GameAssembly.dll+37C117: 76 2C                 - jna GameAssembly.dll+37C145
+GameAssembly.dll+37C119: F3 0F 10 73 4C        - movss xmm6,[rbx+4C]
+GameAssembly.dll+37C11E: 33 C9                 - xor ecx,ecx
+GameAssembly.dll+37C120: 0F 29 7C 24 30        - movaps [rsp+30],xmm7
+GameAssembly.dll+37C125: 0F 28 F8              - movaps xmm7,xmm0
+GameAssembly.dll+37C128: E8 33 CA 3E 01        - call GameAssembly.dll+1768B60
+GameAssembly.dll+37C12D: F3 0F 59 C6           - mulss xmm0,xmm6
+GameAssembly.dll+37C131: F3 0F 5C F8           - subss xmm7,xmm0
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+37C135: F3 0F 11 7B 50        - movss [rbx+50],xmm7
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+37C13A: 44 0F 2F C7           - comiss xmm8,xmm7
+GameAssembly.dll+37C13E: 0F 28 7C 24 30        - movaps xmm7,[rsp+30]
+GameAssembly.dll+37C143: 76 07                 - jna GameAssembly.dll+37C14C
+GameAssembly.dll+37C145: C7 43 50 00 00 00 00  - mov [rbx+50],00000000
+GameAssembly.dll+37C14C: F2 0F 10 4B 58        - movsd xmm1,[rbx+58]
+GameAssembly.dll+37C151: 0F 57 C0              - xorps xmm0,xmm0
+GameAssembly.dll+37C154: 66 0F 2F C8           - comisd xmm1,xmm0
+GameAssembly.dll+37C158: 44 0F 28 44 24 20     - movaps xmm8,[rsp+20]
+GameAssembly.dll+37C15E: 76 1A                 - jna GameAssembly.dll+37C17A
+GameAssembly.dll+37C160: 33 C9                 - xor ecx,ecx
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>39</ID>
+          <Description>"+1.000.000.000lv on upgrade weapons"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,41 89 57 70 48 8B 05 FC BC DE 01) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [r15+70],(int)1000000000
+  //mov [r15+70],edx
+  mov rax,[GameAssembly.dll+2110688]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 6
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 41 89 57 70 48 8B 05 FC BC DE 01
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+324981
+
+GameAssembly.dll+324957: 0F 28 CE              - movaps xmm1,xmm6
+GameAssembly.dll+32495A: 66 0F 15 CE           - unpckhpd xmm1,xmm6
+GameAssembly.dll+32495E: 66 0F 2F C1           - comisd xmm0,xmm1
+GameAssembly.dll+324962: 0F 82 D5 00 00 00     - jb GameAssembly.dll+324A3D
+GameAssembly.dll+324968: 0F 57 0D 91 36 71 01  - xorps xmm1,[GameAssembly.dll+1A38000]
+GameAssembly.dll+32496F: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+324972: E8 F9 60 0F 00        - call PlayerInventory.AddCoins
+GameAssembly.dll+324977: 66 0F 7E F3           - movd ebx,xmm6
+GameAssembly.dll+32497B: 41 8B 57 70           - mov edx,[r15+70]
+GameAssembly.dll+32497F: 03 D3                 - add edx,ebx
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+324981: 41 89 57 70           - mov [r15+70],edx
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+324985: 48 8B 05 FC BC DE 01  - mov rax,[GameAssembly.dll+2110688]
+GameAssembly.dll+32498C: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+324993: 48 8B 09              - mov rcx,[rcx]
+GameAssembly.dll+324996: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+324999: 0F 84 DE 05 00 00     - je GameAssembly.dll+324F7D
+GameAssembly.dll+32499F: 66 0F 6E D2           - movd xmm2,edx
+GameAssembly.dll+3249A3: 45 33 C9              - xor r9d,r9d
+GameAssembly.dll+3249A6: F3 0F E6 D2           - cvtdq2pd xmm2,xmm2
+GameAssembly.dll+3249AA: BA 07 00 00 00        - mov edx,00000007
+GameAssembly.dll+3249AF: E8 3C 48 F9 FF        - call AchievementManager.CheckUnlockByType
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>79</ID>
+          <Description>"Coins - won't reset on Ascend"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,4C 89 60 20 33 D2) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rax+20],r12
+  xor edx,edx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 4C 89 60 20 33 D2
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+2DFF56
+
+GameAssembly.dll+2DFF22: 0F 84 9A 07 00 00     - je GameAssembly.dll+2E06C2
+GameAssembly.dll+2DFF28: 48 8B 88 68 01 00 00  - mov rcx,[rax+00000168]
+GameAssembly.dll+2DFF2F: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+2DFF32: 0F 84 8A 07 00 00     - je GameAssembly.dll+2E06C2
+GameAssembly.dll+2DFF38: 44 89 61 50           - mov [rcx+50],r12d
+GameAssembly.dll+2DFF3C: 48 8B 05 95 30 E2 01  - mov rax,[GameAssembly.dll+2102FD8]
+GameAssembly.dll+2DFF43: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+2DFF4A: 48 8B 01              - mov rax,[rcx]
+GameAssembly.dll+2DFF4D: 48 85 C0              - test rax,rax
+GameAssembly.dll+2DFF50: 0F 84 6C 07 00 00     - je GameAssembly.dll+2E06C2
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+2DFF56: 4C 89 60 20           - mov [rax+20],r12
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+2DFF5A: 33 D2                 - xor edx,edx
+GameAssembly.dll+2DFF5C: 48 8B 0D A5 C2 E4 01  - mov rcx,[GameAssembly.dll+212C208]
+GameAssembly.dll+2DFF63: E8 38 F7 03 00        - call GameAssembly.dll+31F6A0
+GameAssembly.dll+2DFF68: 45 38 65 18           - cmp [r13+18],r12b
+GameAssembly.dll+2DFF6C: 75 66                 - jne GameAssembly.dll+2DFFD4
+GameAssembly.dll+2DFF6E: 48 8B 15 C3 24 E3 01  - mov rdx,[GameAssembly.dll+2112438]
+GameAssembly.dll+2DFF75: 48 8B 82 B8 00 00 00  - mov rax,[rdx+000000B8]
+GameAssembly.dll+2DFF7C: F2 0F 10 40 08        - movsd xmm0,[rax+08]
+GameAssembly.dll+2DFF81: F2 0F 58 00           - addsd xmm0,[rax]
+GameAssembly.dll+2DFF85: F2 0F 11 00           - movsd [rax],xmm0
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>80</ID>
+          <Description>"Slayer Points - won't reset on Ascend"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,4C 89 61 08 33 C9) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rcx+08],r12
+  xor ecx,ecx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 4C 89 61 08 33 C9
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+2DFFB4
+
+GameAssembly.dll+2DFF7C: F2 0F 10 40 08        - movsd xmm0,[rax+08]
+GameAssembly.dll+2DFF81: F2 0F 58 00           - addsd xmm0,[rax]
+GameAssembly.dll+2DFF85: F2 0F 11 00           - movsd [rax],xmm0
+GameAssembly.dll+2DFF89: 48 8B 15 A8 24 E3 01  - mov rdx,[GameAssembly.dll+2112438]
+GameAssembly.dll+2DFF90: 48 8B 82 B8 00 00 00  - mov rax,[rdx+000000B8]
+GameAssembly.dll+2DFF97: F2 0F 10 40 10        - movsd xmm0,[rax+10]
+GameAssembly.dll+2DFF9C: F2 0F 58 40 08        - addsd xmm0,[rax+08]
+GameAssembly.dll+2DFFA1: F2 0F 11 40 10        - movsd [rax+10],xmm0
+GameAssembly.dll+2DFFA6: 48 8B 05 8B 24 E3 01  - mov rax,[GameAssembly.dll+2112438]
+GameAssembly.dll+2DFFAD: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+2DFFB4: 4C 89 61 08           - mov [rcx+08],r12
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+2DFFB8: 33 C9                 - xor ecx,ecx
+GameAssembly.dll+2DFFBA: E8 D1 95 04 00        - call GameAssembly.dll+329590
+GameAssembly.dll+2DFFBF: 48 8B 05 72 24 E3 01  - mov rax,[GameAssembly.dll+2112438]
+GameAssembly.dll+2DFFC6: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+2DFFCD: F2 0F 11 41 18        - movsd [rcx+18],xmm0
+GameAssembly.dll+2DFFD2: EB 56                 - jmp GameAssembly.dll+2E002A
+GameAssembly.dll+2DFFD4: 33 C9                 - xor ecx,ecx
+GameAssembly.dll+2DFFD6: E8 65 97 04 00        - call GameAssembly.dll+329740
+GameAssembly.dll+2DFFDB: 48 8B 15 AE 22 E4 01  - mov rdx,[GameAssembly.dll+2122290]
+GameAssembly.dll+2DFFE2: 33 C9                 - xor ecx,ecx
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>81</ID>
+          <Description>"Slayer Points - won't decrease on Upgrade"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F2 0F 11 00 0F 57 C0) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rax],xmm0
+  xorps xmm0,xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 00 0F 57 C0
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+3270F8
+
+GameAssembly.dll+3270C8: E8 73 7A FE FF        - call GameAssembly.dll+30EB40
+GameAssembly.dll+3270CD: 48 8B 4D 18           - mov rcx,[rbp+18]
+GameAssembly.dll+3270D1: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+3270D4: BA 01 00 00 00        - mov edx,00000001
+GameAssembly.dll+3270D9: E8 B2 8F FF FF        - call GameAssembly.dll+320090
+GameAssembly.dll+3270DE: 48 8B 0D 53 B3 DE 01  - mov rcx,[GameAssembly.dll+2112438]
+GameAssembly.dll+3270E5: 45 33 ED              - xor r13d,r13d
+GameAssembly.dll+3270E8: 48 8B 81 B8 00 00 00  - mov rax,[rcx+000000B8]
+GameAssembly.dll+3270EF: F2 0F 10 00           - movsd xmm0,[rax]
+GameAssembly.dll+3270F3: F2 0F 5C 45 48        - subsd xmm0,[rbp+48]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+3270F8: F2 0F 11 00           - movsd [rax],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+3270FC: 0F 57 C0              - xorps xmm0,xmm0
+GameAssembly.dll+3270FF: 48 8B 0D 32 B3 DE 01  - mov rcx,[GameAssembly.dll+2112438]
+GameAssembly.dll+327106: 48 8B 81 B8 00 00 00  - mov rax,[rcx+000000B8]
+GameAssembly.dll+32710D: 66 0F 2F 00           - comisd xmm0,[rax]
+GameAssembly.dll+327111: 72 0A                 - jb GameAssembly.dll+32711D
+GameAssembly.dll+327113: 4C 89 28              - mov [rax],r13
+GameAssembly.dll+327116: 48 8B 0D 1B B3 DE 01  - mov rcx,[GameAssembly.dll+2112438]
+GameAssembly.dll+32711D: 48 8B 89 B8 00 00 00  - mov rcx,[rcx+000000B8]
+GameAssembly.dll+327124: 33 D2                 - xor edx,edx
+GameAssembly.dll+327126: E8 55 CC C2 00        - call GameAssembly.dll+F53D80
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82</ID>
+          <Description>"Ultra Slayer Points - won't decrease on use"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,D2 F2 0F 11 40 10) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rax+10],xmm0
+  jmp return
+
+INJECT+01:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT+01:
+  db F2 0F 11 40 10
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+33B10D
+
+GameAssembly.dll+33B0D9: 48 8B 05 78 99 DC 01  - mov rax,[GameAssembly.dll+2104A58]
+GameAssembly.dll+33B0E0: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+33B0E7: 48 8B 11              - mov rdx,[rcx]
+GameAssembly.dll+33B0EA: 48 85 D2              - test rdx,rdx
+GameAssembly.dll+33B0ED: 0F 84 04 01 00 00     - je GameAssembly.dll+33B1F7
+GameAssembly.dll+33B0F3: 48 8B 0D 96 71 DE 01  - mov rcx,[GameAssembly.dll+2122290]
+GameAssembly.dll+33B0FA: 48 8B 81 B8 00 00 00  - mov rax,[rcx+000000B8]
+GameAssembly.dll+33B101: F2 0F 10 40 10        - movsd xmm0,[rax+10]
+GameAssembly.dll+33B106: F2 0F 5C 42 48        - subsd xmm0,[rdx+48]
+GameAssembly.dll+33B10B: 33 D2                 - xor edx,edx
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+33B10D: F2 0F 11 40 10        - movsd [rax+10],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+33B112: 48 8B 05 77 71 DE 01  - mov rax,[GameAssembly.dll+2122290]
+GameAssembly.dll+33B119: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+33B120: 48 83 C1 10           - add rcx,10
+GameAssembly.dll+33B124: E8 57 8C C1 00        - call GameAssembly.dll+F53D80
+GameAssembly.dll+33B129: 48 8B 0D 38 47 DF 01  - mov rcx,[GameAssembly.dll+212F868]
+GameAssembly.dll+33B130: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+33B133: 48 8B D0              - mov rdx,rax
+GameAssembly.dll+33B136: E8 B5 4F FE FF        - call GameAssembly.dll+3200F0
+GameAssembly.dll+33B13B: 48 8B 05 16 99 DC 01  - mov rax,[GameAssembly.dll+2104A58]
+GameAssembly.dll+33B142: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>93</ID>
+          <Description>"Minigame"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" Activated="1" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>89</ID>
+              <Description>"Don't Fall! - Timer freeze"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F3 0F 11 73 68) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rbx+68],xmm6
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 73 68
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+37ACD6
+
+GameAssembly.dll+37ACA9: E8 D2 FC FF FF        - call BonusMapController.TextScaleAnimation
+GameAssembly.dll+37ACAE: 48 8B 0D 93 7B DB 01  - mov rcx,[GameAssembly.dll+2132848]
+GameAssembly.dll+37ACB5: 48 8B 81 B8 00 00 00  - mov rax,[rcx+000000B8]
+GameAssembly.dll+37ACBC: 83 38 01              - cmp dword ptr [rax],01
+GameAssembly.dll+37ACBF: 75 26                 - jne GameAssembly.dll+37ACE7
+GameAssembly.dll+37ACC1: 0F 29 74 24 30        - movaps [rsp+30],xmm6
+GameAssembly.dll+37ACC6: 33 C9                 - xor ecx,ecx
+GameAssembly.dll+37ACC8: F3 0F 10 73 68        - movss xmm6,[rbx+68]
+GameAssembly.dll+37ACCD: E8 8E DE 3E 01        - call UnityEngine.Time.get_deltaTime
+GameAssembly.dll+37ACD2: F3 0F 5C F0           - subss xmm6,xmm0
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+37ACD6: F3 0F 11 73 68        - movss [rbx+68],xmm6
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+37ACDB: 48 8B 0D 66 7B DB 01  - mov rcx,[GameAssembly.dll+2132848]
+GameAssembly.dll+37ACE2: 0F 28 74 24 30        - movaps xmm6,[rsp+30]
+GameAssembly.dll+37ACE7: 0F 57 D2              - xorps xmm2,xmm2
+GameAssembly.dll+37ACEA: 0F 2F 53 68           - comiss xmm2,[rbx+68]
+GameAssembly.dll+37ACEE: 0F 82 D9 00 00 00     - jb GameAssembly.dll+37ADCD
+GameAssembly.dll+37ACF4: 48 8B 81 B8 00 00 00  - mov rax,[rcx+000000B8]
+GameAssembly.dll+37ACFB: 83 38 01              - cmp dword ptr [rax],01
+GameAssembly.dll+37ACFE: 0F 85 C9 00 00 00     - jne GameAssembly.dll+37ADCD
+GameAssembly.dll+37AD04: C7 43 68 00 00 00 00  - mov [rbx+68],00000000
+GameAssembly.dll+37AD0B: 48 8B 05 36 7B DB 01  - mov rax,[GameAssembly.dll+2132848]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>90</ID>
+              <Description>"Don't Fall! - Timer freeze on fall"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F3 0F 11 43 68 E8) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rbx+68],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 43 68
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+37A1EE
+
+GameAssembly.dll+37A1C7: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
+GameAssembly.dll+37A1CE: 48 8B 01                 - mov rax,[rcx]
+GameAssembly.dll+37A1D1: 48 85 C0                 - test rax,rax
+GameAssembly.dll+37A1D4: 74 7A                    - je GameAssembly.dll+37A250
+GameAssembly.dll+37A1D6: 80 78 40 00              - cmp byte ptr [rax+40],00
+GameAssembly.dll+37A1DA: 75 6E                    - jne GameAssembly.dll+37A24A
+GameAssembly.dll+37A1DC: F3 0F 10 43 68           - movss xmm0,[rbx+68]
+GameAssembly.dll+37A1E1: 33 D2                    - xor edx,edx
+GameAssembly.dll+37A1E3: F3 0F 5C 05 AD D9 6B 01  - subss xmm0,[GameAssembly.dll+1A37B98]
+GameAssembly.dll+37A1EB: 48 8B CB                 - mov rcx,rbx
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+37A1EE: F3 0F 11 43 68           - movss [rbx+68],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+37A1F3: E8 D8 FE FF FF           - call BonusMapController.BlinkRedTimer
+GameAssembly.dll+37A1F8: 48 8B 05 D9 8B D8 01     - mov rax,[GameAssembly.dll+2102DD8]
+GameAssembly.dll+37A1FF: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
+GameAssembly.dll+37A206: 48 8B 09                 - mov rcx,[rcx]
+GameAssembly.dll+37A209: 48 85 C9                 - test rcx,rcx
+GameAssembly.dll+37A20C: 74 42                    - je GameAssembly.dll+37A250
+GameAssembly.dll+37A20E: F3 0F 10 0D 82 D9 6B 01  - movss xmm1,[GameAssembly.dll+1A37B98]
+GameAssembly.dll+37A216: 45 33 C0                 - xor r8d,r8d
+GameAssembly.dll+37A219: E8 92 FF 09 00           - call PlayerBehaviour.DamageTakenEffect
+GameAssembly.dll+37A21E: 48 8B 05 93 AC D9 01     - mov rax,[GameAssembly.dll+2114EB8]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91</ID>
+              <Description>"Don't Fall! - Fallen count = 0"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,UnityPlayer.dll,F0 4D 0F C1 A6 C0 00 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [r14+000000C0],0
+  //xadd [r14+000000C0],r12
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 4
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F0 4D 0F C1 A6 C0 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: UnityPlayer.dll+BB7940
+
+UnityPlayer.dll+BB7916: 48 85 C9                    - test rcx,rcx
+UnityPlayer.dll+BB7919: 74 09                       - je UnityPlayer.dll+BB7924
+UnityPlayer.dll+BB791B: 48 83 C1 08                 - add rcx,08
+UnityPlayer.dll+BB791F: E8 DC AA 78 FF              - call UnityPlayer.dll+342400
+UnityPlayer.dll+BB7924: 49 8B 07                    - mov rax,[r15]
+UnityPlayer.dll+BB7927: 48 85 C0                    - test rax,rax
+UnityPlayer.dll+BB792A: 0F 84 02 04 00 00           - je UnityPlayer.dll+BB7D32
+UnityPlayer.dll+BB7930: 48 39 78 10                 - cmp [rax+10],rdi
+UnityPlayer.dll+BB7934: 0F 84 F8 03 00 00           - je UnityPlayer.dll+BB7D32
+UnityPlayer.dll+BB793A: 41 BC 01 00 00 00           - mov r12d,00000001
+// ---------- INJECTING HERE ----------
+UnityPlayer.dll+BB7940: F0 4D 0F C1 A6 C0 00 00 00  - lock xadd [r14+000000C0],r12
+// ---------- DONE INJECTING  ----------
+UnityPlayer.dll+BB7949: E9 E4 03 00 00              - jmp UnityPlayer.dll+BB7D32
+UnityPlayer.dll+BB794E: 48 8B 4B 30                 - mov rcx,[rbx+30]
+UnityPlayer.dll+BB7952: 48 89 4D C8                 - mov [rbp-38],rcx
+UnityPlayer.dll+BB7956: 48 85 C9                    - test rcx,rcx
+UnityPlayer.dll+BB7959: 0F 84 D3 03 00 00           - je UnityPlayer.dll+BB7D32
+UnityPlayer.dll+BB795F: 48 63 41 40                 - movsxd  rax,dword ptr [rcx+40]
+UnityPlayer.dll+BB7963: 48 89 45 B8                 - mov [rbp-48],rax
+UnityPlayer.dll+BB7967: 48 85 C0                    - test rax,rax
+UnityPlayer.dll+BB796A: 0F 8E C2 03 00 00           - jng UnityPlayer.dll+BB7D32
+UnityPlayer.dll+BB7970: 4C 8B E7                    - mov r12,rdi
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>92</ID>
+              <Description>"Chest Hunt - Chest opened = 30"</Description>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,FF 86 1C 01 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rsi+0000011C],30
+  //inc [rsi+0000011C]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db FF 86 1C 01 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+394CBE
+
+GameAssembly.dll+394C85: 4C 89 A4 24 C8 00 00 00  - mov [rsp+000000C8],r12
+GameAssembly.dll+394C8D: 4C 89 AC 24 80 00 00 00  - mov [rsp+00000080],r13
+GameAssembly.dll+394C95: 0F 29 74 24 70           - movaps [rsp+70],xmm6
+GameAssembly.dll+394C9A: 0F 29 7C 24 60           - movaps [rsp+60],xmm7
+GameAssembly.dll+394C9F: 44 0F 29 44 24 50        - movaps [rsp+50],xmm8
+GameAssembly.dll+394CA5: 85 C0                    - test eax,eax
+GameAssembly.dll+394CA7: 0F 85 0B 18 00 00        - jne GameAssembly.dll+3964B8
+GameAssembly.dll+394CAD: 41 C7 46 10 FF FF FF FF  - mov [r14+10],FFFFFFFF
+GameAssembly.dll+394CB5: 48 85 F6                 - test rsi,rsi
+GameAssembly.dll+394CB8: 0F 84 69 1A 00 00        - je GameAssembly.dll+396727
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+394CBE: FF 86 1C 01 00 00        - inc [rsi+0000011C]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+394CC4: 48 8B 8E 80 00 00 00     - mov rcx,[rsi+00000080]
+GameAssembly.dll+394CCB: 48 85 C9                 - test rcx,rcx
+GameAssembly.dll+394CCE: 0F 84 53 1A 00 00        - je GameAssembly.dll+396727
+GameAssembly.dll+394CD4: 4C 8B 01                 - mov r8,[rcx]
+GameAssembly.dll+394CD7: 48 8D 55 F7              - lea rdx,[rbp-09]
+GameAssembly.dll+394CDB: 66 0F 6F 05 DD 30 6A 01  - movdqa xmm0,[GameAssembly.dll+1A37DC0]
+GameAssembly.dll+394CE3: 66 0F 7F 45 F7           - movdqa [rbp-09],xmm0
+GameAssembly.dll+394CE8: 49 8B 80 A8 02 00 00     - mov rax,[r8+000002A8]
+GameAssembly.dll+394CEF: 4D 8B 80 B0 02 00 00     - mov r8,[r8+000002B0]
+GameAssembly.dll+394CF6: FF D0                    - call rax
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>94</ID>
+          <Description>"Materials Giant Enemies/Special - won't decrease on use"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F2 0F 11 41 70 48) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rcx+70],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 41 70
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+3145F8
+
+GameAssembly.dll+3145CE: F2 0F 5C D1           - subsd xmm2,xmm1
+GameAssembly.dll+3145D2: 48 8B D9              - mov rbx,rcx
+GameAssembly.dll+3145D5: 66 0F 2F D0           - comisd xmm2,xmm0
+GameAssembly.dll+3145D9: 0F 82 88 00 00 00     - jb GameAssembly.dll+314667
+GameAssembly.dll+3145DF: F2 0F 10 41 70        - movsd xmm0,[rcx+70]
+GameAssembly.dll+3145E4: 33 D2                 - xor edx,edx
+GameAssembly.dll+3145E6: F2 0F 5C C1           - subsd xmm0,xmm1
+GameAssembly.dll+3145EA: 48 89 74 24 30        - mov [rsp+30],rsi
+GameAssembly.dll+3145EF: 48 89 7C 24 38        - mov [rsp+38],rdi
+GameAssembly.dll+3145F4: 48 8B 79 18           - mov rdi,[rcx+18]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+3145F8: F2 0F 11 41 70        - movsd [rcx+70],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+3145FD: 48 83 C1 70           - add rcx,70
+GameAssembly.dll+314601: E8 7A F7 C3 00        - call GameAssembly.dll+F53D80
+GameAssembly.dll+314606: 80 3D 5E 54 F3 01 00  - cmp byte ptr [GameAssembly.dll+2249A6B],00
+GameAssembly.dll+31460D: 48 8B F0              - mov rsi,rax
+GameAssembly.dll+314610: 75 13                 - jne GameAssembly.dll+314625
+GameAssembly.dll+314612: 48 8D 0D 2F A4 E1 01  - lea rcx,[GameAssembly.dll+212EA48]
+GameAssembly.dll+314619: E8 42 AD EA FF        - call GameAssembly.il2cpp_get_exception_argument_null+3D0
+GameAssembly.dll+31461E: C6 05 46 54 F3 01 01  - mov byte ptr [GameAssembly.dll+2249A6B],01
+GameAssembly.dll+314625: 48 8B 0D 1C A4 E1 01  - mov rcx,[GameAssembly.dll+212EA48]
+GameAssembly.dll+31462C: 83 B9 E0 00 00 00 00  - cmp dword ptr [rcx+000000E0],00
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>95</ID>
+          <Description>"Materials Small Enemies - freeze"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F2 0F 11 43 70 EB) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rbx+70],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 43 70
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+314241
+
+GameAssembly.dll+31421A: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+31421D: 0F 84 B1 00 00 00     - je GameAssembly.dll+3142D4
+GameAssembly.dll+314223: 48 8B 49 60           - mov rcx,[rcx+60]
+GameAssembly.dll+314227: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+31422A: 0F 84 A4 00 00 00     - je GameAssembly.dll+3142D4
+GameAssembly.dll+314230: 33 D2                 - xor edx,edx
+GameAssembly.dll+314232: E8 19 94 FF FF        - call GameAssembly.dll+30D650
+GameAssembly.dll+314237: EB 12                 - jmp GameAssembly.dll+31424B
+GameAssembly.dll+314239: 0F 28 C6              - movaps xmm0,xmm6
+GameAssembly.dll+31423C: F2 0F 58 43 70        - addsd xmm0,[rbx+70]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+314241: F2 0F 11 43 70        - movsd [rbx+70],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+314246: EB 03                 - jmp GameAssembly.dll+31424B
+GameAssembly.dll+314248: 0F 57 F6              - xorps xmm6,xmm6
+GameAssembly.dll+31424B: 48 8B 7B 18           - mov rdi,[rbx+18]
+GameAssembly.dll+31424F: 48 8D 4B 70           - lea rcx,[rbx+70]
+GameAssembly.dll+314253: 33 D2                 - xor edx,edx
+GameAssembly.dll+314255: E8 26 FB C3 00        - call GameAssembly.dll+F53D80
+GameAssembly.dll+31425A: 80 3D 0A 58 F3 01 00  - cmp byte ptr [GameAssembly.dll+2249A6B],00
+GameAssembly.dll+314261: 48 8B F0              - mov rsi,rax
+GameAssembly.dll+314264: 75 13                 - jne GameAssembly.dll+314279
+GameAssembly.dll+314266: 48 8D 0D DB A7 E1 01  - lea rcx,[GameAssembly.dll+212EA48]
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>101</ID>
+          <Description>"Craft Items Timer - freeze"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-09-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F2 0F 11 87 88 00 00 00 EB) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rdi+00000088],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 87 88 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+32DD94
+
+GameAssembly.dll+32DD5E: C6 05 89 BD F1 01 01              - mov byte ptr [GameAssembly.dll+2249AEE],01
+GameAssembly.dll+32DD65: 0F 57 C9                          - xorps xmm1,xmm1
+GameAssembly.dll+32DD68: 66 0F 2F 8F 88 00 00 00           - comisd xmm1,[rdi+00000088]
+GameAssembly.dll+32DD70: 0F 83 9F 00 00 00                 - jae GameAssembly.dll+32DE15
+GameAssembly.dll+32DD76: F2 0F 10 87 88 00 00 00           - movsd xmm0,[rdi+00000088]
+GameAssembly.dll+32DD7E: F2 0F 5C C6                       - subsd xmm0,xmm6
+GameAssembly.dll+32DD82: 66 0F 2F C8                       - comisd xmm1,xmm0
+GameAssembly.dll+32DD86: 73 16                             - jae GameAssembly.dll+32DD9E
+GameAssembly.dll+32DD88: F2 0F 10 87 88 00 00 00           - movsd xmm0,[rdi+00000088]
+GameAssembly.dll+32DD90: F2 0F 5C C6                       - subsd xmm0,xmm6
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+32DD94: F2 0F 11 87 88 00 00 00           - movsd [rdi+00000088],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+32DD9C: EB 4D                             - jmp GameAssembly.dll+32DDEB
+GameAssembly.dll+32DD9E: 48 C7 87 88 00 00 00 00 00 00 00  - mov qword ptr [rdi+00000088],00000000
+GameAssembly.dll+32DDA9: 48 8B 05 08 71 DE 01              - mov rax,[GameAssembly.dll+2114EB8]
+GameAssembly.dll+32DDB0: 48 8B 88 B8 00 00 00              - mov rcx,[rax+000000B8]
+GameAssembly.dll+32DDB7: 48 8B 09                          - mov rcx,[rcx]
+GameAssembly.dll+32DDBA: 48 85 C9                          - test rcx,rcx
+GameAssembly.dll+32DDBD: 74 61                             - je GameAssembly.dll+32DE20
+GameAssembly.dll+32DDBF: 48 8B 15 52 E1 DE 01              - mov rdx,[GameAssembly.dll+211BF18]
+GameAssembly.dll+32DDC6: 45 33 C0                          - xor r8d,r8d
+GameAssembly.dll+32DDC9: E8 92 8A FA FF                    - call GameAssembly.dll+2D6860
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>23</ID>
+      <Description>"IN GAME"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>66</ID>
+          <Description>"Infinite Giant Monsters"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F3 0F 11 43 4C B2 01 48 8B CB E8 AE) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rbx+4C],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 43 4C
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+4048E3
+
+GameAssembly.dll+4048BB: 48 8D 4C 24 20           - lea rcx,[rsp+20]
+GameAssembly.dll+4048C0: E8 EB 6B 36 01           - call UnityEngine.Transform.get_position
+GameAssembly.dll+4048C5: F3 0F 10 83 E8 00 00 00  - movss xmm0,[rbx+000000E8]
+GameAssembly.dll+4048CD: F3 0F 5C 30              - subss xmm6,[rax]
+GameAssembly.dll+4048D1: 0F 2F C6                 - comiss xmm0,xmm6
+GameAssembly.dll+4048D4: 72 1C                    - jb GameAssembly.dll+4048F2
+GameAssembly.dll+4048D6: 33 D2                    - xor edx,edx
+GameAssembly.dll+4048D8: 48 8B CB                 - mov rcx,rbx
+GameAssembly.dll+4048DB: E8 50 EC FF FF           - call MapController.CalculateRandomGiantPosition
+GameAssembly.dll+4048E0: 45 33 C0                 - xor r8d,r8d
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+4048E3: F3 0F 11 43 4C           - movss [rbx+4C],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+4048E8: B2 01                    - mov dl,01
+GameAssembly.dll+4048EA: 48 8B CB                 - mov rcx,rbx
+GameAssembly.dll+4048ED: E8 AE 2A 00 00           - call MapController.SpawnGiant
+GameAssembly.dll+4048F2: 0F 28 74 24 40           - movaps xmm6,[rsp+40]
+GameAssembly.dll+4048F7: 0F 28 7C 24 30           - movaps xmm7,[rsp+30]
+GameAssembly.dll+4048FC: 48 83 C4 50              - add rsp,50
+GameAssembly.dll+404900: 5B                       - pop rbx
+GameAssembly.dll+404901: C3                       - ret 
+GameAssembly.dll+404902: E8 89 AC DB FF           - call GameAssembly.il2cpp_method_get_declaring_type+B0
+GameAssembly.dll+404907: CC                       - int 3 
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>24</ID>
+          <Description>"Upgrade Weapons"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>4</ID>
+              <Description>"+10.000lv on upgrade weapons"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,41 89 57 70 48 8B 05 FC BC DE 01) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [r15+70],(int)10000
+  //mov [r15+70],edx
+  mov rax,[GameAssembly.dll+2110688]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 6
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 41 89 57 70 48 8B 05 FC BC DE 01
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+324981
+
+GameAssembly.dll+324957: 0F 28 CE              - movaps xmm1,xmm6
+GameAssembly.dll+32495A: 66 0F 15 CE           - unpckhpd xmm1,xmm6
+GameAssembly.dll+32495E: 66 0F 2F C1           - comisd xmm0,xmm1
+GameAssembly.dll+324962: 0F 82 D5 00 00 00     - jb GameAssembly.dll+324A3D
+GameAssembly.dll+324968: 0F 57 0D 91 36 71 01  - xorps xmm1,[GameAssembly.dll+1A38000]
+GameAssembly.dll+32496F: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+324972: E8 F9 60 0F 00        - call PlayerInventory.AddCoins
+GameAssembly.dll+324977: 66 0F 7E F3           - movd ebx,xmm6
+GameAssembly.dll+32497B: 41 8B 57 70           - mov edx,[r15+70]
+GameAssembly.dll+32497F: 03 D3                 - add edx,ebx
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+324981: 41 89 57 70           - mov [r15+70],edx
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+324985: 48 8B 05 FC BC DE 01  - mov rax,[GameAssembly.dll+2110688]
+GameAssembly.dll+32498C: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+324993: 48 8B 09              - mov rcx,[rcx]
+GameAssembly.dll+324996: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+324999: 0F 84 DE 05 00 00     - je GameAssembly.dll+324F7D
+GameAssembly.dll+32499F: 66 0F 6E D2           - movd xmm2,edx
+GameAssembly.dll+3249A3: 45 33 C9              - xor r9d,r9d
+GameAssembly.dll+3249A6: F3 0F E6 D2           - cvtdq2pd xmm2,xmm2
+GameAssembly.dll+3249AA: BA 07 00 00 00        - mov edx,00000007
+GameAssembly.dll+3249AF: E8 3C 48 F9 FF        - call AchievementManager.CheckUnlockByType
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7</ID>
+              <Description>"+100.000lv on upgrade weapons"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,41 89 57 70 48 8B 05 FC BC DE 01) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [r15+70],(int)100000
+  //mov [r15+70],edx
+  mov rax,[GameAssembly.dll+2110688]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 6
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 41 89 57 70 48 8B 05 FC BC DE 01
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+324981
+
+GameAssembly.dll+324957: 0F 28 CE              - movaps xmm1,xmm6
+GameAssembly.dll+32495A: 66 0F 15 CE           - unpckhpd xmm1,xmm6
+GameAssembly.dll+32495E: 66 0F 2F C1           - comisd xmm0,xmm1
+GameAssembly.dll+324962: 0F 82 D5 00 00 00     - jb GameAssembly.dll+324A3D
+GameAssembly.dll+324968: 0F 57 0D 91 36 71 01  - xorps xmm1,[GameAssembly.dll+1A38000]
+GameAssembly.dll+32496F: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+324972: E8 F9 60 0F 00        - call PlayerInventory.AddCoins
+GameAssembly.dll+324977: 66 0F 7E F3           - movd ebx,xmm6
+GameAssembly.dll+32497B: 41 8B 57 70           - mov edx,[r15+70]
+GameAssembly.dll+32497F: 03 D3                 - add edx,ebx
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+324981: 41 89 57 70           - mov [r15+70],edx
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+324985: 48 8B 05 FC BC DE 01  - mov rax,[GameAssembly.dll+2110688]
+GameAssembly.dll+32498C: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+324993: 48 8B 09              - mov rcx,[rcx]
+GameAssembly.dll+324996: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+324999: 0F 84 DE 05 00 00     - je GameAssembly.dll+324F7D
+GameAssembly.dll+32499F: 66 0F 6E D2           - movd xmm2,edx
+GameAssembly.dll+3249A3: 45 33 C9              - xor r9d,r9d
+GameAssembly.dll+3249A6: F3 0F E6 D2           - cvtdq2pd xmm2,xmm2
+GameAssembly.dll+3249AA: BA 07 00 00 00        - mov edx,00000007
+GameAssembly.dll+3249AF: E8 3C 48 F9 FF        - call AchievementManager.CheckUnlockByType
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>8</ID>
+              <Description>"+1.000.000lv on upgrade weapons"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,41 89 57 70 48 8B 05 FC BC DE 01) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [r15+70],(int)1000000
+  //mov [r15+70],edx
+  mov rax,[GameAssembly.dll+2110688]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 6
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 41 89 57 70 48 8B 05 FC BC DE 01
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+324981
+
+GameAssembly.dll+324957: 0F 28 CE              - movaps xmm1,xmm6
+GameAssembly.dll+32495A: 66 0F 15 CE           - unpckhpd xmm1,xmm6
+GameAssembly.dll+32495E: 66 0F 2F C1           - comisd xmm0,xmm1
+GameAssembly.dll+324962: 0F 82 D5 00 00 00     - jb GameAssembly.dll+324A3D
+GameAssembly.dll+324968: 0F 57 0D 91 36 71 01  - xorps xmm1,[GameAssembly.dll+1A38000]
+GameAssembly.dll+32496F: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+324972: E8 F9 60 0F 00        - call PlayerInventory.AddCoins
+GameAssembly.dll+324977: 66 0F 7E F3           - movd ebx,xmm6
+GameAssembly.dll+32497B: 41 8B 57 70           - mov edx,[r15+70]
+GameAssembly.dll+32497F: 03 D3                 - add edx,ebx
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+324981: 41 89 57 70           - mov [r15+70],edx
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+324985: 48 8B 05 FC BC DE 01  - mov rax,[GameAssembly.dll+2110688]
+GameAssembly.dll+32498C: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+324993: 48 8B 09              - mov rcx,[rcx]
+GameAssembly.dll+324996: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+324999: 0F 84 DE 05 00 00     - je GameAssembly.dll+324F7D
+GameAssembly.dll+32499F: 66 0F 6E D2           - movd xmm2,edx
+GameAssembly.dll+3249A3: 45 33 C9              - xor r9d,r9d
+GameAssembly.dll+3249A6: F3 0F E6 D2           - cvtdq2pd xmm2,xmm2
+GameAssembly.dll+3249AA: BA 07 00 00 00        - mov edx,00000007
+GameAssembly.dll+3249AF: E8 3C 48 F9 FF        - call AchievementManager.CheckUnlockByType
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>38</ID>
+              <Description>"+10.000.000lv on upgrade weapons"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,41 89 57 70 48 8B 05 FC BC DE 01) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [r15+70],(int)10000000
+  //mov [r15+70],edx
+  mov rax,[GameAssembly.dll+2110688]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 6
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 41 89 57 70 48 8B 05 FC BC DE 01
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+324981
+
+GameAssembly.dll+324957: 0F 28 CE              - movaps xmm1,xmm6
+GameAssembly.dll+32495A: 66 0F 15 CE           - unpckhpd xmm1,xmm6
+GameAssembly.dll+32495E: 66 0F 2F C1           - comisd xmm0,xmm1
+GameAssembly.dll+324962: 0F 82 D5 00 00 00     - jb GameAssembly.dll+324A3D
+GameAssembly.dll+324968: 0F 57 0D 91 36 71 01  - xorps xmm1,[GameAssembly.dll+1A38000]
+GameAssembly.dll+32496F: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+324972: E8 F9 60 0F 00        - call PlayerInventory.AddCoins
+GameAssembly.dll+324977: 66 0F 7E F3           - movd ebx,xmm6
+GameAssembly.dll+32497B: 41 8B 57 70           - mov edx,[r15+70]
+GameAssembly.dll+32497F: 03 D3                 - add edx,ebx
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+324981: 41 89 57 70           - mov [r15+70],edx
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+324985: 48 8B 05 FC BC DE 01  - mov rax,[GameAssembly.dll+2110688]
+GameAssembly.dll+32498C: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+324993: 48 8B 09              - mov rcx,[rcx]
+GameAssembly.dll+324996: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+324999: 0F 84 DE 05 00 00     - je GameAssembly.dll+324F7D
+GameAssembly.dll+32499F: 66 0F 6E D2           - movd xmm2,edx
+GameAssembly.dll+3249A3: 45 33 C9              - xor r9d,r9d
+GameAssembly.dll+3249A6: F3 0F E6 D2           - cvtdq2pd xmm2,xmm2
+GameAssembly.dll+3249AA: BA 07 00 00 00        - mov edx,00000007
+GameAssembly.dll+3249AF: E8 3C 48 F9 FF        - call AchievementManager.CheckUnlockByType
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>40</ID>
+              <Description>"+100.000.000lv on upgrade weapons"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,41 89 57 70 48 8B 05 FC BC DE 01) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [r15+70],(int)100000000
+  //mov [r15+70],edx
+  mov rax,[GameAssembly.dll+2110688]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 6
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 41 89 57 70 48 8B 05 FC BC DE 01
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+324981
+
+GameAssembly.dll+324957: 0F 28 CE              - movaps xmm1,xmm6
+GameAssembly.dll+32495A: 66 0F 15 CE           - unpckhpd xmm1,xmm6
+GameAssembly.dll+32495E: 66 0F 2F C1           - comisd xmm0,xmm1
+GameAssembly.dll+324962: 0F 82 D5 00 00 00     - jb GameAssembly.dll+324A3D
+GameAssembly.dll+324968: 0F 57 0D 91 36 71 01  - xorps xmm1,[GameAssembly.dll+1A38000]
+GameAssembly.dll+32496F: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+324972: E8 F9 60 0F 00        - call PlayerInventory.AddCoins
+GameAssembly.dll+324977: 66 0F 7E F3           - movd ebx,xmm6
+GameAssembly.dll+32497B: 41 8B 57 70           - mov edx,[r15+70]
+GameAssembly.dll+32497F: 03 D3                 - add edx,ebx
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+324981: 41 89 57 70           - mov [r15+70],edx
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+324985: 48 8B 05 FC BC DE 01  - mov rax,[GameAssembly.dll+2110688]
+GameAssembly.dll+32498C: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+324993: 48 8B 09              - mov rcx,[rcx]
+GameAssembly.dll+324996: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+324999: 0F 84 DE 05 00 00     - je GameAssembly.dll+324F7D
+GameAssembly.dll+32499F: 66 0F 6E D2           - movd xmm2,edx
+GameAssembly.dll+3249A3: 45 33 C9              - xor r9d,r9d
+GameAssembly.dll+3249A6: F3 0F E6 D2           - cvtdq2pd xmm2,xmm2
+GameAssembly.dll+3249AA: BA 07 00 00 00        - mov edx,00000007
+GameAssembly.dll+3249AF: E8 3C 48 F9 FF        - call AchievementManager.CheckUnlockByType
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>47</ID>
+          <Description>"Coins"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>46</ID>
+              <Description>"Coins"</Description>
+              <LastState Value="-1.40981897184671E-218" RealAddress="7FFA4F3EAAC3"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>Double</VariableType>
+              <Address>GameAssembly.dll+41AAC3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>3</ID>
+              <Description>"Coins will freeze"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F2 0F 11 43 20 E8 B3) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rbx+20],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 43 20
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+41AAC3
+
+GameAssembly.dll+41AA91: E8 CA 48 DA FF        - call GameAssembly.il2cpp_get_exception_argument_null+3D0
+GameAssembly.dll+41AA96: 48 8D 0D 73 61 D0 01  - lea rcx,[GameAssembly.dll+2120C10]
+GameAssembly.dll+41AA9D: E8 BE 48 DA FF        - call GameAssembly.il2cpp_get_exception_argument_null+3D0
+GameAssembly.dll+41AAA2: 48 8D 0D 5F 17 D1 01  - lea rcx,[GameAssembly.dll+212C208]
+GameAssembly.dll+41AAA9: E8 B2 48 DA FF        - call GameAssembly.il2cpp_get_exception_argument_null+3D0
+GameAssembly.dll+41AAAE: C6 05 8D F8 E2 01 01  - mov byte ptr [GameAssembly.dll+224A342],01
+GameAssembly.dll+41AAB5: 0F 28 C6              - movaps xmm0,xmm6
+GameAssembly.dll+41AAB8: 48 8D 4B 20           - lea rcx,[rbx+20]
+GameAssembly.dll+41AABC: F2 0F 58 43 20        - addsd xmm0,[rbx+20]
+GameAssembly.dll+41AAC1: 33 D2                 - xor edx,edx
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+41AAC3: F2 0F 11 43 20        - movsd [rbx+20],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+41AAC8: E8 B3 92 B3 00        - call System.Double.ToString
+GameAssembly.dll+41AACD: 48 8B 0D 34 17 D1 01  - mov rcx,[GameAssembly.dll+212C208]
+GameAssembly.dll+41AAD4: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+41AAD7: 48 8B D0              - mov rdx,rax
+GameAssembly.dll+41AADA: E8 11 56 F0 FF        - call SaveManager.SetString
+GameAssembly.dll+41AADF: 0F 57 C0              - xorps xmm0,xmm0
+GameAssembly.dll+41AAE2: 66 0F 2F F0           - comisd xmm6,xmm0
+GameAssembly.dll+41AAE6: 76 4F                 - jna GameAssembly.dll+41AB37
+GameAssembly.dll+41AAE8: F2 0F 58 73 28        - addsd xmm6,[rbx+28]
+GameAssembly.dll+41AAED: 48 8D 4B 28           - lea rcx,[rbx+28]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>78</ID>
+              <Description>"Coins - won't reset on Ascend"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,4C 89 60 20 33 D2) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rax+20],r12
+  xor edx,edx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 4C 89 60 20 33 D2
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+2DFF56
+
+GameAssembly.dll+2DFF22: 0F 84 9A 07 00 00     - je GameAssembly.dll+2E06C2
+GameAssembly.dll+2DFF28: 48 8B 88 68 01 00 00  - mov rcx,[rax+00000168]
+GameAssembly.dll+2DFF2F: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+2DFF32: 0F 84 8A 07 00 00     - je GameAssembly.dll+2E06C2
+GameAssembly.dll+2DFF38: 44 89 61 50           - mov [rcx+50],r12d
+GameAssembly.dll+2DFF3C: 48 8B 05 95 30 E2 01  - mov rax,[GameAssembly.dll+2102FD8]
+GameAssembly.dll+2DFF43: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+2DFF4A: 48 8B 01              - mov rax,[rcx]
+GameAssembly.dll+2DFF4D: 48 85 C0              - test rax,rax
+GameAssembly.dll+2DFF50: 0F 84 6C 07 00 00     - je GameAssembly.dll+2E06C2
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+2DFF56: 4C 89 60 20           - mov [rax+20],r12
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+2DFF5A: 33 D2                 - xor edx,edx
+GameAssembly.dll+2DFF5C: 48 8B 0D A5 C2 E4 01  - mov rcx,[GameAssembly.dll+212C208]
+GameAssembly.dll+2DFF63: E8 38 F7 03 00        - call GameAssembly.dll+31F6A0
+GameAssembly.dll+2DFF68: 45 38 65 18           - cmp [r13+18],r12b
+GameAssembly.dll+2DFF6C: 75 66                 - jne GameAssembly.dll+2DFFD4
+GameAssembly.dll+2DFF6E: 48 8B 15 C3 24 E3 01  - mov rdx,[GameAssembly.dll+2112438]
+GameAssembly.dll+2DFF75: 48 8B 82 B8 00 00 00  - mov rax,[rdx+000000B8]
+GameAssembly.dll+2DFF7C: F2 0F 10 40 08        - movsd xmm0,[rax+08]
+GameAssembly.dll+2DFF81: F2 0F 58 00           - addsd xmm0,[rax]
+GameAssembly.dll+2DFF85: F2 0F 11 00           - movsd [rax],xmm0
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>25</ID>
+          <Description>"Slayer Points"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>15</ID>
+              <Description>"Slayer Points - in game"</Description>
+              <LastState Value="-9.5306407472121E29" RealAddress="7FFA4F2F91E7"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>Double</VariableType>
+              <Address>GameAssembly.dll+3291E7</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17</ID>
+              <Description>"Slayer Points - won't reset on Ascend"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,4C 89 61 08 33 C9) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rcx+08],r12
+  xor ecx,ecx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 4C 89 61 08 33 C9
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+2DFFB4
+
+GameAssembly.dll+2DFF7C: F2 0F 10 40 08        - movsd xmm0,[rax+08]
+GameAssembly.dll+2DFF81: F2 0F 58 00           - addsd xmm0,[rax]
+GameAssembly.dll+2DFF85: F2 0F 11 00           - movsd [rax],xmm0
+GameAssembly.dll+2DFF89: 48 8B 15 A8 24 E3 01  - mov rdx,[GameAssembly.dll+2112438]
+GameAssembly.dll+2DFF90: 48 8B 82 B8 00 00 00  - mov rax,[rdx+000000B8]
+GameAssembly.dll+2DFF97: F2 0F 10 40 10        - movsd xmm0,[rax+10]
+GameAssembly.dll+2DFF9C: F2 0F 58 40 08        - addsd xmm0,[rax+08]
+GameAssembly.dll+2DFFA1: F2 0F 11 40 10        - movsd [rax+10],xmm0
+GameAssembly.dll+2DFFA6: 48 8B 05 8B 24 E3 01  - mov rax,[GameAssembly.dll+2112438]
+GameAssembly.dll+2DFFAD: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+2DFFB4: 4C 89 61 08           - mov [rcx+08],r12
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+2DFFB8: 33 C9                 - xor ecx,ecx
+GameAssembly.dll+2DFFBA: E8 D1 95 04 00        - call GameAssembly.dll+329590
+GameAssembly.dll+2DFFBF: 48 8B 05 72 24 E3 01  - mov rax,[GameAssembly.dll+2112438]
+GameAssembly.dll+2DFFC6: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+2DFFCD: F2 0F 11 41 18        - movsd [rcx+18],xmm0
+GameAssembly.dll+2DFFD2: EB 56                 - jmp GameAssembly.dll+2E002A
+GameAssembly.dll+2DFFD4: 33 C9                 - xor ecx,ecx
+GameAssembly.dll+2DFFD6: E8 65 97 04 00        - call GameAssembly.dll+329740
+GameAssembly.dll+2DFFDB: 48 8B 15 AE 22 E4 01  - mov rdx,[GameAssembly.dll+2122290]
+GameAssembly.dll+2DFFE2: 33 C9                 - xor ecx,ecx
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>27</ID>
+              <Description>"Slayer Points - Total (type double)"</Description>
+              <LastState Value="3.57211057131946E41" RealAddress="7FFA4F2F70F8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>Double</VariableType>
+              <Address>GameAssembly.dll+3270F8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>21</ID>
+              <Description>"Slayer Points - won't decrease on Upgrade"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F2 0F 11 00 0F 57 C0) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rax],xmm0
+  xorps xmm0,xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 00 0F 57 C0
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+3270F8
+
+GameAssembly.dll+3270C8: E8 73 7A FE FF        - call GameAssembly.dll+30EB40
+GameAssembly.dll+3270CD: 48 8B 4D 18           - mov rcx,[rbp+18]
+GameAssembly.dll+3270D1: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+3270D4: BA 01 00 00 00        - mov edx,00000001
+GameAssembly.dll+3270D9: E8 B2 8F FF FF        - call GameAssembly.dll+320090
+GameAssembly.dll+3270DE: 48 8B 0D 53 B3 DE 01  - mov rcx,[GameAssembly.dll+2112438]
+GameAssembly.dll+3270E5: 45 33 ED              - xor r13d,r13d
+GameAssembly.dll+3270E8: 48 8B 81 B8 00 00 00  - mov rax,[rcx+000000B8]
+GameAssembly.dll+3270EF: F2 0F 10 00           - movsd xmm0,[rax]
+GameAssembly.dll+3270F3: F2 0F 5C 45 48        - subsd xmm0,[rbp+48]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+3270F8: F2 0F 11 00           - movsd [rax],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+3270FC: 0F 57 C0              - xorps xmm0,xmm0
+GameAssembly.dll+3270FF: 48 8B 0D 32 B3 DE 01  - mov rcx,[GameAssembly.dll+2112438]
+GameAssembly.dll+327106: 48 8B 81 B8 00 00 00  - mov rax,[rcx+000000B8]
+GameAssembly.dll+32710D: 66 0F 2F 00           - comisd xmm0,[rax]
+GameAssembly.dll+327111: 72 0A                 - jb GameAssembly.dll+32711D
+GameAssembly.dll+327113: 4C 89 28              - mov [rax],r13
+GameAssembly.dll+327116: 48 8B 0D 1B B3 DE 01  - mov rcx,[GameAssembly.dll+2112438]
+GameAssembly.dll+32711D: 48 8B 89 B8 00 00 00  - mov rcx,[rcx+000000B8]
+GameAssembly.dll+327124: 33 D2                 - xor edx,edx
+GameAssembly.dll+327126: E8 55 CC C2 00        - call GameAssembly.dll+F53D80
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>59</ID>
+          <Description>"Ultra Slayer Points"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>60</ID>
+              <Description>"Ultra Slayer Points"</Description>
+              <LastState Value="5.87165125942631E-282" RealAddress="7FFA4F30B10D"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>Double</VariableType>
+              <Address>GameAssembly.dll+33B10D</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>58</ID>
+              <Description>"Ultra Slayer Points - won't decrease on use"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,D2 F2 0F 11 40 10) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rax+10],xmm0
+  jmp return
+
+INJECT+01:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT+01:
+  db F2 0F 11 40 10
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+33B10D
+
+GameAssembly.dll+33B0D9: 48 8B 05 78 99 DC 01  - mov rax,[GameAssembly.dll+2104A58]
+GameAssembly.dll+33B0E0: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+33B0E7: 48 8B 11              - mov rdx,[rcx]
+GameAssembly.dll+33B0EA: 48 85 D2              - test rdx,rdx
+GameAssembly.dll+33B0ED: 0F 84 04 01 00 00     - je GameAssembly.dll+33B1F7
+GameAssembly.dll+33B0F3: 48 8B 0D 96 71 DE 01  - mov rcx,[GameAssembly.dll+2122290]
+GameAssembly.dll+33B0FA: 48 8B 81 B8 00 00 00  - mov rax,[rcx+000000B8]
+GameAssembly.dll+33B101: F2 0F 10 40 10        - movsd xmm0,[rax+10]
+GameAssembly.dll+33B106: F2 0F 5C 42 48        - subsd xmm0,[rdx+48]
+GameAssembly.dll+33B10B: 33 D2                 - xor edx,edx
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+33B10D: F2 0F 11 40 10        - movsd [rax+10],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+33B112: 48 8B 05 77 71 DE 01  - mov rax,[GameAssembly.dll+2122290]
+GameAssembly.dll+33B119: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+33B120: 48 83 C1 10           - add rcx,10
+GameAssembly.dll+33B124: E8 57 8C C1 00        - call GameAssembly.dll+F53D80
+GameAssembly.dll+33B129: 48 8B 0D 38 47 DF 01  - mov rcx,[GameAssembly.dll+212F868]
+GameAssembly.dll+33B130: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+33B133: 48 8B D0              - mov rdx,rax
+GameAssembly.dll+33B136: E8 B5 4F FE FF        - call GameAssembly.dll+3200F0
+GameAssembly.dll+33B13B: 48 8B 05 16 99 DC 01  - mov rax,[GameAssembly.dll+2104A58]
+GameAssembly.dll+33B142: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>48</ID>
+          <Description>"Minigame - Don't Fall!"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>29</ID>
+              <Description>"Collected"</Description>
+              <LastState Value="-4.07724034718602E-289" RealAddress="7FFA4F349A71"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>Double</VariableType>
+              <Address>GameAssembly.dll+379A71</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>32</ID>
+              <Description>"Timer freeze"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F3 0F 11 73 68) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rbx+68],xmm6
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 73 68
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+37ACD6
+
+GameAssembly.dll+37ACA9: E8 D2 FC FF FF        - call BonusMapController.TextScaleAnimation
+GameAssembly.dll+37ACAE: 48 8B 0D 93 7B DB 01  - mov rcx,[GameAssembly.dll+2132848]
+GameAssembly.dll+37ACB5: 48 8B 81 B8 00 00 00  - mov rax,[rcx+000000B8]
+GameAssembly.dll+37ACBC: 83 38 01              - cmp dword ptr [rax],01
+GameAssembly.dll+37ACBF: 75 26                 - jne GameAssembly.dll+37ACE7
+GameAssembly.dll+37ACC1: 0F 29 74 24 30        - movaps [rsp+30],xmm6
+GameAssembly.dll+37ACC6: 33 C9                 - xor ecx,ecx
+GameAssembly.dll+37ACC8: F3 0F 10 73 68        - movss xmm6,[rbx+68]
+GameAssembly.dll+37ACCD: E8 8E DE 3E 01        - call UnityEngine.Time.get_deltaTime
+GameAssembly.dll+37ACD2: F3 0F 5C F0           - subss xmm6,xmm0
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+37ACD6: F3 0F 11 73 68        - movss [rbx+68],xmm6
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+37ACDB: 48 8B 0D 66 7B DB 01  - mov rcx,[GameAssembly.dll+2132848]
+GameAssembly.dll+37ACE2: 0F 28 74 24 30        - movaps xmm6,[rsp+30]
+GameAssembly.dll+37ACE7: 0F 57 D2              - xorps xmm2,xmm2
+GameAssembly.dll+37ACEA: 0F 2F 53 68           - comiss xmm2,[rbx+68]
+GameAssembly.dll+37ACEE: 0F 82 D9 00 00 00     - jb GameAssembly.dll+37ADCD
+GameAssembly.dll+37ACF4: 48 8B 81 B8 00 00 00  - mov rax,[rcx+000000B8]
+GameAssembly.dll+37ACFB: 83 38 01              - cmp dword ptr [rax],01
+GameAssembly.dll+37ACFE: 0F 85 C9 00 00 00     - jne GameAssembly.dll+37ADCD
+GameAssembly.dll+37AD04: C7 43 68 00 00 00 00  - mov [rbx+68],00000000
+GameAssembly.dll+37AD0B: 48 8B 05 36 7B DB 01  - mov rax,[GameAssembly.dll+2132848]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>33</ID>
+              <Description>"Timer freeze on fall"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F3 0F 11 43 68 E8) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rbx+68],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 43 68
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+37A1EE
+
+GameAssembly.dll+37A1C7: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
+GameAssembly.dll+37A1CE: 48 8B 01                 - mov rax,[rcx]
+GameAssembly.dll+37A1D1: 48 85 C0                 - test rax,rax
+GameAssembly.dll+37A1D4: 74 7A                    - je GameAssembly.dll+37A250
+GameAssembly.dll+37A1D6: 80 78 40 00              - cmp byte ptr [rax+40],00
+GameAssembly.dll+37A1DA: 75 6E                    - jne GameAssembly.dll+37A24A
+GameAssembly.dll+37A1DC: F3 0F 10 43 68           - movss xmm0,[rbx+68]
+GameAssembly.dll+37A1E1: 33 D2                    - xor edx,edx
+GameAssembly.dll+37A1E3: F3 0F 5C 05 AD D9 6B 01  - subss xmm0,[GameAssembly.dll+1A37B98]
+GameAssembly.dll+37A1EB: 48 8B CB                 - mov rcx,rbx
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+37A1EE: F3 0F 11 43 68           - movss [rbx+68],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+37A1F3: E8 D8 FE FF FF           - call BonusMapController.BlinkRedTimer
+GameAssembly.dll+37A1F8: 48 8B 05 D9 8B D8 01     - mov rax,[GameAssembly.dll+2102DD8]
+GameAssembly.dll+37A1FF: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
+GameAssembly.dll+37A206: 48 8B 09                 - mov rcx,[rcx]
+GameAssembly.dll+37A209: 48 85 C9                 - test rcx,rcx
+GameAssembly.dll+37A20C: 74 42                    - je GameAssembly.dll+37A250
+GameAssembly.dll+37A20E: F3 0F 10 0D 82 D9 6B 01  - movss xmm1,[GameAssembly.dll+1A37B98]
+GameAssembly.dll+37A216: 45 33 C0                 - xor r8d,r8d
+GameAssembly.dll+37A219: E8 92 FF 09 00           - call PlayerBehaviour.DamageTakenEffect
+GameAssembly.dll+37A21E: 48 8B 05 93 AC D9 01     - mov rax,[GameAssembly.dll+2114EB8]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>42</ID>
+              <Description>"Fallen count = 0"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,UnityPlayer.dll,F0 4D 0F C1 A6 C0 00 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [r14+000000C0],0
+  //xadd [r14+000000C0],r12
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 4
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F0 4D 0F C1 A6 C0 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: UnityPlayer.dll+BB7940
+
+UnityPlayer.dll+BB7916: 48 85 C9                    - test rcx,rcx
+UnityPlayer.dll+BB7919: 74 09                       - je UnityPlayer.dll+BB7924
+UnityPlayer.dll+BB791B: 48 83 C1 08                 - add rcx,08
+UnityPlayer.dll+BB791F: E8 DC AA 78 FF              - call UnityPlayer.dll+342400
+UnityPlayer.dll+BB7924: 49 8B 07                    - mov rax,[r15]
+UnityPlayer.dll+BB7927: 48 85 C0                    - test rax,rax
+UnityPlayer.dll+BB792A: 0F 84 02 04 00 00           - je UnityPlayer.dll+BB7D32
+UnityPlayer.dll+BB7930: 48 39 78 10                 - cmp [rax+10],rdi
+UnityPlayer.dll+BB7934: 0F 84 F8 03 00 00           - je UnityPlayer.dll+BB7D32
+UnityPlayer.dll+BB793A: 41 BC 01 00 00 00           - mov r12d,00000001
+// ---------- INJECTING HERE ----------
+UnityPlayer.dll+BB7940: F0 4D 0F C1 A6 C0 00 00 00  - lock xadd [r14+000000C0],r12
+// ---------- DONE INJECTING  ----------
+UnityPlayer.dll+BB7949: E9 E4 03 00 00              - jmp UnityPlayer.dll+BB7D32
+UnityPlayer.dll+BB794E: 48 8B 4B 30                 - mov rcx,[rbx+30]
+UnityPlayer.dll+BB7952: 48 89 4D C8                 - mov [rbp-38],rcx
+UnityPlayer.dll+BB7956: 48 85 C9                    - test rcx,rcx
+UnityPlayer.dll+BB7959: 0F 84 D3 03 00 00           - je UnityPlayer.dll+BB7D32
+UnityPlayer.dll+BB795F: 48 63 41 40                 - movsxd  rax,dword ptr [rcx+40]
+UnityPlayer.dll+BB7963: 48 89 45 B8                 - mov [rbp-48],rax
+UnityPlayer.dll+BB7967: 48 85 C0                    - test rax,rax
+UnityPlayer.dll+BB796A: 0F 8E C2 03 00 00           - jng UnityPlayer.dll+BB7D32
+UnityPlayer.dll+BB7970: 4C 8B E7                    - mov r12,rdi
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>54</ID>
+          <Description>"Minigame - Chest Hunt"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>53</ID>
+              <Description>"Chest opened"</Description>
+              <LastState Value="-2.61779118133379E-254" RealAddress="7FFA4F364CBE"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>Double</VariableType>
+              <Address>GameAssembly.dll+394CBE</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>52</ID>
+              <Description>"Chest opened = 30"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-28
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,FF 86 1C 01 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rsi+0000011C],30
+  //inc [rsi+0000011C]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db FF 86 1C 01 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+394CBE
+
+GameAssembly.dll+394C85: 4C 89 A4 24 C8 00 00 00  - mov [rsp+000000C8],r12
+GameAssembly.dll+394C8D: 4C 89 AC 24 80 00 00 00  - mov [rsp+00000080],r13
+GameAssembly.dll+394C95: 0F 29 74 24 70           - movaps [rsp+70],xmm6
+GameAssembly.dll+394C9A: 0F 29 7C 24 60           - movaps [rsp+60],xmm7
+GameAssembly.dll+394C9F: 44 0F 29 44 24 50        - movaps [rsp+50],xmm8
+GameAssembly.dll+394CA5: 85 C0                    - test eax,eax
+GameAssembly.dll+394CA7: 0F 85 0B 18 00 00        - jne GameAssembly.dll+3964B8
+GameAssembly.dll+394CAD: 41 C7 46 10 FF FF FF FF  - mov [r14+10],FFFFFFFF
+GameAssembly.dll+394CB5: 48 85 F6                 - test rsi,rsi
+GameAssembly.dll+394CB8: 0F 84 69 1A 00 00        - je GameAssembly.dll+396727
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+394CBE: FF 86 1C 01 00 00        - inc [rsi+0000011C]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+394CC4: 48 8B 8E 80 00 00 00     - mov rcx,[rsi+00000080]
+GameAssembly.dll+394CCB: 48 85 C9                 - test rcx,rcx
+GameAssembly.dll+394CCE: 0F 84 53 1A 00 00        - je GameAssembly.dll+396727
+GameAssembly.dll+394CD4: 4C 8B 01                 - mov r8,[rcx]
+GameAssembly.dll+394CD7: 48 8D 55 F7              - lea rdx,[rbp-09]
+GameAssembly.dll+394CDB: 66 0F 6F 05 DD 30 6A 01  - movdqa xmm0,[GameAssembly.dll+1A37DC0]
+GameAssembly.dll+394CE3: 66 0F 7F 45 F7           - movdqa [rbp-09],xmm0
+GameAssembly.dll+394CE8: 49 8B 80 A8 02 00 00     - mov rax,[r8+000002A8]
+GameAssembly.dll+394CEF: 4D 8B 80 B0 02 00 00     - mov r8,[r8+000002B0]
+GameAssembly.dll+394CF6: FF D0                    - call rax
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>69</ID>
+          <Description>"Divinities"</Description>
+          <LastState Value="1.12147532798639E-311" RealAddress="7FFA4F38772A"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+3B772A</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>100</ID>
+          <Description>"Craft Items Timer - freeze"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-09-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F2 0F 11 87 88 00 00 00 EB) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rdi+00000088],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 87 88 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+32DD94
+
+GameAssembly.dll+32DD5E: C6 05 89 BD F1 01 01              - mov byte ptr [GameAssembly.dll+2249AEE],01
+GameAssembly.dll+32DD65: 0F 57 C9                          - xorps xmm1,xmm1
+GameAssembly.dll+32DD68: 66 0F 2F 8F 88 00 00 00           - comisd xmm1,[rdi+00000088]
+GameAssembly.dll+32DD70: 0F 83 9F 00 00 00                 - jae GameAssembly.dll+32DE15
+GameAssembly.dll+32DD76: F2 0F 10 87 88 00 00 00           - movsd xmm0,[rdi+00000088]
+GameAssembly.dll+32DD7E: F2 0F 5C C6                       - subsd xmm0,xmm6
+GameAssembly.dll+32DD82: 66 0F 2F C8                       - comisd xmm1,xmm0
+GameAssembly.dll+32DD86: 73 16                             - jae GameAssembly.dll+32DD9E
+GameAssembly.dll+32DD88: F2 0F 10 87 88 00 00 00           - movsd xmm0,[rdi+00000088]
+GameAssembly.dll+32DD90: F2 0F 5C C6                       - subsd xmm0,xmm6
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+32DD94: F2 0F 11 87 88 00 00 00           - movsd [rdi+00000088],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+32DD9C: EB 4D                             - jmp GameAssembly.dll+32DDEB
+GameAssembly.dll+32DD9E: 48 C7 87 88 00 00 00 00 00 00 00  - mov qword ptr [rdi+00000088],00000000
+GameAssembly.dll+32DDA9: 48 8B 05 08 71 DE 01              - mov rax,[GameAssembly.dll+2114EB8]
+GameAssembly.dll+32DDB0: 48 8B 88 B8 00 00 00              - mov rcx,[rax+000000B8]
+GameAssembly.dll+32DDB7: 48 8B 09                          - mov rcx,[rcx]
+GameAssembly.dll+32DDBA: 48 85 C9                          - test rcx,rcx
+GameAssembly.dll+32DDBD: 74 61                             - je GameAssembly.dll+32DE20
+GameAssembly.dll+32DDBF: 48 8B 15 52 E1 DE 01              - mov rdx,[GameAssembly.dll+211BF18]
+GameAssembly.dll+32DDC6: 45 33 C0                          - xor r8d,r8d
+GameAssembly.dll+32DDC9: E8 92 8A FA FF                    - call GameAssembly.dll+2D6860
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>74</ID>
+          <Description>"Materials Giant Enemies/Special - won't decrease on use"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F2 0F 11 41 70 48) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rcx+70],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 41 70
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+3145F8
+
+GameAssembly.dll+3145CE: F2 0F 5C D1           - subsd xmm2,xmm1
+GameAssembly.dll+3145D2: 48 8B D9              - mov rbx,rcx
+GameAssembly.dll+3145D5: 66 0F 2F D0           - comisd xmm2,xmm0
+GameAssembly.dll+3145D9: 0F 82 88 00 00 00     - jb GameAssembly.dll+314667
+GameAssembly.dll+3145DF: F2 0F 10 41 70        - movsd xmm0,[rcx+70]
+GameAssembly.dll+3145E4: 33 D2                 - xor edx,edx
+GameAssembly.dll+3145E6: F2 0F 5C C1           - subsd xmm0,xmm1
+GameAssembly.dll+3145EA: 48 89 74 24 30        - mov [rsp+30],rsi
+GameAssembly.dll+3145EF: 48 89 7C 24 38        - mov [rsp+38],rdi
+GameAssembly.dll+3145F4: 48 8B 79 18           - mov rdi,[rcx+18]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+3145F8: F2 0F 11 41 70        - movsd [rcx+70],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+3145FD: 48 83 C1 70           - add rcx,70
+GameAssembly.dll+314601: E8 7A F7 C3 00        - call GameAssembly.dll+F53D80
+GameAssembly.dll+314606: 80 3D 5E 54 F3 01 00  - cmp byte ptr [GameAssembly.dll+2249A6B],00
+GameAssembly.dll+31460D: 48 8B F0              - mov rsi,rax
+GameAssembly.dll+314610: 75 13                 - jne GameAssembly.dll+314625
+GameAssembly.dll+314612: 48 8D 0D 2F A4 E1 01  - lea rcx,[GameAssembly.dll+212EA48]
+GameAssembly.dll+314619: E8 42 AD EA FF        - call GameAssembly.il2cpp_get_exception_argument_null+3D0
+GameAssembly.dll+31461E: C6 05 46 54 F3 01 01  - mov byte ptr [GameAssembly.dll+2249A6B],01
+GameAssembly.dll+314625: 48 8B 0D 1C A4 E1 01  - mov rcx,[GameAssembly.dll+212EA48]
+GameAssembly.dll+31462C: 83 B9 E0 00 00 00 00  - cmp dword ptr [rcx+000000E0],00
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>73</ID>
+          <Description>"Materials Small Enemies - freeze"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Slayer
+  Version: 
+  Date   : 2025-08-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F2 0F 11 43 70 EB) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rbx+70],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 43 70
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+314241
+
+GameAssembly.dll+31421A: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+31421D: 0F 84 B1 00 00 00     - je GameAssembly.dll+3142D4
+GameAssembly.dll+314223: 48 8B 49 60           - mov rcx,[rcx+60]
+GameAssembly.dll+314227: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+31422A: 0F 84 A4 00 00 00     - je GameAssembly.dll+3142D4
+GameAssembly.dll+314230: 33 D2                 - xor edx,edx
+GameAssembly.dll+314232: E8 19 94 FF FF        - call GameAssembly.dll+30D650
+GameAssembly.dll+314237: EB 12                 - jmp GameAssembly.dll+31424B
+GameAssembly.dll+314239: 0F 28 C6              - movaps xmm0,xmm6
+GameAssembly.dll+31423C: F2 0F 58 43 70        - addsd xmm0,[rbx+70]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+314241: F2 0F 11 43 70        - movsd [rbx+70],xmm0
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+314246: EB 03                 - jmp GameAssembly.dll+31424B
+GameAssembly.dll+314248: 0F 57 F6              - xorps xmm6,xmm6
+GameAssembly.dll+31424B: 48 8B 7B 18           - mov rdi,[rbx+18]
+GameAssembly.dll+31424F: 48 8D 4B 70           - lea rcx,[rbx+70]
+GameAssembly.dll+314253: 33 D2                 - xor edx,edx
+GameAssembly.dll+314255: E8 26 FB C3 00        - call GameAssembly.dll+F53D80
+GameAssembly.dll+31425A: 80 3D 0A 58 F3 01 00  - cmp byte ptr [GameAssembly.dll+2249A6B],00
+GameAssembly.dll+314261: 48 8B F0              - mov rsi,rax
+GameAssembly.dll+314264: 75 13                 - jne GameAssembly.dll+314279
+GameAssembly.dll+314266: 48 8D 0D DB A7 E1 01  - lea rcx,[GameAssembly.dll+212EA48]
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>49</ID>
+      <Description>"Achievements (type double)"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>71</ID>
+          <Description>"Ascend --- times"</Description>
+          <LastState Value="5.87097264812628E-282" RealAddress="7FFA4F2B025D"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+2E025D </Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>103</ID>
+          <Description>"Complete --- Daily Quests"</Description>
+          <LastState Value="1.80051398109527E-311" RealAddress="7FFA4F2E363D"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+31363D</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>98</ID>
+          <Description>"Craft a total of --- Temporary Items"</Description>
+          <LastState Value="1.69865818312894E-311" RealAddress="7FFA4F2FDA6E"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+32DA6E</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>102</ID>
+          <Description>"Get a total of --- Missions done by your Minions"</Description>
+          <LastState Value="9.68691631036888E-312" RealAddress="7FFA4F2E7520"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+317520</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"Pick up --- Coins"</Description>
+          <LastState Value="5.87113030081948E-282" RealAddress="7FFA4F3F3F93"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+423F93</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>41</ID>
+          <Description>"Pick up --- Rubies"</Description>
+          <LastState Value="5.87115656985501E-282" RealAddress="7FFA4F3F4010"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+424010</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>65</ID>
+          <Description>"Pick up --- Sapphires"</Description>
+          <LastState Value="5.87118283889054E-282" RealAddress="7FFA4F3F408D"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+42408D</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>83</ID>
+          <Description>"Pick up --- Emeralds"</Description>
+          <LastState Value="5.87120910792607E-282" RealAddress="7FFA4F3F410A"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+42410A</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>84</ID>
+          <Description>"Pick up --- Diamonds"</Description>
+          <LastState Value="2.72701878738454E-312" RealAddress="7FFA4F3F418A"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+42418A</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>35</ID>
+          <Description>"Slay --- enemies"</Description>
+          <LastState Value="6.97101036931508E-312" RealAddress="7FFA4F3F14B9"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+4214B9</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>50</ID>
+          <Description>"Slay --- enemies with the Bow"</Description>
+          <LastState Value="7.31028102448777E-312" RealAddress="7FFA4F28EF2C"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+2BEF2C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>44</ID>
+          <Description>"Trigger --- Random Boxes"</Description>
+          <LastState Value="4.424366748775E-312" RealAddress="7FFA4F2EBF22"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+31BF22</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>37</ID>
+          <Description>"Use --- Portals"</Description>
+          <LastState Value="5.44292472843833E-312" RealAddress="7FFA4F2D1B1C"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+301B1C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>97</ID>
+          <Description>"Use Rage Mode --- times"</Description>
+          <LastState Value="1.71563414945666E-311" RealAddress="7FFA4F2D5D3C"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+305D3C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>30</ID>
+          <Description>"Use the Boost --- times"</Description>
+          <LastState Value="5.61268439171555E-312" RealAddress="7FFA4F34BF58"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Double</VariableType>
+          <Address>GameAssembly.dll+37BF58</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>56</ID>
+      <Description>"======================================================================================="</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>96</ID>
+      <Description>"No Description"</Description>
+      <VariableType>Double</VariableType>
+      <Address>252BE9B4638</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of movss [rbx+34],xmm6</Description>
+      <AddressString>GameAssembly.dll+3201AE</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>73</Byte>
+        <Byte>34</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>73</Byte>
+        <Byte>38</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rbx+38],xmm6</Description>
+      <AddressString>GameAssembly.dll+3201C8</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>73</Byte>
+        <Byte>38</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>57</Byte>
+        <Byte>F6</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rdi+50],xmm6</Description>
+      <AddressString>GameAssembly.dll+405DA2</AddressString>
+      <Before>
+        <Byte>01</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>77</Byte>
+        <Byte>50</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>74</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rbx+4C],xmm0</Description>
+      <AddressString>GameAssembly.dll+4048E3</AddressString>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+        <Byte>45</Byte>
+        <Byte>33</Byte>
+        <Byte>C0</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>4C</Byte>
+      </Actual>
+      <After>
+        <Byte>B2</Byte>
+        <Byte>01</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of db -09</Description>
+      <AddressString>GameAssembly.dll+31D8DB</AddressString>
+      <Before>
+        <Byte>C8</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>F1</Byte>
+      </Before>
+      <Actual>
+        <Byte>F7</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>73</Byte>
+        <Byte>58</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movsd [rdi+00000088],xmm0</Description>
+      <AddressString>GameAssembly.dll+32DD94</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>C6</Byte>
+      </Before>
+      <Actual>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>87</Byte>
+        <Byte>88</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>EB</Byte>
+        <Byte>4D</Byte>
+        <Byte>48</Byte>
+        <Byte>C7</Byte>
+        <Byte>87</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

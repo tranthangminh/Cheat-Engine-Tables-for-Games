@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Ammo"</Description>
+      <LastState Value="1880394086" RealAddress="0090573A"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>mslugx.exe+5573A</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Ammo"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Metal Slug X
+  Version: 
+  Date   : 2025-09-11
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,mslugx.exe,66 89 14 70 5E) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [eax+esi*2],dx
+  pop esi
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 66 89 14 70 5E
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: mslugx.exe+5573A
+
+mslugx.exe+55713: 81 E2 FF 7F 00 00     - and edx,00007FFF
+mslugx.exe+55719: 84 D2                 - test dl,dl
+mslugx.exe+5571B: 74 0F                 - je mslugx.exe+5572C
+mslugx.exe+5571D: 83 3D F4 99 99 00 00  - cmp dword ptr [mslugx.exe+E99F4],00
+mslugx.exe+55724: 75 06                 - jne mslugx.exe+5572C
+mslugx.exe+55726: 81 E2 00 FF 00 00     - and edx,0000FF00
+mslugx.exe+5572C: A1 DC 9B 99 00        - mov eax,[mslugx.exe+E9BDC]
+mslugx.exe+55731: D1 EE                 - shr esi,1
+mslugx.exe+55733: 81 E6 FF 7F 00 00     - and esi,00007FFF
+mslugx.exe+55739: 5F                    - pop edi
+// ---------- INJECTING HERE ----------
+mslugx.exe+5573A: 66 89 14 70           - mov [eax+esi*2],dx
+// ---------- DONE INJECTING  ----------
+mslugx.exe+5573E: 5E                    - pop esi
+mslugx.exe+5573F: C3                    - ret 
+mslugx.exe+55740: 83 FF 0C              - cmp edi,0C
+mslugx.exe+55743: 75 09                 - jne mslugx.exe+5574E
+mslugx.exe+55745: 5F                    - pop edi
+mslugx.exe+55746: 8B CE                 - mov ecx,esi
+mslugx.exe+55748: 5E                    - pop esi
+mslugx.exe+55749: E9 D2 6A 03 00        - jmp mslugx.exe+8C220
+mslugx.exe+5574E: 83 FF 08              - cmp edi,08
+mslugx.exe+55751: 75 07                 - jne mslugx.exe+5575A
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

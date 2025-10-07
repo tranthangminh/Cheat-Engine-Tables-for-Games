@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>17</ID>
+      <Description>"DELETABLE Addresses"</Description>
+      <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>42</ID>
+          <Description>"Memory Viewer"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>BF4040</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>29</ID>
+              <Description>"Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+49 "</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+49 </Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>36</ID>
+          <Description>"Pointers"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>37</ID>
+              <Description>"Ball HP 1"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7E5E7CE0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>38</ID>
+              <Description>"Ball HP 2"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7E2AE3B0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"HP 1"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7E2A90B0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>40</ID>
+              <Description>"HP 2"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7ED52FF8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>41</ID>
+              <Description>"Timer"</Description>
+              <VariableType>Float</VariableType>
+              <Address>7F390C84</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"∞"</Description>
+      <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>27</ID>
+          <Description>"HP"</Description>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Engine.dll"+002EAEA4</Address>
+          <Offsets>
+            <Offset>488</Offset>
+            <Offset>1C</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>32</ID>
+          <Description>"Lifes ∞"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Serious Sam 2
+  Version: 
+  Date   : 2025-08-04
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Sam2Game.dll,89 08 EB 09 E8 74 7C 11 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [eax],ecx
+  jmp Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+1A0
+  call Sam2Game.SeriousEngine::samIsFrozenGameStatistic
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 4
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 08 EB 09 E8 74 7C 11 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+193
+
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+174: 8B 88 F0 08 00 00  - mov ecx,[eax+000008F0]
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+17A: 83 C4 04           - add esp,04
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+17D: 85 C9              - test ecx,ecx
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+17F: 7E 16              - jle Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+197
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+181: 56                 - push esi
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+182: FF D3              - call ebx
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+184: 8B 88 F0 08 00 00  - mov ecx,[eax+000008F0]
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+18A: 05 F0 08 00 00     - add eax,000008F0
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+18F: 83 C4 04           - add esp,04
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+192: 49                 - dec ecx
+// ---------- INJECTING HERE ----------
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+193: 89 08              - mov [eax],ecx
+// ---------- DONE INJECTING  ----------
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+195: EB 09              - jmp Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+1A0
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+197: E8 74 7C 11 00     - call Sam2Game.SeriousEngine::samIsFrozenGameStatistic
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+19C: 85 C0              - test eax,eax
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+19E: 74 70              - je Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+210
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+1A0: 8B 75 EC           - mov esi,[ebp-14]
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+1A3: 8D 4D D8           - lea ecx,[ebp-28]
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+1A6: 51                 - push ecx
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+1A7: FF 15 10 20 BC 0F  - call dword ptr [Sam2Game.dll+282010]
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+1AD: 8B 10              - mov edx,[eax]
+Sam2Game.SeriousEngine::CPlayerBrainEntity::ExecuteRespawn+1AF: 89 97 98 01 00 00  - mov [edi+00000198],edx
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"HP ∞"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Serious Sam 2
+  Version: 
+  Date   : 2025-08-02
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Sam2Game.dll,89 86 88 04 00 00 E8) // should be unique
+alloc(newmem,$1000)
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //Player HP
+  cmp [ebx+20],0 //20 5C
+  je return
+  //Dino, Ball, Ship HP
+  cmp [ebx+1F4],0 //1F4 1F8 240 348 398
+  jne return
+  mov [esi+00000488],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 86 88 04 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+49
+
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+26: 89 45 F4              - mov [ebp-0C],eax
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+29: 03 C2                 - add eax,edx
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+2B: 89 4D FC              - mov [ebp-04],ecx
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+2E: C7 45 F8 00 00 00 00  - mov [ebp-08],00000000
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+35: 89 45 08              - mov [ebp+08],eax
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+38: 8B 45 08              - mov eax,[ebp+08]
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+3B: 3B 45 F8              - cmp eax,[ebp-08]
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+3E: 0F 4C 45 F8           - cmovl eax,[ebp-08]
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+42: 3B 45 FC              - cmp eax,[ebp-04]
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+45: 0F 4F 45 FC           - cmovg eax,[ebp-04]
+// ---------- INJECTING HERE ----------
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+49: 89 86 88 04 00 00     - mov [esi+00000488],eax
+// ---------- DONE INJECTING  ----------
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+4F: E8 6C 11 18 00        - call Sam2Game.SeriousEngine::samIsDeathmatch
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+54: 85 C0                 - test eax,eax
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+56: 74 49                 - je Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+A1
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+58: 8B 45 0C              - mov eax,[ebp+0C]
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+5B: 85 C0                 - test eax,eax
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+5D: 75 42                 - jne Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+A1
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+5F: 8B 86 C4 00 00 00     - mov eax,[esi+000000C4]
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+65: 99                    - cdq 
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+66: 2B C2                 - sub eax,edx
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveHealth+68: D1 F8                 - sar eax,1
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"AMMO ∞"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Serious Sam 2
+  Version: 
+  Date   : 2025-08-02
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Sam2Game.dll,29 5C B7 14 5F) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //sub [edi+esi*4+14],ebx
+  pop edi
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 29 5C B7 14 5F
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+31
+
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+15: 7D 06              - jnl Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+1D
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+17: 8B 44 B7 14        - mov eax,[edi+esi*4+14]
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+1B: EB 03              - jmp Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+20
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+1D: 83 C8 FF           - or eax,-01
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+20: 8B 5D 0C           - mov ebx,[ebp+0C]
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+23: 3B C3              - cmp eax,ebx
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+25: 7C 1A              - jl Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+41
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+27: FF 15 70 2D B5 0F  - call dword ptr [Sam2Game.dll+282D70]
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+2D: 85 C0              - test eax,eax
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+2F: 74 04              - je Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+35
+// ---------- INJECTING HERE ----------
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+31: 29 5C B7 14        - sub [edi+esi*4+14],ebx
+// ---------- DONE INJECTING  ----------
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+35: 5F                 - pop edi
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+36: 5E                 - pop esi
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+37: B8 01 00 00 00     - mov eax,00000001
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+3C: 5B                 - pop ebx
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+3D: 5D                 - pop ebp
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+3E: C2 08 00           - ret 0008
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+41: 5F                 - pop edi
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+42: 5E                 - pop esi
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+43: 33 C0              - xor eax,eax
+Sam2Game.SeriousEngine::CPlayerInventory::DrainAmmo+45: 5B                 - pop ebx
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>35</ID>
+          <Description>"Items Timer"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Serious Sam 2
+  Version: 
+  Date   : 2025-08-04
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Sam2Game.dll,D9 56 3C D8 05 EC 41 BC 0F E8 C8) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //fst dword ptr [esi+3C]
+  fadd dword ptr [Sam2Game.dll+2841EC]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 4
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db D9 56 3C D8 05 EC 41 BC 0F
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+E2
+
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+C9: 50                 - push eax
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+CA: 8D 4D EC           - lea ecx,[ebp-14]
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+CD: 51                 - push ecx
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+CE: E8 ED A5 EC FF     - call Sam2Game.SeriousEngine::CBaseProperties::GetShellOpenPaths+90
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+D3: 8B 50 04           - mov edx,[eax+04]
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+D6: 8B 00              - mov eax,[eax]
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+D8: 52                 - push edx
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+D9: 50                 - push eax
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+DA: E8 21 A6 EC FF     - call Sam2Game.SeriousEngine::CBaseProperties::GetShellOpenPaths+D0
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+DF: D8 6E 40           - fsubr dword ptr [esi+40]
+// ---------- INJECTING HERE ----------
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+E2: D9 56 3C           - fst dword ptr [esi+3C]
+// ---------- DONE INJECTING  ----------
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+E5: D8 05 EC 41 BC 0F  - fadd dword ptr [Sam2Game.dll+2841EC]
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+EB: E8 C8 F8 0B 00     - call Sam2Game.SeriousEngine::CDebugViewEntityPath::CDebugViewEntityPath+F78
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+F0: 50                 - push eax
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+F1: 8D 4D DC           - lea ecx,[ebp-24]
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+F4: 51                 - push ecx
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+F5: FF 15 F0 21 BC 0F  - call dword ptr [Sam2Game.dll+2821F0]
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+FB: 68 E0 07 C0 0F     - push Sam2Game.SeriousEngine::CWeaponsMenuHudElement::`vftable'+AC
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+100: 50                 - push eax
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+101: 8D 55 E0           - lea edx,[ebp-20]
+Sam2Game.SeriousEngine::CPowerUpHudElement::PrepareRenderingParameters+104: 52                 - push edx
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"ARMOR ∞"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Serious Sam 2
+  Version: 
+  Date   : 2025-08-02
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Sam2Game.dll,89 86 8C 04 00 00 E8) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi+0000048C],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 86 8C 04 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+49
+
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+26: 89 45 F4              - mov [ebp-0C],eax
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+29: 03 C2                 - add eax,edx
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+2B: 89 4D FC              - mov [ebp-04],ecx
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+2E: C7 45 F8 00 00 00 00  - mov [ebp-08],00000000
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+35: 89 45 08              - mov [ebp+08],eax
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+38: 8B 45 08              - mov eax,[ebp+08]
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+3B: 3B 45 F8              - cmp eax,[ebp-08]
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+3E: 0F 4C 45 F8           - cmovl eax,[ebp-08]
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+42: 3B 45 FC              - cmp eax,[ebp-04]
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+45: 0F 4F 45 FC           - cmovg eax,[ebp-04]
+// ---------- INJECTING HERE ----------
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+49: 89 86 8C 04 00 00     - mov [esi+0000048C],eax
+// ---------- DONE INJECTING  ----------
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+4F: E8 7C 10 18 00        - call Sam2Game.SeriousEngine::samIsDeathmatch
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+54: 85 C0                 - test eax,eax
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+56: 74 49                 - je Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+A1
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+58: 8B 45 0C              - mov eax,[ebp+0C]
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+5B: 85 C0                 - test eax,eax
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+5D: 75 42                 - jne Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+A1
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+5F: 8B 86 C8 00 00 00     - mov eax,[esi+000000C8]
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+65: 99                    - cdq 
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+66: 2B C2                 - sub eax,edx
+Sam2Game.SeriousEngine::CPuppetEntity::ReceiveArmor+68: D1 F8                 - sar eax,1
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

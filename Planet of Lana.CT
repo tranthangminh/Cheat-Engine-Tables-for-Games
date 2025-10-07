@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Death count"</Description>
+      <LastState Value="1212170495" RealAddress="7FFCFCFCB8E8"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>GameAssembly.dll+5DB8E8</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Death count = 0"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Planet of Lana
+  Version: 
+  Date   : 2025-09-19
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,FF 40 40 48 83 C4 20) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rax+40],0
+  //inc [rax+40]
+  add rsp,20
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db FF 40 40 48 83 C4 20
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+5DB8E8
+
+GameAssembly.dll+5DB8C0: 75 13                 - jne GameAssembly.dll+5DB8D5
+GameAssembly.dll+5DB8C2: 48 8D 0D CF 08 E0 01  - lea rcx,[GameAssembly.dll+23DC198]
+GameAssembly.dll+5DB8C9: E8 82 B4 C0 FF        - call GameAssembly.DllCanUnloadNow+8560
+GameAssembly.dll+5DB8CE: C6 05 36 99 F5 01 01  - mov byte ptr [GameAssembly.dll+253520B],01
+GameAssembly.dll+5DB8D5: 48 8B 4B 18           - mov rcx,[rbx+18]
+GameAssembly.dll+5DB8D9: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+5DB8DC: 74 13                 - je GameAssembly.dll+5DB8F1
+GameAssembly.dll+5DB8DE: E8 4D 3E A8 FF        - call GameAssembly.il2cpp_property_get_flags+1320
+GameAssembly.dll+5DB8E3: 48 85 C0              - test rax,rax
+GameAssembly.dll+5DB8E6: 74 09                 - je GameAssembly.dll+5DB8F1
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+5DB8E8: FF 40 40              - inc [rax+40]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+5DB8EB: 48 83 C4 20           - add rsp,20
+GameAssembly.dll+5DB8EF: 5B                    - pop rbx
+GameAssembly.dll+5DB8F0: C3                    - ret 
+GameAssembly.dll+5DB8F1: E8 DA 1F C5 FF        - call GameAssembly.dll+22D8D0
+GameAssembly.dll+5DB8F6: CC                    - int 3 
+GameAssembly.dll+5DB8F7: CC                    - int 3 
+GameAssembly.dll+5DB8F8: CC                    - int 3 
+GameAssembly.dll+5DB8F9: CC                    - int 3 
+GameAssembly.dll+5DB8FA: CC                    - int 3 
+GameAssembly.dll+5DB8FB: CC                    - int 3 
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

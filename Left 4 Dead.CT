@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"Pointer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"HP 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>38603F98</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"HP 2"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>4F55F3A0</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"HP ∞"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Left 4 Dead
+  Version: 
+  Date   : 2025-07-06
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,89 37 5F B8 01 00 00 00 5E 83) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  pop edi
+  mov eax,00000001
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 37 5F B8 01 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll+3118B
+
+server.dll+3116D: 8B F3              - mov esi,ebx
+server.dll+3116F: 2B F0              - sub esi,eax
+server.dll+31171: 3B DE              - cmp ebx,esi
+server.dll+31173: 5B                 - pop ebx
+server.dll+31174: 74 17              - je server.dll+3118D
+server.dll+31176: 8B 97 28 FF FF FF  - mov edx,[edi-000000D8]
+server.dll+3117C: 8B 82 D4 01 00 00  - mov eax,[edx+000001D4]
+server.dll+31182: 8D 8F 28 FF FF FF  - lea ecx,[edi-000000D8]
+server.dll+31188: 57                 - push edi
+server.dll+31189: FF D0              - call eax
+// ---------- INJECTING HERE ----------
+server.dll+3118B: 89 37              - mov [edi],esi
+// ---------- DONE INJECTING  ----------
+server.dll+3118D: 5F                 - pop edi
+server.dll+3118E: B8 01 00 00 00     - mov eax,00000001
+server.dll+31193: 5E                 - pop esi
+server.dll+31194: 83 C4 18           - add esp,18
+server.dll+31197: C2 04 00           - ret 0004
+server.dll+3119A: CC                 - int 3 
+server.dll+3119B: CC                 - int 3 
+server.dll+3119C: CC                 - int 3 
+server.dll+3119D: CC                 - int 3 
+server.dll+3119E: CC                 - int 3 
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"AMMO ∞"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Left 4 Dead
+  Version: 
+  Date   : 2025-07-06
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,89 2F 8B 07 DB 44 24 18) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  mov eax,[edi]
+  fild dword ptr [esp+18]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 2F 8B 07 DB 44 24 18
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll+351D6D
+
+server.dll+351D54: 74 06              - je server.dll+351D5C
+server.dll+351D56: 80 48 58 01        - or byte ptr [eax+58],01
+server.dll+351D5A: EB 11              - jmp server.dll+351D6D
+server.dll+351D5C: 8B 48 18           - mov ecx,[eax+18]
+server.dll+351D5F: 85 C9              - test ecx,ecx
+server.dll+351D61: 74 0A              - je server.dll+351D6D
+server.dll+351D63: 8B D7              - mov edx,edi
+server.dll+351D65: 2B D0              - sub edx,eax
+server.dll+351D67: 52                 - push edx
+server.dll+351D68: E8 E3 DD CC FF     - call server.dll+1FB50
+// ---------- INJECTING HERE ----------
+server.dll+351D6D: 89 2F              - mov [edi],ebp
+// ---------- DONE INJECTING  ----------
+server.dll+351D6F: 8B 07              - mov eax,[edi]
+server.dll+351D71: DB 44 24 18        - fild dword ptr [esp+18]
+server.dll+351D75: 8B 16              - mov edx,[esi]
+server.dll+351D77: 89 44 24 24        - mov [esp+24],eax
+server.dll+351D7B: 8B 82 B0 04 00 00  - mov eax,[edx+000004B0]
+server.dll+351D81: D9 5C 24 20        - fstp dword ptr [esp+20]
+server.dll+351D85: 8B CE              - mov ecx,esi
+server.dll+351D87: FF D0              - call eax
+server.dll+351D89: 89 44 24 18        - mov [esp+18],eax
+server.dll+351D8D: DB 44 24 18        - fild dword ptr [esp+18]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>27</ID>
+      <Description>"HP"</Description>
+      <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"server.dll"+005F1F5C</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+            <Offset>1C</Offset>
+            <Offset>18</Offset>
+            <Offset>4</Offset>
+            <Offset>19C</Offset>
+            <Offset>10</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"server.dll"+005F1F5C</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+            <Offset>1C</Offset>
+            <Offset>18</Offset>
+            <Offset>14</Offset>
+            <Offset>4</Offset>
+            <Offset>2C</Offset>
+            <Offset>20</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"shaderapidx9.dll"+00156188</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+            <Offset>1C</Offset>
+            <Offset>C</Offset>
+            <Offset>18</Offset>
+            <Offset>4</Offset>
+            <Offset>0</Offset>
+            <Offset>8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"vphysics.dll"+000D9044</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+            <Offset>1C</Offset>
+            <Offset>18</Offset>
+            <Offset>4</Offset>
+            <Offset>6C</Offset>
+            <Offset>20</Offset>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"icudt42.dll"+002AE530</Address>
+          <Offsets>
+            <Offset>CC</Offset>
+            <Offset>18</Offset>
+            <Offset>18</Offset>
+            <Offset>14</Offset>
+            <Offset>1C</Offset>
+            <Offset>4</Offset>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"vphysics.dll"+000D9054</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+            <Offset>1C</Offset>
+            <Offset>18</Offset>
+            <Offset>4</Offset>
+            <Offset>298</Offset>
+            <Offset>10</Offset>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"libcef.dll"+00283D38</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+            <Offset>1C</Offset>
+            <Offset>18</Offset>
+            <Offset>4</Offset>
+            <Offset>3F0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"icudt42.dll"+002AC818</Address>
+          <Offsets>
+            <Offset>CC</Offset>
+            <Offset>18</Offset>
+            <Offset>18</Offset>
+            <Offset>1C</Offset>
+            <Offset>4</Offset>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"icudt42.dll"+002B62C0</Address>
+          <Offsets>
+            <Offset>C8</Offset>
+            <Offset>44</Offset>
+            <Offset>18</Offset>
+            <Offset>18</Offset>
+            <Offset>1C</Offset>
+            <Offset>4</Offset>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>17</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"icudt42.dll"+002B5D64</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+            <Offset>14</Offset>
+            <Offset>1C</Offset>
+            <Offset>C</Offset>
+            <Offset>18</Offset>
+            <Offset>4</Offset>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>18</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"server.dll"+006B03A0</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+            <Offset>14</Offset>
+            <Offset>1C</Offset>
+            <Offset>18</Offset>
+            <Offset>1C</Offset>
+            <Offset>4</Offset>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>19</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"icudt42.dll"+002B3D3C</Address>
+          <Offsets>
+            <Offset>C8</Offset>
+            <Offset>50</Offset>
+            <Offset>1C</Offset>
+            <Offset>C</Offset>
+            <Offset>18</Offset>
+            <Offset>4</Offset>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>20</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"vphysics.dll"+000D9054</Address>
+          <Offsets>
+            <Offset>CC</Offset>
+            <Offset>18</Offset>
+            <Offset>18</Offset>
+            <Offset>4</Offset>
+            <Offset>F8</Offset>
+            <Offset>10</Offset>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>21</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"icudt42.dll"+0015D660</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+            <Offset>8</Offset>
+            <Offset>18</Offset>
+            <Offset>18</Offset>
+            <Offset>14</Offset>
+            <Offset>38</Offset>
+            <Offset>FB0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>22</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"libcef.dll"+00283D38</Address>
+          <Offsets>
+            <Offset>CC</Offset>
+            <Offset>18</Offset>
+            <Offset>18</Offset>
+            <Offset>4</Offset>
+            <Offset>A0</Offset>
+            <Offset>58</Offset>
+            <Offset>420</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>23</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"crashhandler.dll"+00008650</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+            <Offset>1C</Offset>
+            <Offset>18</Offset>
+            <Offset>54</Offset>
+            <Offset>A0</Offset>
+            <Offset>A8</Offset>
+            <Offset>94</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>24</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"crashhandler.dll"+00008650</Address>
+          <Offsets>
+            <Offset>CC</Offset>
+            <Offset>18</Offset>
+            <Offset>18</Offset>
+            <Offset>A4</Offset>
+            <Offset>A0</Offset>
+            <Offset>A8</Offset>
+            <Offset>98</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>25</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"client.dll"+0053EAB4</Address>
+          <Offsets>
+            <Offset>D8</Offset>
+            <Offset>1C</Offset>
+            <Offset>18</Offset>
+            <Offset>4</Offset>
+            <Offset>7C4</Offset>
+            <Offset>14</Offset>
+            <Offset>184</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"crashhandler.dll"+00008650</Address>
+          <Offsets>
+            <Offset>CC</Offset>
+            <Offset>8</Offset>
+            <Offset>18</Offset>
+            <Offset>1C</Offset>
+            <Offset>18</Offset>
+            <Offset>54</Offset>
+            <Offset>8C</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedhack_wantedspeed</Name>
+      <Address>00FE0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

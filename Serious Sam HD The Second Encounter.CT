@@ -1,0 +1,1805 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>528</ID>
+      <Description>"DELETABLE Addresses"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>505</ID>
+          <Description>"Pointers"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>506</ID>
+              <Description>"0 HP 1"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7057C120</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>507</ID>
+              <Description>"0 ARMOR 1"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7057C134</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>508</ID>
+              <Description>"3 SHOTGUN 1"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7057C6A8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>509</ID>
+              <Description>"4 MINIGUN 1"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7057C6B8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>510</ID>
+              <Description>"5 ROCKET 1"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7057C6C8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>511</ID>
+              <Description>"5 JUMP 1"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7057C6D8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>512</ID>
+              <Description>"6 FIRE 1"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7057C6E8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>513</ID>
+              <Description>"6 LASER 1"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7057C6F8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>514</ID>
+              <Description>"7 SNIPER 1"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7057C718</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>515</ID>
+              <Description>"7 CANON 1"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7057C708</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>516</ID>
+              <Description>"8 BOOM 1"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>7057C728</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>517</ID>
+              <Description>"0 HP 2"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>785ACCA0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>518</ID>
+              <Description>"0 ARMOR 2"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>785ACCB4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>519</ID>
+              <Description>"3 SHOTGUN 2"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>785AD228</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>520</ID>
+              <Description>"4 MINIGUN 2"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>785AD238</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>521</ID>
+              <Description>"5 ROCKET 2"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>785AD248</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>522</ID>
+              <Description>"5 JUMP 2"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>785AD258</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>523</ID>
+              <Description>"6 FIRE 2"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>785AD268</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>524</ID>
+              <Description>"6 LASER 2"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>785AD278</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>525</ID>
+              <Description>"7 SNIPER 2"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>785AD298</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>526</ID>
+              <Description>"7 CANON 2"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>785AD288</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>527</ID>
+              <Description>"8 BOOM 2"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>785AD2A8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>17</ID>
+          <Description>"Memory Viewer"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>BF4040</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>10</ID>
+              <Description>"HP &amp; AMMO"</Description>
+              <LastState Value="311099785" RealAddress="007FE52D"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SamHD_TSE.exe+3FE52D</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>531</ID>
+              <Description>"Points"</Description>
+              <LastState Value="311099785" RealAddress="007FE52D"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SamHD_TSE.exe+3FE52D</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>503</ID>
+      <Description>"HP + AMMO ∞"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Serious Sam HD : The Second Encounter
+  Version: 
+  Date   : 2025-08-03
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,SamHD_TSE.exe,89 01 8B 12 8B 12) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  cmp [edx+10],0 //4C 7C 80
+  je return
+  mov [ecx],eax
+  mov edx,[edx]
+  mov edx,[edx]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 01 8B 12 8B 12
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SamHD_TSE.exe+3FE52D
+
+SamHD_TSE.exe+3FE51A: C2 04 00  - ret 0004
+SamHD_TSE.exe+3FE51D: CC        - int 3 
+SamHD_TSE.exe+3FE51E: CC        - int 3 
+SamHD_TSE.exe+3FE51F: CC        - int 3 
+SamHD_TSE.exe+3FE520: 55        - push ebp
+SamHD_TSE.exe+3FE521: 8B EC     - mov ebp,esp
+SamHD_TSE.exe+3FE523: 8B 45 0C  - mov eax,[ebp+0C]
+SamHD_TSE.exe+3FE526: 39 01     - cmp [ecx],eax
+SamHD_TSE.exe+3FE528: 74 11     - je SamHD_TSE.exe+3FE53B
+SamHD_TSE.exe+3FE52A: 8B 55 08  - mov edx,[ebp+08]
+// ---------- INJECTING HERE ----------
+SamHD_TSE.exe+3FE52D: 89 01     - mov [ecx],eax
+// ---------- DONE INJECTING  ----------
+SamHD_TSE.exe+3FE52F: 8B 12     - mov edx,[edx]
+SamHD_TSE.exe+3FE531: 8B 12     - mov edx,[edx]
+SamHD_TSE.exe+3FE533: 33 C1     - xor eax,ecx
+SamHD_TSE.exe+3FE535: 89 51 08  - mov [ecx+08],edx
+SamHD_TSE.exe+3FE538: 89 41 04  - mov [ecx+04],eax
+SamHD_TSE.exe+3FE53B: 5D        - pop ebp
+SamHD_TSE.exe+3FE53C: C2 08 00  - ret 0008
+SamHD_TSE.exe+3FE53F: CC        - int 3 
+SamHD_TSE.exe+3FE540: 8B 01     - mov eax,[ecx]
+SamHD_TSE.exe+3FE542: 33 C1     - xor eax,ecx
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>484</ID>
+      <Description>"HP"</Description>
+      <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BFBF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>76</ID>
+          <Description>"_0 HP"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>434</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="175" RealAddress="778C6C58"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>488</Offset>
+                <Offset>4</Offset>
+                <Offset>128</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>30</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>436</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="175" RealAddress="778C6C58"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>488</Offset>
+                <Offset>48</Offset>
+                <Offset>178</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>F0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>439</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="175" RealAddress="778C6C58"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>488</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>C8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>502</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="175" RealAddress="778C6C58"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>488</Offset>
+                <Offset>4</Offset>
+                <Offset>128</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>24</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>77</ID>
+          <Description>"_0 ARMOR"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>485</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="48845" RealAddress="778C6C6C"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>49C</Offset>
+                <Offset>48</Offset>
+                <Offset>17C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>68</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>486</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="48845" RealAddress="778C6C6C"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>49C</Offset>
+                <Offset>48</Offset>
+                <Offset>17C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>C0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>489</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="48845" RealAddress="778C6C6C"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>49C</Offset>
+                <Offset>48</Offset>
+                <Offset>178</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>54</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>144</ID>
+      <Description>"_WEAPONS"</Description>
+      <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BFBF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>145</ID>
+          <Description>"3 SHOTGUN"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>445</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="200" RealAddress="778C71E0"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A10</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>446</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="200" RealAddress="778C71E0"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A10</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>B4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>447</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="200" RealAddress="778C71E0"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+009DF348</Address>
+              <Offsets>
+                <Offset>A10</Offset>
+                <Offset>48</Offset>
+                <Offset>C</Offset>
+                <Offset>164</Offset>
+                <Offset>4</Offset>
+                <Offset>50</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>451</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="200" RealAddress="778C71E0"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A10</Offset>
+                <Offset>48</Offset>
+                <Offset>168</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>3C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="1000">
+              <ID>452</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="200" RealAddress="778C71E0"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A10</Offset>
+                <Offset>48</Offset>
+                <Offset>168</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>E8</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>180</ID>
+          <Description>"4 Minigun"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>405</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C71F0"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A20</Offset>
+                <Offset>48</Offset>
+                <Offset>170</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>24</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>406</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C71F0"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A20</Offset>
+                <Offset>48</Offset>
+                <Offset>170</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>68</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>407</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C71F0"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A20</Offset>
+                <Offset>48</Offset>
+                <Offset>170</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>124</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>409</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C71F0"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F100</Address>
+              <Offsets>
+                <Offset>A20</Offset>
+                <Offset>48</Offset>
+                <Offset>174</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>410</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C71F0"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A20</Offset>
+                <Offset>48</Offset>
+                <Offset>174</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>B0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>411</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C71F0"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+009DF348</Address>
+              <Offsets>
+                <Offset>A20</Offset>
+                <Offset>48</Offset>
+                <Offset>168</Offset>
+                <Offset>48</Offset>
+                <Offset>174</Offset>
+                <Offset>48</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>412</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C71F0"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A20</Offset>
+                <Offset>48</Offset>
+                <Offset>168</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>58</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>413</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C71F0"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A20</Offset>
+                <Offset>48</Offset>
+                <Offset>168</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>12C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>416</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C71F0"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A20</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>A8</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>214</ID>
+          <Description>"5 XPLM21 Rocket Launcher"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>453</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7200"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A30</Offset>
+                <Offset>4</Offset>
+                <Offset>128</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>34</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>454</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7200"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A30</Offset>
+                <Offset>4</Offset>
+                <Offset>128</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>68</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>455</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7200"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A30</Offset>
+                <Offset>4</Offset>
+                <Offset>128</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>100</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>456</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7200"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A30</Offset>
+                <Offset>48</Offset>
+                <Offset>174</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>28</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>457</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7200"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A30</Offset>
+                <Offset>48</Offset>
+                <Offset>174</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>AC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>459</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7200"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A30</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>4C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>461</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7200"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A30</Offset>
+                <Offset>48</Offset>
+                <Offset>170</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>B8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>462</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7200"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F100</Address>
+              <Offsets>
+                <Offset>A30</Offset>
+                <Offset>48</Offset>
+                <Offset>17C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>463</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7200"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A30</Offset>
+                <Offset>48</Offset>
+                <Offset>17C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>10C</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>245</ID>
+          <Description>"5 MKII Grenade Launcher"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>464</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7210"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A40</Offset>
+                <Offset>48</Offset>
+                <Offset>168</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>34</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>465</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7210"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A40</Offset>
+                <Offset>48</Offset>
+                <Offset>168</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>C0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>466</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7210"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+009DF348</Address>
+              <Offsets>
+                <Offset>A40</Offset>
+                <Offset>48</Offset>
+                <Offset>4</Offset>
+                <Offset>8</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>468</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7210"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A40</Offset>
+                <Offset>48</Offset>
+                <Offset>174</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>A0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>469</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7210"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A40</Offset>
+                <Offset>48</Offset>
+                <Offset>174</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>10C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>470</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7210"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A40</Offset>
+                <Offset>48</Offset>
+                <Offset>164</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>1C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>471</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7210"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A40</Offset>
+                <Offset>48</Offset>
+                <Offset>164</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>74</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>472</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7210"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A40</Offset>
+                <Offset>48</Offset>
+                <Offset>164</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>DC</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>276</ID>
+          <Description>"6 XOP Flamethrower"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>269</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C7220"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A50</Offset>
+                <Offset>48</Offset>
+                <Offset>124</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>54</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>270</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C7220"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A50</Offset>
+                <Offset>48</Offset>
+                <Offset>124</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>C8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>387</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C7220"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A50</Offset>
+                <Offset>48</Offset>
+                <Offset>174</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>64</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>388</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C7220"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+009DF348</Address>
+              <Offsets>
+                <Offset>A50</Offset>
+                <Offset>48</Offset>
+                <Offset>8</Offset>
+                <Offset>8</Offset>
+                <Offset>0</Offset>
+                <Offset>54</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>389</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C7220"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A50</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>64</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>390</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C7220"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A50</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>10C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>392</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="999" RealAddress="778C7220"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A50</Offset>
+                <Offset>48</Offset>
+                <Offset>164</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>104</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>404</ID>
+          <Description>"6 LASER"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>394</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="800" RealAddress="778C7230"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A60</Offset>
+                <Offset>48</Offset>
+                <Offset>164</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>34</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>400</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="800" RealAddress="778C7230"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F100</Address>
+              <Offsets>
+                <Offset>A60</Offset>
+                <Offset>48</Offset>
+                <Offset>4</Offset>
+                <Offset>12C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>401</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="800" RealAddress="778C7230"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A60</Offset>
+                <Offset>48</Offset>
+                <Offset>124</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>5C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>402</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="800" RealAddress="778C7230"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A60</Offset>
+                <Offset>48</Offset>
+                <Offset>124</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>CC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>403</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="800" RealAddress="778C7230"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A60</Offset>
+                <Offset>48</Offset>
+                <Offset>124</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>128</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>317</ID>
+          <Description>"7 Raptor 16mmm Sniper"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>490</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7250"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A80</Offset>
+                <Offset>48</Offset>
+                <Offset>12C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>60</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>491</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7250"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A80</Offset>
+                <Offset>48</Offset>
+                <Offset>12C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>C0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>492</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7250"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A80</Offset>
+                <Offset>48</Offset>
+                <Offset>12C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>118</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>493</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7250"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A80</Offset>
+                <Offset>48</Offset>
+                <Offset>170</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>34</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>494</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7250"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A80</Offset>
+                <Offset>48</Offset>
+                <Offset>170</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>90</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>495</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7250"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A80</Offset>
+                <Offset>48</Offset>
+                <Offset>170</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>F0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>496</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7250"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A80</Offset>
+                <Offset>48</Offset>
+                <Offset>170</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>128</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>497</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7250"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A80</Offset>
+                <Offset>48</Offset>
+                <Offset>160</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>50</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>498</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7250"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A80</Offset>
+                <Offset>48</Offset>
+                <Offset>160</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>50</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>499</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7250"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A80</Offset>
+                <Offset>48</Offset>
+                <Offset>160</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>AC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>500</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="100" RealAddress="778C7250"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A80</Offset>
+                <Offset>48</Offset>
+                <Offset>160</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>F4</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>350</ID>
+          <Description>"7 CANON"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>324</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="60" RealAddress="778C7240"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+009D5CDC</Address>
+              <Offsets>
+                <Offset>A70</Offset>
+                <Offset>48</Offset>
+                <Offset>8</Offset>
+                <Offset>8</Offset>
+                <Offset>4</Offset>
+                <Offset>8</Offset>
+                <Offset>40</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>331</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="60" RealAddress="778C7240"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+009D639C</Address>
+              <Offsets>
+                <Offset>A70</Offset>
+                <Offset>48</Offset>
+                <Offset>C</Offset>
+                <Offset>128</Offset>
+                <Offset>48</Offset>
+                <Offset>64</Offset>
+                <Offset>30</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>338</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="60" RealAddress="778C7240"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+00995E2C</Address>
+              <Offsets>
+                <Offset>A70</Offset>
+                <Offset>48</Offset>
+                <Offset>C</Offset>
+                <Offset>50</Offset>
+                <Offset>4</Offset>
+                <Offset>8</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>346</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="60" RealAddress="778C7240"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+009D597C</Address>
+              <Offsets>
+                <Offset>A70</Offset>
+                <Offset>48</Offset>
+                <Offset>164</Offset>
+                <Offset>48</Offset>
+                <Offset>64</Offset>
+                <Offset>30</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>382</ID>
+          <Description>"8 Serious Bomb"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>474</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="6" RealAddress="778C7260"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+009DF348</Address>
+              <Offsets>
+                <Offset>A90</Offset>
+                <Offset>48</Offset>
+                <Offset>17C</Offset>
+                <Offset>48</Offset>
+                <Offset>164</Offset>
+                <Offset>48</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>475</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="6" RealAddress="778C7260"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A90</Offset>
+                <Offset>48</Offset>
+                <Offset>17C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>B8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>476</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="6" RealAddress="778C7260"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A90</Offset>
+                <Offset>48</Offset>
+                <Offset>17C</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>F4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>477</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="6" RealAddress="778C7260"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A90</Offset>
+                <Offset>48</Offset>
+                <Offset>170</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>B4</Offset>
+                <Offset>30</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>478</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="6" RealAddress="778C7260"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A90</Offset>
+                <Offset>48</Offset>
+                <Offset>170</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>F0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>479</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="6" RealAddress="778C7260"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F100</Address>
+              <Offsets>
+                <Offset>A90</Offset>
+                <Offset>54</Offset>
+                <Offset>50</Offset>
+                <Offset>164</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>480</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="6" RealAddress="778C7260"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A90</Offset>
+                <Offset>48</Offset>
+                <Offset>168</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>44</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>481</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="6" RealAddress="778C7260"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A90</Offset>
+                <Offset>48</Offset>
+                <Offset>168</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>FC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>482</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="6" RealAddress="778C7260"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A90</Offset>
+                <Offset>48</Offset>
+                <Offset>178</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>11C</Offset>
+                <Offset>14</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>483</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="6" RealAddress="778C7260"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"SamHD_TSE.exe"+0098F110</Address>
+              <Offsets>
+                <Offset>A90</Offset>
+                <Offset>48</Offset>
+                <Offset>178</Offset>
+                <Offset>30</Offset>
+                <Offset>20</Offset>
+                <Offset>4C</Offset>
+                <Offset>98</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>530</ID>
+      <Description>"Auto Assemble script"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Serious Sam HD : The Second Encounter
+  Version: 
+  Date   : 2025-08-26
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,SamHD_TSE.exe,89 01 8B 12 8B 12) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [ecx],20000
+  //mov [ecx],eax
+  mov edx,[edx]
+  mov edx,[edx]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 01 8B 12 8B 12
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SamHD_TSE.exe+3FE52D
+
+SamHD_TSE.exe+3FE51A: C2 04 00  - ret 0004
+SamHD_TSE.exe+3FE51D: CC        - int 3 
+SamHD_TSE.exe+3FE51E: CC        - int 3 
+SamHD_TSE.exe+3FE51F: CC        - int 3 
+SamHD_TSE.exe+3FE520: 55        - push ebp
+SamHD_TSE.exe+3FE521: 8B EC     - mov ebp,esp
+SamHD_TSE.exe+3FE523: 8B 45 0C  - mov eax,[ebp+0C]
+SamHD_TSE.exe+3FE526: 39 01     - cmp [ecx],eax
+SamHD_TSE.exe+3FE528: 74 11     - je SamHD_TSE.exe+3FE53B
+SamHD_TSE.exe+3FE52A: 8B 55 08  - mov edx,[ebp+08]
+// ---------- INJECTING HERE ----------
+SamHD_TSE.exe+3FE52D: 89 01     - mov [ecx],eax
+// ---------- DONE INJECTING  ----------
+SamHD_TSE.exe+3FE52F: 8B 12     - mov edx,[edx]
+SamHD_TSE.exe+3FE531: 8B 12     - mov edx,[edx]
+SamHD_TSE.exe+3FE533: 33 C1     - xor eax,ecx
+SamHD_TSE.exe+3FE535: 89 51 08  - mov [ecx+08],edx
+SamHD_TSE.exe+3FE538: 89 41 04  - mov [ecx+04],eax
+SamHD_TSE.exe+3FE53B: 5D        - pop ebp
+SamHD_TSE.exe+3FE53C: C2 08 00  - ret 0008
+SamHD_TSE.exe+3FE53F: CC        - int 3 
+SamHD_TSE.exe+3FE540: 8B 01     - mov eax,[ecx]
+SamHD_TSE.exe+3FE542: 33 C1     - xor eax,ecx
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of cmp dword ptr [ecx+70],00</Description>
+      <AddressString>01110000</AddressString>
+      <Before/>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>79</Byte>
+        <Byte>70</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+        <Byte>06</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [ecx],eax</Description>
+      <AddressString>SamHD_TSE.exe+3FE52D</AddressString>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>11</Byte>
+        <Byte>8B</Byte>
+        <Byte>55</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>12</Byte>
+        <Byte>8B</Byte>
+        <Byte>12</Byte>
+        <Byte>33</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [ecx+04],eax</Description>
+      <AddressString>SamHD_TSE.exe+3FE538</AddressString>
+      <Before>
+        <Byte>33</Byte>
+        <Byte>C1</Byte>
+        <Byte>89</Byte>
+        <Byte>51</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>04</Byte>
+      </Actual>
+      <After>
+        <Byte>5D</Byte>
+        <Byte>C2</Byte>
+        <Byte>08</Byte>
+        <Byte>00</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [ecx+08],edx</Description>
+      <AddressString>SamHD_TSE.exe+3FE535</AddressString>
+      <Before>
+        <Byte>12</Byte>
+        <Byte>8B</Byte>
+        <Byte>12</Byte>
+        <Byte>33</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>51</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>5D</Byte>
+        <Byte>C2</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

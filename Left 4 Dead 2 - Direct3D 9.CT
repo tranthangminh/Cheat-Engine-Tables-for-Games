@@ -1,0 +1,1111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Pointer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"HP 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>4A1100FC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"HP 2"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>4AC14B8C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>88</ID>
+          <Description>"1st Bot 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>00E9E2FC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>89</ID>
+          <Description>"2nd Bot 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>00E61C0C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>90</ID>
+          <Description>"3rd Bot 1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>4D7496BC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>91</ID>
+          <Description>"1st Bot 2 Ellis"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>33048EDC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>92</ID>
+          <Description>"2nd Bot 2 Nick"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>3300C7EC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>93</ID>
+          <Description>"3rd Bot 3 Rochelle"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>32FD00FC</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>87</ID>
+      <Description>"server.dll+41DF8"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>server.dll+41DF8</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"HP ∞"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Left 4 Dead 2 - Direct3D 9
+  Version: 
+  Date   : 2025-07-06
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,89 37 5F B8 01 00 00 00) // should be unique
+alloc(newmem,$1000)
+
+cmp [edi+14C],2
+je return
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [edi],esi
+  pop edi
+  mov eax,00000001
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 37 5F B8 01 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll+41DF8
+
+server.dll+41DD7: 8B F0              - mov esi,eax
+server.dll+41DD9: F3 0F 2C C9        - cvttss2si ecx,xmm1
+server.dll+41DDD: 2B F1              - sub esi,ecx
+server.dll+41DDF: 3B C6              - cmp eax,esi
+server.dll+41DE1: 74 17              - je server.dll+41DFA
+server.dll+41DE3: 8B 97 14 FF FF FF  - mov edx,[edi-000000EC]
+server.dll+41DE9: 8B 82 0C 02 00 00  - mov eax,[edx+0000020C]
+server.dll+41DEF: 8D 8F 14 FF FF FF  - lea ecx,[edi-000000EC]
+server.dll+41DF5: 57                 - push edi
+server.dll+41DF6: FF D0              - call eax
+// ---------- INJECTING HERE ----------
+server.dll+41DF8: 89 37              - mov [edi],esi
+// ---------- DONE INJECTING  ----------
+server.dll+41DFA: 5F                 - pop edi
+server.dll+41DFB: B8 01 00 00 00     - mov eax,00000001
+server.dll+41E00: 5E                 - pop esi
+server.dll+41E01: 8B E5              - mov esp,ebp
+server.dll+41E03: 5D                 - pop ebp
+server.dll+41E04: C2 04 00           - ret 0004
+server.dll+41E07: CC                 - int 3 
+server.dll+41E08: CC                 - int 3 
+server.dll+41E09: CC                 - int 3 
+server.dll+41E0A: CC                 - int 3 
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>130</ID>
+      <Description>"Weapons"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>83</ID>
+          <Description>"1 AMMO ∞"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1</ID>
+              <Description>"Auto Assemble script"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript Async="1">{ Game   : Left 4 Dead 2 - Direct3D 9
+  Version: 
+  Date   : 2025-07-06
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,89 BE 14 14 00 00 8B 06) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi+00001414],edi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 BE 14 14 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll+3E9580
+
+server.dll+3E9560: EB 1E              - jmp server.dll+3E9580
+server.dll+3E9562: C6 45 FF 01        - mov byte ptr [ebp-01],01
+server.dll+3E9566: EB 1E              - jmp server.dll+3E9586
+server.dll+3E9568: 8B 4E 28           - mov ecx,[esi+28]
+server.dll+3E956B: 85 C9              - test ecx,ecx
+server.dll+3E956D: 74 11              - je server.dll+3E9580
+server.dll+3E956F: 81 09 01 01 00 00  - or [ecx],00000101
+server.dll+3E9575: E8 36 3F D0 FF     - call server.dll+ED4B0
+server.dll+3E957A: 33 D2              - xor edx,edx
+server.dll+3E957C: 66 89 50 02        - mov [eax+02],dx
+// ---------- INJECTING HERE ----------
+server.dll+3E9580: 89 BE 14 14 00 00  - mov [esi+00001414],edi
+// ---------- DONE INJECTING  ----------
+server.dll+3E9586: 8B 06              - mov eax,[esi]
+server.dll+3E9588: 8B 90 0C 05 00 00  - mov edx,[eax+0000050C]
+server.dll+3E958E: 8B BE 14 14 00 00  - mov edi,[esi+00001414]
+server.dll+3E9594: 0F 57 C0           - xorps xmm0,xmm0
+server.dll+3E9597: F3 0F 2A 45 F0     - cvtsi2ss xmm0,[ebp-10]
+server.dll+3E959C: 8B CE              - mov ecx,esi
+server.dll+3E959E: F3 0F 11 45 F0     - movss [ebp-10],xmm0
+server.dll+3E95A3: FF D2              - call edx
+server.dll+3E95A5: F3 0F 10 45 F0     - movss xmm0,[ebp-10]
+server.dll+3E95AA: 0F 57 C9           - xorps xmm1,xmm1
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>82</ID>
+              <Description>"Auto Assemble script"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Left 4 Dead 2 - Direct3D 9
+  Version: 
+  Date   : 2025-07-08
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,89 BE 14 14 00 00 8B 06) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 BE 14 14 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll+3E9580
+
+server.dll+3E9560: EB 1E              - jmp server.dll+3E9580
+server.dll+3E9562: C6 45 FF 01        - mov byte ptr [ebp-01],01
+server.dll+3E9566: EB 1E              - jmp server.dll+3E9586
+server.dll+3E9568: 8B 4E 28           - mov ecx,[esi+28]
+server.dll+3E956B: 85 C9              - test ecx,ecx
+server.dll+3E956D: 74 11              - je server.dll+3E9580
+server.dll+3E956F: 81 09 01 01 00 00  - or [ecx],00000101
+server.dll+3E9575: E8 36 3F D0 FF     - call server.dll+ED4B0
+server.dll+3E957A: 33 D2              - xor edx,edx
+server.dll+3E957C: 66 89 50 02        - mov [eax+02],dx
+// ---------- INJECTING HERE ----------
+server.dll+3E9580: 89 BE 14 14 00 00  - mov [esi+00001414],edi
+// ---------- DONE INJECTING  ----------
+server.dll+3E9586: 8B 06              - mov eax,[esi]
+server.dll+3E9588: 8B 90 0C 05 00 00  - mov edx,[eax+0000050C]
+server.dll+3E958E: 8B BE 14 14 00 00  - mov edi,[esi+00001414]
+server.dll+3E9594: 0F 57 C0           - xorps xmm0,xmm0
+server.dll+3E9597: F3 0F 2A 45 F0     - cvtsi2ss xmm0,[ebp-10]
+server.dll+3E959C: 8B CE              - mov ecx,esi
+server.dll+3E959E: F3 0F 11 45 F0     - movss [ebp-10],xmm0
+server.dll+3E95A3: FF D2              - call edx
+server.dll+3E95A5: F3 0F 10 45 F0     - movss xmm0,[ebp-10]
+server.dll+3E95AA: 0F 57 C9           - xorps xmm1,xmm1
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>84</ID>
+              <Description>"Auto Assemble script"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Left 4 Dead 2 - Direct3D 9
+  Version: 
+  Date   : 2025-07-08
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,89 BE 14 14 00 00 8B 06) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 BE 14 14 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll+3E9580
+
+server.dll+3E9560: EB 1E              - jmp server.dll+3E9580
+server.dll+3E9562: C6 45 FF 01        - mov byte ptr [ebp-01],01
+server.dll+3E9566: EB 1E              - jmp server.dll+3E9586
+server.dll+3E9568: 8B 4E 28           - mov ecx,[esi+28]
+server.dll+3E956B: 85 C9              - test ecx,ecx
+server.dll+3E956D: 74 11              - je server.dll+3E9580
+server.dll+3E956F: 81 09 01 01 00 00  - or [ecx],00000101
+server.dll+3E9575: E8 36 3F D0 FF     - call server.dll+ED4B0
+server.dll+3E957A: 33 D2              - xor edx,edx
+server.dll+3E957C: 66 89 50 02        - mov [eax+02],dx
+// ---------- INJECTING HERE ----------
+server.dll+3E9580: 89 BE 14 14 00 00  - mov [esi+00001414],edi
+// ---------- DONE INJECTING  ----------
+server.dll+3E9586: 8B 06              - mov eax,[esi]
+server.dll+3E9588: 8B 90 0C 05 00 00  - mov edx,[eax+0000050C]
+server.dll+3E958E: 8B BE 14 14 00 00  - mov edi,[esi+00001414]
+server.dll+3E9594: 0F 57 C0           - xorps xmm0,xmm0
+server.dll+3E9597: F3 0F 2A 45 F0     - cvtsi2ss xmm0,[ebp-10]
+server.dll+3E959C: 8B CE              - mov ecx,esi
+server.dll+3E959E: F3 0F 11 45 F0     - movss [ebp-10],xmm0
+server.dll+3E95A3: FF D2              - call edx
+server.dll+3E95A5: F3 0F 10 45 F0     - movss xmm0,[ebp-10]
+server.dll+3E95AA: 0F 57 C9           - xorps xmm1,xmm1
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>86</ID>
+              <Description>"Auto Assemble script"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Left 4 Dead 2 - Direct3D 9
+  Version: 
+  Date   : 2025-07-11
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,89 BE 14 14 00 00 8B 06) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  nop
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 BE 14 14 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll+3E9580
+
+server.dll+3E9560: EB 1E              - jmp server.dll+3E9580
+server.dll+3E9562: C6 45 FF 01        - mov byte ptr [ebp-01],01
+server.dll+3E9566: EB 1E              - jmp server.dll+3E9586
+server.dll+3E9568: 8B 4E 28           - mov ecx,[esi+28]
+server.dll+3E956B: 85 C9              - test ecx,ecx
+server.dll+3E956D: 74 11              - je server.dll+3E9580
+server.dll+3E956F: 81 09 01 01 00 00  - or [ecx],00000101
+server.dll+3E9575: E8 36 3F D0 FF     - call server.dll+ED4B0
+server.dll+3E957A: 33 D2              - xor edx,edx
+server.dll+3E957C: 66 89 50 02        - mov [eax+02],dx
+// ---------- INJECTING HERE ----------
+server.dll+3E9580: 89 BE 14 14 00 00  - mov [esi+00001414],edi
+// ---------- DONE INJECTING  ----------
+server.dll+3E9586: 8B 06              - mov eax,[esi]
+server.dll+3E9588: 8B 90 0C 05 00 00  - mov edx,[eax+0000050C]
+server.dll+3E958E: 8B BE 14 14 00 00  - mov edi,[esi+00001414]
+server.dll+3E9594: 0F 57 C0           - xorps xmm0,xmm0
+server.dll+3E9597: F3 0F 2A 45 F0     - cvtsi2ss xmm0,[ebp-10]
+server.dll+3E959C: 8B CE              - mov ecx,esi
+server.dll+3E959E: F3 0F 11 45 F0     - movss [ebp-10],xmm0
+server.dll+3E95A3: FF D2              - call edx
+server.dll+3E95A5: F3 0F 10 45 F0     - movss xmm0,[ebp-10]
+server.dll+3E95AA: 0F 57 C9           - xorps xmm1,xmm1
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>146</ID>
+              <Description>"Auto Assemble script"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Left 4 Dead 2 - Direct3D 9
+  Version: 
+  Date   : 2025-08-03
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,89 BE 14 14 00 00 8B 06) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi+00001414],edi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 BE 14 14 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll+3E9580
+
+server.dll+3E9560: EB 1E              - jmp server.dll+3E9580
+server.dll+3E9562: C6 45 FF 01        - mov byte ptr [ebp-01],01
+server.dll+3E9566: EB 1E              - jmp server.dll+3E9586
+server.dll+3E9568: 8B 4E 28           - mov ecx,[esi+28]
+server.dll+3E956B: 85 C9              - test ecx,ecx
+server.dll+3E956D: 74 11              - je server.dll+3E9580
+server.dll+3E956F: 81 09 01 01 00 00  - or [ecx],00000101
+server.dll+3E9575: E8 36 3F D0 FF     - call server.dll+ED4B0
+server.dll+3E957A: 33 D2              - xor edx,edx
+server.dll+3E957C: 66 89 50 02        - mov [eax+02],dx
+// ---------- INJECTING HERE ----------
+server.dll+3E9580: 89 BE 14 14 00 00  - mov [esi+00001414],edi
+// ---------- DONE INJECTING  ----------
+server.dll+3E9586: 8B 06              - mov eax,[esi]
+server.dll+3E9588: 8B 90 0C 05 00 00  - mov edx,[eax+0000050C]
+server.dll+3E958E: 8B BE 14 14 00 00  - mov edi,[esi+00001414]
+server.dll+3E9594: 0F 57 C0           - xorps xmm0,xmm0
+server.dll+3E9597: F3 0F 2A 45 F0     - cvtsi2ss xmm0,[ebp-10]
+server.dll+3E959C: 8B CE              - mov ecx,esi
+server.dll+3E959E: F3 0F 11 45 F0     - movss [ebp-10],xmm0
+server.dll+3E95A3: FF D2              - call edx
+server.dll+3E95A5: F3 0F 10 45 F0     - movss xmm0,[ebp-10]
+server.dll+3E95AA: 0F 57 C9           - xorps xmm1,xmm1
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"1 LAUCHER ∞"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Left 4 Dead 2 - Direct3D 9
+  Version: 
+  Date   : 2025-07-06
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,89 BE 14 14 00 00 53) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi+00001414],edi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 BE 14 14 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll+3CF939
+
+server.dll+3CF919: 74 06              - je server.dll+3CF921
+server.dll+3CF91B: 80 4E 68 01        - or byte ptr [esi+68],01
+server.dll+3CF91F: EB 18              - jmp server.dll+3CF939
+server.dll+3CF921: 8B 4E 28           - mov ecx,[esi+28]
+server.dll+3CF924: 85 C9              - test ecx,ecx
+server.dll+3CF926: 74 11              - je server.dll+3CF939
+server.dll+3CF928: 81 09 01 01 00 00  - or [ecx],00000101
+server.dll+3CF92E: E8 7D DB D1 FF     - call server.dll+ED4B0
+server.dll+3CF933: 33 C9              - xor ecx,ecx
+server.dll+3CF935: 66 89 48 02        - mov [eax+02],cx
+// ---------- INJECTING HERE ----------
+server.dll+3CF939: 89 BE 14 14 00 00  - mov [esi+00001414],edi
+// ---------- DONE INJECTING  ----------
+server.dll+3CF93F: 53                 - push ebx
+server.dll+3CF940: 8B CE              - mov ecx,esi
+server.dll+3CF942: E8 69 92 01 00     - call server.dll+3E8BB0
+server.dll+3CF947: D9 EE              - fldz 
+server.dll+3CF949: 8B 16              - mov edx,[esi]
+server.dll+3CF94B: 8B 82 B4 04 00 00  - mov eax,[edx+000004B4]
+server.dll+3CF951: 51                 - push ecx
+server.dll+3CF952: D9 1C 24           - fstp dword ptr [esp]
+server.dll+3CF955: 6A 01              - push 01
+server.dll+3CF957: 8B CE              - mov ecx,esi
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"2 CHAINSAW ∞"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Left 4 Dead 2 - Direct3D 9
+  Version: 
+  Date   : 2025-07-06
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,89 BE 14 14 00 00 F3) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi+00001414],edi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 BE 14 14 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll+3CAB0D
+
+server.dll+3CAAE7: 80 4E 68 01              - or byte ptr [esi+68],01
+server.dll+3CAAEB: EB 20                    - jmp server.dll+3CAB0D
+server.dll+3CAAED: 8B 4E 28                 - mov ecx,[esi+28]
+server.dll+3CAAF0: 85 C9                    - test ecx,ecx
+server.dll+3CAAF2: 74 19                    - je server.dll+3CAB0D
+server.dll+3CAAF4: 81 09 01 01 00 00        - or [ecx],00000101
+server.dll+3CAAFA: E8 B1 29 D2 FF           - call server.dll+ED4B0
+server.dll+3CAAFF: F3 0F 10 0D B4 2D C4 77  - movss xmm1,[server.dll+5D2DB4]
+server.dll+3CAB07: 33 C9                    - xor ecx,ecx
+server.dll+3CAB09: 66 89 48 02              - mov [eax+02],cx
+// ---------- INJECTING HERE ----------
+server.dll+3CAB0D: 89 BE 14 14 00 00        - mov [esi+00001414],edi
+// ---------- DONE INJECTING  ----------
+server.dll+3CAB13: F3 0F 10 86 E4 17 00 00  - movss xmm0,[esi+000017E4]
+server.dll+3CAB1B: 0F 2F C1                 - comiss xmm0,xmm1
+server.dll+3CAB1E: 77 A0                    - ja server.dll+3CAAC0
+server.dll+3CAB20: 83 BE 14 14 00 00 00     - cmp dword ptr [esi+00001414],00
+server.dll+3CAB27: 0F 85 C8 00 00 00        - jne server.dll+3CABF5
+server.dll+3CAB2D: D9 EE                    - fldz 
+server.dll+3CAB2F: 51                       - push ecx
+server.dll+3CAB30: 8D 96 F4 17 00 00        - lea edx,[esi+000017F4]
+server.dll+3CAB36: D9 1C 24                 - fstp dword ptr [esp]
+server.dll+3CAB39: 52                       - push edx
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>33</ID>
+          <Description>"3 GRENADE ∞"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Left 4 Dead 2 - Direct3D 9
+  Version: 
+  Date   : 2025-07-07
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+
+aobscanmodule(INJECT,server.dll,89 1E 5E 5F 5B) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi],ebx
+  pop esi
+  pop edi
+  pop ebx
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 1E 5E 5F 5B
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll+46D42
+
+server.dll+46D27: 8D B4 B7 74 18 00 00  - lea esi,[edi+esi*4+00001874]
+server.dll+46D2E: 4B                    - dec ebx
+server.dll+46D2F: 23 D8                 - and ebx,eax
+server.dll+46D31: 39 1E                 - cmp [esi],ebx
+server.dll+46D33: 74 0F                 - je server.dll+46D44
+server.dll+46D35: 8B CF                 - mov ecx,edi
+server.dll+46D37: 8B 01                 - mov eax,[ecx]
+server.dll+46D39: 8B 90 58 05 00 00     - mov edx,[eax+00000558]
+server.dll+46D3F: 56                    - push esi
+server.dll+46D40: FF D2                 - call edx
+// ---------- INJECTING HERE ----------
+server.dll+46D42: 89 1E                 - mov [esi],ebx
+// ---------- DONE INJECTING  ----------
+server.dll+46D44: 5E                    - pop esi
+server.dll+46D45: 5F                    - pop edi
+server.dll+46D46: 5B                    - pop ebx
+server.dll+46D47: 5D                    - pop ebp
+server.dll+46D48: C2 08 00              - ret 0008
+server.dll+46D4B: CC                    - int 3 
+server.dll+46D4C: CC                    - int 3 
+server.dll+46D4D: CC                    - int 3 
+server.dll+46D4E: CC                    - int 3 
+server.dll+46D4F: CC                    - int 3 
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>129</ID>
+      <Description>"_All Players HP"</Description>
+      <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BFBF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>31</ID>
+          <Description>"_HP"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>29</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"vphysics.dll"+0017D1D4</Address>
+              <Offsets>
+                <Offset>D0</Offset>
+                <Offset>18</Offset>
+                <Offset>28</Offset>
+                <Offset>4</Offset>
+                <Offset>5C</Offset>
+                <Offset>20</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>131</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"vphysics.dll"+0017D1D4</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>1C</Offset>
+                <Offset>28</Offset>
+                <Offset>4</Offset>
+                <Offset>394</Offset>
+                <Offset>10</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>132</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"vphysics.dll"+0017D1D4</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>1C</Offset>
+                <Offset>28</Offset>
+                <Offset>4</Offset>
+                <Offset>438</Offset>
+                <Offset>20</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>133</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"vphysics.dll"+0017D1D4</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>1C</Offset>
+                <Offset>28</Offset>
+                <Offset>4</Offset>
+                <Offset>340</Offset>
+                <Offset>10</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>134</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"vphysics.dll"+0017D1D4</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>1C</Offset>
+                <Offset>28</Offset>
+                <Offset>4</Offset>
+                <Offset>314</Offset>
+                <Offset>20</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>80</ID>
+          <Description>"_1st Bot HP"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>94</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"engine.dll"+00429310</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>1C</Offset>
+                <Offset>8</Offset>
+                <Offset>44</Offset>
+                <Offset>18</Offset>
+                <Offset>C</Offset>
+                <Offset>28</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>99</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"engine.dll"+00645774</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>2C</Offset>
+                <Offset>8</Offset>
+                <Offset>44</Offset>
+                <Offset>28</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>104</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"engine.dll"+00429310</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>2C</Offset>
+                <Offset>C</Offset>
+                <Offset>28</Offset>
+                <Offset>8</Offset>
+                <Offset>60</Offset>
+                <Offset>C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>106</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"engine.dll"+00645774</Address>
+              <Offsets>
+                <Offset>D0</Offset>
+                <Offset>18</Offset>
+                <Offset>C</Offset>
+                <Offset>18</Offset>
+                <Offset>8</Offset>
+                <Offset>60</Offset>
+                <Offset>2C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>135</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"engine.dll"+00429310</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>2C</Offset>
+                <Offset>28</Offset>
+                <Offset>2C</Offset>
+                <Offset>8</Offset>
+                <Offset>60</Offset>
+                <Offset>C</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>58</ID>
+          <Description>"_2nd Bot HP"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>136</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"engine.dll"+00429310</Address>
+              <Offsets>
+                <Offset>CC</Offset>
+                <Offset>60</Offset>
+                <Offset>1C</Offset>
+                <Offset>C</Offset>
+                <Offset>28</Offset>
+                <Offset>C</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>137</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"engine.dll"+00429310</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>8</Offset>
+                <Offset>18</Offset>
+                <Offset>28</Offset>
+                <Offset>1C</Offset>
+                <Offset>C</Offset>
+                <Offset>18</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>138</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"engine.dll"+00429310</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>4</Offset>
+                <Offset>44</Offset>
+                <Offset>18</Offset>
+                <Offset>8</Offset>
+                <Offset>60</Offset>
+                <Offset>2C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>139</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"engine.dll"+00429310</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>1C</Offset>
+                <Offset>C</Offset>
+                <Offset>28</Offset>
+                <Offset>28</Offset>
+                <Offset>184</Offset>
+                <Offset>C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>140</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"engine.dll"+00429310</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>2C</Offset>
+                <Offset>8</Offset>
+                <Offset>44</Offset>
+                <Offset>18</Offset>
+                <Offset>28</Offset>
+                <Offset>C</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>109</ID>
+          <Description>"_3rd Bot HP"</Description>
+          <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>141</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"vphysics.dll"+0017D1D4</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>2C</Offset>
+                <Offset>28</Offset>
+                <Offset>4</Offset>
+                <Offset>D4</Offset>
+                <Offset>10</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>142</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"vphysics.dll"+0017D1D4</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>2C</Offset>
+                <Offset>28</Offset>
+                <Offset>4</Offset>
+                <Offset>1D8</Offset>
+                <Offset>20</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>143</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"vphysics.dll"+0017D1D4</Address>
+              <Offsets>
+                <Offset>EC</Offset>
+                <Offset>2C</Offset>
+                <Offset>28</Offset>
+                <Offset>B4</Offset>
+                <Offset>340</Offset>
+                <Offset>20</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>144</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"vphysics.dll"+0017D1D4</Address>
+              <Offsets>
+                <Offset>D0</Offset>
+                <Offset>28</Offset>
+                <Offset>28</Offset>
+                <Offset>4</Offset>
+                <Offset>140</Offset>
+                <Offset>10</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry ValueOnActivate="5000">
+              <ID>145</ID>
+              <Description>"pointerscan result"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"vphysics.dll"+0017D1D4</Address>
+              <Offsets>
+                <Offset>D0</Offset>
+                <Offset>28</Offset>
+                <Offset>28</Offset>
+                <Offset>B4</Offset>
+                <Offset>150</Offset>
+                <Offset>10</Offset>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedhack_wantedspeed</Name>
+      <Address>00FE0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

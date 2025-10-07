@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"Timer"</Description>
+      <LastState Value="2165379059" RealAddress="7FFF9F7407D5"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>UnityPlayer.dll+1F07D5</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"Timer"</Description>
+      <LastState Value="2165379059" RealAddress="7FFF9F742F29"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>UnityPlayer.dll+1F2F29 </Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"Timer"</Description>
+      <LastState Value="2266042355" RealAddress="7FFF9F742DB9"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>UnityPlayer.dll+1F2DB9 </Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12</ID>
+      <Description>"Timer"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"Auto Assemble script"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Home Sheep Home: Farmageddon Party Edition
+  Version: 
+  Date   : 2025-09-10
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,C1 F2 0F 5A E8 F3 0F 11 6E 28 48) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rsi+28],xmm5
+  jmp return
+
+INJECT+05:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT+05:
+  db F3 0F 11 6E 28
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 1B3B678D97C
+
+1B3B678D94F: F3 0F 10 46 28                 - movss xmm0,[rsi+28]
+1B3B678D954: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+1B3B678D958: F2 0F 11 45 F0                 - movsd [rbp-10],xmm0
+1B3B678D95D: 90                             - nop 
+1B3B678D95E: 49 BB 40 FC FA B5 B3 01 00 00  - mov r11,000001B3B5FAFC40
+1B3B678D968: 41 FF D3                       - call r11
+1B3B678D96B: F3 0F 5A C8                    - cvtss2sd xmm1,xmm0
+1B3B678D96F: F2 0F 10 45 F0                 - movsd xmm0,[rbp-10]
+1B3B678D974: F2 0F 58 C1                    - addsd xmm0,xmm1
+1B3B678D978: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+// ---------- INJECTING HERE ----------
+1B3B678D97C: F3 0F 11 6E 28                 - movss [rsi+28],xmm5
+// ---------- DONE INJECTING  ----------
+1B3B678D981: 48 8B 75 F8                    - mov rsi,[rbp-08]
+1B3B678D985: 48 8D 65 00                    - lea rsp,[rbp+00]
+1B3B678D989: 5D                             - pop rbp
+1B3B678D98A: C3                             - ret 
+1B3B678D98B: 00 00                          - add [rax],al
+1B3B678D98D: 00 00                          - add [rax],al
+1B3B678D98F: 00 01                          - add [rcx],al
+1B3B678D991: 04 02                          - add al,02
+1B3B678D993: 05 04 03 01 50                 - add eax,50010304
+1B3B678D998: 00 00                          - add [rax],al
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"Auto Assemble script"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Home Sheep Home: Farmageddon Party Edition
+  Version: 
+  Date   : 2025-09-10
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,F3 0F 11 AE D4 00 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rsi+000000D4],xmm5
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 AE D4 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 17B396E0BA4
+
+17B396E0B77: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+17B396E0B7B: F2 0F 11 45 F0                 - movsd [rbp-10],xmm0
+17B396E0B80: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+17B396E0B85: 90                             - nop 
+17B396E0B86: 49 BB 40 FC FC 38 7B 01 00 00  - mov r11,0000017B38FCFC40
+17B396E0B90: 41 FF D3                       - call r11
+17B396E0B93: F3 0F 5A C8                    - cvtss2sd xmm1,xmm0
+17B396E0B97: F2 0F 10 45 F0                 - movsd xmm0,[rbp-10]
+17B396E0B9C: F2 0F 58 C1                    - addsd xmm0,xmm1
+17B396E0BA0: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+// ---------- INJECTING HERE ----------
+17B396E0BA4: F3 0F 11 AE D4 00 00 00        - movss [rsi+000000D4],xmm5
+// ---------- DONE INJECTING  ----------
+17B396E0BAC: 48 8B 75 F8                    - mov rsi,[rbp-08]
+17B396E0BB0: 48 8D 65 00                    - lea rsp,[rbp+00]
+17B396E0BB4: 5D                             - pop rbp
+17B396E0BB5: C3                             - ret 
+17B396E0BB6: 00 00                          - add [rax],al
+17B396E0BB8: 01 04 02                       - add [rdx+rax],eax
+17B396E0BBB: 05 04 03 01 50                 - add eax,50010304
+17B396E0BC0: 00 00                          - add [rax],al
+17B396E0BC2: 00 00                          - add [rax],al
+17B396E0BC4: 00 00                          - add [rax],al
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

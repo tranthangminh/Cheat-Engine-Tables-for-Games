@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Death Count"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>LittleNightmares.exe+293B1A</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"System"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>LittleNightmares.exe+155B973</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Death Count = 0"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Little Nightmares 
+  Version: 
+  Date   : 2025-09-12
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,LittleNightmares.exe,FF 41 04 48 83 C4 20) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rcx+04],0
+  //inc [rcx+04]
+  add rsp,20
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db FF 41 04 48 83 C4 20
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: LittleNightmares.exe+293B1A
+
+LittleNightmares.exe+293B00: FF 40 04     - inc [rax+04]
+LittleNightmares.exe+293B03: 48 83 C4 20  - add rsp,20
+LittleNightmares.exe+293B07: 5B           - pop rbx
+LittleNightmares.exe+293B08: C3           - ret 
+LittleNightmares.exe+293B09: 83 F8 FF     - cmp eax,-01
+LittleNightmares.exe+293B0C: 74 C7        - je LittleNightmares.exe+293AD5
+LittleNightmares.exe+293B0E: 48 63 C8     - movsxd  rcx,eax
+LittleNightmares.exe+293B11: 48 C1 E1 04  - shl rcx,04
+LittleNightmares.exe+293B15: 48 03 CA     - add rcx,rdx
+LittleNightmares.exe+293B18: 74 BB        - je LittleNightmares.exe+293AD5
+// ---------- INJECTING HERE ----------
+LittleNightmares.exe+293B1A: FF 41 04     - inc [rcx+04]
+// ---------- DONE INJECTING  ----------
+LittleNightmares.exe+293B1D: 48 83 C4 20  - add rsp,20
+LittleNightmares.exe+293B21: 5B           - pop rbx
+LittleNightmares.exe+293B22: C3           - ret 
+LittleNightmares.exe+293B23: CC           - int 3 
+LittleNightmares.exe+293B24: CC           - int 3 
+LittleNightmares.exe+293B25: CC           - int 3 
+LittleNightmares.exe+293B26: CC           - int 3 
+LittleNightmares.exe+293B27: CC           - int 3 
+LittleNightmares.exe+293B28: CC           - int 3 
+LittleNightmares.exe+293B29: CC           - int 3 
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>41</ID>
+      <Description>"Timer"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>LittleNightmares.exe+15887B3</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"Timer - Online"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Double</VariableType>
+      <Address>LittleNightmares.exe+15CB761</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"Timer Stop - Online"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Little Nightmares 
+  Version: 
+  Date   : 2025-09-12
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,LittleNightmares.exe,F2 0F 11 41 40 45) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rcx+40],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 41 40
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: LittleNightmares.exe+15CB761
+
+LittleNightmares.exe+15CB72C: 48 83 EC 30                 - sub rsp,30
+LittleNightmares.exe+15CB730: 48 C7 44 24 20 FE FF FF FF  - mov qword ptr [rsp+20],FFFFFFFFFFFFFFFE
+LittleNightmares.exe+15CB739: 48 89 5C 24 78              - mov [rsp+78],rbx
+LittleNightmares.exe+15CB73E: 48 8B F9                    - mov rdi,rcx
+LittleNightmares.exe+15CB741: 48 8B 05 58 23 C5 01        - mov rax,[LittleNightmares.exe+321DAA0]
+LittleNightmares.exe+15CB748: 48 39 81 10 01 00 00        - cmp [rcx+00000110],rax
+LittleNightmares.exe+15CB74F: 0F 84 CB 02 00 00           - je LittleNightmares.exe+15CBA20
+LittleNightmares.exe+15CB755: 0F 57 C0                    - xorps xmm0,xmm0
+LittleNightmares.exe+15CB758: F3 0F 5A C1                 - cvtss2sd xmm0,xmm1
+LittleNightmares.exe+15CB75C: F2 0F 58 41 40              - addsd xmm0,[rcx+40]
+// ---------- INJECTING HERE ----------
+LittleNightmares.exe+15CB761: F2 0F 11 41 40              - movsd [rcx+40],xmm0
+// ---------- DONE INJECTING  ----------
+LittleNightmares.exe+15CB766: 45 33 F6                    - xor r14d,r14d
+LittleNightmares.exe+15CB769: 44 39 71 18                 - cmp [rcx+18],r14d
+LittleNightmares.exe+15CB76D: 0F 8E BC 01 00 00           - jng LittleNightmares.exe+15CB92F
+LittleNightmares.exe+15CB773: 4C 8D 2D A6 FA C1 FE        - lea r13,[LittleNightmares.exe+1EB220]
+LittleNightmares.exe+15CB77A: 66 0F 1F 44 00 00           - nop word ptr [rax+rax+00]
+LittleNightmares.exe+15CB780: 48 8B 47 10                 - mov rax,[rdi+10]
+LittleNightmares.exe+15CB784: F2 0F 10 40 08              - movsd xmm0,[rax+08]
+LittleNightmares.exe+15CB789: 66 0F 2F 47 40              - comisd xmm0,[rdi+40]
+LittleNightmares.exe+15CB78E: 0F 83 9B 01 00 00           - jae LittleNightmares.exe+15CB92F
+LittleNightmares.exe+15CB794: 45 33 C9                    - xor r9d,r9d
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>254900E14A0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>254900E1D18</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>8</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>254900E54A0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>254900E5D18</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>25490210F60</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>25490212AC0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12</ID>
+      <Description>"No description"</Description>
+      <VariableType>Double</VariableType>
+      <Address>25493484908</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>15</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>25493CA6428</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>25493CA6808</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>20</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>254AD09B848</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>23</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>254B98CCCE0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>24</ID>
+      <Description>"No description"</Description>
+      <VariableType>Double</VariableType>
+      <Address>254B9B170C0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>25</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>254BC024060</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>37</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>254BEDEA4A0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>39</ID>
+      <Description>"Timer"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>LittleNightmares.exe+BD3FE2</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>40</ID>
+      <Description>"Timer"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>PhysX3PROFILE_x64.dll+1BD7D3 </Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

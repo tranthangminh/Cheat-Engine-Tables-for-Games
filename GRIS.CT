@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Points ? 1"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>24EB8BEC0B0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Points 1"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>24EB9F074B8</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Total Points 1"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>24EB9F074BC</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Points"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : GRIS
+  Version: 
+  Date   : 2025-08-11
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,UnityPlayer.dll,4C 89 76 18 48 C1 E7 04) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rsi+18],r14
+  shl rdi,04
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 4C 89 76 18 48 C1 E7 04
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: UnityPlayer.dll+4E6C9B
+
+UnityPlayer.dll+4E6C6F: 41 BD 01 00 00 00              - mov r13d,00000001
+UnityPlayer.dll+4E6C75: 4C 8D 77 01                    - lea r14,[rdi+01]
+UnityPlayer.dll+4E6C79: 4C 3B F2                       - cmp r14,rdx
+UnityPlayer.dll+4E6C7C: 76 1D                          - jna UnityPlayer.dll+4E6C9B
+UnityPlayer.dll+4E6C7E: 48 03 D2                       - add rdx,rdx
+UnityPlayer.dll+4E6C81: 49 3B D5                       - cmp rdx,r13
+UnityPlayer.dll+4E6C84: 49 0F 42 D5                    - cmovb rdx,r13
+UnityPlayer.dll+4E6C88: 48 83 C1 08                    - add rcx,08
+UnityPlayer.dll+4E6C8C: E8 3F C2 01 00                 - call UnityPlayer.dll+502ED0
+UnityPlayer.dll+4E6C91: 48 B8 FF FF FF FF FF FF FF 7F  - mov rax,7FFFFFFFFFFFFFFF
+// ---------- INJECTING HERE ----------
+UnityPlayer.dll+4E6C9B: 4C 89 76 18                    - mov [rsi+18],r14
+// ---------- DONE INJECTING  ----------
+UnityPlayer.dll+4E6C9F: 48 C1 E7 04                    - shl rdi,04
+UnityPlayer.dll+4E6CA3: 48 03 7E 08                    - add rdi,[rsi+08]
+UnityPlayer.dll+4E6CA7: 48 89 2F                       - mov [rdi],rbp
+UnityPlayer.dll+4E6CAA: 44 89 67 08                    - mov [rdi+08],r12d
+UnityPlayer.dll+4E6CAE: 48 8D 7D 08                    - lea rdi,[rbp+08]
+UnityPlayer.dll+4E6CB2: 48 8B 5F 10                    - mov rbx,[rdi+10]
+UnityPlayer.dll+4E6CB6: 48 8B 57 18                    - mov rdx,[rdi+18]
+UnityPlayer.dll+4E6CBA: 48 23 D0                       - and rdx,rax
+UnityPlayer.dll+4E6CBD: 48 8D 6B 01                    - lea rbp,[rbx+01]
+UnityPlayer.dll+4E6CC1: 48 3B EA                       - cmp rbp,rdx
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

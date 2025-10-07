@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"Stop timer"</Description>
+      <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"Stop the timer"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Little Luna
+  Version: 
+  Date   : 2025-08-20
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,F3 0F 11 B3 0C 01 00 00 0F) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rbx+0000010C],xmm6
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 B3 0C 01 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+4F9B1C
+
+GameAssembly.dll+4F9AE9: 0F 84 19 03 00 00        - je GameAssembly.dll+4F9E08
+GameAssembly.dll+4F9AEF: 0F 29 74 24 40           - movaps [rsp+40],xmm6
+GameAssembly.dll+4F9AF4: 33 C9                    - xor ecx,ecx
+GameAssembly.dll+4F9AF6: F3 0F 10 B3 0C 01 00 00  - movss xmm6,[rbx+0000010C]
+GameAssembly.dll+4F9AFE: 48 89 74 24 68           - mov [rsp+68],rsi
+GameAssembly.dll+4F9B03: 48 89 7C 24 70           - mov [rsp+70],rdi
+GameAssembly.dll+4F9B08: E8 63 E8 2A 02           - call UnityEngine.Time.get_deltaTime
+GameAssembly.dll+4F9B0D: F3 0F 5C F0              - subss xmm6,xmm0
+GameAssembly.dll+4F9B11: F3 0F 10 05 1F 51 67 02  - movss xmm0,[GameAssembly.dll+2B6EC38]
+GameAssembly.dll+4F9B19: 0F 2F C6                 - comiss xmm0,xmm6
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+4F9B1C: F3 0F 11 B3 0C 01 00 00  - movss [rbx+0000010C],xmm6
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+4F9B24: 0F 82 E1 00 00 00        - jb GameAssembly.dll+4F9C0B
+GameAssembly.dll+4F9B2A: 80 BB 08 01 00 00 00     - cmp byte ptr [rbx+00000108],00
+GameAssembly.dll+4F9B31: 0F 85 D4 00 00 00        - jne GameAssembly.dll+4F9C0B
+GameAssembly.dll+4F9B37: 80 BB F8 00 00 00 00     - cmp byte ptr [rbx+000000F8],00
+GameAssembly.dll+4F9B3E: 0F 85 C7 00 00 00        - jne GameAssembly.dll+4F9C0B
+GameAssembly.dll+4F9B44: 48 8B 8B C0 00 00 00     - mov rcx,[rbx+000000C0]
+GameAssembly.dll+4F9B4B: C6 83 F8 00 00 00 01     - mov byte ptr [rbx+000000F8],01
+GameAssembly.dll+4F9B52: 48 85 C9                 - test rcx,rcx
+GameAssembly.dll+4F9B55: 0F 84 BF 02 00 00        - je GameAssembly.dll+4F9E1A
+GameAssembly.dll+4F9B5B: 33 D2                    - xor edx,edx
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"Stop the timer of the button"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Little Luna
+  Version: 
+  Date   : 2025-08-20
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,GameAssembly.dll,89 93 88 00 00 00 48) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rbx+00000088],edx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 93 88 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+4F6958
+
+GameAssembly.dll+4F6925: E8 B6 F7 F1 FF        - call GameAssembly.il2cpp_get_exception_argument_null+3D0
+GameAssembly.dll+4F692A: 48 8D 0D D7 92 29 03  - lea rcx,[GameAssembly.dll+378FC08]
+GameAssembly.dll+4F6931: E8 AA F7 F1 FF        - call GameAssembly.il2cpp_get_exception_argument_null+3D0
+GameAssembly.dll+4F6936: C6 05 4B CC 51 03 01  - mov byte ptr [GameAssembly.dll+3A13588],01
+GameAssembly.dll+4F693D: 80 BB 8C 00 00 00 00  - cmp byte ptr [rbx+0000008C],00
+GameAssembly.dll+4F6944: 0F 84 83 00 00 00     - je GameAssembly.dll+4F69CD
+GameAssembly.dll+4F694A: 80 7B 70 00           - cmp byte ptr [rbx+70],00
+GameAssembly.dll+4F694E: 74 7D                 - je GameAssembly.dll+4F69CD
+GameAssembly.dll+4F6950: 8B 93 88 00 00 00     - mov edx,[rbx+00000088]
+GameAssembly.dll+4F6956: FF CA                 - dec edx
+// ---------- INJECTING HERE ----------
+GameAssembly.dll+4F6958: 89 93 88 00 00 00     - mov [rbx+00000088],edx
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll+4F695E: 48 8B 05 A3 92 29 03  - mov rax,[GameAssembly.dll+378FC08]
+GameAssembly.dll+4F6965: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
+GameAssembly.dll+4F696C: 48 8B 09              - mov rcx,[rcx]
+GameAssembly.dll+4F696F: 48 85 C9              - test rcx,rcx
+GameAssembly.dll+4F6972: 0F 84 9E 00 00 00     - je GameAssembly.dll+4F6A16
+GameAssembly.dll+4F6978: 45 33 C0              - xor r8d,r8d
+GameAssembly.dll+4F697B: E8 A0 2E 00 00        - call GameAssembly.dll+4F9820
+GameAssembly.dll+4F6980: 48 8B 83 B8 00 00 00  - mov rax,[rbx+000000B8]
+GameAssembly.dll+4F6987: 48 85 C0              - test rax,rax
+GameAssembly.dll+4F698A: 74 0B                 - je GameAssembly.dll+4F6997
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedhack_wantedspeed</Name>
+      <Address>1DB09920000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

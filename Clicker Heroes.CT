@@ -1,0 +1,1878 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Rubies - Minus"</Description>
+      <Color>BF4040</Color>
+      <VariableType>Double</VariableType>
+      <Address>1C4FF5604A0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9</ID>
+      <Description>"Monsters - Kill"</Description>
+      <LastState/>
+      <Color>BF4040</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,F3 0F 11 6E 30 48 8B 75 F8 48 8D 65 00 5D C3 C2) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  movss [rsi+30],xmm5
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 6E 30
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Logic.Controllers.ZoneController:Reset+eb
+
+Logic.Controllers.ZoneController:Reset+bf: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+Logic.Controllers.ZoneController:Reset+c3: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+Logic.Controllers.ZoneController:Reset+c7: F3 0F 11 6E 30                 - movss [rsi+30],xmm5
+Logic.Controllers.ZoneController:Reset+cc: EB 22                          - jmp Logic.Controllers.ZoneController:Reset+f0
+Logic.Controllers.ZoneController:Reset+ce: 48 63 56 2C                    - movsxd  rdx,dword ptr [rsi+2C]
+Logic.Controllers.ZoneController:Reset+d2: 48 8B 4D F0                    - mov rcx,[rbp-10]
+Logic.Controllers.ZoneController:Reset+d6: 49 BB E0 86 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:GetBossZoneTime
+Logic.Controllers.ZoneController:Reset+e0: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:Reset+e3: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+Logic.Controllers.ZoneController:Reset+e7: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+// ---------- INJECTING HERE ----------
+Logic.Controllers.ZoneController:Reset+eb: F3 0F 11 6E 30                 - movss [rsi+30],xmm5
+// ---------- DONE INJECTING  ----------
+Logic.Controllers.ZoneController:Reset+f0: 48 8B 75 F8                    - mov rsi,[rbp-08]
+Logic.Controllers.ZoneController:Reset+f4: 48 8D 65 00                    - lea rsp,[rbp+00]
+Logic.Controllers.ZoneController:Reset+f8: 5D                             - pop rbp
+Logic.Controllers.ZoneController:Reset+f9: C3                             - ret 
+Logic.Controllers.ZoneController:Reset+fa: C2 B8 48                       - ret 48B8
+Logic.Controllers.ZoneController:Reset+fd: 8B CD                          - mov ecx,ebp
+Logic.Controllers.ZoneController:Reset+ff: 48 00 00                       - add [rax],al
+Logic.Controllers.ZoneController:Reset+102: 80 41 FF FF                    - add byte ptr [rcx-01],-01
+Logic.Controllers.ZoneController:Reset+106: 49 BB 00 00 00 00 00 00 00 00  - mov r11,0000000000000000
+Logic.Controllers.ZoneController:Reset+110: 00 00                          - add [rax],al
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>38</ID>
+      <Description>"Immortals Souls plus - won't decrease on use"</Description>
+      <LastState/>
+      <Color>BF4040</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,F2 0F 11 88 C0 04 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  movsd [rax+000004C0],xmm1
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 88 C0 04 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 14C1346A4C3
+
+14C1346A48F: 48 8B 46 70                    - mov rax,[rsi+70]
+14C1346A493: F2 0F 10 80 C8 04 00 00        - movsd xmm0,[rax+000004C8]
+14C1346A49B: F2 0F 10 D0                    - movsd xmm2,xmm0
+14C1346A49F: 48 8B 46 70                    - mov rax,[rsi+70]
+14C1346A4A3: F2 0F 10 80 B0 04 00 00        - movsd xmm0,[rax+000004B0]
+14C1346A4AB: 48 8B 46 70                    - mov rax,[rsi+70]
+14C1346A4AF: 48 8B C8                       - mov rcx,rax
+14C1346A4B2: F2 0F 10 88 C0 04 00 00        - movsd xmm1,[rax+000004C0]
+14C1346A4BA: F2 0F 11 55 E8                 - movsd [rbp-18],xmm2
+14C1346A4BF: F2 0F 58 CA                    - addsd xmm1,xmm2
+// ---------- INJECTING HERE ----------
+14C1346A4C3: F2 0F 11 88 C0 04 00 00        - movsd [rax+000004C0],xmm1
+// ---------- DONE INJECTING  ----------
+14C1346A4CB: 48 B8 30 DE 9B FF 4B 01 00 00  - mov rax,0000014BFF9BDE30
+14C1346A4D5: 48 8B 00                       - mov rax,[rax]
+14C1346A4D8: F2 0F 11 45 E0                 - movsd [rbp-20],xmm0
+14C1346A4DD: 48 8B C8                       - mov rcx,rax
+14C1346A4E0: 41 B8 0A 00 00 00              - mov r8d,0000000A
+14C1346A4E6: F2 0F 10 C8                    - movsd xmm1,xmm0
+14C1346A4EA: 83 38 00                       - cmp dword ptr [rax],00
+14C1346A4ED: 90                             - nop 
+14C1346A4EE: 49 BB C0 A5 46 13 4C 01 00 00  - mov r11,0000014C1346A5C0
+14C1346A4F8: 41 FF D3                       - call r11
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>37</ID>
+      <Description>"Immortals Souls minus - won't decrease on use"</Description>
+      <LastState Activated="1"/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,F2 0F 11 80 C0 04 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rax+000004C0],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 80 C0 04 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 14C13471CD3
+
+14C13471CA0: F2 0F 10 45 F0           - movsd xmm0,[rbp-10]
+14C13471CA5: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CA9: F2 0F 10 88 C0 04 00 00  - movsd xmm1,[rax+000004C0]
+14C13471CB1: 66 0F 2F C8              - comisd xmm1,xmm0
+14C13471CB5: 0F 82 3C 00 00 00        - jb 14C13471CF7
+14C13471CBB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CBF: 48 8B C8                 - mov rcx,rax
+14C13471CC2: F2 0F 10 80 C0 04 00 00  - movsd xmm0,[rax+000004C0]
+14C13471CCA: F2 0F 10 4D F0           - movsd xmm1,[rbp-10]
+14C13471CCF: F2 0F 5C C1              - subsd xmm0,xmm1
+// ---------- INJECTING HERE ----------
+14C13471CD3: F2 0F 11 80 C0 04 00 00  - movsd [rax+000004C0],xmm0
+// ---------- DONE INJECTING  ----------
+14C13471CDB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CDF: 48 8B D0                 - mov rdx,rax
+14C13471CE2: 8B 88 04 03 00 00        - mov ecx,[rax+00000304]
+14C13471CE8: FF C1                    - inc ecx
+14C13471CEA: 89 88 04 03 00 00        - mov [rax+00000304],ecx
+14C13471CF0: B8 01 00 00 00           - mov eax,00000001
+14C13471CF5: EB 02                    - jmp 14C13471CF9
+14C13471CF7: 33 C0                    - xor eax,eax
+14C13471CF9: 48 8B 75 F8              - mov rsi,[rbp-08]
+14C13471CFD: 48 8D 65 00              - lea rsp,[rbp+00]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Find money value, change to 5E600, then active this cheat"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,48 89 08 48 8B 8D 58 FE FF FF 48 89 48 08 66) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rax],rcx
+  mov rcx,[rbp-000001A8]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 5
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 48 89 08 48 8B 8D 58 FE FF FF
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 1EBA62FA758
+
+1EBA62FA71D: 48 8B CD                       - mov rcx,rbp
+1EBA62FA720: 48 81 C1 E0 FD FF FF           - add rcx,FFFFFFFFFFFFFDE0
+1EBA62FA727: 48 8D AD 00 00 00 00           - lea rbp,[rbp+00000000]
+1EBA62FA72E: 49 BB 90 85 C3 14 EC 01 00 00  - mov r11,000001EC14C38590
+1EBA62FA738: 41 FF D3                       - call r11
+1EBA62FA73B: 48 8B 85 D0 FD FF FF           - mov rax,[rbp-00000230]
+1EBA62FA742: 48 85 C0                       - test rax,rax
+1EBA62FA745: 0F 84 4F 06 00 00              - je 1EBA62FAD9A
+1EBA62FA74B: 48 05 38 05 00 00              - add rax,00000538
+1EBA62FA751: 48 8B 8D 50 FE FF FF           - mov rcx,[rbp-000001B0]
+// ---------- INJECTING HERE ----------
+1EBA62FA758: 48 89 08                       - mov [rax],rcx
+// ---------- DONE INJECTING  ----------
+1EBA62FA75B: 48 8B 8D 58 FE FF FF           - mov rcx,[rbp-000001A8]
+1EBA62FA762: 48 89 48 08                    - mov [rax+08],rcx
+1EBA62FA766: 66 0F 57 C9                    - xorpd xmm1,xmm1
+1EBA62FA76A: 48 8B 8D D8 FD FF FF           - mov rcx,[rbp-00000228]
+1EBA62FA771: 48 8B C5                       - mov rax,rbp
+1EBA62FA774: 48 05 60 FE FF FF              - add rax,FFFFFFFFFFFFFE60
+1EBA62FA77A: 48 8B 11                       - mov rdx,[rcx]
+1EBA62FA77D: 48 89 95 60 FE FF FF           - mov [rbp-000001A0],rdx
+1EBA62FA784: 48 8B 49 08                    - mov rcx,[rcx+08]
+1EBA62FA788: 48 89 8D 68 FE FF FF           - mov [rbp-00000198],rcx
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>34</ID>
+      <Description>"Forge Cores - won't decrease on use"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-26
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,48 89 48 58 48 B8 30 4E 7F 98 CB 01 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rax+58],rcx
+  mov rax,000001CB987F4E30
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 9
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 48 89 48 58 48 B8 30 4E 7F 98 CB 01 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 1CCFCBD1C20
+
+1CCFCBD1BFF: 48 8B 40 58                    - mov rax,[rax+58]
+1CCFCBD1C03: 48 03 C6                       - add rax,rsi
+1CCFCBD1C06: 48 85 C0                       - test rax,rax
+1CCFCBD1C09: 7D 07                          - jnl 1CCFCBD1C12
+1CCFCBD1C0B: 33 C0                          - xor eax,eax
+1CCFCBD1C0D: E9 44 00 00 00                 - jmp 1CCFCBD1C56
+1CCFCBD1C12: 48 8B 47 18                    - mov rax,[rdi+18]
+1CCFCBD1C16: 48 8B D0                       - mov rdx,rax
+1CCFCBD1C19: 48 8B 48 58                    - mov rcx,[rax+58]
+1CCFCBD1C1D: 48 03 CE                       - add rcx,rsi
+// ---------- INJECTING HERE ----------
+1CCFCBD1C20: 48 89 48 58                    - mov [rax+58],rcx
+// ---------- DONE INJECTING  ----------
+1CCFCBD1C24: 48 B8 30 4E 7F 98 CB 01 00 00  - mov rax,000001CB987F4E30
+1CCFCBD1C2E: 48 8B 00                       - mov rax,[rax]
+1CCFCBD1C31: 48 8B C8                       - mov rcx,rax
+1CCFCBD1C34: 83 39 00                       - cmp dword ptr [rcx],00
+1CCFCBD1C37: 48 8B 40 18                    - mov rax,[rax+18]
+1CCFCBD1C3B: 48 8B 4F 18                    - mov rcx,[rdi+18]
+1CCFCBD1C3F: 48 8B 51 58                    - mov rdx,[rcx+58]
+1CCFCBD1C43: 48 8B C8                       - mov rcx,rax
+1CCFCBD1C46: 48 89 45 E8                    - mov [rbp-18],rax
+1CCFCBD1C4A: FF 50 18                       - call qword ptr [rax+18]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"Rubies - won't decrease on use"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,F2 0F 11 80 A0 04 00 00 F2) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rax+000004A0],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 80 A0 04 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Logic.Controllers.RubiesController:AddRubies+44
+
+Logic.Controllers.RubiesController:AddRubies+13: F2 0F 11 4D E0           - movsd [rbp-20],xmm1
+Logic.Controllers.RubiesController:AddRubies+18: 49 8B F0                 - mov rsi,r8
+Logic.Controllers.RubiesController:AddRubies+1b: 48 8B 47 18              - mov rax,[rdi+18]
+Logic.Controllers.RubiesController:AddRubies+1f: F2 0F 10 80 A0 04 00 00  - movsd xmm0,[rax+000004A0]
+Logic.Controllers.RubiesController:AddRubies+27: F2 0F 11 45 E8           - movsd [rbp-18],xmm0
+Logic.Controllers.RubiesController:AddRubies+2c: 48 8B 47 18              - mov rax,[rdi+18]
+Logic.Controllers.RubiesController:AddRubies+30: 48 8B C8                 - mov rcx,rax
+Logic.Controllers.RubiesController:AddRubies+33: F2 0F 10 80 A0 04 00 00  - movsd xmm0,[rax+000004A0]
+Logic.Controllers.RubiesController:AddRubies+3b: F2 0F 10 4D E0           - movsd xmm1,[rbp-20]
+Logic.Controllers.RubiesController:AddRubies+40: F2 0F 58 C1              - addsd xmm0,xmm1
+// ---------- INJECTING HERE ----------
+Logic.Controllers.RubiesController:AddRubies+44: F2 0F 11 80 A0 04 00 00  - movsd [rax+000004A0],xmm0
+// ---------- DONE INJECTING  ----------
+Logic.Controllers.RubiesController:AddRubies+4c: F2 0F 10 45 E0           - movsd xmm0,[rbp-20]
+Logic.Controllers.RubiesController:AddRubies+51: 66 0F 57 C9              - xorpd xmm1,xmm1
+Logic.Controllers.RubiesController:AddRubies+55: 66 0F 2F C8              - comisd xmm1,xmm0
+Logic.Controllers.RubiesController:AddRubies+59: 0F 8A 90 00 00 00        - jp Logic.Controllers.RubiesController:AddRubies+ef
+Logic.Controllers.RubiesController:AddRubies+5f: 0F 83 8A 00 00 00        - jae Logic.Controllers.RubiesController:AddRubies+ef
+Logic.Controllers.RubiesController:AddRubies+65: 48 8B 47 18              - mov rax,[rdi+18]
+Logic.Controllers.RubiesController:AddRubies+69: 48 8B C8                 - mov rcx,rax
+Logic.Controllers.RubiesController:AddRubies+6c: F2 0F 10 80 A8 04 00 00  - movsd xmm0,[rax+000004A8]
+Logic.Controllers.RubiesController:AddRubies+74: F2 0F 10 4D E0           - movsd xmm1,[rbp-20]
+Logic.Controllers.RubiesController:AddRubies+79: F2 0F 58 C1              - addsd xmm0,xmm1
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>21</ID>
+      <Description>"+1.000.000.000 levels on Upgrade"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,48 89 47 28 48 8B 4D E8) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [rdi+28],(int)1000000000
+  //mov [rdi+28],rax
+  mov rcx,[rbp-18]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 48 89 47 28 48 8B 4D E8
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Logic.Controllers.HeroesController:AddLevel+2b
+
+Logic.Controllers.HeroesController:AddLevel+8: 48 89 75 F0                    - mov [rbp-10],rsi
+Logic.Controllers.HeroesController:AddLevel+c: 48 89 7D F8                    - mov [rbp-08],rdi
+Logic.Controllers.HeroesController:AddLevel+10: 48 89 4D E8                    - mov [rbp-18],rcx
+Logic.Controllers.HeroesController:AddLevel+14: 48 8B FA                       - mov rdi,rdx
+Logic.Controllers.HeroesController:AddLevel+17: 49 8B F0                       - mov rsi,r8
+Logic.Controllers.HeroesController:AddLevel+1a: 48 8B 47 28                    - mov rax,[rdi+28]
+Logic.Controllers.HeroesController:AddLevel+1e: 48 89 45 D8                    - mov [rbp-28],rax
+Logic.Controllers.HeroesController:AddLevel+22: 48 8B 47 28                    - mov rax,[rdi+28]
+Logic.Controllers.HeroesController:AddLevel+26: 8B CE                          - mov ecx,esi
+Logic.Controllers.HeroesController:AddLevel+28: 48 03 C1                       - add rax,rcx
+// ---------- INJECTING HERE ----------
+Logic.Controllers.HeroesController:AddLevel+2b: 48 89 47 28                    - mov [rdi+28],rax
+// ---------- DONE INJECTING  ----------
+Logic.Controllers.HeroesController:AddLevel+2f: 48 8B 4D E8                    - mov rcx,[rbp-18]
+Logic.Controllers.HeroesController:AddLevel+33: 48 8B D7                       - mov rdx,rdi
+Logic.Controllers.HeroesController:AddLevel+36: 49 BB 60 77 FD 65 6A 02 00 00  - mov r11,Logic.Controllers.HeroesController:RecalculateDamageMultiplier
+Logic.Controllers.HeroesController:AddLevel+40: 41 FF D3                       - call r11
+Logic.Controllers.HeroesController:AddLevel+43: 48 B8 70 EE 90 FB 6B 02 00 00  - mov rax,0000026BFB90EE70
+Logic.Controllers.HeroesController:AddLevel+4d: 48 8B 00                       - mov rax,[rax]
+Logic.Controllers.HeroesController:AddLevel+50: 48 8B C8                       - mov rcx,rax
+Logic.Controllers.HeroesController:AddLevel+53: 48 8B D6                       - mov rdx,rsi
+Logic.Controllers.HeroesController:AddLevel+56: 83 38 00                       - cmp dword ptr [rax],00
+Logic.Controllers.HeroesController:AddLevel+59: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10</ID>
+      <Description>"Jump to Stage 1000"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 7E 2C 49 8B CF) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rsi+2C],(int)1000
+  //mov [rsi+2C],edi
+  mov rcx,r15
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 7E 2C 49 8B CF
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Logic.Controllers.ZoneController:GetZoneByHeight+79
+
+Logic.Controllers.ZoneController:GetZoneByHeight+53: 48 8B 45 E0                    - mov rax,[rbp-20]
+Logic.Controllers.ZoneController:GetZoneByHeight+57: 48 8B F0                       - mov rsi,rax
+Logic.Controllers.ZoneController:GetZoneByHeight+5a: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+5d: 48 8B D7                       - mov rdx,rdi
+Logic.Controllers.ZoneController:GetZoneByHeight+60: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+65: 90                             - nop 
+Logic.Controllers.ZoneController:GetZoneByHeight+66: 49 BB 10 83 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:GetZoneIdForLevel
+Logic.Controllers.ZoneController:GetZoneByHeight+70: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+73: 89 46 20                       - mov [rsi+20],eax
+Logic.Controllers.ZoneController:GetZoneByHeight+76: 89 7E 28                       - mov [rsi+28],edi
+// ---------- INJECTING HERE ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+79: 89 7E 2C                       - mov [rsi+2C],edi
+// ---------- DONE INJECTING  ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+7c: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+7f: 48 8B D6                       - mov rdx,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+82: 48 8D 6D 00                    - lea rbp,[rbp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+86: 49 BB 90 85 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:Reset
+Logic.Controllers.ZoneController:GetZoneByHeight+90: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+93: 48 8B C6                       - mov rax,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+96: 48 8B 75 E8                    - mov rsi,[rbp-18]
+Logic.Controllers.ZoneController:GetZoneByHeight+9a: 48 8B 7D F0                    - mov rdi,[rbp-10]
+Logic.Controllers.ZoneController:GetZoneByHeight+9e: 4C 8B 7D F8                    - mov r15,[rbp-08]
+Logic.Controllers.ZoneController:GetZoneByHeight+a2: 48 8D 65 00                    - lea rsp,[rbp+00]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>17</ID>
+      <Description>"Jump to Stage 10.000"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 7E 2C 49 8B CF) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rsi+2C],(int)10000
+  //mov [rsi+2C],edi
+  mov rcx,r15
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 7E 2C 49 8B CF
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Logic.Controllers.ZoneController:GetZoneByHeight+79
+
+Logic.Controllers.ZoneController:GetZoneByHeight+53: 48 8B 45 E0                    - mov rax,[rbp-20]
+Logic.Controllers.ZoneController:GetZoneByHeight+57: 48 8B F0                       - mov rsi,rax
+Logic.Controllers.ZoneController:GetZoneByHeight+5a: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+5d: 48 8B D7                       - mov rdx,rdi
+Logic.Controllers.ZoneController:GetZoneByHeight+60: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+65: 90                             - nop 
+Logic.Controllers.ZoneController:GetZoneByHeight+66: 49 BB 10 83 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:GetZoneIdForLevel
+Logic.Controllers.ZoneController:GetZoneByHeight+70: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+73: 89 46 20                       - mov [rsi+20],eax
+Logic.Controllers.ZoneController:GetZoneByHeight+76: 89 7E 28                       - mov [rsi+28],edi
+// ---------- INJECTING HERE ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+79: 89 7E 2C                       - mov [rsi+2C],edi
+// ---------- DONE INJECTING  ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+7c: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+7f: 48 8B D6                       - mov rdx,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+82: 48 8D 6D 00                    - lea rbp,[rbp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+86: 49 BB 90 85 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:Reset
+Logic.Controllers.ZoneController:GetZoneByHeight+90: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+93: 48 8B C6                       - mov rax,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+96: 48 8B 75 E8                    - mov rsi,[rbp-18]
+Logic.Controllers.ZoneController:GetZoneByHeight+9a: 48 8B 7D F0                    - mov rdi,[rbp-10]
+Logic.Controllers.ZoneController:GetZoneByHeight+9e: 4C 8B 7D F8                    - mov r15,[rbp-08]
+Logic.Controllers.ZoneController:GetZoneByHeight+a2: 48 8D 65 00                    - lea rsp,[rbp+00]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16</ID>
+      <Description>"Jump to Stage 100.000"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 7E 2C 49 8B CF) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rsi+2C],(int)100000
+  //mov [rsi+2C],edi
+  mov rcx,r15
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 7E 2C 49 8B CF
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Logic.Controllers.ZoneController:GetZoneByHeight+79
+
+Logic.Controllers.ZoneController:GetZoneByHeight+53: 48 8B 45 E0                    - mov rax,[rbp-20]
+Logic.Controllers.ZoneController:GetZoneByHeight+57: 48 8B F0                       - mov rsi,rax
+Logic.Controllers.ZoneController:GetZoneByHeight+5a: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+5d: 48 8B D7                       - mov rdx,rdi
+Logic.Controllers.ZoneController:GetZoneByHeight+60: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+65: 90                             - nop 
+Logic.Controllers.ZoneController:GetZoneByHeight+66: 49 BB 10 83 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:GetZoneIdForLevel
+Logic.Controllers.ZoneController:GetZoneByHeight+70: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+73: 89 46 20                       - mov [rsi+20],eax
+Logic.Controllers.ZoneController:GetZoneByHeight+76: 89 7E 28                       - mov [rsi+28],edi
+// ---------- INJECTING HERE ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+79: 89 7E 2C                       - mov [rsi+2C],edi
+// ---------- DONE INJECTING  ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+7c: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+7f: 48 8B D6                       - mov rdx,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+82: 48 8D 6D 00                    - lea rbp,[rbp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+86: 49 BB 90 85 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:Reset
+Logic.Controllers.ZoneController:GetZoneByHeight+90: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+93: 48 8B C6                       - mov rax,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+96: 48 8B 75 E8                    - mov rsi,[rbp-18]
+Logic.Controllers.ZoneController:GetZoneByHeight+9a: 48 8B 7D F0                    - mov rdi,[rbp-10]
+Logic.Controllers.ZoneController:GetZoneByHeight+9e: 4C 8B 7D F8                    - mov r15,[rbp-08]
+Logic.Controllers.ZoneController:GetZoneByHeight+a2: 48 8D 65 00                    - lea rsp,[rbp+00]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>15</ID>
+      <Description>"Jump to Stage 1.000.000"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 7E 2C 49 8B CF) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rsi+2C],(int)1000000
+  //mov [rsi+2C],edi
+  mov rcx,r15
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 7E 2C 49 8B CF
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Logic.Controllers.ZoneController:GetZoneByHeight+79
+
+Logic.Controllers.ZoneController:GetZoneByHeight+53: 48 8B 45 E0                    - mov rax,[rbp-20]
+Logic.Controllers.ZoneController:GetZoneByHeight+57: 48 8B F0                       - mov rsi,rax
+Logic.Controllers.ZoneController:GetZoneByHeight+5a: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+5d: 48 8B D7                       - mov rdx,rdi
+Logic.Controllers.ZoneController:GetZoneByHeight+60: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+65: 90                             - nop 
+Logic.Controllers.ZoneController:GetZoneByHeight+66: 49 BB 10 83 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:GetZoneIdForLevel
+Logic.Controllers.ZoneController:GetZoneByHeight+70: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+73: 89 46 20                       - mov [rsi+20],eax
+Logic.Controllers.ZoneController:GetZoneByHeight+76: 89 7E 28                       - mov [rsi+28],edi
+// ---------- INJECTING HERE ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+79: 89 7E 2C                       - mov [rsi+2C],edi
+// ---------- DONE INJECTING  ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+7c: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+7f: 48 8B D6                       - mov rdx,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+82: 48 8D 6D 00                    - lea rbp,[rbp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+86: 49 BB 90 85 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:Reset
+Logic.Controllers.ZoneController:GetZoneByHeight+90: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+93: 48 8B C6                       - mov rax,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+96: 48 8B 75 E8                    - mov rsi,[rbp-18]
+Logic.Controllers.ZoneController:GetZoneByHeight+9a: 48 8B 7D F0                    - mov rdi,[rbp-10]
+Logic.Controllers.ZoneController:GetZoneByHeight+9e: 4C 8B 7D F8                    - mov r15,[rbp-08]
+Logic.Controllers.ZoneController:GetZoneByHeight+a2: 48 8D 65 00                    - lea rsp,[rbp+00]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>23</ID>
+      <Description>"Jump to Stage 10.000.000"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 7E 2C 49 8B CF) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rsi+2C],(int)10000000
+  //mov [rsi+2C],edi
+  mov rcx,r15
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 7E 2C 49 8B CF
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Logic.Controllers.ZoneController:GetZoneByHeight+79
+
+Logic.Controllers.ZoneController:GetZoneByHeight+53: 48 8B 45 E0                    - mov rax,[rbp-20]
+Logic.Controllers.ZoneController:GetZoneByHeight+57: 48 8B F0                       - mov rsi,rax
+Logic.Controllers.ZoneController:GetZoneByHeight+5a: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+5d: 48 8B D7                       - mov rdx,rdi
+Logic.Controllers.ZoneController:GetZoneByHeight+60: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+65: 90                             - nop 
+Logic.Controllers.ZoneController:GetZoneByHeight+66: 49 BB 10 83 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:GetZoneIdForLevel
+Logic.Controllers.ZoneController:GetZoneByHeight+70: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+73: 89 46 20                       - mov [rsi+20],eax
+Logic.Controllers.ZoneController:GetZoneByHeight+76: 89 7E 28                       - mov [rsi+28],edi
+// ---------- INJECTING HERE ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+79: 89 7E 2C                       - mov [rsi+2C],edi
+// ---------- DONE INJECTING  ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+7c: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+7f: 48 8B D6                       - mov rdx,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+82: 48 8D 6D 00                    - lea rbp,[rbp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+86: 49 BB 90 85 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:Reset
+Logic.Controllers.ZoneController:GetZoneByHeight+90: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+93: 48 8B C6                       - mov rax,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+96: 48 8B 75 E8                    - mov rsi,[rbp-18]
+Logic.Controllers.ZoneController:GetZoneByHeight+9a: 48 8B 7D F0                    - mov rdi,[rbp-10]
+Logic.Controllers.ZoneController:GetZoneByHeight+9e: 4C 8B 7D F8                    - mov r15,[rbp-08]
+Logic.Controllers.ZoneController:GetZoneByHeight+a2: 48 8D 65 00                    - lea rsp,[rbp+00]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>27</ID>
+      <Description>"Jump to Stage 100.000.000"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 7E 2C 49 8B CF) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rsi+2C],(int)100000000
+  //mov [rsi+2C],edi
+  mov rcx,r15
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 7E 2C 49 8B CF
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Logic.Controllers.ZoneController:GetZoneByHeight+79
+
+Logic.Controllers.ZoneController:GetZoneByHeight+53: 48 8B 45 E0                    - mov rax,[rbp-20]
+Logic.Controllers.ZoneController:GetZoneByHeight+57: 48 8B F0                       - mov rsi,rax
+Logic.Controllers.ZoneController:GetZoneByHeight+5a: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+5d: 48 8B D7                       - mov rdx,rdi
+Logic.Controllers.ZoneController:GetZoneByHeight+60: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+65: 90                             - nop 
+Logic.Controllers.ZoneController:GetZoneByHeight+66: 49 BB 10 83 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:GetZoneIdForLevel
+Logic.Controllers.ZoneController:GetZoneByHeight+70: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+73: 89 46 20                       - mov [rsi+20],eax
+Logic.Controllers.ZoneController:GetZoneByHeight+76: 89 7E 28                       - mov [rsi+28],edi
+// ---------- INJECTING HERE ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+79: 89 7E 2C                       - mov [rsi+2C],edi
+// ---------- DONE INJECTING  ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+7c: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+7f: 48 8B D6                       - mov rdx,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+82: 48 8D 6D 00                    - lea rbp,[rbp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+86: 49 BB 90 85 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:Reset
+Logic.Controllers.ZoneController:GetZoneByHeight+90: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+93: 48 8B C6                       - mov rax,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+96: 48 8B 75 E8                    - mov rsi,[rbp-18]
+Logic.Controllers.ZoneController:GetZoneByHeight+9a: 48 8B 7D F0                    - mov rdi,[rbp-10]
+Logic.Controllers.ZoneController:GetZoneByHeight+9e: 4C 8B 7D F8                    - mov r15,[rbp-08]
+Logic.Controllers.ZoneController:GetZoneByHeight+a2: 48 8D 65 00                    - lea rsp,[rbp+00]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>28</ID>
+      <Description>"Jump to Stage 1.000.000.000"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 7E 2C 49 8B CF) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rsi+2C],(int)1000000000
+  //mov [rsi+2C],edi
+  mov rcx,r15
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 7E 2C 49 8B CF
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Logic.Controllers.ZoneController:GetZoneByHeight+79
+
+Logic.Controllers.ZoneController:GetZoneByHeight+53: 48 8B 45 E0                    - mov rax,[rbp-20]
+Logic.Controllers.ZoneController:GetZoneByHeight+57: 48 8B F0                       - mov rsi,rax
+Logic.Controllers.ZoneController:GetZoneByHeight+5a: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+5d: 48 8B D7                       - mov rdx,rdi
+Logic.Controllers.ZoneController:GetZoneByHeight+60: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+65: 90                             - nop 
+Logic.Controllers.ZoneController:GetZoneByHeight+66: 49 BB 10 83 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:GetZoneIdForLevel
+Logic.Controllers.ZoneController:GetZoneByHeight+70: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+73: 89 46 20                       - mov [rsi+20],eax
+Logic.Controllers.ZoneController:GetZoneByHeight+76: 89 7E 28                       - mov [rsi+28],edi
+// ---------- INJECTING HERE ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+79: 89 7E 2C                       - mov [rsi+2C],edi
+// ---------- DONE INJECTING  ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+7c: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+7f: 48 8B D6                       - mov rdx,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+82: 48 8D 6D 00                    - lea rbp,[rbp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+86: 49 BB 90 85 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:Reset
+Logic.Controllers.ZoneController:GetZoneByHeight+90: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+93: 48 8B C6                       - mov rax,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+96: 48 8B 75 E8                    - mov rsi,[rbp-18]
+Logic.Controllers.ZoneController:GetZoneByHeight+9a: 48 8B 7D F0                    - mov rdi,[rbp-10]
+Logic.Controllers.ZoneController:GetZoneByHeight+9e: 4C 8B 7D F8                    - mov r15,[rbp-08]
+Logic.Controllers.ZoneController:GetZoneByHeight+a2: 48 8D 65 00                    - lea rsp,[rbp+00]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>33</ID>
+      <Description>"Jump to Stage 10.000.000.000"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 7E 2C 49 8B CF) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rsi+2C],(int)10000000000
+  //mov [rsi+2C],edi
+  mov rcx,r15
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 7E 2C 49 8B CF
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Logic.Controllers.ZoneController:GetZoneByHeight+79
+
+Logic.Controllers.ZoneController:GetZoneByHeight+53: 48 8B 45 E0                    - mov rax,[rbp-20]
+Logic.Controllers.ZoneController:GetZoneByHeight+57: 48 8B F0                       - mov rsi,rax
+Logic.Controllers.ZoneController:GetZoneByHeight+5a: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+5d: 48 8B D7                       - mov rdx,rdi
+Logic.Controllers.ZoneController:GetZoneByHeight+60: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+65: 90                             - nop 
+Logic.Controllers.ZoneController:GetZoneByHeight+66: 49 BB 10 83 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:GetZoneIdForLevel
+Logic.Controllers.ZoneController:GetZoneByHeight+70: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+73: 89 46 20                       - mov [rsi+20],eax
+Logic.Controllers.ZoneController:GetZoneByHeight+76: 89 7E 28                       - mov [rsi+28],edi
+// ---------- INJECTING HERE ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+79: 89 7E 2C                       - mov [rsi+2C],edi
+// ---------- DONE INJECTING  ----------
+Logic.Controllers.ZoneController:GetZoneByHeight+7c: 49 8B CF                       - mov rcx,r15
+Logic.Controllers.ZoneController:GetZoneByHeight+7f: 48 8B D6                       - mov rdx,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+82: 48 8D 6D 00                    - lea rbp,[rbp+00]
+Logic.Controllers.ZoneController:GetZoneByHeight+86: 49 BB 90 85 3F 62 6A 02 00 00  - mov r11,Logic.Controllers.ZoneController:Reset
+Logic.Controllers.ZoneController:GetZoneByHeight+90: 41 FF D3                       - call r11
+Logic.Controllers.ZoneController:GetZoneByHeight+93: 48 8B C6                       - mov rax,rsi
+Logic.Controllers.ZoneController:GetZoneByHeight+96: 48 8B 75 E8                    - mov rsi,[rbp-18]
+Logic.Controllers.ZoneController:GetZoneByHeight+9a: 48 8B 7D F0                    - mov rdi,[rbp-10]
+Logic.Controllers.ZoneController:GetZoneByHeight+9e: 4C 8B 7D F8                    - mov r15,[rbp-08]
+Logic.Controllers.ZoneController:GetZoneByHeight+a2: 48 8D 65 00                    - lea rsp,[rbp+00]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>41</ID>
+      <Description>"+1.000 levels on upgrade Max Rogue"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 88 04 03 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [rax+00000304],(int)1000
+  //mov [rax+00000304],ecx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 88 04 03 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 14C13471CEA
+
+14C13471CBB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CBF: 48 8B C8                 - mov rcx,rax
+14C13471CC2: F2 0F 10 80 C0 04 00 00  - movsd xmm0,[rax+000004C0]
+14C13471CCA: F2 0F 10 4D F0           - movsd xmm1,[rbp-10]
+14C13471CCF: F2 0F 5C C1              - subsd xmm0,xmm1
+14C13471CD3: F2 0F 11 80 C0 04 00 00  - movsd [rax+000004C0],xmm0
+14C13471CDB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CDF: 48 8B D0                 - mov rdx,rax
+14C13471CE2: 8B 88 04 03 00 00        - mov ecx,[rax+00000304]
+14C13471CE8: FF C1                    - inc ecx
+// ---------- INJECTING HERE ----------
+14C13471CEA: 89 88 04 03 00 00        - mov [rax+00000304],ecx
+// ---------- DONE INJECTING  ----------
+14C13471CF0: B8 01 00 00 00           - mov eax,00000001
+14C13471CF5: EB 02                    - jmp 14C13471CF9
+14C13471CF7: 33 C0                    - xor eax,eax
+14C13471CF9: 48 8B 75 F8              - mov rsi,[rbp-08]
+14C13471CFD: 48 8D 65 00              - lea rsp,[rbp+00]
+14C13471D01: 5D                       - pop rbp
+14C13471D02: C3                       - ret 
+14C13471D03: 00 00                    - add [rax],al
+14C13471D05: 00 00                    - add [rax],al
+14C13471D07: 00 01                    - add [rcx],al
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>42</ID>
+      <Description>"+10.000 levels on upgrade Max Rogue"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 88 04 03 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [rax+00000304],(int)10000
+  //mov [rax+00000304],ecx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 88 04 03 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 14C13471CEA
+
+14C13471CBB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CBF: 48 8B C8                 - mov rcx,rax
+14C13471CC2: F2 0F 10 80 C0 04 00 00  - movsd xmm0,[rax+000004C0]
+14C13471CCA: F2 0F 10 4D F0           - movsd xmm1,[rbp-10]
+14C13471CCF: F2 0F 5C C1              - subsd xmm0,xmm1
+14C13471CD3: F2 0F 11 80 C0 04 00 00  - movsd [rax+000004C0],xmm0
+14C13471CDB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CDF: 48 8B D0                 - mov rdx,rax
+14C13471CE2: 8B 88 04 03 00 00        - mov ecx,[rax+00000304]
+14C13471CE8: FF C1                    - inc ecx
+// ---------- INJECTING HERE ----------
+14C13471CEA: 89 88 04 03 00 00        - mov [rax+00000304],ecx
+// ---------- DONE INJECTING  ----------
+14C13471CF0: B8 01 00 00 00           - mov eax,00000001
+14C13471CF5: EB 02                    - jmp 14C13471CF9
+14C13471CF7: 33 C0                    - xor eax,eax
+14C13471CF9: 48 8B 75 F8              - mov rsi,[rbp-08]
+14C13471CFD: 48 8D 65 00              - lea rsp,[rbp+00]
+14C13471D01: 5D                       - pop rbp
+14C13471D02: C3                       - ret 
+14C13471D03: 00 00                    - add [rax],al
+14C13471D05: 00 00                    - add [rax],al
+14C13471D07: 00 01                    - add [rcx],al
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>46</ID>
+      <Description>"+100.000 levels on upgrade Max Rogue"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 88 04 03 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [rax+00000304],(int)100000
+  //mov [rax+00000304],ecx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 88 04 03 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 14C13471CEA
+
+14C13471CBB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CBF: 48 8B C8                 - mov rcx,rax
+14C13471CC2: F2 0F 10 80 C0 04 00 00  - movsd xmm0,[rax+000004C0]
+14C13471CCA: F2 0F 10 4D F0           - movsd xmm1,[rbp-10]
+14C13471CCF: F2 0F 5C C1              - subsd xmm0,xmm1
+14C13471CD3: F2 0F 11 80 C0 04 00 00  - movsd [rax+000004C0],xmm0
+14C13471CDB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CDF: 48 8B D0                 - mov rdx,rax
+14C13471CE2: 8B 88 04 03 00 00        - mov ecx,[rax+00000304]
+14C13471CE8: FF C1                    - inc ecx
+// ---------- INJECTING HERE ----------
+14C13471CEA: 89 88 04 03 00 00        - mov [rax+00000304],ecx
+// ---------- DONE INJECTING  ----------
+14C13471CF0: B8 01 00 00 00           - mov eax,00000001
+14C13471CF5: EB 02                    - jmp 14C13471CF9
+14C13471CF7: 33 C0                    - xor eax,eax
+14C13471CF9: 48 8B 75 F8              - mov rsi,[rbp-08]
+14C13471CFD: 48 8D 65 00              - lea rsp,[rbp+00]
+14C13471D01: 5D                       - pop rbp
+14C13471D02: C3                       - ret 
+14C13471D03: 00 00                    - add [rax],al
+14C13471D05: 00 00                    - add [rax],al
+14C13471D07: 00 01                    - add [rcx],al
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>45</ID>
+      <Description>"+1.000.000 levels on upgrade Max Rogue"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 88 04 03 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [rax+00000304],(int)1000000
+  //mov [rax+00000304],ecx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 88 04 03 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 14C13471CEA
+
+14C13471CBB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CBF: 48 8B C8                 - mov rcx,rax
+14C13471CC2: F2 0F 10 80 C0 04 00 00  - movsd xmm0,[rax+000004C0]
+14C13471CCA: F2 0F 10 4D F0           - movsd xmm1,[rbp-10]
+14C13471CCF: F2 0F 5C C1              - subsd xmm0,xmm1
+14C13471CD3: F2 0F 11 80 C0 04 00 00  - movsd [rax+000004C0],xmm0
+14C13471CDB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CDF: 48 8B D0                 - mov rdx,rax
+14C13471CE2: 8B 88 04 03 00 00        - mov ecx,[rax+00000304]
+14C13471CE8: FF C1                    - inc ecx
+// ---------- INJECTING HERE ----------
+14C13471CEA: 89 88 04 03 00 00        - mov [rax+00000304],ecx
+// ---------- DONE INJECTING  ----------
+14C13471CF0: B8 01 00 00 00           - mov eax,00000001
+14C13471CF5: EB 02                    - jmp 14C13471CF9
+14C13471CF7: 33 C0                    - xor eax,eax
+14C13471CF9: 48 8B 75 F8              - mov rsi,[rbp-08]
+14C13471CFD: 48 8D 65 00              - lea rsp,[rbp+00]
+14C13471D01: 5D                       - pop rbp
+14C13471D02: C3                       - ret 
+14C13471D03: 00 00                    - add [rax],al
+14C13471D05: 00 00                    - add [rax],al
+14C13471D07: 00 01                    - add [rcx],al
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>44</ID>
+      <Description>"+10.000.000 levels on upgrade Max Rogue"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 88 04 03 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [rax+00000304],(int)10000000
+  //mov [rax+00000304],ecx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 88 04 03 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 14C13471CEA
+
+14C13471CBB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CBF: 48 8B C8                 - mov rcx,rax
+14C13471CC2: F2 0F 10 80 C0 04 00 00  - movsd xmm0,[rax+000004C0]
+14C13471CCA: F2 0F 10 4D F0           - movsd xmm1,[rbp-10]
+14C13471CCF: F2 0F 5C C1              - subsd xmm0,xmm1
+14C13471CD3: F2 0F 11 80 C0 04 00 00  - movsd [rax+000004C0],xmm0
+14C13471CDB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CDF: 48 8B D0                 - mov rdx,rax
+14C13471CE2: 8B 88 04 03 00 00        - mov ecx,[rax+00000304]
+14C13471CE8: FF C1                    - inc ecx
+// ---------- INJECTING HERE ----------
+14C13471CEA: 89 88 04 03 00 00        - mov [rax+00000304],ecx
+// ---------- DONE INJECTING  ----------
+14C13471CF0: B8 01 00 00 00           - mov eax,00000001
+14C13471CF5: EB 02                    - jmp 14C13471CF9
+14C13471CF7: 33 C0                    - xor eax,eax
+14C13471CF9: 48 8B 75 F8              - mov rsi,[rbp-08]
+14C13471CFD: 48 8D 65 00              - lea rsp,[rbp+00]
+14C13471D01: 5D                       - pop rbp
+14C13471D02: C3                       - ret 
+14C13471D03: 00 00                    - add [rax],al
+14C13471D05: 00 00                    - add [rax],al
+14C13471D07: 00 01                    - add [rcx],al
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>43</ID>
+      <Description>"+100.000.000 levels on upgrade Max Rogue"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 88 04 03 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [rax+00000304],(int)10000000
+  //mov [rax+00000304],ecx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 88 04 03 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 14C13471CEA
+
+14C13471CBB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CBF: 48 8B C8                 - mov rcx,rax
+14C13471CC2: F2 0F 10 80 C0 04 00 00  - movsd xmm0,[rax+000004C0]
+14C13471CCA: F2 0F 10 4D F0           - movsd xmm1,[rbp-10]
+14C13471CCF: F2 0F 5C C1              - subsd xmm0,xmm1
+14C13471CD3: F2 0F 11 80 C0 04 00 00  - movsd [rax+000004C0],xmm0
+14C13471CDB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CDF: 48 8B D0                 - mov rdx,rax
+14C13471CE2: 8B 88 04 03 00 00        - mov ecx,[rax+00000304]
+14C13471CE8: FF C1                    - inc ecx
+// ---------- INJECTING HERE ----------
+14C13471CEA: 89 88 04 03 00 00        - mov [rax+00000304],ecx
+// ---------- DONE INJECTING  ----------
+14C13471CF0: B8 01 00 00 00           - mov eax,00000001
+14C13471CF5: EB 02                    - jmp 14C13471CF9
+14C13471CF7: 33 C0                    - xor eax,eax
+14C13471CF9: 48 8B 75 F8              - mov rsi,[rbp-08]
+14C13471CFD: 48 8D 65 00              - lea rsp,[rbp+00]
+14C13471D01: 5D                       - pop rbp
+14C13471D02: C3                       - ret 
+14C13471D03: 00 00                    - add [rax],al
+14C13471D05: 00 00                    - add [rax],al
+14C13471D07: 00 01                    - add [rcx],al
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>47</ID>
+      <Description>"+1.000.000.000 levels on upgrade Max Rogue"</Description>
+      <LastState Activated="1"/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 88 04 03 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [rax+00000304],(int)100000000
+  //mov [rax+00000304],ecx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 88 04 03 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 14C13471CEA
+
+14C13471CBB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CBF: 48 8B C8                 - mov rcx,rax
+14C13471CC2: F2 0F 10 80 C0 04 00 00  - movsd xmm0,[rax+000004C0]
+14C13471CCA: F2 0F 10 4D F0           - movsd xmm1,[rbp-10]
+14C13471CCF: F2 0F 5C C1              - subsd xmm0,xmm1
+14C13471CD3: F2 0F 11 80 C0 04 00 00  - movsd [rax+000004C0],xmm0
+14C13471CDB: 48 8B 46 70              - mov rax,[rsi+70]
+14C13471CDF: 48 8B D0                 - mov rdx,rax
+14C13471CE2: 8B 88 04 03 00 00        - mov ecx,[rax+00000304]
+14C13471CE8: FF C1                    - inc ecx
+// ---------- INJECTING HERE ----------
+14C13471CEA: 89 88 04 03 00 00        - mov [rax+00000304],ecx
+// ---------- DONE INJECTING  ----------
+14C13471CF0: B8 01 00 00 00           - mov eax,00000001
+14C13471CF5: EB 02                    - jmp 14C13471CF9
+14C13471CF7: 33 C0                    - xor eax,eax
+14C13471CF9: 48 8B 75 F8              - mov rsi,[rbp-08]
+14C13471CFD: 48 8D 65 00              - lea rsp,[rbp+00]
+14C13471D01: 5D                       - pop rbp
+14C13471D02: C3                       - ret 
+14C13471D03: 00 00                    - add [rax],al
+14C13471D05: 00 00                    - add [rax],al
+14C13471D07: 00 01                    - add [rcx],al
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>32</ID>
+      <Description>"Monters left in Stage +1.000.000"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>25</ID>
+          <Description>"Monters left in Stage +1.000.000"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 47 24 48 B8 D0 6B F6 0B 6B 02 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [rdi+24],1000000
+  //mov [rdi+24],eax
+  mov rax,0000026B0BF66BD0
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 8
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 47 24 48 B8 D0 6B F6 0B 6B 02 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Logic.Controllers.ZoneController:IncrProgress+1a
+
+26A65F1FEBC: 00 00                          - add [rax],al
+26A65F1FEBE: 00 00                          - add [rax],al
+Logic.Controllers.ZoneController:IncrProgress: 55                             - push rbp
+Logic.Controllers.ZoneController:IncrProgress+1: 48 8B EC                       - mov rbp,rsp
+Logic.Controllers.ZoneController:IncrProgress+4: 48 83 EC 40                    - sub rsp,40
+Logic.Controllers.ZoneController:IncrProgress+8: 48 89 7D F8                    - mov [rbp-08],rdi
+Logic.Controllers.ZoneController:IncrProgress+c: 48 8B FA                       - mov rdi,rdx
+Logic.Controllers.ZoneController:IncrProgress+f: 4C 89 45 E8                    - mov [rbp-18],r8
+Logic.Controllers.ZoneController:IncrProgress+13: 48 63 47 24                    - movsxd  rax,dword ptr [rdi+24]
+Logic.Controllers.ZoneController:IncrProgress+17: 03 45 E8                       - add eax,[rbp-18]
+// ---------- INJECTING HERE ----------
+Logic.Controllers.ZoneController:IncrProgress+1a: 89 47 24                       - mov [rdi+24],eax
+// ---------- DONE INJECTING  ----------
+Logic.Controllers.ZoneController:IncrProgress+1d: 48 B8 D0 6B F6 0B 6B 02 00 00  - mov rax,0000026B0BF66BD0
+Logic.Controllers.ZoneController:IncrProgress+27: 48 8B 00                       - mov rax,[rax]
+Logic.Controllers.ZoneController:IncrProgress+2a: 48 8B C8                       - mov rcx,rax
+Logic.Controllers.ZoneController:IncrProgress+2d: 83 39 00                       - cmp dword ptr [rcx],00
+Logic.Controllers.ZoneController:IncrProgress+30: 48 8B 40 18                    - mov rax,[rax+18]
+Logic.Controllers.ZoneController:IncrProgress+34: 48 8B C8                       - mov rcx,rax
+Logic.Controllers.ZoneController:IncrProgress+37: 48 8B D7                       - mov rdx,rdi
+Logic.Controllers.ZoneController:IncrProgress+3a: 48 89 45 E0                    - mov [rbp-20],rax
+Logic.Controllers.ZoneController:IncrProgress+3e: FF 50 18                       - call qword ptr [rax+18]
+Logic.Controllers.ZoneController:IncrProgress+41: 48 8B 45 E0                    - mov rax,[rbp-20]
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>31</ID>
+          <Description>"Monters left in Stage +1.000.000"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 47 24 48 B8 D0 6B 7B 9F 4A 02 00 00) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [rdi+24],(int)1000000000
+  //mov [rdi+24],eax
+  mov rax,0000024A9F7B6BD0
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 8
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 47 24 48 B8 D0 6B 7B 9F 4A 02 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 24BA91C857A
+
+24BA91C855C: 00 00                          - add [rax],al
+24BA91C855E: 00 00                          - add [rax],al
+24BA91C8560: 55                             - push rbp
+24BA91C8561: 48 8B EC                       - mov rbp,rsp
+24BA91C8564: 48 83 EC 40                    - sub rsp,40
+24BA91C8568: 48 89 7D F8                    - mov [rbp-08],rdi
+24BA91C856C: 48 8B FA                       - mov rdi,rdx
+24BA91C856F: 4C 89 45 E8                    - mov [rbp-18],r8
+24BA91C8573: 48 63 47 24                    - movsxd  rax,dword ptr [rdi+24]
+24BA91C8577: 03 45 E8                       - add eax,[rbp-18]
+// ---------- INJECTING HERE ----------
+24BA91C857A: 89 47 24                       - mov [rdi+24],eax
+// ---------- DONE INJECTING  ----------
+24BA91C857D: 48 B8 D0 6B 7B 9F 4A 02 00 00  - mov rax,0000024A9F7B6BD0
+24BA91C8587: 48 8B 00                       - mov rax,[rax]
+24BA91C858A: 48 8B C8                       - mov rcx,rax
+24BA91C858D: 83 39 00                       - cmp dword ptr [rcx],00
+24BA91C8590: 48 8B 40 18                    - mov rax,[rax+18]
+24BA91C8594: 48 8B C8                       - mov rcx,rax
+24BA91C8597: 48 8B D7                       - mov rdx,rdi
+24BA91C859A: 48 89 45 E0                    - mov [rbp-20],rax
+24BA91C859E: FF 50 18                       - call qword ptr [rax+18]
+24BA91C85A1: 48 8B 45 E0                    - mov rax,[rbp-20]
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>29</ID>
+      <Description>"No description"</Description>
+      <VariableType>Double</VariableType>
+      <Address>24B8EBD1538</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>30</ID>
+      <Description>"Hero Souls Items Lv.2.000.000.000"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Clicker Heroes
+  Version: 
+  Date   : 2025-08-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,01 00 00 48 8D 46 40 48 8B 4D B0 48 89 08 48 8B 4D B8) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rax],rcx
+  mov rcx,[rbp-48]
+  jmp return
+
+INJECT+0B:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT+0B:
+  db 48 89 08 48 8B 4D B8
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 24BC469C864
+
+24BC469C837: 48 8B 55 A8                    - mov rdx,[rbp-58]
+24BC469C83B: 48 89 55 D8                    - mov [rbp-28],rdx
+24BC469C83F: 48 8D 10                       - lea rdx,[rax]
+24BC469C842: 48 8D 6D 00                    - lea rbp,[rbp+00]
+24BC469C846: 49 BB A0 27 D8 94 4B 02 00 00  - mov r11,0000024B94D827A0
+24BC469C850: 41 FF D3                       - call r11
+24BC469C853: 48 85 F6                       - test rsi,rsi
+24BC469C856: 0F 84 D8 01 00 00              - je 24BC469CA34
+24BC469C85C: 48 8D 46 40                    - lea rax,[rsi+40]
+24BC469C860: 48 8B 4D B0                    - mov rcx,[rbp-50]
+// ---------- INJECTING HERE ----------
+24BC469C864: 48 89 08                       - mov [rax],rcx
+// ---------- DONE INJECTING  ----------
+24BC469C867: 48 8B 4D B8                    - mov rcx,[rbp-48]
+24BC469C86B: 48 89 48 08                    - mov [rax+08],rcx
+24BC469C86F: B8 01 00 00 00                 - mov eax,00000001
+24BC469C874: 48 0F B6 F8                    - movzx rdi,al
+24BC469C878: 44 8B 7E 28                    - mov r15d,[rsi+28]
+24BC469C87C: 49 8B C7                       - mov rax,r15
+24BC469C87F: 83 F8 0B                       - cmp eax,0B
+24BC469C882: 0F 87 19 00 00 00              - ja 24BC469C8A1
+24BC469C888: 41 83 FF 05                    - cmp r15d,05
+24BC469C88C: 0F 84 46 00 00 00              - je 24BC469C8D8
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>35</ID>
+      <Description>"No description"</Description>
+      <LastState Value="5.00000155792511E100" RealAddress="14A02B1C4C0"/>
+      <VariableType>Double</VariableType>
+      <Address>14A02B1C4C0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>40</ID>
+      <Description>"No description"</Description>
+      <LastState Value="650011091" RealAddress="14A02B1C304"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>14A02B1C304</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of mov [rax],rcx</Description>
+      <AddressString>24BC469C864</AddressString>
+      <Before>
+        <Byte>40</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>B0</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>B8</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedhack_wantedspeed</Name>
+      <Address>26A66010000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>
