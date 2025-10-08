@@ -3,7 +3,7 @@
   <CheatEntries>
     <CheatEntry>
       <ID>20</ID>
-      <Description>"Do Everything _ mov [rdi+20],eax"</Description>
+      <Description>"Do Everything"</Description>
       <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
       <LastState Value="" RealAddress="00000000"/>
       <Color>BF4040</Color>
@@ -188,31 +188,21 @@
             <Offset>3B8</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry>
-          <ID>21</ID>
-          <Description>"Copy code from here"</Description>
-          <LastState/>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>[ENABLE]
-code:
-  cmp [rdi+18+520+50],0
-  jmp return
-  mov [rdi+20],eax
-  mov rdi,[rsp]
-  add rsp,18
-  ret 
-  add [rax],al
-  jmp return
-</AssemblerScript>
-        </CheatEntry>
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>34</ID>
-      <Description>"Items left = 0"</Description>
-      <LastState/>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : HornyVilla
+      <ID>37</ID>
+      <Description>"BE CAREFUL WHEN USING! An item might get stuck at 0 items left, and that item will never disappear"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>34</ID>
+          <Description>"Items left = 0"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : HornyVilla
   Version: 
   Date   : 2025-08-21
   Author : Max
@@ -278,13 +268,14 @@ dealloc(newmem)
 14302CCB46C: C3                             - ret 
 }
 </AssemblerScript>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>36</ID>
-      <Description>"Items left = 0 - Piggy bank/Energy/Chests"</Description>
-      <LastState/>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : HornyVilla
+        </CheatEntry>
+        <CheatEntry>
+          <ID>36</ID>
+          <Description>"Items left = 0 - Piggy bank/Energy/Chests"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : HornyVilla
   Version: 
   Date   : 2025-08-21
   Author : Max
@@ -349,11 +340,14 @@ dealloc(newmem)
 145E389A0E1: FF 57 18     - call qword ptr [rdi+18]
 }
 </AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
     </CheatEntry>
     <CheatEntry>
       <ID>35</ID>
       <Description>"Items left = 2 - Piggy bank/Energy/Chests"</Description>
       <LastState/>
+      <Color>40BF40</Color>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{ Game   : HornyVilla
   Version: 
