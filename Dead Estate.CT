@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Everything"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>Dead Estate.exe.text+2D3133</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"HP 1"</Description>
+      <VariableType>Double</VariableType>
+      <Address>0F7D9130</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"HP 2"</Description>
+      <VariableType>Double</VariableType>
+      <Address>0F7D5D40</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Money 1"</Description>
+      <VariableType>Double</VariableType>
+      <Address>0F7D9440</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"Hammer 1"</Description>
+      <VariableType>Double</VariableType>
+      <Address>31BF2670</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"Minigun 1"</Description>
+      <VariableType>Double</VariableType>
+      <Address>31C0A0B0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"Slime Gun 1"</Description>
+      <VariableType>Double</VariableType>
+      <Address>31A27170</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13</ID>
+      <Description>"HP"</Description>
+      <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>Double</VariableType>
+          <Address>"Dead Estate.exe"+00E3A160</Address>
+          <Offsets>
+            <Offset>0</Offset>
+            <Offset>930</Offset>
+            <Offset>10</Offset>
+            <Offset>48</Offset>
+            <Offset>1A8</Offset>
+            <Offset>38</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>Double</VariableType>
+          <Address>"Dead Estate.exe"+00E38040</Address>
+          <Offsets>
+            <Offset>0</Offset>
+            <Offset>930</Offset>
+            <Offset>10</Offset>
+            <Offset>48</Offset>
+            <Offset>10</Offset>
+            <Offset>150</Offset>
+            <Offset>DF8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>Double</VariableType>
+          <Address>"Dead Estate.exe"+00E38040</Address>
+          <Offsets>
+            <Offset>0</Offset>
+            <Offset>930</Offset>
+            <Offset>10</Offset>
+            <Offset>48</Offset>
+            <Offset>10</Offset>
+            <Offset>158</Offset>
+            <Offset>DF8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>Double</VariableType>
+          <Address>"Dead Estate.exe"+00E38040</Address>
+          <Offsets>
+            <Offset>0</Offset>
+            <Offset>930</Offset>
+            <Offset>10</Offset>
+            <Offset>48</Offset>
+            <Offset>10</Offset>
+            <Offset>168</Offset>
+            <Offset>DF8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"pointerscan result"</Description>
+          <VariableType>Double</VariableType>
+          <Address>"Dead Estate.exe"+00E38040</Address>
+          <Offsets>
+            <Offset>0</Offset>
+            <Offset>930</Offset>
+            <Offset>10</Offset>
+            <Offset>48</Offset>
+            <Offset>10</Offset>
+            <Offset>170</Offset>
+            <Offset>DF8</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

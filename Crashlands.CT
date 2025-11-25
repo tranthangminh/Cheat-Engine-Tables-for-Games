@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"HP"</Description>
+      <LastState Value="2.17359322995203E23" RealAddress="7FF791710F71"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Double</VariableType>
+      <Address>Crashlands.exe.text+CFF71</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>14</ID>
+      <Description>"Get Address"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(pMoney,DD 58 28 8B 47 08 89 04 24 39 00 8D 6D 00 E8 CC)
+registersymbol(pMoney)
+
+
+aobscan(pLevel,08 DD 58 18 C9 C3)
+registersymbol(pLevel)
+
+[DISABLE]
+unregistersymbol(pMoney)
+unregistersymbol(pLevel)
+
+{
+// ---------- INJECTING HERE ----------//
+UniRx.Operators.CombineLatestObservable`3+CombineLatest+RightObserver[System.Double,System.Double,System.Double]:OnNext+59: DD 58 28              - fstp qword ptr [eax+28]
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"No description"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Double</VariableType>
+          <Address>pMoney</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>17</ID>
+          <Description>"Level"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Double</VariableType>
+          <Address>pLevel</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"Money - Earth"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Double</VariableType>
+          <Address>UniRx.Operators.CombineLatestObservable`3+CombineLatest+RightObserver[System.Double,System.Double,System.Double]:OnNext+59</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16</ID>
+      <Description>"Money - Moon, Events (Max 1E307)"</Description>
+      <LastState Value="1.55533825947078E181" RealAddress="1A59DD2D"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Double</VariableType>
+      <Address>ClampedReactiveDouble:SetValue+6d</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Energy - won't decrease"</Description>
+      <LastState Activated="1"/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Slime Rancher
+  Version: 
+  Date   : 2025-10-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+define(INJECT,MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+ba) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rax+74],xmm5
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 68 74
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+ba
+
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+89: F2 0F 5A E8              - cvtsd2ss xmm5,xmm0
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+8d: F3 0F 11 6C 24 18        - movss [rsp+18],xmm5
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+93: F3 0F 10 44 24 18        - movss xmm0,[rsp+18]
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+99: F3 0F 5A C0              - cvtss2sd xmm0,xmm0
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+9d: F2 0F 5A E8              - cvtsd2ss xmm5,xmm0
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+a1: F3 0F 11 6C 24 18        - movss [rsp+18],xmm5
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+a7: F3 0F 10 44 24 18        - movss xmm0,[rsp+18]
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+ad: F3 0F 5A C0              - cvtss2sd xmm0,xmm0
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+b1: 48 8B 44 24 08           - mov rax,[rsp+08]
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+b6: F2 0F 5A E8              - cvtsd2ss xmm5,xmm0
+// ---------- INJECTING HERE ----------
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+ba: F3 0F 11 68 74           - movss [rax+74],xmm5
+// ---------- DONE INJECTING  ----------
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+bf: 48 8B 46 60              - mov rax,[rsi+60]
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+c3: F2 0F 10 40 50           - movsd xmm0,[rax+50]
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+c8: F2 0F 10 0D 20 00 00 00  - movsd xmm1,[MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+f0]
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+d0: F2 0F 58 C1              - addsd xmm0,xmm1
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+d4: F2 0F 11 86 A0 00 00 00  - movsd [rsi+000000A0],xmm0
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+dc: 48 8B 34 24              - mov rsi,[rsp]
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+e0: 48 83 C4 38              - add rsp,38
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+e4: C3                       - ret 
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+e5: FF                       - db -01
+MonomiPark.SlimeRancher.DataModel.PlayerModel:SpendEnergy+e6: FF                       - db -01
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Ammo"</Description>
+      <LastState Activated="1"/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Slime Rancher
+  Version: 
+  Date   : 2025-10-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+define(INJECT,Ammo:DecrementSelectedAmmo+106) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rax+1C],ecx
+  mov rax,[rdi+10]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 48 1C 48 8B 47 10
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Ammo:DecrementSelectedAmmo+106
+
+Ammo:DecrementSelectedAmmo+e4: 48 63 D2           - movsxd  rdx,edx
+Ammo:DecrementSelectedAmmo+e7: 39 51 18           - cmp [rcx+18],edx
+Ammo:DecrementSelectedAmmo+ea: 0F 86 92 00 00 00  - jbe Ammo:DecrementSelectedAmmo+182
+Ammo:DecrementSelectedAmmo+f0: 48 8D 4C D1 20     - lea rcx,[rcx+rdx*8+20]
+Ammo:DecrementSelectedAmmo+f5: 48 8B 09           - mov rcx,[rcx]
+Ammo:DecrementSelectedAmmo+f8: 48 63 49 1C        - movsxd  rcx,dword ptr [rcx+1C]
+Ammo:DecrementSelectedAmmo+fc: 2B 4D F0           - sub ecx,[rbp-10]
+Ammo:DecrementSelectedAmmo+ff: 33 D2              - xor edx,edx
+Ammo:DecrementSelectedAmmo+101: 3B CA              - cmp ecx,edx
+Ammo:DecrementSelectedAmmo+103: 0F 4C CA           - cmovl ecx,edx
+// ---------- INJECTING HERE ----------
+Ammo:DecrementSelectedAmmo+106: 89 48 1C           - mov [rax+1C],ecx
+// ---------- DONE INJECTING  ----------
+Ammo:DecrementSelectedAmmo+109: 48 8B 47 10        - mov rax,[rdi+10]
+Ammo:DecrementSelectedAmmo+10d: 48 8B 40 10        - mov rax,[rax+10]
+Ammo:DecrementSelectedAmmo+111: 48 63 4F 40        - movsxd  rcx,dword ptr [rdi+40]
+Ammo:DecrementSelectedAmmo+115: 48 63 C9           - movsxd  rcx,ecx
+Ammo:DecrementSelectedAmmo+118: 39 48 18           - cmp [rax+18],ecx
+Ammo:DecrementSelectedAmmo+11b: 0F 86 5A 00 00 00  - jbe Ammo:DecrementSelectedAmmo+17b
+Ammo:DecrementSelectedAmmo+121: 48 8D 44 C8 20     - lea rax,[rax+rcx*8+20]
+Ammo:DecrementSelectedAmmo+126: 48 8B 00           - mov rax,[rax]
+Ammo:DecrementSelectedAmmo+129: 48 63 40 1C        - movsxd  rax,dword ptr [rax+1C]
+Ammo:DecrementSelectedAmmo+12d: 85 C0              - test eax,eax
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"Health"</Description>
+      <LastState Activated="1"/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Slime Rancher
+  Version: 
+  Date   : 2025-10-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+define(INJECT,MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+375) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rax+78],xmm5
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 68 78
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+375
+
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+34b: F3 0F 11 6D C0           - movss [rbp-40],xmm5
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+350: EB 12                    - jmp MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+364
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+352: F3 0F 10 45 C0           - movss xmm0,[rbp-40]
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+357: F3 0F 5A C0              - cvtss2sd xmm0,xmm0
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+35b: F2 0F 5A E8              - cvtsd2ss xmm5,xmm0
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+35f: F3 0F 11 6D C0           - movss [rbp-40],xmm5
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+364: F3 0F 10 45 C0           - movss xmm0,[rbp-40]
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+369: F3 0F 5A C0              - cvtss2sd xmm0,xmm0
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+36d: 48 8B 45 C8              - mov rax,[rbp-38]
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+371: F2 0F 5A E8              - cvtsd2ss xmm5,xmm0
+// ---------- INJECTING HERE ----------
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+375: F3 0F 11 68 78           - movss [rax+78],xmm5
+// ---------- DONE INJECTING  ----------
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+37a: E9 92 00 00 00           - jmp MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+411
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+37f: 48 8B 46 60              - mov rax,[rsi+60]
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+383: F2 0F 10 86 A8 00 00 00  - movsd xmm0,[rsi+000000A8]
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+38b: F2 0F 10 C8              - movsd xmm1,xmm0
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+38f: 83 38 00                 - cmp dword ptr [rax],00
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+392: F2 0F 10 40 50           - movsd xmm0,[rax+50]
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+397: 48 33 C0                 - xor rax,rax
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+39a: 66 0F 2F C8              - comisd xmm1,xmm0
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+39e: 7A 06                    - jp MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+3a6
+MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+3a0: 40 0F 97 C0              - seta al
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"Get Health Address"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(pHealth, 01 00 48 42 00 00 00 00 FA)
+registersymbol(pHealth)
+
+[DISABLE]
+unregistersymbol(pHealth)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"Health"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>Float</VariableType>
+          <Address>pHealth</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"Money"</Description>
+      <LastState Value="8423561" RealAddress="1FC4B047667"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>PlayerState:AddCurrency+27</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>8</ID>
+      <Description>"HP"</Description>
+      <LastState Value="3828180713" RealAddress="1FCBB05D295"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>MonomiPark.SlimeRancher.DataModel.PlayerModel:MaybeRecoverHealth+375</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of movss [rax+78],xmm5</Description>
+      <AddressString>1ECEC8ADC25</AddressString>
+      <Before>
+        <Byte>C8</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>5A</Byte>
+        <Byte>E8</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>68</Byte>
+        <Byte>78</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>92</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

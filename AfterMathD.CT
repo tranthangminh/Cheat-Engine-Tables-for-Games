@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"HP"</Description>
+      <LastState Value="1777478633" RealAddress="05940DD0"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>Character:set_Helth+88</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"HP"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : AfterMathD
+  Version: 
+  Date   : 2025-11-17
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+define(INJECT,Character:set_Helth+88) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //fstp dword ptr [edi+000000B0]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db D9 9F B0 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Character:set_Helth+88
+
+Character:set_Helth+65: D9 05 98 52 4B 11  - fld dword ptr [114B5298]
+Character:set_Helth+6b: 83 EC 04           - sub esp,04
+Character:set_Helth+6e: 83 EC 04           - sub esp,04
+Character:set_Helth+71: D9 1C 24           - fstp dword ptr [esp]
+Character:set_Helth+74: 83 EC 04           - sub esp,04
+Character:set_Helth+77: D9 1C 24           - fstp dword ptr [esp]
+Character:set_Helth+7a: 83 EC 04           - sub esp,04
+Character:set_Helth+7d: D9 1C 24           - fstp dword ptr [esp]
+Character:set_Helth+80: E8 33 00 00 00     - call UnityEngine.Mathf:Clamp
+Character:set_Helth+85: 83 C4 10           - add esp,10
+// ---------- INJECTING HERE ----------
+Character:set_Helth+88: D9 9F B0 00 00 00  - fstp dword ptr [edi+000000B0]
+// ---------- DONE INJECTING  ----------
+Character:set_Helth+8e: 83 EC 0C           - sub esp,0C
+Character:set_Helth+91: 57                 - push edi
+Character:set_Helth+92: E8 61 00 00 00     - call Character:SetHelth
+Character:set_Helth+97: 83 C4 10           - add esp,10
+Character:set_Helth+9a: 8D 65 FC           - lea esp,[ebp-04]
+Character:set_Helth+9d: 5F                 - pop edi
+Character:set_Helth+9e: C9                 - leave 
+Character:set_Helth+9f: C3                 - ret 
+06568688: 68 38 31 38 11     - push 11383138
+0656868D: E9 96 79 8F FF     - jmp 05E60028
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Ammo = 500"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : AfterMathD
+  Version: 
+  Date   : 2025-11-17
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+define(INJECT,Character:Shoot+25) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [eax],(int)500
+  //mov [eax],ecx
+  mov eax,[edi+70]
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 08 8B 47 70
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Character:Shoot+25
+
+Character:Shoot+5: 56                 - push esi
+Character:Shoot+6: 83 EC 2C           - sub esp,2C
+Character:Shoot+9: 8B 7D 08           - mov edi,[ebp+08]
+Character:Shoot+c: 8B 47 70           - mov eax,[edi+70]
+Character:Shoot+f: 8B 8F D8 00 00 00  - mov ecx,[edi+000000D8]
+Character:Shoot+15: 39 48 0C           - cmp [eax+0C],ecx
+Character:Shoot+18: 0F 86 FE 06 00 00  - jbe Character:Shoot+71c
+Character:Shoot+1e: 8D 44 88 10        - lea eax,[eax+ecx*4+10]
+Character:Shoot+22: 8B 08              - mov ecx,[eax]
+Character:Shoot+24: 49                 - dec ecx
+// ---------- INJECTING HERE ----------
+Character:Shoot+25: 89 08              - mov [eax],ecx
+// ---------- DONE INJECTING  ----------
+Character:Shoot+27: 8B 47 70           - mov eax,[edi+70]
+Character:Shoot+2a: 8B 8F D8 00 00 00  - mov ecx,[edi+000000D8]
+Character:Shoot+30: 39 48 0C           - cmp [eax+0C],ecx
+Character:Shoot+33: 0F 86 D9 06 00 00  - jbe Character:Shoot+712
+Character:Shoot+39: 8D 44 88 10        - lea eax,[eax+ecx*4+10]
+Character:Shoot+3d: 8B 00              - mov eax,[eax]
+Character:Shoot+3f: 3D 01 00 00 00     - cmp eax,00000001
+Character:Shoot+44: 7C 0A              - jl Character:Shoot+50
+Character:Shoot+46: 8B 87 D8 00 00 00  - mov eax,[edi+000000D8]
+Character:Shoot+4c: 85 C0              - test eax,eax
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

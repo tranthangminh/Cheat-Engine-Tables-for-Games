@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"HP"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>Among Ass Butt Warfare.exe.text+EB634</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Magazine"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>Among Ass Butt Warfare.exe.text+E2371</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"Ammo"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>Among Ass Butt Warfare.exe.text+C5C24</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"HP"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Among Ass 2 Butt Warfare
+  Version: 
+  Date   : 2025-11-17
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Among Ass Butt Warfare.exe,89 70 14 6A 00 FF) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  cmp [eax+14],0
+  jne return
+
+  mov [eax+14],esi
+  push 00
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 70 14 6A 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Among Ass Butt Warfare.exe.text+EB634
+
+Among Ass Butt Warfare.exe.text+EB60B: 2B 75 10           - sub esi,[ebp+10]
+Among Ass Butt Warfare.exe.text+EB60E: 6A 00              - push 00
+Among Ass Butt Warfare.exe.text+EB610: FF 75 0C           - push [ebp+0C]
+Among Ass Butt Warfare.exe.text+EB613: FF 75 08           - push [ebp+08]
+Among Ass Butt Warfare.exe.text+EB616: FF 35 F8 CC 5E 00  - push ["Among Ass Butt Warfare.exe"+1ECCF8]
+Among Ass Butt Warfare.exe.text+EB61C: E8 8D 99 F1 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+Among Ass Butt Warfare.exe.text+EB621: FF 70 78           - push [eax+78]
+Among Ass Butt Warfare.exe.text+EB624: E8 85 99 F1 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+Among Ass Butt Warfare.exe.text+EB629: FF B0 DC 01 00 00  - push [eax+000001DC]
+Among Ass Butt Warfare.exe.text+EB62F: E8 7A 99 F1 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+// ---------- INJECTING HERE ----------
+Among Ass Butt Warfare.exe.text+EB634: 89 70 14           - mov [eax+14],esi
+// ---------- DONE INJECTING  ----------
+Among Ass Butt Warfare.exe.text+EB637: 6A 00              - push 00
+Among Ass Butt Warfare.exe.text+EB639: FF 75 0C           - push [ebp+0C]
+Among Ass Butt Warfare.exe.text+EB63C: FF 75 08           - push [ebp+08]
+Among Ass Butt Warfare.exe.text+EB63F: FF 35 F8 CC 5E 00  - push ["Among Ass Butt Warfare.exe"+1ECCF8]
+Among Ass Butt Warfare.exe.text+EB645: E8 64 99 F1 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+Among Ass Butt Warfare.exe.text+EB64A: FF 70 78           - push [eax+78]
+Among Ass Butt Warfare.exe.text+EB64D: E8 5C 99 F1 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+Among Ass Butt Warfare.exe.text+EB652: FF B0 DC 01 00 00  - push [eax+000001DC]
+Among Ass Butt Warfare.exe.text+EB658: E8 51 99 F1 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+Among Ass Butt Warfare.exe.text+EB65D: 83 78 14 00        - cmp dword ptr [eax+14],00
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Magazine"</Description>
+      <LastState Activated="1"/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Among Ass 2 Butt Warfare
+  Version: 
+  Date   : 2025-11-17
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Among Ass Butt Warfare.exe,89 70 18 FF 75 E4 FF) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [eax+18],esi
+  push [ebp-1C]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 70 18 FF 75 E4
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Among Ass Butt Warfare.exe.text+E2371
+
+Among Ass Butt Warfare.exe.text+E234A: FF 70 1C           - push [eax+1C]
+Among Ass Butt Warfare.exe.text+E234D: E8 5C 2C F2 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+Among Ass Butt Warfare.exe.text+E2352: 8B 70 18           - mov esi,[eax+18]
+Among Ass Butt Warfare.exe.text+E2355: 03 75 10           - add esi,[ebp+10]
+Among Ass Butt Warfare.exe.text+E2358: FF 75 E4           - push [ebp-1C]
+Among Ass Butt Warfare.exe.text+E235B: FF 75 08           - push [ebp+08]
+Among Ass Butt Warfare.exe.text+E235E: FF 35 30 CD 5E 00  - push ["Among Ass Butt Warfare.exe"+1ECD30]
+Among Ass Butt Warfare.exe.text+E2364: E8 45 2C F2 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+Among Ass Butt Warfare.exe.text+E2369: FF 70 1C           - push [eax+1C]
+Among Ass Butt Warfare.exe.text+E236C: E8 3D 2C F2 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+// ---------- INJECTING HERE ----------
+Among Ass Butt Warfare.exe.text+E2371: 89 70 18           - mov [eax+18],esi
+// ---------- DONE INJECTING  ----------
+Among Ass Butt Warfare.exe.text+E2374: FF 75 E4           - push [ebp-1C]
+Among Ass Butt Warfare.exe.text+E2377: FF 75 08           - push [ebp+08]
+Among Ass Butt Warfare.exe.text+E237A: FF 35 30 CD 5E 00  - push ["Among Ass Butt Warfare.exe"+1ECD30]
+Among Ass Butt Warfare.exe.text+E2380: E8 29 2C F2 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+Among Ass Butt Warfare.exe.text+E2385: FF 70 1C           - push [eax+1C]
+Among Ass Butt Warfare.exe.text+E2388: E8 21 2C F2 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+Among Ass Butt Warfare.exe.text+E238D: 83 78 18 00        - cmp dword ptr [eax+18],00
+Among Ass Butt Warfare.exe.text+E2391: 0F 8F 12 01 00 00  - jg Among Ass Butt Warfare.exe.text+E24A9
+Among Ass Butt Warfare.exe.text+E2397: FF 75 0C           - push [ebp+0C]
+Among Ass Butt Warfare.exe.text+E239A: FF 35 E8 C5 5E 00  - push ["Among Ass Butt Warfare.exe"+1EC5E8]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"Ammo"</Description>
+      <LastState Activated="1"/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Among Ass 2 Butt Warfare
+  Version: 
+  Date   : 2025-11-17
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Among Ass Butt Warfare.exe,89 48 1C FF 75 EC 8B 45 D0 FF B0 D4) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [eax+1C],100
+  push [ebp-14]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 48 1C FF 75 EC
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Among Ass Butt Warfare.exe.text+C5C24
+
+Among Ass Butt Warfare.exe.text+C5BFA: FF B0 D4 01 00 00  - push [eax+000001D4]
+Among Ass Butt Warfare.exe.text+C5C00: E8 A9 F3 F3 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+Among Ass Butt Warfare.exe.text+C5C05: 8B 00              - mov eax,[eax]
+Among Ass Butt Warfare.exe.text+C5C07: 3B 45 10           - cmp eax,[ebp+10]
+Among Ass Butt Warfare.exe.text+C5C0A: 0F 85 9D 00 00 00  - jne Among Ass Butt Warfare.exe.text+C5CAD
+Among Ass Butt Warfare.exe.text+C5C10: FF 75 EC           - push [ebp-14]
+Among Ass Butt Warfare.exe.text+C5C13: 8B 45 D0           - mov eax,[ebp-30]
+Among Ass Butt Warfare.exe.text+C5C16: FF B0 D4 01 00 00  - push [eax+000001D4]
+Among Ass Butt Warfare.exe.text+C5C1C: E8 8D F3 F3 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+Among Ass Butt Warfare.exe.text+C5C21: 8B 4D 14           - mov ecx,[ebp+14]
+// ---------- INJECTING HERE ----------
+Among Ass Butt Warfare.exe.text+C5C24: 89 48 1C           - mov [eax+1C],ecx
+// ---------- DONE INJECTING  ----------
+Among Ass Butt Warfare.exe.text+C5C27: FF 75 EC           - push [ebp-14]
+Among Ass Butt Warfare.exe.text+C5C2A: 8B 45 D0           - mov eax,[ebp-30]
+Among Ass Butt Warfare.exe.text+C5C2D: FF B0 D4 01 00 00  - push [eax+000001D4]
+Among Ass Butt Warfare.exe.text+C5C33: E8 76 F3 F3 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+Among Ass Butt Warfare.exe.text+C5C38: 83 78 1C 00        - cmp dword ptr [eax+1C],00
+Among Ass Butt Warfare.exe.text+C5C3C: 7D 17              - jnl Among Ass Butt Warfare.exe.text+C5C55
+Among Ass Butt Warfare.exe.text+C5C3E: FF 75 EC           - push [ebp-14]
+Among Ass Butt Warfare.exe.text+C5C41: 8B 45 D0           - mov eax,[ebp-30]
+Among Ass Butt Warfare.exe.text+C5C44: FF B0 D4 01 00 00  - push [eax+000001D4]
+Among Ass Butt Warfare.exe.text+C5C4A: E8 5F F3 F3 FF     - call Among Ass Butt Warfare.exe.text+4FAE
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of mov [esi+08],eax</Description>
+      <AddressString>MSVBVM60.DLL+1069AD</AddressString>
+      <Before>
+        <Byte>89</Byte>
+        <Byte>06</Byte>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>C7</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [esi+0C],ecx</Description>
+      <AddressString>MSVBVM60.DLL+1069B9</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>89</Byte>
+        <Byte>56</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>4E</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>C6</Byte>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>C3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [ecx+08],edx</Description>
+      <AddressString>MSVBVM60.DLL+1107A4</AddressString>
+      <Before>
+        <Byte>41</Byte>
+        <Byte>04</Byte>
+        <Byte>8B</Byte>
+        <Byte>43</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>51</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>0C</Byte>
+        <Byte>8B</Byte>
+        <Byte>C6</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [ecx+0C],eax</Description>
+      <AddressString>MSVBVM60.DLL+1107A7</AddressString>
+      <Before>
+        <Byte>43</Byte>
+        <Byte>0C</Byte>
+        <Byte>89</Byte>
+        <Byte>51</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>C6</Byte>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>5D</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of and byte ptr [eax+21],00</Description>
+      <AddressString>Among Ass Butt Warfare.exe+1949FC</AddressString>
+      <Before>
+        <Byte>E8</Byte>
+        <Byte>B2</Byte>
+        <Byte>15</Byte>
+        <Byte>E7</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>80</Byte>
+        <Byte>60</Byte>
+        <Byte>21</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>85</Byte>
+        <Byte>38</Byte>
+        <Byte>FE</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [eax+1C],ecx</Description>
+      <AddressString>Among Ass Butt Warfare.exe+C6C24</AddressString>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>FF</Byte>
+        <Byte>8B</Byte>
+        <Byte>4D</Byte>
+        <Byte>14</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>FF</Byte>
+        <Byte>75</Byte>
+        <Byte>EC</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

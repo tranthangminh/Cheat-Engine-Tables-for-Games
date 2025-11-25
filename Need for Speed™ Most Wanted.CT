@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"Nitro (float 0-100)"</Description>
+      <LastState Value="1175523315" RealAddress="00669CA3"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>NFS13.exe.text+268CA3</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"Nitro - Infinite (float 0-100)"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"Auto Assemble script"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Need for Speed™ Most Wanted
+  Version: 
+  Date   : 2025-10-21
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,NFS13.exe,F3 0F 11 46 10 77) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [esi+10],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 46 10
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: NFS13.exe.text+268CA3
+
+NFS13.exe.text+268C6B: 0F 2F 84 02 E4 00 00 00  - comiss xmm0,[edx+eax+000000E4]
+NFS13.exe.text+268C73: 0F 82 54 01 00 00        - jb NFS13.exe.text+268DCD
+NFS13.exe.text+268C79: 8B 46 70                 - mov eax,[esi+70]
+NFS13.exe.text+268C7C: F3 0F 10 48 10           - movss xmm1,[eax+10]
+NFS13.exe.text+268C81: F3 0F 59 4C 24 14        - mulss xmm1,[esp+14]
+NFS13.exe.text+268C87: F3 0F 59 8E B4 00 00 00  - mulss xmm1,[esi+000000B4]
+NFS13.exe.text+268C8F: F3 0F 10 46 10           - movss xmm0,[esi+10]
+NFS13.exe.text+268C94: F3 0F 59 8E BC 00 00 00  - mulss xmm1,[esi+000000BC]
+NFS13.exe.text+268C9C: F3 0F 5C C1              - subss xmm0,xmm1
+NFS13.exe.text+268CA0: 0F 2F C6                 - comiss xmm0,xmm6
+// ---------- INJECTING HERE ----------
+NFS13.exe.text+268CA3: F3 0F 11 46 10           - movss [esi+10],xmm0
+// ---------- DONE INJECTING  ----------
+NFS13.exe.text+268CA8: 77 03                    - ja NFS13.exe.text+268CAD
+NFS13.exe.text+268CAA: 0F 28 C6                 - movaps xmm0,xmm6
+NFS13.exe.text+268CAD: 0F 2F C6                 - comiss xmm0,xmm6
+NFS13.exe.text+268CB0: F3 0F 11 46 10           - movss [esi+10],xmm0
+NFS13.exe.text+268CB5: F3 0F 11 76 18           - movss [esi+18],xmm6
+NFS13.exe.text+268CBA: 76 1F                    - jna NFS13.exe.text+268CDB
+NFS13.exe.text+268CBC: F3 0F 10 46 1C           - movss xmm0,[esi+1C]
+NFS13.exe.text+268CC1: F3 0F 5E 40 14           - divss xmm0,[eax+14]
+NFS13.exe.text+268CC6: 0F 2F F0                 - comiss xmm6,xmm0
+NFS13.exe.text+268CC9: 77 0B                    - ja NFS13.exe.text+268CD6
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"Auto Assemble script"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Need for Speed™ Most Wanted
+  Version: 
+  Date   : 2025-10-21
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,NFS13.exe,F3 0F 11 46 10 F3 0F 11 76) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [esi+10],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 46 10
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: NFS13.exe.text+268CB0
+
+NFS13.exe.text+268C81: F3 0F 59 4C 24 14        - mulss xmm1,[esp+14]
+NFS13.exe.text+268C87: F3 0F 59 8E B4 00 00 00  - mulss xmm1,[esi+000000B4]
+NFS13.exe.text+268C8F: F3 0F 10 46 10           - movss xmm0,[esi+10]
+NFS13.exe.text+268C94: F3 0F 59 8E BC 00 00 00  - mulss xmm1,[esi+000000BC]
+NFS13.exe.text+268C9C: F3 0F 5C C1              - subss xmm0,xmm1
+NFS13.exe.text+268CA0: 0F 2F C6                 - comiss xmm0,xmm6
+NFS13.exe.text+268CA3: F3 0F 11 46 10           - movss [esi+10],xmm0
+NFS13.exe.text+268CA8: 77 03                    - ja NFS13.exe.text+268CAD
+NFS13.exe.text+268CAA: 0F 28 C6                 - movaps xmm0,xmm6
+NFS13.exe.text+268CAD: 0F 2F C6                 - comiss xmm0,xmm6
+// ---------- INJECTING HERE ----------
+NFS13.exe.text+268CB0: F3 0F 11 46 10           - movss [esi+10],xmm0
+// ---------- DONE INJECTING  ----------
+NFS13.exe.text+268CB5: F3 0F 11 76 18           - movss [esi+18],xmm6
+NFS13.exe.text+268CBA: 76 1F                    - jna NFS13.exe.text+268CDB
+NFS13.exe.text+268CBC: F3 0F 10 46 1C           - movss xmm0,[esi+1C]
+NFS13.exe.text+268CC1: F3 0F 5E 40 14           - divss xmm0,[eax+14]
+NFS13.exe.text+268CC6: 0F 2F F0                 - comiss xmm6,xmm0
+NFS13.exe.text+268CC9: 77 0B                    - ja NFS13.exe.text+268CD6
+NFS13.exe.text+268CCB: 0F 2F F8                 - comiss xmm7,xmm0
+NFS13.exe.text+268CCE: 0F 28 F0                 - movaps xmm6,xmm0
+NFS13.exe.text+268CD1: 77 03                    - ja NFS13.exe.text+268CD6
+NFS13.exe.text+268CD3: 0F 28 F7                 - movaps xmm6,xmm7
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of movss [ecx+10],xmm1</Description>
+      <AddressString>NFS13.exe+26E056</AddressString>
+      <Before>
+        <Byte>57</Byte>
+        <Byte>C0</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>49</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>77</Byte>
+        <Byte>10</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [esi+10],xmm0</Description>
+      <AddressString>NFS13.exe+269CA3</AddressString>
+      <Before>
+        <Byte>5C</Byte>
+        <Byte>C1</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>C6</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>77</Byte>
+        <Byte>03</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C6</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [esi+10],xmm0</Description>
+      <AddressString>NFS13.exe+269CB0</AddressString>
+      <Before>
+        <Byte>28</Byte>
+        <Byte>C6</Byte>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>C6</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>46</Byte>
+        <Byte>10</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>76</Byte>
+        <Byte>18</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>42</ID>
+      <Description>"IMPORTANT: Active Mono if possible (Menu bar ➜ Mono ➜ Active mono features)"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF40BF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>43</ID>
+          <Description>"Make sure you have Cheat Engine 7.4 or later"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>44</ID>
+          <Description>"Download lastest version here: https://www.cheatengine.org/"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>29</ID>
+      <Description>"Color Guide"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BFBF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"DEFAULT color = Description only (don’t change or activate)."</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"RED = Opposite cheat (makes game harder/unbeatable)."</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>4040BF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"YELLOW = Value cheat (set freely)."</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BFBF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"GREEN = Helpful cheat (makes game easier)."</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>17</ID>
+          <Description>"CYAN = Manual active cheat"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>BFBF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>19</ID>
+              <Description>"1. Select an address ➜ Press Ctrl+D ➜ Opens Memory Viewer."</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>BFBF40</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>18</ID>
+              <Description>"2. Right-click the address ➜ Choose “Replace with code that does nothing”."</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>BFBF40</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20</ID>
+              <Description>"3. Enjoy"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>BFBF40</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"BLUE = Memory Viewer (stores key addresses)"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>BF4040</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2</ID>
+              <Description>"1. Select an address ➜ Press Ctrl+D ➜ Opens Memory Viewer."</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>BF4040</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>3</ID>
+              <Description>"2. Right-click the address ➜ Choose “Find out what addresses this instruction accesses”."</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>BF4040</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4</ID>
+              <Description>"3. This shows which addresses are affected by the selected instruction."</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>BF4040</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"NOTE: Childen address are Pointers"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>14</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>15</ID>
+              <Description>"pointerscan result"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>28</ID>
+      <Description>"How to Cheat on Google Play Games Beta"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BFBF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>39</ID>
+          <Description>"1. Change Settings in Cheat Engine"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>23</ID>
+              <Description>"Edit ➜ Settings ➜ Scan Settings ➜ Check MEM_MAPPED"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>38</ID>
+          <Description>"2. Get the PID in Task Manager"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>25</ID>
+              <Description>"Open Task Manager (Ctrl + Shift + ESC)"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26</ID>
+              <Description>"Turn on the PID column (right-click on the header and select “PID”)"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>33</ID>
+              <Description>"Expand “Play Games – Game Platform (11)” (could be 11 or 12)"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>34</ID>
+              <Description>"Find the PID of the process using the most CPU (remember this number to use in Cheat Engine)"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>30</ID>
+          <Description>"3. Change Settings when open "Select a process to open""</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>31</ID>
+              <Description>"Select a process to open ➜ Go to the Processes tab"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>32</ID>
+              <Description>"Right-click anywhere and enable Convert PID to decimal"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>35</ID>
+              <Description>"Select the PID that matches the one from Task Manager"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>36</ID>
+              <Description>"It should appear as (PID-crosvm.exe)"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>37</ID>
+          <Description>"4. Finally, scan as usual"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>40</ID>
+      <Description>"Sample Scripts"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>41</ID>
+          <Description>"Get Address from Unique Array of Byte (double-click on &lt;script&gt; to view script)"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>// AddressName: Name your address, then reuse it later.
+// ArrayOfByte: Paste the Array of Bytes you want to store under "AddressName".
+
+[ENABLE]
+aobscan(AddressName,ArrayOfByte)
+registersymbol(AddressName)
+
+[DISABLE]
+unregistersymbol(AddressName)
+
+// Activate this script.
+
+// Then, in the Cheat Table:
+// 1. click "Add Address Manually"
+// 2. Address: AddressName → Click OK
+
+
+
+
+
+
+//SAMPLE below
+
+[ENABLE]
+aobscan(playerHealth,20 00 80 AE 00 81 65)
+registersymbol(playerHealth)
+
+[DISABLE]
+unregistersymbol(playerHealth)
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedhack_wantedspeed</Name>
+      <Address>26510040000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

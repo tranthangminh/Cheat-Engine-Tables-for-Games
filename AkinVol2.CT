@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>42</ID>
+      <Description>"IMPORTANT: Active Mono first (Menu bar ➜ Mono ➜ Active mono features)"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF40BF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>43</ID>
+          <Description>"Make sure you have Cheat Engine 7.4 or later"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>44</ID>
+          <Description>"Download lastest version here: https://www.cheatengine.org/"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>51</ID>
+      <Description>"Right-click the address ➜ Choose “Find out what addresses this instruction accesses”."</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>52</ID>
+          <Description>"Then change value to 0 to reset your Start position"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>53</ID>
+              <Description>"Number of moves (Realtime)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>BoardScene:OnGUI+51</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>49</ID>
+      <Description>"Timer"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>Float</VariableType>
+      <Address>BoardScene:Update+c9</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>50</ID>
+      <Description>"Time stop"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : AkinVol2
+  Version: 
+  Date   : 2025-11-24
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+define(INJECT,BoardScene:Update+c9) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov eax,(float)5
+  //fld dword ptr [eax]
+  fstp qword ptr [ebp-28]
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db D9 00 DD 5D D8
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: BoardScene:Update+c9
+
+BoardScene:Update+a2: 68 00 0A D7 1B     - push 1BD70A00
+BoardScene:Update+a7: 50                 - push eax
+BoardScene:Update+a8: E8 0B 46 FB FF     - call System.String:op_Equality
+BoardScene:Update+ad: 83 C4 10           - add esp,10
+BoardScene:Update+b0: 85 C0              - test eax,eax
+BoardScene:Update+b2: 0F 84 92 00 00 00  - je BoardScene:Update+14a
+BoardScene:Update+b8: 0F B6 47 3C        - movzx eax,byte ptr [edi+3C]
+BoardScene:Update+bc: 85 C0              - test eax,eax
+BoardScene:Update+be: 0F 85 86 00 00 00  - jne BoardScene:Update+14a
+BoardScene:Update+c4: B8 38 FF 78 11     - mov eax,1178FF38
+// ---------- INJECTING HERE ----------
+BoardScene:Update+c9: D9 00              - fld dword ptr [eax]
+// ---------- DONE INJECTING  ----------
+BoardScene:Update+cb: DD 5D D8           - fstp qword ptr [ebp-28]
+BoardScene:Update+ce: E8 D5 C8 FC FF     - call UnityEngine.Time:get_deltaTime
+BoardScene:Update+d3: DD 45 D8           - fld qword ptr [ebp-28]
+BoardScene:Update+d6: D9 C9              - fxch st(1)
+BoardScene:Update+d8: DE E9              - fsubp st(1),st(0)
+BoardScene:Update+da: B8 38 FF 78 11     - mov eax,1178FF38
+BoardScene:Update+df: D9 18              - fstp dword ptr [eax]
+BoardScene:Update+e1: 8B 47 20           - mov eax,[edi+20]
+BoardScene:Update+e4: 39 00              - cmp [eax],eax
+BoardScene:Update+e6: BA 38 BB E9 11     - mov edx,11E9BB38
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

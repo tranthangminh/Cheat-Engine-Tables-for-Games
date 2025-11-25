@@ -4,7 +4,7 @@
     <CheatEntry>
       <ID>2</ID>
       <Description>"Death count"</Description>
-      <LastState Value="1212170495" RealAddress="7FFCFCFCB8E8"/>
+      <LastState Value="1212170495" RealAddress="7FF881B0B8E8"/>
       <ShowAsSigned>0</ShowAsSigned>
       <Color>BF4040</Color>
       <VariableType>4 Bytes</VariableType>
@@ -82,6 +82,87 @@ GameAssembly.dll+5DB8FA: CC                    - int 3
 GameAssembly.dll+5DB8FB: CC                    - int 3 
 }
 </AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Robot Activate"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16</ID>
+          <Description>"Active Code"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>18</ID>
+              <Description>"ㆍ┃ㆍ     ┃┃ㆍ     ┃┃ㆍ     ㆍ┃ㆍ     ㆍㆍ┃"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"Music Sheet"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>14</ID>
+              <Description>"A Ը Ը A 🌀"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11</ID>
+              <Description>"Details"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>8</ID>
+                  <Description>"⊢     ┃ㆍㆍ"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4</ID>
+                  <Description>"A     ㆍ┃ㆍ"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10</ID>
+                  <Description>"⟥    ㆍㆍ┃"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>5</ID>
+                  <Description>"Ը      ┃┃ㆍ"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>9</ID>
+                  <Description>"🌀     ┃ㆍ┃"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>7</ID>
+                  <Description>"⊻     ㆍ┃┃"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
     </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols/>

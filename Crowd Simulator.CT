@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Kill Robbers"</Description>
+      <LastState Value="3573348841" RealAddress="1CFB8C70302"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>Scene10Manager:killoneenemy+12</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"+10 Kill Robbers"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Crowd Simulator
+  Version: 
+  Date   : 2025-11-02
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+define(INJECT,Scene10Manager:killoneenemy+12) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [rsi+7C],(int)10
+  //mov [rsi+7C],eax
+  mov rax,[rsi+70]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 46 7C 48 8B 46 70
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Scene10Manager:killoneenemy+12
+
+1CFB8C702EA: 00 00                          - add [rax],al
+1CFB8C702EC: 00 00                          - add [rax],al
+1CFB8C702EE: 00 00                          - add [rax],al
+Scene10Manager:killoneenemy: 55                             - push rbp
+Scene10Manager:killoneenemy+1: 48 8B EC                       - mov rbp,rsp
+Scene10Manager:killoneenemy+4: 56                             - push rsi
+Scene10Manager:killoneenemy+5: 48 83 EC 08                    - sub rsp,08
+Scene10Manager:killoneenemy+9: 48 8B F1                       - mov rsi,rcx
+Scene10Manager:killoneenemy+c: 48 63 46 7C                    - movsxd  rax,dword ptr [rsi+7C]
+Scene10Manager:killoneenemy+10: FF C0                          - inc eax
+// ---------- INJECTING HERE ----------
+Scene10Manager:killoneenemy+12: 89 46 7C                       - mov [rsi+7C],eax
+// ---------- DONE INJECTING  ----------
+Scene10Manager:killoneenemy+15: 48 8B 46 70                    - mov rax,[rsi+70]
+Scene10Manager:killoneenemy+19: 48 89 45 F0                    - mov [rbp-10],rax
+Scene10Manager:killoneenemy+1d: 48 85 F6                       - test rsi,rsi
+Scene10Manager:killoneenemy+20: 0F 84 62 00 00 00              - je Scene10Manager:killoneenemy+88
+Scene10Manager:killoneenemy+26: 48 8D 4E 7C                    - lea rcx,[rsi+7C]
+Scene10Manager:killoneenemy+2a: 48 83 EC 20                    - sub rsp,20
+Scene10Manager:killoneenemy+2e: 49 BB 80 03 FF 93 CF 01 00 00  - mov r11,System.Int32:ToString
+Scene10Manager:killoneenemy+38: 41 FF D3                       - call r11
+Scene10Manager:killoneenemy+3b: 48 83 C4 20                    - add rsp,20
+Scene10Manager:killoneenemy+3f: 48 8B D0                       - mov rdx,rax
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Level 7 - Timer"</Description>
+      <LastState Value="217358.1406" RealAddress="7FF9CC9D651E"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>Float</VariableType>
+      <Address>UnityPlayer.dll.text+C9551E</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"Level 7 - Timer 2"</Description>
+      <LastState Value="37135.94922" RealAddress="7FF9CC9DF3D6"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>Float</VariableType>
+      <Address>UnityPlayer.dll.text+C9E3D6</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"Get Lv.7 Timer address"</Description>
+      <LastState Activated="1"/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+aobscan(Lv7.Timer,B5 64 72 42 C9)
+registersymbol(Lv7.Timer)
+
+[DISABLE]
+unregistersymbol(Lv7.Timer)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"Timer"</Description>
+          <LastState Value="61.07832718" RealAddress="1CFAA779FE0"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>Float</VariableType>
+          <Address>Lv7.Timer</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedhack_wantedspeed</Name>
+      <Address>1CF9C600000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

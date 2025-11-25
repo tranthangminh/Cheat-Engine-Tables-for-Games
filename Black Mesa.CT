@@ -1,0 +1,1467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>15</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>210</ID>
+          <Description>"HP - Scientist, Aliens (Realtime)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>server.dll.text+C6A0F</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>213</ID>
+          <Description>"HP - You (Realtime)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>server.dll.text+1A24BB</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"HP"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>server.dll.text+FA02B</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"Armor"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>server.dll.text+2329D5</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"Ammo"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>server.dll.text+48DF9A</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"Oxygen"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>client.dll.text+270E2D</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"Grenade"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>server.dll.text+FF734</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"Shotgun"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>server.dll.text+48A502</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>207</ID>
+      <Description>"Life Points"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"Armor"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Black Mesa
+  Version: 
+  Date   : 2025-11-11
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,07 00 00 89 3E 5F 5E 5D) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi],edi
+  pop edi
+  pop esi
+  pop ebp
+  jmp return
+
+INJECT+03:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT+03:
+  db 89 3E 5F 5E 5D
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll.text+2329D5
+
+server.dll.text+2329B3: 56                 - push esi
+server.dll.text+2329B4: 57                 - push edi
+server.dll.text+2329B5: 8B 7D 08           - mov edi,[ebp+08]
+server.dll.text+2329B8: 8D B1 A4 0D 00 00  - lea esi,[ecx+00000DA4]
+server.dll.text+2329BE: 39 3E              - cmp [esi],edi
+server.dll.text+2329C0: 74 15              - je server.dll.text+2329D7
+server.dll.text+2329C2: 8B 86 5C F2 FF FF  - mov eax,[esi-00000DA4]
+server.dll.text+2329C8: 8D 8E 5C F2 FF FF  - lea ecx,[esi-00000DA4]
+server.dll.text+2329CE: 56                 - push esi
+server.dll.text+2329CF: FF 90 80 07 00 00  - call dword ptr [eax+00000780]
+// ---------- INJECTING HERE ----------
+server.dll.text+2329D5: 89 3E              - mov [esi],edi
+// ---------- DONE INJECTING  ----------
+server.dll.text+2329D7: 5F                 - pop edi
+server.dll.text+2329D8: 5E                 - pop esi
+server.dll.text+2329D9: 5D                 - pop ebp
+server.dll.text+2329DA: C2 04 00           - ret 0004
+server.dll.text+2329DD: CC                 - int 3 
+server.dll.text+2329DE: CC                 - int 3 
+server.dll.text+2329DF: CC                 - int 3 
+server.dll.text+2329E0: 55                 - push ebp
+server.dll.text+2329E1: 8B EC              - mov ebp,esp
+server.dll.text+2329E3: 56                 - push esi
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>211</ID>
+          <Description>"Instant Death on touch"</Description>
+          <LastState/>
+          <Color>4040BF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Black Mesa
+  Version: 
+  Date   : 2025-11-24
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,83 BF E4 00 00 00 00 8B F0 7F) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //cmp dword ptr [edi+000000E4],00
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 83 BF E4 00 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll.text+F9D19
+
+server.dll.text+F9CFF: C2 04 00              - ret 0004
+server.dll.text+F9D02: FF 90 94 04 00 00     - call dword ptr [eax+00000494]
+server.dll.text+F9D08: 5E                    - pop esi
+server.dll.text+F9D09: 5B                    - pop ebx
+server.dll.text+F9D0A: 5F                    - pop edi
+server.dll.text+F9D0B: 8B E5                 - mov esp,ebp
+server.dll.text+F9D0D: 5D                    - pop ebp
+server.dll.text+F9D0E: C2 04 00              - ret 0004
+server.dll.text+F9D11: 8B 07                 - mov eax,[edi]
+server.dll.text+F9D13: FF 90 90 04 00 00     - call dword ptr [eax+00000490]
+// ---------- INJECTING HERE ----------
+server.dll.text+F9D19: 83 BF E4 00 00 00 00  - cmp dword ptr [edi+000000E4],00
+// ---------- DONE INJECTING  ----------
+server.dll.text+F9D20: 8B F0                 - mov esi,eax
+server.dll.text+F9D22: 7F 38                 - jg server.dll.text+F9D5C
+server.dll.text+F9D24: 8B 17                 - mov edx,[edi]
+server.dll.text+F9D26: 8B CF                 - mov ecx,edi
+server.dll.text+F9D28: 53                    - push ebx
+server.dll.text+F9D29: FF 92 20 01 00 00     - call dword ptr [edx+00000120]
+server.dll.text+F9D2F: 8B 07                 - mov eax,[edi]
+server.dll.text+F9D31: 8B CF                 - mov ecx,edi
+server.dll.text+F9D33: 53                    - push ebx
+server.dll.text+F9D34: 8B 80 C8 04 00 00     - mov eax,[eax+000004C8]
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10</ID>
+      <Description>"Ammo"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"Pistols/Machine Guns"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Black Mesa
+  Version: 
+  Date   : 2025-11-11
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,89 02 EB 37 8B 03) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [edx],eax
+  jmp server.dll.text+48DFD5
+  mov eax,[ebx]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 02 EB 37 8B 03
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll.text+48DF9A
+
+server.dll.text+48DF7E: 8B 71 18           - mov esi,[ecx+18]
+server.dll.text+48DF81: 85 F6              - test esi,esi
+server.dll.text+48DF83: 74 12              - je server.dll.text+48DF97
+server.dll.text+48DF85: 8B C2              - mov eax,edx
+server.dll.text+48DF87: 2B C1              - sub eax,ecx
+server.dll.text+48DF89: 8B CE              - mov ecx,esi
+server.dll.text+48DF8B: 50                 - push eax
+server.dll.text+48DF8C: E8 9F 5A BC FF     - call server.dll.text+53A30
+server.dll.text+48DF91: 8D 97 E0 04 00 00  - lea edx,[edi+000004E0]
+server.dll.text+48DF97: 8B 45 F4           - mov eax,[ebp-0C]
+// ---------- INJECTING HERE ----------
+server.dll.text+48DF9A: 89 02              - mov [edx],eax
+// ---------- DONE INJECTING  ----------
+server.dll.text+48DF9C: EB 37              - jmp server.dll.text+48DFD5
+server.dll.text+48DF9E: 8B 03              - mov eax,[ebx]
+server.dll.text+48DFA0: 8B CB              - mov ecx,ebx
+server.dll.text+48DFA2: FF B7 D8 04 00 00  - push [edi+000004D8]
+server.dll.text+48DFA8: FF 90 4C 04 00 00  - call dword ptr [eax+0000044C]
+server.dll.text+48DFAE: 3B F0              - cmp esi,eax
+server.dll.text+48DFB0: 7C 12              - jl server.dll.text+48DFC4
+server.dll.text+48DFB2: 8B 03              - mov eax,[ebx]
+server.dll.text+48DFB4: 8B CB              - mov ecx,ebx
+server.dll.text+48DFB6: FF B7 D8 04 00 00  - push [edi+000004D8]
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"Shotgun"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Black Mesa
+  Version: 
+  Date   : 2025-11-15
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,89 07 83 3F 00 7E) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [edi],eax
+  cmp dword ptr [edi],00
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 07 83 3F 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll.text+48A502
+
+server.dll.text+48A4EA: EB 13              - jmp server.dll.text+48A4FF
+server.dll.text+48A4EC: 8B 51 18           - mov edx,[ecx+18]
+server.dll.text+48A4EF: 85 D2              - test edx,edx
+server.dll.text+48A4F1: 74 0C              - je server.dll.text+48A4FF
+server.dll.text+48A4F3: 8B C7              - mov eax,edi
+server.dll.text+48A4F5: 2B C1              - sub eax,ecx
+server.dll.text+48A4F7: 8B CA              - mov ecx,edx
+server.dll.text+48A4F9: 50                 - push eax
+server.dll.text+48A4FA: E8 31 95 BC FF     - call server.dll.text+53A30
+server.dll.text+48A4FF: 8B 45 F0           - mov eax,[ebp-10]
+// ---------- INJECTING HERE ----------
+server.dll.text+48A502: 89 07              - mov [edi],eax
+// ---------- DONE INJECTING  ----------
+server.dll.text+48A504: 83 3F 00           - cmp dword ptr [edi],00
+server.dll.text+48A507: 7E 42              - jle server.dll.text+48A54B
+server.dll.text+48A509: 8B 9E A0 05 00 00  - mov ebx,[esi+000005A0]
+server.dll.text+48A50F: 81 CB 00 00 10 00  - or ebx,00100000
+server.dll.text+48A515: 39 9E A0 05 00 00  - cmp [esi+000005A0],ebx
+server.dll.text+48A51B: 74 2B              - je server.dll.text+48A548
+server.dll.text+48A51D: 8B CE              - mov ecx,esi
+server.dll.text+48A51F: 80 79 54 00        - cmp byte ptr [ecx+54],00
+server.dll.text+48A523: 74 06              - je server.dll.text+48A52B
+server.dll.text+48A525: 80 49 58 01        - or byte ptr [ecx+58],01
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"Grenade"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Black Mesa
+  Version: 
+  Date   : 2025-11-11
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,server.dll,89 1E 5F 5E 5B) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi],ebx
+  pop edi
+  pop esi
+  pop ebx
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 1E 5F 5E 5B
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll.text+FF734
+
+server.dll.text+FF70E: 81 C1 08 07 00 00  - add ecx,00000708
+server.dll.text+FF714: 8B 04 B9           - mov eax,[ecx+edi*4]
+server.dll.text+FF717: 8D 34 B9           - lea esi,[ecx+edi*4]
+server.dll.text+FF71A: 89 5D 08           - mov [ebp+08],ebx
+server.dll.text+FF71D: 3B 02              - cmp eax,[edx]
+server.dll.text+FF71F: 74 15              - je server.dll.text+FF736
+server.dll.text+FF721: 8B 81 F8 F8 FF FF  - mov eax,[ecx-00000708]
+server.dll.text+FF727: 81 C1 F8 F8 FF FF  - add ecx,FFFFF8F8
+server.dll.text+FF72D: 56                 - push esi
+server.dll.text+FF72E: FF 90 54 05 00 00  - call dword ptr [eax+00000554]
+// ---------- INJECTING HERE ----------
+server.dll.text+FF734: 89 1E              - mov [esi],ebx
+// ---------- DONE INJECTING  ----------
+server.dll.text+FF736: 5F                 - pop edi
+server.dll.text+FF737: 5E                 - pop esi
+server.dll.text+FF738: 5B                 - pop ebx
+server.dll.text+FF739: 8B E5              - mov esp,ebp
+server.dll.text+FF73B: 5D                 - pop ebp
+server.dll.text+FF73C: C2 08 00           - ret 0008
+server.dll.text+FF73F: CC                 - int 3 
+server.dll.text+FF740: 55                 - push ebp
+server.dll.text+FF741: 8B EC              - mov ebp,esp
+server.dll.text+FF743: 56                 - push esi
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>205</ID>
+      <Description>"Source (https://fearlessrevolution.com/viewtopic.php?t=16330)"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>37</ID>
+          <Description>"Infinite Suit Power"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : bms.exe
+  Version: 
+  Date   : 2021-06-03
+  Author : joeyc
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(POWER,server.dll,07 00 00 89 3E 5F 5E 5D) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [esi],#100
+  pop edi
+  pop esi
+  pop ebp
+  jmp return
+
+POWER+03:
+  jmp newmem
+return:
+registersymbol(POWER)
+
+[DISABLE]
+
+POWER+03:
+  db 89 3E 5F 5E 5D
+
+unregistersymbol(POWER)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll.text+2319E5
+
+server.dll.text+2319C3: 56                 - push esi
+server.dll.text+2319C4: 57                 - push edi
+server.dll.text+2319C5: 8B 7D 08           - mov edi,[ebp+08]
+server.dll.text+2319C8: 8D B1 98 0D 00 00  - lea esi,[ecx+00000D98]
+server.dll.text+2319CE: 39 3E              - cmp [esi],edi
+server.dll.text+2319D0: 74 15              - je server.dll.text+2319E7
+server.dll.text+2319D2: 8B 86 68 F2 FF FF  - mov eax,[esi-00000D98]
+server.dll.text+2319D8: 8D 8E 68 F2 FF FF  - lea ecx,[esi-00000D98]
+server.dll.text+2319DE: 56                 - push esi
+server.dll.text+2319DF: FF 90 80 07 00 00  - call dword ptr [eax+00000780]
+// ---------- INJECTING HERE ----------
+server.dll.text+2319E5: 89 3E              - mov [esi],edi
+// ---------- DONE INJECTING  ----------
+server.dll.text+2319E7: 5F                 - pop edi
+server.dll.text+2319E8: 5E                 - pop esi
+server.dll.text+2319E9: 5D                 - pop ebp
+server.dll.text+2319EA: C2 04 00           - ret 0004
+server.dll.text+2319ED: CC                 - int 3 
+server.dll.text+2319EE: CC                 - int 3 
+server.dll.text+2319EF: CC                 - int 3 
+server.dll.text+2319F0: 55                 - push ebp
+server.dll.text+2319F1: 8B EC              - mov ebp,esp
+server.dll.text+2319F3: 56                 - push esi
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>38</ID>
+          <Description>"Health Hook"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : bms.exe
+  Version: 
+  Date   : 2021-06-03
+  Author : joeyc
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(HEALTH,server.dll,89 37 5F B8 01 00 00 00) // should be unique
+alloc(newmem,$1000)
+alloc(infhealth,8)
+alloc(instakill,8)
+
+label(code)
+label(return)
+label(herohealth)
+label(kills)
+
+infhealth:
+dd 0
+
+instakill:
+dd 0
+
+newmem:
+push ebx
+mov ebx,[edi+6C]
+cmp [ebx+A0],#1
+jne kills
+jmp herohealth
+
+kills:
+pop ebx
+cmp [instakill],#1
+jne code
+mov [edi],0
+pop edi
+mov eax,00000001
+jmp return
+
+herohealth:
+pop ebx
+cmp [infhealth],#1
+jne code
+mov [edi],#100
+pop edi
+mov eax,00000001
+jmp return
+
+code:
+  mov [edi],esi
+  pop edi
+  mov eax,00000001
+  jmp return
+
+HEALTH:
+  jmp newmem
+  nop 3
+return:
+registersymbol(HEALTH infhealth instakill)
+
+[DISABLE]
+
+HEALTH:
+  db 89 37 5F B8 01 00 00 00
+
+unregistersymbol(HEALTH infhealth instakill)
+dealloc(newmem)
+dealloc(infhealth)
+dealloc(instakill)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll.text+F985B
+
+server.dll.text+F9832: 8B B7 E4 00 00 00  - mov esi,[edi+000000E4]
+server.dll.text+F9838: 81 C7 E4 00 00 00  - add edi,000000E4
+server.dll.text+F983E: F3 0F 2C C4        - cvttss2si eax,xmm4
+server.dll.text+F9842: 2B F0              - sub esi,eax
+server.dll.text+F9844: 39 37              - cmp [edi],esi
+server.dll.text+F9846: 74 15              - je server.dll.text+F985D
+server.dll.text+F9848: 8B 87 1C FF FF FF  - mov eax,[edi-000000E4]
+server.dll.text+F984E: 8D 8F 1C FF FF FF  - lea ecx,[edi-000000E4]
+server.dll.text+F9854: 57                 - push edi
+server.dll.text+F9855: FF 90 0C 02 00 00  - call dword ptr [eax+0000020C]
+// ---------- INJECTING HERE ----------
+server.dll.text+F985B: 89 37              - mov [edi],esi
+// ---------- DONE INJECTING  ----------
+server.dll.text+F985D: 5F                 - pop edi
+server.dll.text+F985E: B8 01 00 00 00     - mov eax,00000001
+server.dll.text+F9863: 5E                 - pop esi
+server.dll.text+F9864: 8B E5              - mov esp,ebp
+server.dll.text+F9866: 5D                 - pop ebp
+server.dll.text+F9867: C2 04 00           - ret 0004
+server.dll.text+F986A: CC                 - int 3 
+server.dll.text+F986B: CC                 - int 3 
+server.dll.text+F986C: CC                 - int 3 
+server.dll.text+F986D: CC                 - int 3 
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>34</ID>
+              <Description>"Infinite Health"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+infhealth:
+db 1
+
+ 
+ 
+[DISABLE]
+infhealth:
+db 0
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>33</ID>
+              <Description>"One Hit Kills"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+instakill:
+db 1
+ 
+ 
+[DISABLE]
+instakill:
+db 0
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>39</ID>
+          <Description>"Infinite Ammo/Grenades/Charges/Mines"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : bms.exe
+  Version: 
+  Date   : 2021-06-03
+  Author : joeyc
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(AMMO,server.dll,89 1E 5F 5E 5B) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi],ebx
+  pop edi
+  pop esi
+  pop ebx
+  jmp return
+
+AMMO:
+  jmp newmem
+return:
+registersymbol(AMMO)
+
+[DISABLE]
+
+AMMO:
+  db 89 1E 5F 5E 5B
+
+unregistersymbol(AMMO)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll.text+FEF64
+
+server.dll.text+FEF3E: 81 C1 FC 06 00 00  - add ecx,000006FC
+server.dll.text+FEF44: 8B 04 B9           - mov eax,[ecx+edi*4]
+server.dll.text+FEF47: 8D 34 B9           - lea esi,[ecx+edi*4]
+server.dll.text+FEF4A: 89 5D 08           - mov [ebp+08],ebx
+server.dll.text+FEF4D: 3B 02              - cmp eax,[edx]
+server.dll.text+FEF4F: 74 15              - je server.dll.text+FEF66
+server.dll.text+FEF51: 8B 81 04 F9 FF FF  - mov eax,[ecx-000006FC]
+server.dll.text+FEF57: 81 C1 04 F9 FF FF  - add ecx,FFFFF904
+server.dll.text+FEF5D: 56                 - push esi
+server.dll.text+FEF5E: FF 90 54 05 00 00  - call dword ptr [eax+00000554]
+// ---------- INJECTING HERE ----------
+server.dll.text+FEF64: 89 1E              - mov [esi],ebx
+// ---------- DONE INJECTING  ----------
+server.dll.text+FEF66: 5F                 - pop edi
+server.dll.text+FEF67: 5E                 - pop esi
+server.dll.text+FEF68: 5B                 - pop ebx
+server.dll.text+FEF69: 8B E5              - mov esp,ebp
+server.dll.text+FEF6B: 5D                 - pop ebp
+server.dll.text+FEF6C: C2 08 00           - ret 0008
+server.dll.text+FEF6F: CC                 - int 3 
+server.dll.text+FEF70: 55                 - push ebp
+server.dll.text+FEF71: 8B EC              - mov ebp,esp
+server.dll.text+FEF73: 56                 - push esi
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>41</ID>
+          <Description>"No Reload Pistols/Machine Guns"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : bms.exe
+  Version: 
+  Date   : 2021-06-04
+  Author : joeyc
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(NORELOAD,server.dll,8B 45 F4 89 02 EB 37) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov eax,[ebp-0C]
+  mov [edx],#999
+  jmp return
+
+NORELOAD:
+  jmp newmem
+return:
+registersymbol(NORELOAD)
+
+[DISABLE]
+
+NORELOAD:
+  db 8B 45 F4 89 02
+
+unregistersymbol(NORELOAD)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll.text+48ADC8
+
+server.dll.text+48ADAD: EB 57              - jmp server.dll.text+48AE06
+server.dll.text+48ADAF: 8B 71 18           - mov esi,[ecx+18]
+server.dll.text+48ADB2: 85 F6              - test esi,esi
+server.dll.text+48ADB4: 74 12              - je server.dll.text+48ADC8
+server.dll.text+48ADB6: 8B C2              - mov eax,edx
+server.dll.text+48ADB8: 2B C1              - sub eax,ecx
+server.dll.text+48ADBA: 8B CE              - mov ecx,esi
+server.dll.text+48ADBC: 50                 - push eax
+server.dll.text+48ADBD: E8 6E 88 BC FF     - call server.dll.text+53630
+server.dll.text+48ADC2: 8D 97 D4 04 00 00  - lea edx,[edi+000004D4]
+// ---------- INJECTING HERE ----------
+server.dll.text+48ADC8: 8B 45 F4           - mov eax,[ebp-0C]
+// ---------- DONE INJECTING  ----------
+server.dll.text+48ADCB: 89 02              - mov [edx],eax
+server.dll.text+48ADCD: EB 37              - jmp server.dll.text+48AE06
+server.dll.text+48ADCF: 8B 03              - mov eax,[ebx]
+server.dll.text+48ADD1: 8B CB              - mov ecx,ebx
+server.dll.text+48ADD3: FF B7 CC 04 00 00  - push [edi+000004CC]
+server.dll.text+48ADD9: FF 90 4C 04 00 00  - call dword ptr [eax+0000044C]
+server.dll.text+48ADDF: 3B F0              - cmp esi,eax
+server.dll.text+48ADE1: 7C 12              - jl server.dll.text+48ADF5
+server.dll.text+48ADE3: 8B 03              - mov eax,[ebx]
+server.dll.text+48ADE5: 8B CB              - mov ecx,ebx
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>42</ID>
+          <Description>"No Reload Shotgun"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : bms.exe
+  Version: 
+  Date   : 2021-06-03
+  Author : joeyc
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(NORELSHOTGUN,server.dll,89 07 83 3F 00 7E) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [edi],#999
+  cmp dword ptr [edi],00
+  jmp return
+
+NORELSHOTGUN:
+  jmp newmem
+return:
+registersymbol(NORELSHOTGUN)
+
+[DISABLE]
+
+NORELSHOTGUN:
+  db 89 07 83 3F 00
+
+unregistersymbol(NORELSHOTGUN)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll.text+487282
+
+server.dll.text+48726A: EB 13              - jmp server.dll.text+48727F
+server.dll.text+48726C: 8B 51 18           - mov edx,[ecx+18]
+server.dll.text+48726F: 85 D2              - test edx,edx
+server.dll.text+487271: 74 0C              - je server.dll.text+48727F
+server.dll.text+487273: 8B C7              - mov eax,edi
+server.dll.text+487275: 2B C1              - sub eax,ecx
+server.dll.text+487277: 8B CA              - mov ecx,edx
+server.dll.text+487279: 50                 - push eax
+server.dll.text+48727A: E8 B1 C3 BC FF     - call server.dll.text+53630
+server.dll.text+48727F: 8B 45 F0           - mov eax,[ebp-10]
+// ---------- INJECTING HERE ----------
+server.dll.text+487282: 89 07              - mov [edi],eax
+// ---------- DONE INJECTING  ----------
+server.dll.text+487284: 83 3F 00           - cmp dword ptr [edi],00
+server.dll.text+487287: 7E 42              - jle server.dll.text+4872CB
+server.dll.text+487289: 8B 9E 94 05 00 00  - mov ebx,[esi+00000594]
+server.dll.text+48728F: 81 CB 00 00 10 00  - or ebx,00100000
+server.dll.text+487295: 39 9E 94 05 00 00  - cmp [esi+00000594],ebx
+server.dll.text+48729B: 74 2B              - je server.dll.text+4872C8
+server.dll.text+48729D: 8B CE              - mov ecx,esi
+server.dll.text+48729F: 80 79 54 00        - cmp byte ptr [ecx+54],00
+server.dll.text+4872A3: 74 06              - je server.dll.text+4872AB
+server.dll.text+4872A5: 80 49 58 01        - or byte ptr [ecx+58],01
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>45</ID>
+          <Description>"No Reload Crossbow"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : bms.exe
+  Version: 
+  Date   : 2021-06-04
+  Author : joeyc
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(CROSSBOW,server.dll,89 37 8B 4D FC 8A) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [edi],#999
+  mov ecx,[ebp-04]
+  jmp return
+
+CROSSBOW:
+  jmp newmem
+return:
+registersymbol(CROSSBOW)
+
+[DISABLE]
+
+CROSSBOW:
+  db 89 37 8B 4D FC
+
+unregistersymbol(CROSSBOW)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll.text+480CE7
+
+server.dll.text+480CCE: 74 06           - je server.dll.text+480CD6
+server.dll.text+480CD0: 80 48 58 01     - or byte ptr [eax+58],01
+server.dll.text+480CD4: EB 11           - jmp server.dll.text+480CE7
+server.dll.text+480CD6: 8B 48 18        - mov ecx,[eax+18]
+server.dll.text+480CD9: 85 C9           - test ecx,ecx
+server.dll.text+480CDB: 74 0A           - je server.dll.text+480CE7
+server.dll.text+480CDD: 8B D7           - mov edx,edi
+server.dll.text+480CDF: 2B D0           - sub edx,eax
+server.dll.text+480CE1: 52              - push edx
+server.dll.text+480CE2: E8 49 29 BD FF  - call server.dll.text+53630
+// ---------- INJECTING HERE ----------
+server.dll.text+480CE7: 89 37           - mov [edi],esi
+// ---------- DONE INJECTING  ----------
+server.dll.text+480CE9: 8B 4D FC        - mov ecx,[ebp-04]
+server.dll.text+480CEC: 8A C3           - mov al,bl
+server.dll.text+480CEE: 5F              - pop edi
+server.dll.text+480CEF: 5E              - pop esi
+server.dll.text+480CF0: 33 CD           - xor ecx,ebp
+server.dll.text+480CF2: 5B              - pop ebx
+server.dll.text+480CF3: E8 23 BB 10 00  - call server.dll.text+58C81B
+server.dll.text+480CF8: 8B E5           - mov esp,ebp
+server.dll.text+480CFA: 5D              - pop ebp
+server.dll.text+480CFB: C2 04 00        - ret 0004
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>48</ID>
+          <Description>"Infinite Long Jump"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : bms.exe
+  Version: 
+  Date   : 2021-06-05
+  Author : joeyc
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(LONGJUMP,server.dll,DC F3 0F 11 07 8B 86 8C 07 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [edi],(float)100
+  mov eax,[esi+0000078C]
+  jmp return
+
+LONGJUMP+01:
+  jmp newmem
+  nop 5
+return:
+registersymbol(LONGJUMP)
+
+[DISABLE]
+
+LONGJUMP+01:
+  db F3 0F 11 07 8B 86 8C 07 00 00
+
+unregistersymbol(LONGJUMP)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll.text+3533BA
+
+server.dll.text+35339E: 0F 2E C1           - ucomiss xmm0,xmm1
+server.dll.text+3533A1: F3 0F 11 4D DC     - movss [ebp-24],xmm1
+server.dll.text+3533A6: 9F                 - lahf 
+server.dll.text+3533A7: F6 C4 44           - test ah,44
+server.dll.text+3533AA: 7B 12              - jnp server.dll.text+3533BE
+server.dll.text+3533AC: 8B 47 F0           - mov eax,[edi-10]
+server.dll.text+3533AF: 8D 4F F0           - lea ecx,[edi-10]
+server.dll.text+3533B2: 57                 - push edi
+server.dll.text+3533B3: FF 10              - call dword ptr [eax]
+server.dll.text+3533B5: F3 0F 10 45 DC     - movss xmm0,[ebp-24]
+// ---------- INJECTING HERE ----------
+server.dll.text+3533BA: F3 0F 11 07        - movss [edi],xmm0
+// ---------- DONE INJECTING  ----------
+server.dll.text+3533BE: 8B 86 8C 07 00 00  - mov eax,[esi+0000078C]
+server.dll.text+3533C4: 83 EC 08           - sub esp,08
+server.dll.text+3533C7: D9 80 80 11 00 00  - fld dword ptr [eax+00001180]
+server.dll.text+3533CD: DD 1C 24           - fstp qword ptr [esp]
+server.dll.text+3533D0: 68 A8 76 F6 22     - push server.dll.rdata+E86A8
+server.dll.text+3533D5: FF 15 70 F2 E7 22  - call dword ptr [server.dll.rdata+270]
+server.dll.text+3533DB: 8B 4D FC           - mov ecx,[ebp-04]
+server.dll.text+3533DE: 83 C4 0C           - add esp,0C
+server.dll.text+3533E1: 33 CD              - xor ecx,ebp
+server.dll.text+3533E3: B0 01              - mov al,01
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>184</ID>
+          <Description>"Player Coordinates Hook"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : bms.exe
+  Version: 
+  Date   : 2021-06-11
+  Author : joeyc
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(COORDS,server.dll,D9 86 10 03 00 00 D9 9E 88) // should be unique
+alloc(newmem,$1000)
+alloc(find_coords,10)
+
+label(code)
+label(return)
+
+find_coords:
+dq 0
+
+newmem:
+cmp [esi+A0],1
+jne code
+mov [find_coords],esi
+jmp code
+
+code:
+  fld dword ptr [esi+00000310]
+  jmp return
+
+COORDS:
+  jmp newmem
+  nop
+return:
+registersymbol(COORDS find_coords)
+
+[DISABLE]
+
+COORDS:
+  db D9 86 10 03 00 00
+
+unregistersymbol(COORDS find_coords)
+dealloc(newmem)
+dealloc(find_coords)
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll.text+10D80F
+
+server.dll.text+10D7E0: 8D 86 30 02 00 00              - lea eax,[esi+00000230]
+server.dll.text+10D7E6: 50                             - push eax
+server.dll.text+10D7E7: E8 D4 15 41 00                 - call server.dll.text+51EDC0
+server.dll.text+10D7EC: 83 C4 08                       - add esp,08
+server.dll.text+10D7EF: EB 44                          - jmp server.dll.text+10D835
+server.dll.text+10D7F1: 8D 9E 14 03 00 00              - lea ebx,[esi+00000314]
+server.dll.text+10D7F7: D9 86 08 03 00 00              - fld dword ptr [esi+00000308]
+server.dll.text+10D7FD: D9 9E 80 02 00 00              - fstp dword ptr [esi+00000280]
+server.dll.text+10D803: D9 86 0C 03 00 00              - fld dword ptr [esi+0000030C]
+server.dll.text+10D809: D9 9E 84 02 00 00              - fstp dword ptr [esi+00000284]
+// ---------- INJECTING HERE ----------
+server.dll.text+10D80F: D9 86 10 03 00 00              - fld dword ptr [esi+00000310]
+// ---------- DONE INJECTING  ----------
+server.dll.text+10D815: D9 9E 88 02 00 00              - fstp dword ptr [esi+00000288]
+server.dll.text+10D81B: D9 03                          - fld dword ptr [ebx]
+server.dll.text+10D81D: D9 9E FC 02 00 00              - fstp dword ptr [esi+000002FC]
+server.dll.text+10D823: D9 43 04                       - fld dword ptr [ebx+04]
+server.dll.text+10D826: D9 9E 00 03 00 00              - fstp dword ptr [esi+00000300]
+server.dll.text+10D82C: D9 43 08                       - fld dword ptr [ebx+08]
+server.dll.text+10D82F: D9 9E 04 03 00 00              - fstp dword ptr [esi+00000304]
+server.dll.text+10D835: 81 A6 04 01 00 00 FF F7 FF FF  - and [esi+00000104],FFFFF7FF
+server.dll.text+10D83F: FF 4F 04                       - dec [edi+04]
+server.dll.text+10D842: 83 7F 04 00                    - cmp dword ptr [edi+04],00
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>203</ID>
+              <Description>"Xpos"</Description>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>find_coords</Address>
+              <Offsets>
+                <Offset>308</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>104</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>1</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>98</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>204</ID>
+              <Description>"Ypos"</Description>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>find_coords</Address>
+              <Offsets>
+                <Offset>310</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>103</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>97</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>202</ID>
+              <Description>"Zpos"</Description>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>find_coords</Address>
+              <Offsets>
+                <Offset>30C</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>100</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>0</ID>
+                </Hotkey>
+                <Hotkey>
+                  <Action>Decrease Value</Action>
+                  <Keys>
+                    <Key>102</Key>
+                  </Keys>
+                  <Value>100</Value>
+                  <ID>1</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of cvtsi2ss xmm0,[esi+000000E4]</Description>
+      <AddressString>server.dll+380C5E</AddressString>
+      <Before>
+        <Byte>84</Byte>
+        <Byte>77</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>2A</Byte>
+        <Byte>86</Byte>
+        <Byte>E4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>45</Byte>
+        <Byte>BC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov esi,[edi+000000E4]</Description>
+      <AddressString>server.dll+FB002</AddressString>
+      <Before>
+        <Byte>E5</Byte>
+        <Byte>5D</Byte>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>B7</Byte>
+        <Byte>E4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>81</Byte>
+        <Byte>C7</Byte>
+        <Byte>E4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cmp [edi],esi</Description>
+      <AddressString>server.dll+FB014</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>2C</Byte>
+        <Byte>C4</Byte>
+        <Byte>2B</Byte>
+        <Byte>F0</Byte>
+      </Before>
+      <Actual>
+        <Byte>39</Byte>
+        <Byte>37</Byte>
+      </Actual>
+      <After>
+        <Byte>74</Byte>
+        <Byte>15</Byte>
+        <Byte>8B</Byte>
+        <Byte>87</Byte>
+        <Byte>1C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov esi,[edi+000000E4]</Description>
+      <AddressString>server.dll+11676B</AddressString>
+      <Before>
+        <Byte>21</Byte>
+        <Byte>8B</Byte>
+        <Byte>07</Byte>
+        <Byte>8B</Byte>
+        <Byte>CF</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>B7</Byte>
+        <Byte>E4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>FF</Byte>
+        <Byte>90</Byte>
+        <Byte>FC</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cmp dword ptr [edi+000000E4],00</Description>
+      <AddressString>server.dll+FAD19</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>BF</Byte>
+        <Byte>E4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>F0</Byte>
+        <Byte>7F</Byte>
+        <Byte>38</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of cmp dword ptr [ecx+000000E4],00</Description>
+      <AddressString>server.dll+1A34BB</AddressString>
+      <Before>
+        <Byte>28</Byte>
+        <Byte>FB</Byte>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>04</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>B9</Byte>
+        <Byte>E4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>7F</Byte>
+        <Byte>12</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov eax,[eax+000000E4]</Description>
+      <AddressString>server.dll+23E661</AddressString>
+      <Before>
+        <Byte>06</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>33</Byte>
+        <Byte>C9</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>80</Byte>
+        <Byte>E4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>0F</Byte>
+        <Byte>48</Byte>
+        <Byte>C1</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov ecx,[eax]</Description>
+      <AddressString>server.dll+15E3A6</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>EC</Byte>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>14</Byte>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov eax,[edi+000000E4]</Description>
+      <AddressString>server.dll+4773F3</AddressString>
+      <Before>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>C1</Byte>
+        <Byte>76</Byte>
+        <Byte>67</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>87</Byte>
+        <Byte>E4</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>F8</Byte>
+        <Byte>06</Byte>
+        <Byte>7D</Byte>
+        <Byte>0E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [esi],00000000</Description>
+      <AddressString>server.dll+4741FC</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>0C</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>C7</Byte>
+        <Byte>06</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>33</Byte>
+        <Byte>F6</Byte>
+        <Byte>8B</Byte>
+        <Byte>CF</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

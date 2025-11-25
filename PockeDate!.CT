@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Love Gauge - increase"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>Pockedate.exe.text+68FA0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Love Gauge - decrease"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>Pockedate.exe.text+26562</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Love Gauge - decrease on start date"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>Pockedate.exe.text+365309</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Love Gauge - won't decrease"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : PockeDate!
+  Version: 
+  Date   : 2025-10-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Pockedate.exe,F2 0F 11 0B 48 8B 5C 24 40) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [rbx],xmm1
+  mov rbx,[rsp+40]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 4
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 0B 48 8B 5C 24 40
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Pockedate.exe.text+26562
+
+Pockedate.exe.text+2653F: 0F 28 74 24 20  - movaps xmm6,[rsp+20]
+Pockedate.exe.text+26544: 48 8B 5C 24 40  - mov rbx,[rsp+40]
+Pockedate.exe.text+26549: 48 83 C4 30     - add rsp,30
+Pockedate.exe.text+2654D: 5F              - pop rdi
+Pockedate.exe.text+2654E: C3              - ret 
+Pockedate.exe.text+2654F: 48 8B CF        - mov rcx,rdi
+Pockedate.exe.text+26552: E8 79 E5 33 00  - call Pockedate.exe.text+364AD0
+Pockedate.exe.text+26557: F2 0F 10 0B     - movsd xmm1,[rbx]
+Pockedate.exe.text+2655B: 48 8B C3        - mov rax,rbx
+Pockedate.exe.text+2655E: F2 0F 5C C8     - subsd xmm1,xmm0
+// ---------- INJECTING HERE ----------
+Pockedate.exe.text+26562: F2 0F 11 0B     - movsd [rbx],xmm1
+// ---------- DONE INJECTING  ----------
+Pockedate.exe.text+26566: 48 8B 5C 24 40  - mov rbx,[rsp+40]
+Pockedate.exe.text+2656B: 48 83 C4 30     - add rsp,30
+Pockedate.exe.text+2656F: 5F              - pop rdi
+Pockedate.exe.text+26570: C3              - ret 
+Pockedate.exe.text+26571: CC              - int 3 
+Pockedate.exe.text+26572: CC              - int 3 
+Pockedate.exe.text+26573: CC              - int 3 
+Pockedate.exe.text+26574: CC              - int 3 
+Pockedate.exe.text+26575: CC              - int 3 
+Pockedate.exe.text+26576: CC              - int 3 
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>Info about this table:
+</Comments>
+  <LuaScript>-- Auto cộng Sun mỗi 3 giây
+local timer = createTimer()
+timer.Interval = 3000  -- 3 giây
+timer.OnTimer = function()
+  local base = readInteger("popcapgame1.exe+1F4CC")
+  if base ~= nil then
+    local current = readInteger(base + 0x5578)
+    if current ~= nil then
+      writeInteger(base + 0x5578, current + 100) -- cộng 100 sun
+    end
+  end
+end
+
+</LuaScript>
+</CheatTable>

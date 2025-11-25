@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Timer"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <Color>BF4040</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>CuteCats.exe.text+D6EC15</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Timer"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Cute Cats
+  Version: 
+  Date   : 2025-11-17
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,CuteCats.exe,F2 0F 11 8E 20 01 00 00 0F 86 78) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [esi+00000120],xmm1
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 8E 20 01 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: CuteCats.exe.text+D6EC15
+
+CuteCats.exe.text+D6EBEE: 85 C0                    - test eax,eax
+CuteCats.exe.text+D6EBF0: 74 0A                    - je CuteCats.exe.text+D6EBFC
+CuteCats.exe.text+D6EBF2: F3 0F 10 80 D4 00 00 00  - movss xmm0,[eax+000000D4]
+CuteCats.exe.text+D6EBFA: EB 03                    - jmp CuteCats.exe.text+D6EBFF
+CuteCats.exe.text+D6EBFC: 0F 57 C0                 - xorps xmm0,xmm0
+CuteCats.exe.text+D6EBFF: F2 0F 10 8E 20 01 00 00  - movsd xmm1,[esi+00000120]
+CuteCats.exe.text+D6EC07: 0F 5A C0                 - cvtps2pd xmm0,xmm0
+CuteCats.exe.text+D6EC0A: F2 0F 5C C8              - subsd xmm1,xmm0
+CuteCats.exe.text+D6EC0E: 0F 57 C0                 - xorps xmm0,xmm0
+CuteCats.exe.text+D6EC11: 66 0F 2F C1              - comisd xmm0,xmm1
+// ---------- INJECTING HERE ----------
+CuteCats.exe.text+D6EC15: F2 0F 11 8E 20 01 00 00  - movsd [esi+00000120],xmm1
+// ---------- DONE INJECTING  ----------
+CuteCats.exe.text+D6EC1D: 0F 86 78 01 00 00        - jbe CuteCats.exe.text+D6ED9B
+CuteCats.exe.text+D6EC23: 80 BE 18 01 00 00 00     - cmp byte ptr [esi+00000118],00
+CuteCats.exe.text+D6EC2A: 75 19                    - jne CuteCats.exe.text+D6EC45
+CuteCats.exe.text+D6EC2C: F3 0F 10 86 14 01 00 00  - movss xmm0,[esi+00000114]
+CuteCats.exe.text+D6EC34: 0F 5A C0                 - cvtps2pd xmm0,xmm0
+CuteCats.exe.text+D6EC37: F2 0F 58 C1              - addsd xmm0,xmm1
+CuteCats.exe.text+D6EC3B: F2 0F 11 86 20 01 00 00  - movsd [esi+00000120],xmm0
+CuteCats.exe.text+D6EC43: EB 05                    - jmp CuteCats.exe.text+D6EC4A
+CuteCats.exe.text+D6EC45: E8 A6 02 00 00           - call CuteCats.exe.text+D6EEF0
+CuteCats.exe.text+D6EC4A: 68 74 89 E9 01           - push CuteCats.exe.rdata+149974
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Lives"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Cute Cats
+  Version: 
+  Date   : 2025-11-17
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,CuteCats.exe,89 46 08 89 4E 0C 5F) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi+08],eax
+  mov [esi+0C],ecx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 46 08 89 4E 0C
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: CuteCats.exe.text+15125E9
+
+CuteCats.exe.text+15125CF: FF 24 85 34 38 86 01  - jmp dword ptr [eax*4+CuteCats.exe.text+1512834]
+CuteCats.exe.text+15125D6: 8A 47 08              - mov al,[edi+08]
+CuteCats.exe.text+15125D9: 88 46 08              - mov [esi+08],al
+CuteCats.exe.text+15125DC: 5F                    - pop edi
+CuteCats.exe.text+15125DD: 5E                    - pop esi
+CuteCats.exe.text+15125DE: 5B                    - pop ebx
+CuteCats.exe.text+15125DF: 59                    - pop ecx
+CuteCats.exe.text+15125E0: C2 04 00              - ret 0004
+CuteCats.exe.text+15125E3: 8B 47 08              - mov eax,[edi+08]
+CuteCats.exe.text+15125E6: 8B 4F 0C              - mov ecx,[edi+0C]
+// ---------- INJECTING HERE ----------
+CuteCats.exe.text+15125E9: 89 46 08              - mov [esi+08],eax
+// ---------- DONE INJECTING  ----------
+CuteCats.exe.text+15125EC: 89 4E 0C              - mov [esi+0C],ecx
+CuteCats.exe.text+15125EF: 5F                    - pop edi
+CuteCats.exe.text+15125F0: 5E                    - pop esi
+CuteCats.exe.text+15125F1: 5B                    - pop ebx
+CuteCats.exe.text+15125F2: 59                    - pop ecx
+CuteCats.exe.text+15125F3: C2 04 00              - ret 0004
+CuteCats.exe.text+15125F6: F2 0F 10 47 08        - movsd xmm0,[edi+08]
+CuteCats.exe.text+15125FB: F2 0F 11 46 08        - movsd [esi+08],xmm0
+CuteCats.exe.text+1512600: 5F                    - pop edi
+CuteCats.exe.text+1512601: 5E                    - pop esi
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"9 Differents found"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Cute Cats
+  Version: 
+  Date   : 2025-11-17
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,CuteCats.exe,89 46 08 89 4E 0C 5F) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [esi+08],(int)9
+  //mov [esi+08],eax
+  mov [esi+0C],ecx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 46 08 89 4E 0C
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: CuteCats.exe.text+15125E9
+
+CuteCats.exe.text+15125CF: FF 24 85 34 38 86 01  - jmp dword ptr [eax*4+CuteCats.exe.text+1512834]
+CuteCats.exe.text+15125D6: 8A 47 08              - mov al,[edi+08]
+CuteCats.exe.text+15125D9: 88 46 08              - mov [esi+08],al
+CuteCats.exe.text+15125DC: 5F                    - pop edi
+CuteCats.exe.text+15125DD: 5E                    - pop esi
+CuteCats.exe.text+15125DE: 5B                    - pop ebx
+CuteCats.exe.text+15125DF: 59                    - pop ecx
+CuteCats.exe.text+15125E0: C2 04 00              - ret 0004
+CuteCats.exe.text+15125E3: 8B 47 08              - mov eax,[edi+08]
+CuteCats.exe.text+15125E6: 8B 4F 0C              - mov ecx,[edi+0C]
+// ---------- INJECTING HERE ----------
+CuteCats.exe.text+15125E9: 89 46 08              - mov [esi+08],eax
+// ---------- DONE INJECTING  ----------
+CuteCats.exe.text+15125EC: 89 4E 0C              - mov [esi+0C],ecx
+CuteCats.exe.text+15125EF: 5F                    - pop edi
+CuteCats.exe.text+15125F0: 5E                    - pop esi
+CuteCats.exe.text+15125F1: 5B                    - pop ebx
+CuteCats.exe.text+15125F2: 59                    - pop ecx
+CuteCats.exe.text+15125F3: C2 04 00              - ret 0004
+CuteCats.exe.text+15125F6: F2 0F 10 47 08        - movsd xmm0,[edi+08]
+CuteCats.exe.text+15125FB: F2 0F 11 46 08        - movsd [esi+08],xmm0
+CuteCats.exe.text+1512600: 5F                    - pop edi
+CuteCats.exe.text+1512601: 5E                    - pop esi
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"10 Differents found"</Description>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Cute Cats
+  Version: 
+  Date   : 2025-11-17
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,CuteCats.exe,89 46 08 89 4E 0C 5F) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [esi+08],(int)10
+  //mov [esi+08],eax
+  mov [esi+0C],ecx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 46 08 89 4E 0C
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: CuteCats.exe.text+15125E9
+
+CuteCats.exe.text+15125CF: FF 24 85 34 38 86 01  - jmp dword ptr [eax*4+CuteCats.exe.text+1512834]
+CuteCats.exe.text+15125D6: 8A 47 08              - mov al,[edi+08]
+CuteCats.exe.text+15125D9: 88 46 08              - mov [esi+08],al
+CuteCats.exe.text+15125DC: 5F                    - pop edi
+CuteCats.exe.text+15125DD: 5E                    - pop esi
+CuteCats.exe.text+15125DE: 5B                    - pop ebx
+CuteCats.exe.text+15125DF: 59                    - pop ecx
+CuteCats.exe.text+15125E0: C2 04 00              - ret 0004
+CuteCats.exe.text+15125E3: 8B 47 08              - mov eax,[edi+08]
+CuteCats.exe.text+15125E6: 8B 4F 0C              - mov ecx,[edi+0C]
+// ---------- INJECTING HERE ----------
+CuteCats.exe.text+15125E9: 89 46 08              - mov [esi+08],eax
+// ---------- DONE INJECTING  ----------
+CuteCats.exe.text+15125EC: 89 4E 0C              - mov [esi+0C],ecx
+CuteCats.exe.text+15125EF: 5F                    - pop edi
+CuteCats.exe.text+15125F0: 5E                    - pop esi
+CuteCats.exe.text+15125F1: 5B                    - pop ebx
+CuteCats.exe.text+15125F2: 59                    - pop ecx
+CuteCats.exe.text+15125F3: C2 04 00              - ret 0004
+CuteCats.exe.text+15125F6: F2 0F 10 47 08        - movsd xmm0,[edi+08]
+CuteCats.exe.text+15125FB: F2 0F 11 46 08        - movsd [esi+08],xmm0
+CuteCats.exe.text+1512600: 5F                    - pop edi
+CuteCats.exe.text+1512601: 5E                    - pop esi
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of mov [esi+08],eax</Description>
+      <AddressString>CuteCats.exe+15135E9</AddressString>
+      <Before>
+        <Byte>47</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>4E</Byte>
+        <Byte>0C</Byte>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [esi+0C],ecx</Description>
+      <AddressString>CuteCats.exe+15135EC</AddressString>
+      <Before>
+        <Byte>4F</Byte>
+        <Byte>0C</Byte>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>4E</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>5F</Byte>
+        <Byte>5E</Byte>
+        <Byte>5B</Byte>
+        <Byte>59</Byte>
+        <Byte>C2</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

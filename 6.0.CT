@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Lives, Money"</Description>
+      <LastState Value="2332574089" RealAddress="00F2FDDB"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>6.0.exe.text+EFEDDB</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Timer"</Description>
+      <LastState Value="2028407273" RealAddress="008B18F2"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>6.0.exe.text+8808F2</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Timer stop"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : 6.0
+  Version: 
+  Date   : 2025-11-17
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,6.0.exe,F2 0F 11 8E 28 01 00 00 0F 86 04) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movsd [esi+00000128],xmm1
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F2 0F 11 8E 28 01 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 6.0.exe.text+8808F2
+
+6.0.exe.text+8808C7: E8 A4 55 90 FF           - call 6.0.exe.text+185E70
+6.0.exe.text+8808CC: 84 C0                    - test al,al
+6.0.exe.text+8808CE: 0F 84 30 01 00 00        - je 6.0.exe.text+880A04
+6.0.exe.text+8808D4: 8B CE                    - mov ecx,esi
+6.0.exe.text+8808D6: E8 95 9D CB FF           - call 6.0.exe.text+53A670
+6.0.exe.text+8808DB: F2 0F 10 8E 28 01 00 00  - movsd xmm1,[esi+00000128]
+6.0.exe.text+8808E3: 0F 57 C0                 - xorps xmm0,xmm0
+6.0.exe.text+8808E6: DD 5D EC                 - fstp qword ptr [ebp-14]
+6.0.exe.text+8808E9: F2 0F 5C 4D EC           - subsd xmm1,[ebp-14]
+6.0.exe.text+8808EE: 66 0F 2F C1              - comisd xmm0,xmm1
+// ---------- INJECTING HERE ----------
+6.0.exe.text+8808F2: F2 0F 11 8E 28 01 00 00  - movsd [esi+00000128],xmm1
+// ---------- DONE INJECTING  ----------
+6.0.exe.text+8808FA: 0F 86 04 01 00 00        - jbe 6.0.exe.text+880A04
+6.0.exe.text+880900: 80 BE 20 01 00 00 00     - cmp byte ptr [esi+00000120],00
+6.0.exe.text+880907: 75 19                    - jne 6.0.exe.text+880922
+6.0.exe.text+880909: F3 0F 10 86 1C 01 00 00  - movss xmm0,[esi+0000011C]
+6.0.exe.text+880911: 0F 5A C0                 - cvtps2pd xmm0,xmm0
+6.0.exe.text+880914: F2 0F 58 C1              - addsd xmm0,xmm1
+6.0.exe.text+880918: F2 0F 11 86 28 01 00 00  - movsd [esi+00000128],xmm0
+6.0.exe.text+880920: EB 07                    - jmp 6.0.exe.text+880929
+6.0.exe.text+880922: 8B CE                    - mov ecx,esi
+6.0.exe.text+880924: E8 97 0D 00 00           - call 6.0.exe.text+8816C0
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of mov [ecx+08],eax</Description>
+      <AddressString>6.0.exe+EFFDDB</AddressString>
+      <Before>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>0C</Byte>
+        <Byte>5F</Byte>
+        <Byte>89</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [ecx+0C],eax</Description>
+      <AddressString>6.0.exe+EFFDE2</AddressString>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>46</Byte>
+        <Byte>0C</Byte>
+        <Byte>5F</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>5E</Byte>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

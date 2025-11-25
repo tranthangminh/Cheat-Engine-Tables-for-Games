@@ -1,0 +1,2604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>13</ID>
+      <Description>"Classic Mode"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>64</ID>
+          <Description>"Active this"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1</ID>
+              <Description>"+5000 Score each move"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-29
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,01 BE 24 0D 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [esi+00000D24],(int)1000000 //multiply 5 times
+  //add [esi+00000D24],edi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 BE 24 0D 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+349311
+
+Bejeweled3.exe.text+3492F4: 8B CE                          - mov ecx,esi
+Bejeweled3.exe.text+3492F6: 2B DF                          - sub ebx,edi
+Bejeweled3.exe.text+3492F8: FF D2                          - call edx
+Bejeweled3.exe.text+3492FA: DA 4C 24 40                    - fimul [esp+40]
+Bejeweled3.exe.text+3492FE: E8 ED 88 04 00                 - call Bejeweled3.exe.text+391BF0
+Bejeweled3.exe.text+349303: 8B F8                          - mov edi,eax
+Bejeweled3.exe.text+349305: 55                             - push ebp
+Bejeweled3.exe.text+349306: 57                             - push edi
+Bejeweled3.exe.text+349307: B9 01 00 00 00                 - mov ecx,00000001
+Bejeweled3.exe.text+34930C: E8 5F 2E FF FF                 - call Bejeweled3.exe.text+33C170
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+349311: 01 BE 24 0D 00 00              - add [esi+00000D24],edi
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+349317: 79 0A                          - jns Bejeweled3.exe.text+349323
+Bejeweled3.exe.text+349319: C7 86 24 0D 00 00 FF FF FF 7F  - mov [esi+00000D24],7FFFFFFF
+Bejeweled3.exe.text+349323: 85 DB                          - test ebx,ebx
+Bejeweled3.exe.text+349325: 0F 8F 3A FF FF FF              - jg Bejeweled3.exe.text+349265
+Bejeweled3.exe.text+34932B: 8B 4C 24 48                    - mov ecx,[esp+48]
+Bejeweled3.exe.text+34932F: 8B 54 24 4C                    - mov edx,[esp+4C]
+Bejeweled3.exe.text+349333: 83 EC 10                       - sub esp,10
+Bejeweled3.exe.text+349336: 8B C4                          - mov eax,esp
+Bejeweled3.exe.text+349338: 89 08                          - mov [eax],ecx
+Bejeweled3.exe.text+34933A: 8B 4C 24 60                    - mov ecx,[esp+60]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4</ID>
+              <Description>"+1000 Level Process each move"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-29
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,01 86 00 0E 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [esi+00000E00],(int)2000 //multiply 5 times
+  //add [esi+00000E00],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 86 00 0E 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+3492E6
+
+Bejeweled3.exe.text+3492B5: DB 44 24 10        - fild dword ptr [esp+10]
+Bejeweled3.exe.text+3492B9: DD 05 B8 11 88 00  - fld qword ptr [Bejeweled3.exe.rdata+C21B8]
+Bejeweled3.exe.text+3492BF: E8 2C 90 04 00     - call Bejeweled3.exe.text+3922F0
+Bejeweled3.exe.text+3492C4: DD 5C 24 10        - fstp qword ptr [esp+10]
+Bejeweled3.exe.text+3492C8: DB 44 24 18        - fild dword ptr [esp+18]
+Bejeweled3.exe.text+3492CC: DD 05 B8 11 88 00  - fld qword ptr [Bejeweled3.exe.rdata+C21B8]
+Bejeweled3.exe.text+3492D2: E8 19 90 04 00     - call Bejeweled3.exe.text+3922F0
+Bejeweled3.exe.text+3492D7: DC 6C 24 10        - fsubr qword ptr [esp+10]
+Bejeweled3.exe.text+3492DB: DC 0D F8 0F 88 00  - fmul qword ptr [Bejeweled3.exe.rdata+C1FF8]
+Bejeweled3.exe.text+3492E1: E8 0A 89 04 00     - call Bejeweled3.exe.text+391BF0
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+3492E6: 01 86 00 0E 00 00  - add [esi+00000E00],eax
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+3492EC: 8B 06              - mov eax,[esi]
+Bejeweled3.exe.text+3492EE: 8B 90 E8 01 00 00  - mov edx,[eax+000001E8]
+Bejeweled3.exe.text+3492F4: 8B CE              - mov ecx,esi
+Bejeweled3.exe.text+3492F6: 2B DF              - sub ebx,edi
+Bejeweled3.exe.text+3492F8: FF D2              - call edx
+Bejeweled3.exe.text+3492FA: DA 4C 24 40        - fimul [esp+40]
+Bejeweled3.exe.text+3492FE: E8 ED 88 04 00     - call Bejeweled3.exe.text+391BF0
+Bejeweled3.exe.text+349303: 8B F8              - mov edi,eax
+Bejeweled3.exe.text+349305: 55                 - push ebp
+Bejeweled3.exe.text+349306: 57                 - push edi
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7</ID>
+              <Description>"+5 Level on Level up"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-29
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,FF 87 04 0E 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [edi+00000E04],(int)5
+  //inc [edi+00000E04]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db FF 87 04 0E 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+35FC73
+
+Bejeweled3.exe.text+35FC56: E8 75 F8 FF FF        - call Bejeweled3.exe.text+35F4D0
+Bejeweled3.exe.text+35FC5B: 8B 8C 24 B8 01 00 00  - mov ecx,[esp+000001B8]
+Bejeweled3.exe.text+35FC62: 64 89 0D 00 00 00 00  - mov fs:[00000000],ecx
+Bejeweled3.exe.text+35FC69: 59                    - pop ecx
+Bejeweled3.exe.text+35FC6A: 5F                    - pop edi
+Bejeweled3.exe.text+35FC6B: 5E                    - pop esi
+Bejeweled3.exe.text+35FC6C: 5B                    - pop ebx
+Bejeweled3.exe.text+35FC6D: 8B E5                 - mov esp,ebp
+Bejeweled3.exe.text+35FC6F: 5D                    - pop ebp
+Bejeweled3.exe.text+35FC70: C2 04 00              - ret 0004
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+35FC73: FF 87 04 0E 00 00     - inc [edi+00000E04]
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+35FC79: 89 9F 00 0E 00 00     - mov [edi+00000E00],ebx
+Bejeweled3.exe.text+35FC7F: 89 9F 34 0E 00 00     - mov [edi+00000E34],ebx
+Bejeweled3.exe.text+35FC85: 8B 8C 24 B8 01 00 00  - mov ecx,[esp+000001B8]
+Bejeweled3.exe.text+35FC8C: 64 89 0D 00 00 00 00  - mov fs:[00000000],ecx
+Bejeweled3.exe.text+35FC93: 59                    - pop ecx
+Bejeweled3.exe.text+35FC94: 5F                    - pop edi
+Bejeweled3.exe.text+35FC95: 5E                    - pop esi
+Bejeweled3.exe.text+35FC96: 5B                    - pop ebx
+Bejeweled3.exe.text+35FC97: 8B E5                 - mov esp,ebp
+Bejeweled3.exe.text+35FC99: 5D                    - pop ebp
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>9</ID>
+              <Description>"Level - Won't reset Process on Level up"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-29
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,89 9F 00 0E 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [edi+00000E00],ebx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 9F 00 0E 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+35FC79
+
+Bejeweled3.exe.text+35FC5B: 8B 8C 24 B8 01 00 00  - mov ecx,[esp+000001B8]
+Bejeweled3.exe.text+35FC62: 64 89 0D 00 00 00 00  - mov fs:[00000000],ecx
+Bejeweled3.exe.text+35FC69: 59                    - pop ecx
+Bejeweled3.exe.text+35FC6A: 5F                    - pop edi
+Bejeweled3.exe.text+35FC6B: 5E                    - pop esi
+Bejeweled3.exe.text+35FC6C: 5B                    - pop ebx
+Bejeweled3.exe.text+35FC6D: 8B E5                 - mov esp,ebp
+Bejeweled3.exe.text+35FC6F: 5D                    - pop ebp
+Bejeweled3.exe.text+35FC70: C2 04 00              - ret 0004
+Bejeweled3.exe.text+35FC73: FF 87 04 0E 00 00     - inc [edi+00000E04]
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+35FC79: 89 9F 00 0E 00 00     - mov [edi+00000E00],ebx
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+35FC7F: 89 9F 34 0E 00 00     - mov [edi+00000E34],ebx
+Bejeweled3.exe.text+35FC85: 8B 8C 24 B8 01 00 00  - mov ecx,[esp+000001B8]
+Bejeweled3.exe.text+35FC8C: 64 89 0D 00 00 00 00  - mov fs:[00000000],ecx
+Bejeweled3.exe.text+35FC93: 59                    - pop ecx
+Bejeweled3.exe.text+35FC94: 5F                    - pop edi
+Bejeweled3.exe.text+35FC95: 5E                    - pop esi
+Bejeweled3.exe.text+35FC96: 5B                    - pop ebx
+Bejeweled3.exe.text+35FC97: 8B E5                 - mov esp,ebp
+Bejeweled3.exe.text+35FC99: 5D                    - pop ebp
+Bejeweled3.exe.text+35FC9A: C2 04 00              - ret 0004
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"Score"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+349311</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"Level - Process"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+3492E6</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"Level - Current"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+35FC73</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"Level - Reset Process on Level up"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+35FC79</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>43</ID>
+      <Description>"Poker"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>66</ID>
+          <Description>"Active this"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>44</ID>
+              <Description>"+500000 Score on get"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-31
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,01 B7 24 0D 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [edi+00000D24],(int)500000
+  //add [edi+00000D24],esi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 B7 24 0D 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+2C6595
+
+Bejeweled3.exe.text+2C6571: 53                       - push ebx
+Bejeweled3.exe.text+2C6572: 56                       - push esi
+Bejeweled3.exe.text+2C6573: A1 24 DF 8B 00           - mov eax,[Bejeweled3.exe.data+F24]
+Bejeweled3.exe.text+2C6578: 33 C4                    - xor eax,esp
+Bejeweled3.exe.text+2C657A: 50                       - push eax
+Bejeweled3.exe.text+2C657B: 8D 44 24 44              - lea eax,[esp+44]
+Bejeweled3.exe.text+2C657F: 64 A3 00 00 00 00        - mov fs:[00000000],eax
+Bejeweled3.exe.text+2C6585: 8B F1                    - mov esi,ecx
+Bejeweled3.exe.text+2C6587: C7 44 24 4C 00 00 00 00  - mov [esp+4C],00000000
+Bejeweled3.exe.text+2C658F: 8B 9F 30 3A 00 00        - mov ebx,[edi+00003A30]
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+2C6595: 01 B7 24 0D 00 00        - add [edi+00000D24],esi
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+2C659B: 01 B7 88 0C 00 00        - add [edi+00000C88],esi
+Bejeweled3.exe.text+2C65A1: 83 FB FF                 - cmp ebx,-01
+Bejeweled3.exe.text+2C65A4: 7E 72                    - jle Bejeweled3.exe.text+2C6618
+Bejeweled3.exe.text+2C65A6: 83 BF 8C 39 00 00 FF     - cmp dword ptr [edi+0000398C],-01
+Bejeweled3.exe.text+2C65AD: 7E 69                    - jle Bejeweled3.exe.text+2C6618
+Bejeweled3.exe.text+2C65AF: 8B 87 C4 39 00 00        - mov eax,[edi+000039C4]
+Bejeweled3.exe.text+2C65B5: 2B 87 C0 39 00 00        - sub eax,[edi+000039C0]
+Bejeweled3.exe.text+2C65BB: C1 F8 02                 - sar eax,02
+Bejeweled3.exe.text+2C65BE: 3B D8                    - cmp ebx,eax
+Bejeweled3.exe.text+2C65C0: 72 05                    - jb Bejeweled3.exe.text+2C65C7
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>41</ID>
+          <Description>"Score"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+2C6595</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>42</ID>
+          <Description>"Score - Bonus"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+2DE67A</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>54</ID>
+      <Description>"Zen"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>67</ID>
+          <Description>"Active this"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>52</ID>
+              <Description>"+250000 Score"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-31
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,01 BE 24 0D 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [esi+00000D24],(int)50000
+  //add [esi+00000D24],edi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 BE 24 0D 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+349311
+
+Bejeweled3.exe.text+3492F4: 8B CE                          - mov ecx,esi
+Bejeweled3.exe.text+3492F6: 2B DF                          - sub ebx,edi
+Bejeweled3.exe.text+3492F8: FF D2                          - call edx
+Bejeweled3.exe.text+3492FA: DA 4C 24 40                    - fimul [esp+40]
+Bejeweled3.exe.text+3492FE: E8 ED 88 04 00                 - call Bejeweled3.exe.text+391BF0
+Bejeweled3.exe.text+349303: 8B F8                          - mov edi,eax
+Bejeweled3.exe.text+349305: 55                             - push ebp
+Bejeweled3.exe.text+349306: 57                             - push edi
+Bejeweled3.exe.text+349307: B9 01 00 00 00                 - mov ecx,00000001
+Bejeweled3.exe.text+34930C: E8 5F 2E FF FF                 - call Bejeweled3.exe.text+33C170
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+349311: 01 BE 24 0D 00 00              - add [esi+00000D24],edi
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+349317: 79 0A                          - jns Bejeweled3.exe.text+349323
+Bejeweled3.exe.text+349319: C7 86 24 0D 00 00 FF FF FF 7F  - mov [esi+00000D24],7FFFFFFF
+Bejeweled3.exe.text+349323: 85 DB                          - test ebx,ebx
+Bejeweled3.exe.text+349325: 0F 8F 3A FF FF FF              - jg Bejeweled3.exe.text+349265
+Bejeweled3.exe.text+34932B: 8B 4C 24 48                    - mov ecx,[esp+48]
+Bejeweled3.exe.text+34932F: 8B 54 24 4C                    - mov edx,[esp+4C]
+Bejeweled3.exe.text+349333: 83 EC 10                       - sub esp,10
+Bejeweled3.exe.text+349336: 8B C4                          - mov eax,esp
+Bejeweled3.exe.text+349338: 89 08                          - mov [eax],ecx
+Bejeweled3.exe.text+34933A: 8B 4C 24 60                    - mov ecx,[esp+60]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>56</ID>
+              <Description>"+5000 Level Process"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-31
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,01 86 00 0E 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [esi+00000E00],(int)1000 //multiply 5 times
+  //add [esi+00000E00],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 86 00 0E 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+3492E6
+
+Bejeweled3.exe.text+3492B5: DB 44 24 10        - fild dword ptr [esp+10]
+Bejeweled3.exe.text+3492B9: DD 05 B8 11 88 00  - fld qword ptr [Bejeweled3.exe.rdata+C21B8]
+Bejeweled3.exe.text+3492BF: E8 2C 90 04 00     - call Bejeweled3.exe.text+3922F0
+Bejeweled3.exe.text+3492C4: DD 5C 24 10        - fstp qword ptr [esp+10]
+Bejeweled3.exe.text+3492C8: DB 44 24 18        - fild dword ptr [esp+18]
+Bejeweled3.exe.text+3492CC: DD 05 B8 11 88 00  - fld qword ptr [Bejeweled3.exe.rdata+C21B8]
+Bejeweled3.exe.text+3492D2: E8 19 90 04 00     - call Bejeweled3.exe.text+3922F0
+Bejeweled3.exe.text+3492D7: DC 6C 24 10        - fsubr qword ptr [esp+10]
+Bejeweled3.exe.text+3492DB: DC 0D F8 0F 88 00  - fmul qword ptr [Bejeweled3.exe.rdata+C1FF8]
+Bejeweled3.exe.text+3492E1: E8 0A 89 04 00     - call Bejeweled3.exe.text+391BF0
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+3492E6: 01 86 00 0E 00 00  - add [esi+00000E00],eax
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+3492EC: 8B 06              - mov eax,[esi]
+Bejeweled3.exe.text+3492EE: 8B 90 E8 01 00 00  - mov edx,[eax+000001E8]
+Bejeweled3.exe.text+3492F4: 8B CE              - mov ecx,esi
+Bejeweled3.exe.text+3492F6: 2B DF              - sub ebx,edi
+Bejeweled3.exe.text+3492F8: FF D2              - call edx
+Bejeweled3.exe.text+3492FA: DA 4C 24 40        - fimul [esp+40]
+Bejeweled3.exe.text+3492FE: E8 ED 88 04 00     - call Bejeweled3.exe.text+391BF0
+Bejeweled3.exe.text+349303: 8B F8              - mov edi,eax
+Bejeweled3.exe.text+349305: 55                 - push ebp
+Bejeweled3.exe.text+349306: 57                 - push edi
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>58</ID>
+              <Description>"Level Process won't reset on Level up"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-31
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,89 9F 00 0E 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [edi+00000E00],ebx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 9F 00 0E 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+35FC79
+
+Bejeweled3.exe.text+35FC5B: 8B 8C 24 B8 01 00 00  - mov ecx,[esp+000001B8]
+Bejeweled3.exe.text+35FC62: 64 89 0D 00 00 00 00  - mov fs:[00000000],ecx
+Bejeweled3.exe.text+35FC69: 59                    - pop ecx
+Bejeweled3.exe.text+35FC6A: 5F                    - pop edi
+Bejeweled3.exe.text+35FC6B: 5E                    - pop esi
+Bejeweled3.exe.text+35FC6C: 5B                    - pop ebx
+Bejeweled3.exe.text+35FC6D: 8B E5                 - mov esp,ebp
+Bejeweled3.exe.text+35FC6F: 5D                    - pop ebp
+Bejeweled3.exe.text+35FC70: C2 04 00              - ret 0004
+Bejeweled3.exe.text+35FC73: FF 87 04 0E 00 00     - inc [edi+00000E04]
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+35FC79: 89 9F 00 0E 00 00     - mov [edi+00000E00],ebx
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+35FC7F: 89 9F 34 0E 00 00     - mov [edi+00000E34],ebx
+Bejeweled3.exe.text+35FC85: 8B 8C 24 B8 01 00 00  - mov ecx,[esp+000001B8]
+Bejeweled3.exe.text+35FC8C: 64 89 0D 00 00 00 00  - mov fs:[00000000],ecx
+Bejeweled3.exe.text+35FC93: 59                    - pop ecx
+Bejeweled3.exe.text+35FC94: 5F                    - pop edi
+Bejeweled3.exe.text+35FC95: 5E                    - pop esi
+Bejeweled3.exe.text+35FC96: 5B                    - pop ebx
+Bejeweled3.exe.text+35FC97: 8B E5                 - mov esp,ebp
+Bejeweled3.exe.text+35FC99: 5D                    - pop ebp
+Bejeweled3.exe.text+35FC9A: C2 04 00              - ret 0004
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>53</ID>
+          <Description>"Score"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+349311</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>55</ID>
+          <Description>"Level - Process"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+3492E6</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>57</ID>
+          <Description>"Reset Level Process on Level up"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+35FC79</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>59</ID>
+      <Description>"Butterflies"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>70</ID>
+          <Description>"Active this"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63</ID>
+              <Description>"+25000 Score"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-31
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,01 BE 24 0D 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [esi+00000D24],(int)5000 //multiply 5 times
+  //add [esi+00000D24],edi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 BE 24 0D 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+349311
+
+Bejeweled3.exe.text+3492F4: 8B CE                          - mov ecx,esi
+Bejeweled3.exe.text+3492F6: 2B DF                          - sub ebx,edi
+Bejeweled3.exe.text+3492F8: FF D2                          - call edx
+Bejeweled3.exe.text+3492FA: DA 4C 24 40                    - fimul [esp+40]
+Bejeweled3.exe.text+3492FE: E8 ED 88 04 00                 - call Bejeweled3.exe.text+391BF0
+Bejeweled3.exe.text+349303: 8B F8                          - mov edi,eax
+Bejeweled3.exe.text+349305: 55                             - push ebp
+Bejeweled3.exe.text+349306: 57                             - push edi
+Bejeweled3.exe.text+349307: B9 01 00 00 00                 - mov ecx,00000001
+Bejeweled3.exe.text+34930C: E8 5F 2E FF FF                 - call Bejeweled3.exe.text+33C170
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+349311: 01 BE 24 0D 00 00              - add [esi+00000D24],edi
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+349317: 79 0A                          - jns Bejeweled3.exe.text+349323
+Bejeweled3.exe.text+349319: C7 86 24 0D 00 00 FF FF FF 7F  - mov [esi+00000D24],7FFFFFFF
+Bejeweled3.exe.text+349323: 85 DB                          - test ebx,ebx
+Bejeweled3.exe.text+349325: 0F 8F 3A FF FF FF              - jg Bejeweled3.exe.text+349265
+Bejeweled3.exe.text+34932B: 8B 4C 24 48                    - mov ecx,[esp+48]
+Bejeweled3.exe.text+34932F: 8B 54 24 4C                    - mov edx,[esp+4C]
+Bejeweled3.exe.text+349333: 83 EC 10                       - sub esp,10
+Bejeweled3.exe.text+349336: 8B C4                          - mov eax,esp
+Bejeweled3.exe.text+349338: 89 08                          - mov [eax],ecx
+Bejeweled3.exe.text+34933A: 8B 4C 24 60                    - mov ecx,[esp+60]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>61</ID>
+              <Description>"+6 Butterflies in 1 move"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-31
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,01 BC 8E 84 0C 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [esi+ecx*4+00000C84],(int)10
+  //add [esi+ecx*4+00000C84],edi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 BC 8E 84 0C 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+33C176
+
+Bejeweled3.exe.text+33C169: CC                    - int 3 
+Bejeweled3.exe.text+33C16A: CC                    - int 3 
+Bejeweled3.exe.text+33C16B: CC                    - int 3 
+Bejeweled3.exe.text+33C16C: CC                    - int 3 
+Bejeweled3.exe.text+33C16D: CC                    - int 3 
+Bejeweled3.exe.text+33C16E: CC                    - int 3 
+Bejeweled3.exe.text+33C16F: CC                    - int 3 
+Bejeweled3.exe.text+33C170: 53                    - push ebx
+Bejeweled3.exe.text+33C171: 57                    - push edi
+Bejeweled3.exe.text+33C172: 8B 7C 24 0C           - mov edi,[esp+0C]
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+33C176: 01 BC 8E 84 0C 00 00  - add [esi+ecx*4+00000C84],edi
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+33C17D: BB FF FF FF 7F        - mov ebx,7FFFFFFF
+Bejeweled3.exe.text+33C182: 79 07                 - jns Bejeweled3.exe.text+33C18B
+Bejeweled3.exe.text+33C184: 89 9C 8E 84 0C 00 00  - mov [esi+ecx*4+00000C84],ebx
+Bejeweled3.exe.text+33C18B: 80 BE 12 14 00 00 00  - cmp byte ptr [esi+00001412],00
+Bejeweled3.exe.text+33C192: 75 3C                 - jne Bejeweled3.exe.text+33C1D0
+Bejeweled3.exe.text+33C194: 80 BE 10 14 00 00 00  - cmp byte ptr [esi+00001410],00
+Bejeweled3.exe.text+33C19B: 75 33                 - jne Bejeweled3.exe.text+33C1D0
+Bejeweled3.exe.text+33C19D: 8B 15 0C 17 8E 00     - mov edx,[Bejeweled3.exe+4E170C]
+Bejeweled3.exe.text+33C1A3: 8B 82 80 0B 00 00     - mov eax,[edx+00000B80]
+Bejeweled3.exe.text+33C1A9: 01 BC 88 C0 00 00 00  - add [eax+ecx*4+000000C0],edi
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>62</ID>
+          <Description>"Score"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+349311</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>60</ID>
+          <Description>"Butterflies"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+33C176</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82</ID>
+          <Description>"Butterflies Combo Count"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+33C272</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14</ID>
+      <Description>"Time Trials"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>69</ID>
+          <Description>"Active this"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>12</ID>
+              <Description>"Make you lose instantly"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-29
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,DD 1E 8B CB DD 44 24 28) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //fstp qword ptr [esi]
+  mov ecx,ebx
+  fld qword ptr [esp+28]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 3
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db DD 1E 8B CB DD 44 24 28
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+354921
+
+Bejeweled3.exe.text+354904: F7 E9              - imul ecx
+Bejeweled3.exe.text+354906: C1 FA 02           - sar edx,02
+Bejeweled3.exe.text+354909: 8B CA              - mov ecx,edx
+Bejeweled3.exe.text+35490B: C1 E9 1F           - shr ecx,1F
+Bejeweled3.exe.text+35490E: 03 CA              - add ecx,edx
+Bejeweled3.exe.text+354910: 75 05              - jne Bejeweled3.exe.text+354917
+Bejeweled3.exe.text+354912: E8 A8 82 EF FF     - call Bejeweled3.exe.text+24CBBF
+Bejeweled3.exe.text+354917: 8B 76 0C           - mov esi,[esi+0C]
+Bejeweled3.exe.text+35491A: DD 44 24 20        - fld qword ptr [esp+20]
+Bejeweled3.exe.text+35491E: 83 C6 08           - add esi,08
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+354921: DD 1E              - fstp qword ptr [esi]
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+354923: 8B CB              - mov ecx,ebx
+Bejeweled3.exe.text+354925: DD 44 24 28        - fld qword ptr [esp+28]
+Bejeweled3.exe.text+354929: DD 5E 08           - fstp qword ptr [esi+08]
+Bejeweled3.exe.text+35492C: 8B 13              - mov edx,[ebx]
+Bejeweled3.exe.text+35492E: 8B 82 60 03 00 00  - mov eax,[edx+00000360]
+Bejeweled3.exe.text+354934: FF D0              - call eax
+Bejeweled3.exe.text+354936: 5F                 - pop edi
+Bejeweled3.exe.text+354937: 5E                 - pop esi
+Bejeweled3.exe.text+354938: 83 C4 2C           - add esp,2C
+Bejeweled3.exe.text+35493B: C3                 - ret 
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"+100000 Score on collect"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,01 BE 24 0D 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [esi+00000D24],(int)20000
+  //add [esi+00000D24],edi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 BE 24 0D 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+349311
+
+Bejeweled3.exe.text+3492F4: 8B CE                          - mov ecx,esi
+Bejeweled3.exe.text+3492F6: 2B DF                          - sub ebx,edi
+Bejeweled3.exe.text+3492F8: FF D2                          - call edx
+Bejeweled3.exe.text+3492FA: DA 4C 24 40                    - fimul [esp+40]
+Bejeweled3.exe.text+3492FE: E8 ED 88 04 00                 - call Bejeweled3.exe.text+391BF0
+Bejeweled3.exe.text+349303: 8B F8                          - mov edi,eax
+Bejeweled3.exe.text+349305: 55                             - push ebp
+Bejeweled3.exe.text+349306: 57                             - push edi
+Bejeweled3.exe.text+349307: B9 01 00 00 00                 - mov ecx,00000001
+Bejeweled3.exe.text+34930C: E8 5F 2E FF FF                 - call Bejeweled3.exe.text+33C170
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+349311: 01 BE 24 0D 00 00              - add [esi+00000D24],edi
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+349317: 79 0A                          - jns Bejeweled3.exe.text+349323
+Bejeweled3.exe.text+349319: C7 86 24 0D 00 00 FF FF FF 7F  - mov [esi+00000D24],7FFFFFFF
+Bejeweled3.exe.text+349323: 85 DB                          - test ebx,ebx
+Bejeweled3.exe.text+349325: 0F 8F 3A FF FF FF              - jg Bejeweled3.exe.text+349265
+Bejeweled3.exe.text+34932B: 8B 4C 24 48                    - mov ecx,[esp+48]
+Bejeweled3.exe.text+34932F: 8B 54 24 4C                    - mov edx,[esp+4C]
+Bejeweled3.exe.text+349333: 83 EC 10                       - sub esp,10
+Bejeweled3.exe.text+349336: 8B C4                          - mov eax,esp
+Bejeweled3.exe.text+349338: 89 08                          - mov [eax],ecx
+Bejeweled3.exe.text+34933A: 8B 4C 24 60                    - mov ecx,[esp+60]
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"Timer"</Description>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe+923878</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>38</ID>
+          <Description>"Score"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+349311</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>46</ID>
+      <Description>"Ice Storm"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>68</ID>
+          <Description>"Active this"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>47</ID>
+              <Description>"+250000 Score on get"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-31
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,01 BE 24 0D 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [esi+00000D24],(int)50000 //multiply 5 times
+  //add [esi+00000D24],edi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 BE 24 0D 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+349311
+
+Bejeweled3.exe.text+3492F4: 8B CE                          - mov ecx,esi
+Bejeweled3.exe.text+3492F6: 2B DF                          - sub ebx,edi
+Bejeweled3.exe.text+3492F8: FF D2                          - call edx
+Bejeweled3.exe.text+3492FA: DA 4C 24 40                    - fimul [esp+40]
+Bejeweled3.exe.text+3492FE: E8 ED 88 04 00                 - call Bejeweled3.exe.text+391BF0
+Bejeweled3.exe.text+349303: 8B F8                          - mov edi,eax
+Bejeweled3.exe.text+349305: 55                             - push ebp
+Bejeweled3.exe.text+349306: 57                             - push edi
+Bejeweled3.exe.text+349307: B9 01 00 00 00                 - mov ecx,00000001
+Bejeweled3.exe.text+34930C: E8 5F 2E FF FF                 - call Bejeweled3.exe.text+33C170
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+349311: 01 BE 24 0D 00 00              - add [esi+00000D24],edi
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+349317: 79 0A                          - jns Bejeweled3.exe.text+349323
+Bejeweled3.exe.text+349319: C7 86 24 0D 00 00 FF FF FF 7F  - mov [esi+00000D24],7FFFFFFF
+Bejeweled3.exe.text+349323: 85 DB                          - test ebx,ebx
+Bejeweled3.exe.text+349325: 0F 8F 3A FF FF FF              - jg Bejeweled3.exe.text+349265
+Bejeweled3.exe.text+34932B: 8B 4C 24 48                    - mov ecx,[esp+48]
+Bejeweled3.exe.text+34932F: 8B 54 24 4C                    - mov edx,[esp+4C]
+Bejeweled3.exe.text+349333: 83 EC 10                       - sub esp,10
+Bejeweled3.exe.text+349336: 8B C4                          - mov eax,esp
+Bejeweled3.exe.text+349338: 89 08                          - mov [eax],ecx
+Bejeweled3.exe.text+34933A: 8B 4C 24 60                    - mov ecx,[esp+60]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>84</ID>
+              <Description>"+10 Multiplier"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-11-02
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,FF 85 0C 0E 00 00 8B F5) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [ebp+00000E0C],(int)10
+  //inc [ebp+00000E0C]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db FF 85 0C 0E 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+2E5195
+
+Bejeweled3.exe.text+2E516C: E8 4F 43 D2 FF     - call Bejeweled3.exe.text+94C0
+Bejeweled3.exe.text+2E5171: D9 EE              - fldz 
+Bejeweled3.exe.text+2E5173: 8B 15 6C 79 8D 00  - mov edx,[Bejeweled3.exe+4D796C]
+Bejeweled3.exe.text+2E5179: A1 0C 17 8E 00     - mov eax,[Bejeweled3.exe+4E170C]
+Bejeweled3.exe.text+2E517E: 83 EC 10           - sub esp,10
+Bejeweled3.exe.text+2E5181: DD 5C 24 08        - fstp qword ptr [esp+08]
+Bejeweled3.exe.text+2E5185: DD 05 48 D0 7C 00  - fld qword ptr [Bejeweled3.exe.rdata+E048]
+Bejeweled3.exe.text+2E518B: DD 1C 24           - fstp qword ptr [esp]
+Bejeweled3.exe.text+2E518E: 6A 00              - push 00
+Bejeweled3.exe.text+2E5190: E8 5B 49 08 00     - call Bejeweled3.exe.text+369AF0
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+2E5195: FF 85 0C 0E 00 00  - inc [ebp+00000E0C]
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+2E519B: 8B F5              - mov esi,ebp
+Bejeweled3.exe.text+2E519D: E8 CE 06 FE FF     - call Bejeweled3.exe.text+2C5870
+Bejeweled3.exe.text+2E51A2: D9 EE              - fldz 
+Bejeweled3.exe.text+2E51A4: 33 D2              - xor edx,edx
+Bejeweled3.exe.text+2E51A6: D9 9D 6C 32 00 00  - fstp dword ptr [ebp+0000326C]
+Bejeweled3.exe.text+2E51AC: 8D 4A 50           - lea ecx,[edx+50]
+Bejeweled3.exe.text+2E51AF: 8D 85 60 3D 00 00  - lea eax,[ebp+00003D60]
+Bejeweled3.exe.text+2E51B5: 80 78 0D 00        - cmp byte ptr [eax+0D],00
+Bejeweled3.exe.text+2E51B9: 74 09              - je Bejeweled3.exe.text+2E51C4
+Bejeweled3.exe.text+2E51BB: 39 50 E4           - cmp [eax-1C],edx
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>45</ID>
+          <Description>"Score"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+349311</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>83</ID>
+          <Description>"Mulitiplier"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+2E5195</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>87</ID>
+          <Description>"No description"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+1A57F3</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>86</ID>
+          <Description>"Auto Assemble script"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-11-02
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,89 B5 98 F7 FF FF F6) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [ebp-00000868],(int)1
+  //mov [ebp-00000868],esi
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 B5 98 F7 FF FF
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+1A57F3
+
+Bejeweled3.exe.text+1A57D8: C6 85 B0 F7 FF FF 00  - mov byte ptr [ebp-00000850],00
+Bejeweled3.exe.text+1A57DF: 7F F1                 - jg Bejeweled3.exe.text+1A57D2
+Bejeweled3.exe.text+1A57E1: 7C 04                 - jl Bejeweled3.exe.text+1A57E7
+Bejeweled3.exe.text+1A57E3: 3B FB                 - cmp edi,ebx
+Bejeweled3.exe.text+1A57E5: 73 EB                 - jae Bejeweled3.exe.text+1A57D2
+Bejeweled3.exe.text+1A57E7: B1 01                 - mov cl,01
+Bejeweled3.exe.text+1A57E9: EB 29                 - jmp Bejeweled3.exe.text+1A5814
+Bejeweled3.exe.text+1A57EB: 83 06 04              - add dword ptr [esi],04
+Bejeweled3.exe.text+1A57EE: 8B 36                 - mov esi,[esi]
+Bejeweled3.exe.text+1A57F0: 8B 76 FC              - mov esi,[esi-04]
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+1A57F3: 89 B5 98 F7 FF FF     - mov [ebp-00000868],esi
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+1A57F9: F6 C2 40              - test dl,40
+Bejeweled3.exe.text+1A57FC: 74 08                 - je Bejeweled3.exe.text+1A5806
+Bejeweled3.exe.text+1A57FE: 0F CE                 - bswap esi
+Bejeweled3.exe.text+1A5800: 89 B5 98 F7 FF FF     - mov [ebp-00000868],esi
+Bejeweled3.exe.text+1A5806: 3B F3                 - cmp esi,ebx
+Bejeweled3.exe.text+1A5808: 0F 94 85 B0 F7 FF FF  - sete byte ptr [ebp-00000850]
+Bejeweled3.exe.text+1A580F: 3B F3                 - cmp esi,ebx
+Bejeweled3.exe.text+1A5811: 0F 9C C1              - setl cl
+Bejeweled3.exe.text+1A5814: 8A 85 97 F7 FF FF     - mov al,[ebp-00000869]
+Bejeweled3.exe.text+1A581A: 84 C0                 - test al,al
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>18</ID>
+      <Description>"Quest"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>30</ID>
+          <Description>"Puzzle 1"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>31</ID>
+              <Description>"Active this"</Description>
+              <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>40BF40</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>19</ID>
+                  <Description>"Butterflies: +15 Butterflies on collect"</Description>
+                  <LastState/>
+                  <Color>40BF40</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Bejeweled 3
+  Version:
+  Date   : 2025-10-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,FF 87 00 0E 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [edi+00000E00],(int)15
+  //inc [edi+00000E00]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db FF 87 00 0E 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+2AA349
+
+Bejeweled3.exe.text+2AA31F: 50                    - push eax
+Bejeweled3.exe.text+2AA320: 6A 01                 - push 01
+Bejeweled3.exe.text+2AA322: B9 1C 00 00 00        - mov ecx,0000001C
+Bejeweled3.exe.text+2AA327: E8 44 1E 09 00        - call Bejeweled3.exe.text+33C170
+Bejeweled3.exe.text+2AA32C: 8B 8F 04 01 00 00     - mov ecx,[edi+00000104]
+Bejeweled3.exe.text+2AA332: 80 B9 84 31 00 00 00  - cmp byte ptr [ecx+00003184],00
+Bejeweled3.exe.text+2AA339: 75 14                 - jne Bejeweled3.exe.text+2AA34F
+Bejeweled3.exe.text+2AA33B: 8B C1                 - mov eax,ecx
+Bejeweled3.exe.text+2AA33D: FF 80 24 0D 00 00     - inc [eax+00000D24]
+Bejeweled3.exe.text+2AA343: 8B BF 04 01 00 00     - mov edi,[edi+00000104]
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+2AA349: FF 87 00 0E 00 00     - inc [edi+00000E00]
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+2AA34F: 5E                    - pop esi
+Bejeweled3.exe.text+2AA350: 5F                    - pop edi
+Bejeweled3.exe.text+2AA351: C2 04 00              - ret 0004
+Bejeweled3.exe.text+2AA354: CC                    - int 3
+Bejeweled3.exe.text+2AA355: CC                    - int 3
+Bejeweled3.exe.text+2AA356: CC                    - int 3
+Bejeweled3.exe.text+2AA357: CC                    - int 3
+Bejeweled3.exe.text+2AA358: CC                    - int 3
+Bejeweled3.exe.text+2AA359: CC                    - int 3
+Bejeweled3.exe.text+2AA35A: CC                    - int 3
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21</ID>
+                  <Description>"Gold Rush: +5 Gold on collect"</Description>
+                  <LastState/>
+                  <Color>40BF40</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,01 90 00 0E 00 00 8B) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [eax+00000E00],(int)5
+  //add [eax+00000E00],edx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 90 00 0E 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+2A87AC
+
+Bejeweled3.exe.text+2A877E: CC                             - int 3 
+Bejeweled3.exe.text+2A877F: CC                             - int 3 
+Bejeweled3.exe.text+2A8780: 8B 81 04 01 00 00              - mov eax,[ecx+00000104]
+Bejeweled3.exe.text+2A8786: 80 B8 84 31 00 00 00           - cmp byte ptr [eax+00003184],00
+Bejeweled3.exe.text+2A878D: 74 18                          - je Bejeweled3.exe.text+2A87A7
+Bejeweled3.exe.text+2A878F: 01 90 00 0E 00 00              - add [eax+00000E00],edx
+Bejeweled3.exe.text+2A8795: C7 81 C0 03 00 00 78 00 00 00  - mov [ecx+000003C0],00000078
+Bejeweled3.exe.text+2A879F: 01 94 B1 C4 03 00 00           - add [ecx+esi*4+000003C4],edx
+Bejeweled3.exe.text+2A87A6: C3                             - ret 
+Bejeweled3.exe.text+2A87A7: BA 01 00 00 00                 - mov edx,00000001
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+2A87AC: 01 90 00 0E 00 00              - add [eax+00000E00],edx
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+2A87B2: 8B 89 04 01 00 00              - mov ecx,[ecx+00000104]
+Bejeweled3.exe.text+2A87B8: 01 91 24 0D 00 00              - add [ecx+00000D24],edx
+Bejeweled3.exe.text+2A87BE: C3                             - ret 
+Bejeweled3.exe.text+2A87BF: CC                             - int 3 
+Bejeweled3.exe.text+2A87C0: 33 C0                          - xor eax,eax
+Bejeweled3.exe.text+2A87C2: 83 39 03                       - cmp dword ptr [ecx],03
+Bejeweled3.exe.text+2A87C5: 0F 9F C0                       - setg al
+Bejeweled3.exe.text+2A87C8: C3                             - ret 
+Bejeweled3.exe.text+2A87C9: CC                             - int 3 
+Bejeweled3.exe.text+2A87CA: CC                             - int 3 
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>29</ID>
+                  <Description>"Stratamax: +120 gems on move"</Description>
+                  <LastState/>
+                  <Color>40BF40</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,01 91 00 0E 00 00 C2 04 00 C7) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [ecx+00000E00],(int)40
+  //add [ecx+00000E00],edx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 91 00 0E 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+2A9377
+
+Bejeweled3.exe.text+2A9349: 8B C1                 - mov eax,ecx
+Bejeweled3.exe.text+2A934B: C3                    - ret 
+Bejeweled3.exe.text+2A934C: 8B 82 04 0E 00 00     - mov eax,[edx+00000E04]
+Bejeweled3.exe.text+2A9352: 0F AF 81 14 01 00 00  - imul eax,[ecx+00000114]
+Bejeweled3.exe.text+2A9359: 03 81 10 01 00 00     - add eax,[ecx+00000110]
+Bejeweled3.exe.text+2A935F: C3                    - ret 
+Bejeweled3.exe.text+2A9360: 8B 81 04 01 00 00     - mov eax,[ecx+00000104]
+Bejeweled3.exe.text+2A9366: BA 01 00 00 00        - mov edx,00000001
+Bejeweled3.exe.text+2A936B: 01 90 24 0D 00 00     - add [eax+00000D24],edx
+Bejeweled3.exe.text+2A9371: 8B 89 04 01 00 00     - mov ecx,[ecx+00000104]
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+2A9377: 01 91 00 0E 00 00     - add [ecx+00000E00],edx
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+2A937D: C2 04 00              - ret 0004
+Bejeweled3.exe.text+2A9380: C7 00 BC A6 86 00     - mov [eax],Bejeweled3.exe.rdata+AB6BC
+Bejeweled3.exe.text+2A9386: C3                    - ret 
+Bejeweled3.exe.text+2A9387: CC                    - int 3 
+Bejeweled3.exe.text+2A9388: CC                    - int 3 
+Bejeweled3.exe.text+2A9389: CC                    - int 3 
+Bejeweled3.exe.text+2A938A: CC                    - int 3 
+Bejeweled3.exe.text+2A938B: CC                    - int 3 
+Bejeweled3.exe.text+2A938C: CC                    - int 3 
+Bejeweled3.exe.text+2A938D: CC                    - int 3 
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>25</ID>
+                  <Description>"Time Bomb: Bombs countdown stop"</Description>
+                  <LastState/>
+                  <Color>40BF40</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,FF 8E 44 02 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //dec [esi+00000244]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db FF 8E 44 02 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+3673BD
+
+Bejeweled3.exe.text+367397: D9 05 2C 0E 88 00     - fld dword ptr [Bejeweled3.exe.rdata+C1E2C]
+Bejeweled3.exe.text+36739D: D8 9E 6C 02 00 00     - fcomp dword ptr [esi+0000026C]
+Bejeweled3.exe.text+3673A3: DF E0                 - fnstsw ax
+Bejeweled3.exe.text+3673A5: F6 C4 41              - test ah,41
+Bejeweled3.exe.text+3673A8: 7A 30                 - jp Bejeweled3.exe.text+3673DA
+Bejeweled3.exe.text+3673AA: D9 05 40 10 88 00     - fld dword ptr [Bejeweled3.exe.rdata+C2040]
+Bejeweled3.exe.text+3673B0: D8 9E 6C 02 00 00     - fcomp dword ptr [esi+0000026C]
+Bejeweled3.exe.text+3673B6: DF E0                 - fnstsw ax
+Bejeweled3.exe.text+3673B8: F6 C4 01              - test ah,01
+Bejeweled3.exe.text+3673BB: 75 1D                 - jne Bejeweled3.exe.text+3673DA
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+3673BD: FF 8E 44 02 00 00     - dec [esi+00000244]
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+3673C3: 8B CE                 - mov ecx,esi
+Bejeweled3.exe.text+3673C5: E8 D6 80 FB FF        - call Bejeweled3.exe.text+31F4A0
+Bejeweled3.exe.text+3673CA: D9 05 10 1C 88 00     - fld dword ptr [Bejeweled3.exe.rdata+C2C10]
+Bejeweled3.exe.text+3673D0: D9 9E 6C 02 00 00     - fstp dword ptr [esi+0000026C]
+Bejeweled3.exe.text+3673D6: EB 02                 - jmp Bejeweled3.exe.text+3673DA
+Bejeweled3.exe.text+3673D8: DD D8                 - fstp st(0)
+Bejeweled3.exe.text+3673DA: F6 86 28 02 00 00 40  - test byte ptr [esi+00000228],40
+Bejeweled3.exe.text+3673E1: 74 4B                 - je Bejeweled3.exe.text+36742E
+Bejeweled3.exe.text+3673E3: 83 BD 1C 0D 00 00 00  - cmp dword ptr [ebp+00000D1C],00
+Bejeweled3.exe.text+3673EA: 75 42                 - jne Bejeweled3.exe.text+36742E
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>34</ID>
+                  <Description>"Balance: +30 gems"</Description>
+                  <LastState/>
+                  <Color>40BF40</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,89 86 00 0E 00 00 85) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [esi+00000E00],(int)30
+  //mov [esi+00000E00],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 86 00 0E 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+2CF8F8
+
+Bejeweled3.exe.text+2CF8C8: C7 44 24 78 FF FF FF FF  - mov [esp+78],FFFFFFFF
+Bejeweled3.exe.text+2CF8D0: 8B 96 C0 12 00 00        - mov edx,[esi+000012C0]
+Bejeweled3.exe.text+2CF8D6: 52                       - push edx
+Bejeweled3.exe.text+2CF8D7: 8B F8                    - mov edi,eax
+Bejeweled3.exe.text+2CF8D9: E8 92 9A 05 00           - call Bejeweled3.exe.text+329370
+Bejeweled3.exe.text+2CF8DE: 8B 8E 5C 32 00 00        - mov ecx,[esi+0000325C]
+Bejeweled3.exe.text+2CF8E4: 8B 86 60 32 00 00        - mov eax,[esi+00003260]
+Bejeweled3.exe.text+2CF8EA: 03 C1                    - add eax,ecx
+Bejeweled3.exe.text+2CF8EC: 8B 8E 80 31 00 00        - mov ecx,[esi+00003180]
+Bejeweled3.exe.text+2CF8F2: 89 86 24 0D 00 00        - mov [esi+00000D24],eax
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+2CF8F8: 89 86 00 0E 00 00        - mov [esi+00000E00],eax
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+2CF8FE: 85 C9                    - test ecx,ecx
+Bejeweled3.exe.text+2CF900: 74 0B                    - je Bejeweled3.exe.text+2CF90D
+Bejeweled3.exe.text+2CF902: 8B 11                    - mov edx,[ecx]
+Bejeweled3.exe.text+2CF904: 8B 82 A0 00 00 00        - mov eax,[edx+000000A0]
+Bejeweled3.exe.text+2CF90A: 53                       - push ebx
+Bejeweled3.exe.text+2CF90B: FF D0                    - call eax
+Bejeweled3.exe.text+2CF90D: 53                       - push ebx
+Bejeweled3.exe.text+2CF90E: 8B CE                    - mov ecx,esi
+Bejeweled3.exe.text+2CF910: E8 CB B0 07 00           - call Bejeweled3.exe.text+34A9E0
+Bejeweled3.exe.text+2CF915: 8B 4C 24 70              - mov ecx,[esp+70]
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>37</ID>
+                  <Description>"Alchemy: +64 grids"</Description>
+                  <LastState/>
+                  <Color>40BF40</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,01 8F 00 0E 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [edi+00000E00],(int)64
+  //add [edi+00000E00],ecx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 8F 00 0E 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+2B6A32
+
+Bejeweled3.exe.text+2B6A08: DE C1                 - faddp 
+Bejeweled3.exe.text+2B6A0A: D9 5E 14              - fstp dword ptr [esi+14]
+Bejeweled3.exe.text+2B6A0D: E8 4E 09 07 00        - call Bejeweled3.exe.text+327360
+Bejeweled3.exe.text+2B6A12: 8B 4C 24 24           - mov ecx,[esp+24]
+Bejeweled3.exe.text+2B6A16: 83 39 00              - cmp dword ptr [ecx],00
+Bejeweled3.exe.text+2B6A19: 7E 1D                 - jle Bejeweled3.exe.text+2B6A38
+Bejeweled3.exe.text+2B6A1B: 8B 87 04 01 00 00     - mov eax,[edi+00000104]
+Bejeweled3.exe.text+2B6A21: B9 01 00 00 00        - mov ecx,00000001
+Bejeweled3.exe.text+2B6A26: 01 88 24 0D 00 00     - add [eax+00000D24],ecx
+Bejeweled3.exe.text+2B6A2C: 8B BF 04 01 00 00     - mov edi,[edi+00000104]
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+2B6A32: 01 8F 00 0E 00 00     - add [edi+00000E00],ecx
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+2B6A38: 8B 4C 24 40           - mov ecx,[esp+40]
+Bejeweled3.exe.text+2B6A3C: 64 89 0D 00 00 00 00  - mov fs:[00000000],ecx
+Bejeweled3.exe.text+2B6A43: 59                    - pop ecx
+Bejeweled3.exe.text+2B6A44: 5F                    - pop edi
+Bejeweled3.exe.text+2B6A45: 5E                    - pop esi
+Bejeweled3.exe.text+2B6A46: 5B                    - pop ebx
+Bejeweled3.exe.text+2B6A47: 8B E5                 - mov esp,ebp
+Bejeweled3.exe.text+2B6A49: 5D                    - pop ebp
+Bejeweled3.exe.text+2B6A4A: C2 08 00              - ret 0008
+Bejeweled3.exe.text+2B6A4D: CC                    - int 3 
+}
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>17</ID>
+              <Description>"Butterflies"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Bejeweled3.exe.text+2AA349</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>20</ID>
+              <Description>"Gold Rush"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Bejeweled3.exe.text+2A87AC</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>22</ID>
+              <Description>"Gold Rush - text view only"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Bejeweled3.exe.text+2A87B8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>27</ID>
+              <Description>"Stratamax"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Bejeweled3.exe.text+2A9377</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>26</ID>
+              <Description>"Stratamax - text view only"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Bejeweled3.exe.text+2A936B</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>32</ID>
+              <Description>"Balance"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Bejeweled3.exe.text+2CF8F8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>33</ID>
+              <Description>"Balance - text view only"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Bejeweled3.exe.text+2CF8F2</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>35</ID>
+              <Description>"Alchemy - text view only"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Bejeweled3.exe.text+2B6A26</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>36</ID>
+              <Description>"Alchemy"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Bejeweled3.exe.text+2B6A32</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>23</ID>
+              <Description>"Time Bomb"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Bejeweled3.exe.text+2AA2A4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>24</ID>
+              <Description>"Time Bomb - text only"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Bejeweled3.exe.text+2AA298</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>50</ID>
+      <Description>"Mine"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>65</ID>
+          <Description>"Active this"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>51</ID>
+              <Description>"+50000 Gold"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-10-31
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,01 90 00 0E 00 00 C7) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [eax+00000E00],(int)50000
+  //add [eax+00000E00],edx
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 01 90 00 0E 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+2A878F
+
+Bejeweled3.exe.text+2A8779: CC                             - int 3 
+Bejeweled3.exe.text+2A877A: CC                             - int 3 
+Bejeweled3.exe.text+2A877B: CC                             - int 3 
+Bejeweled3.exe.text+2A877C: CC                             - int 3 
+Bejeweled3.exe.text+2A877D: CC                             - int 3 
+Bejeweled3.exe.text+2A877E: CC                             - int 3 
+Bejeweled3.exe.text+2A877F: CC                             - int 3 
+Bejeweled3.exe.text+2A8780: 8B 81 04 01 00 00              - mov eax,[ecx+00000104]
+Bejeweled3.exe.text+2A8786: 80 B8 84 31 00 00 00           - cmp byte ptr [eax+00003184],00
+Bejeweled3.exe.text+2A878D: 74 18                          - je Bejeweled3.exe.text+2A87A7
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+2A878F: 01 90 00 0E 00 00              - add [eax+00000E00],edx
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+2A8795: C7 81 C0 03 00 00 78 00 00 00  - mov [ecx+000003C0],00000078
+Bejeweled3.exe.text+2A879F: 01 94 B1 C4 03 00 00           - add [ecx+esi*4+000003C4],edx
+Bejeweled3.exe.text+2A87A6: C3                             - ret 
+Bejeweled3.exe.text+2A87A7: BA 01 00 00 00                 - mov edx,00000001
+Bejeweled3.exe.text+2A87AC: 01 90 00 0E 00 00              - add [eax+00000E00],edx
+Bejeweled3.exe.text+2A87B2: 8B 89 04 01 00 00              - mov ecx,[ecx+00000104]
+Bejeweled3.exe.text+2A87B8: 01 91 24 0D 00 00              - add [ecx+00000D24],edx
+Bejeweled3.exe.text+2A87BE: C3                             - ret 
+Bejeweled3.exe.text+2A87BF: CC                             - int 3 
+Bejeweled3.exe.text+2A87C0: 33 C0                          - xor eax,eax
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>49</ID>
+          <Description>"Gold"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+2A878F</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>75</ID>
+      <Description>"ACHIEVEMENTS"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>76</ID>
+          <Description>"Gems Combo Count"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>73</ID>
+              <Description>"Gems Combo Count - Reset"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Bejeweled3.exe.text+E142</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>74</ID>
+              <Description>"Gems Combo Count - Reset (fast move)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Bejeweled3.exe.text+FA83</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>77</ID>
+              <Description>"Gems Combo Count"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Bejeweled3.exe.text+33C272</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>80</ID>
+          <Description>"Gems Combo won't reset"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>78</ID>
+              <Description>"Auto Assemble script"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-11-02
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,B9 26 00 00 00 F3) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov ecx,00000026
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db B9 26 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+E142
+
+Bejeweled3.exe.text+E124: 8B 4E 30        - mov ecx,[esi+30]
+Bejeweled3.exe.text+E127: 89 4B 30        - mov [ebx+30],ecx
+Bejeweled3.exe.text+E12A: 8B 56 34        - mov edx,[esi+34]
+Bejeweled3.exe.text+E12D: 89 53 34        - mov [ebx+34],edx
+Bejeweled3.exe.text+E130: 8A 46 38        - mov al,[esi+38]
+Bejeweled3.exe.text+E133: 88 43 38        - mov [ebx+38],al
+Bejeweled3.exe.text+E136: 8B 4E 3C        - mov ecx,[esi+3C]
+Bejeweled3.exe.text+E139: 89 4B 3C        - mov [ebx+3C],ecx
+Bejeweled3.exe.text+E13C: 83 C6 40        - add esi,40
+Bejeweled3.exe.text+E13F: 8D 7B 40        - lea edi,[ebx+40]
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+E142: B9 26 00 00 00  - mov ecx,00000026
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+E147: F3 A5           - repe movsd 
+Bejeweled3.exe.text+E149: 5F              - pop edi
+Bejeweled3.exe.text+E14A: 8B C3           - mov eax,ebx
+Bejeweled3.exe.text+E14C: 5E              - pop esi
+Bejeweled3.exe.text+E14D: 59              - pop ecx
+Bejeweled3.exe.text+E14E: C3              - ret 
+Bejeweled3.exe.text+E14F: CC              - int 3 
+Bejeweled3.exe.text+E150: 51              - push ecx
+Bejeweled3.exe.text+E151: 56              - push esi
+Bejeweled3.exe.text+E152: 8B CF           - mov ecx,edi
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79</ID>
+              <Description>"Auto Assemble script"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Bejeweled 3
+  Version: 
+  Date   : 2025-11-02
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,Bejeweled3.exe,89 10 83 C0 04 83 E9 01 75 F3) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [eax],edx
+  add eax,04
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 10 83 C0 04
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Bejeweled3.exe.text+FA83
+
+Bejeweled3.exe.text+FA64: 89 4F 34        - mov [edi+34],ecx
+Bejeweled3.exe.text+FA67: 8A 56 38        - mov dl,[esi+38]
+Bejeweled3.exe.text+FA6A: 88 57 38        - mov [edi+38],dl
+Bejeweled3.exe.text+FA6D: 8B 46 3C        - mov eax,[esi+3C]
+Bejeweled3.exe.text+FA70: 89 47 3C        - mov [edi+3C],eax
+Bejeweled3.exe.text+FA73: 8D 47 40        - lea eax,[edi+40]
+Bejeweled3.exe.text+FA76: 2B F7           - sub esi,edi
+Bejeweled3.exe.text+FA78: B9 26 00 00 00  - mov ecx,00000026
+Bejeweled3.exe.text+FA7D: 8D 49 00        - lea ecx,[ecx+00]
+Bejeweled3.exe.text+FA80: 8B 14 06        - mov edx,[esi+eax]
+// ---------- INJECTING HERE ----------
+Bejeweled3.exe.text+FA83: 89 10           - mov [eax],edx
+// ---------- DONE INJECTING  ----------
+Bejeweled3.exe.text+FA85: 83 C0 04        - add eax,04
+Bejeweled3.exe.text+FA88: 83 E9 01        - sub ecx,01
+Bejeweled3.exe.text+FA8B: 75 F3           - jne Bejeweled3.exe.text+FA80
+Bejeweled3.exe.text+FA8D: 8B C7           - mov eax,edi
+Bejeweled3.exe.text+FA8F: 5E              - pop esi
+Bejeweled3.exe.text+FA90: C3              - ret 
+Bejeweled3.exe.text+FA91: CC              - int 3 
+Bejeweled3.exe.text+FA92: CC              - int 3 
+Bejeweled3.exe.text+FA93: CC              - int 3 
+Bejeweled3.exe.text+FA94: CC              - int 3 
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>81</ID>
+          <Description>"IMPORTANT: If you can't see Achievements appear, try playing &amp; finishing Lightning mode"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>BF40BF</Color>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>71</ID>
+          <Description>"Total Gems count"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Bejeweled3.exe.text+33C1A9</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>85</ID>
+      <Description>"No Description"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>0019CEDC</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of inc [edi+00000E04]</Description>
+      <AddressString>Bejeweled3.exe+360C73</AddressString>
+      <Before>
+        <Byte>E5</Byte>
+        <Byte>5D</Byte>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>87</Byte>
+        <Byte>04</Byte>
+        <Byte>0E</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>9F</Byte>
+        <Byte>00</Byte>
+        <Byte>0E</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [esp+1C],ecx</Description>
+      <AddressString>Bejeweled3.exe+20465C</AddressString>
+      <Before>
+        <Byte>51</Byte>
+        <Byte>D9</Byte>
+        <Byte>1C</Byte>
+        <Byte>24</Byte>
+        <Byte>55</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>1C</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+        <Byte>E8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [esp+20],edx</Description>
+      <AddressString>Bejeweled3.exe+204660</AddressString>
+      <Before>
+        <Byte>55</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>27</Byte>
+        <Byte>44</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [eax+24],edx</Description>
+      <AddressString>Bejeweled3.exe+217648</AddressString>
+      <Before>
+        <Byte>50</Byte>
+        <Byte>20</Byte>
+        <Byte>8B</Byte>
+        <Byte>51</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>50</Byte>
+        <Byte>24</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>49</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [eax+28],ecx</Description>
+      <AddressString>Bejeweled3.exe+21764E</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>8B</Byte>
+        <Byte>49</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>48</Byte>
+        <Byte>28</Byte>
+      </Actual>
+      <After>
+        <Byte>5E</Byte>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [esi+38],eax</Description>
+      <AddressString>Bejeweled3.exe+166B57</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>08</Byte>
+        <Byte>DD</Byte>
+        <Byte>D8</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>46</Byte>
+        <Byte>38</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>0C</Byte>
+        <Byte>89</Byte>
+        <Byte>4E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [esi+3C],ecx</Description>
+      <AddressString>Bejeweled3.exe+166B5D</AddressString>
+      <Before>
+        <Byte>90</Byte>
+        <Byte>90</Byte>
+        <Byte>8B</Byte>
+        <Byte>4F</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>4E</Byte>
+        <Byte>3C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>57</Byte>
+        <Byte>10</Byte>
+        <Byte>89</Byte>
+        <Byte>56</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of fstp qword ptr [eax]</Description>
+      <AddressString>Bejeweled3.exe+33DC2D</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+        <Byte>83</Byte>
+        <Byte>C0</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>DD</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>BF</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of fstp qword ptr [esi]</Description>
+      <AddressString>Bejeweled3.exe+33DD52</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+        <Byte>83</Byte>
+        <Byte>C6</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>DD</Byte>
+        <Byte>1E</Byte>
+      </Actual>
+      <After>
+        <Byte>5F</Byte>
+        <Byte>DD</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>2C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of fstp qword ptr [eax]</Description>
+      <AddressString>Bejeweled3.exe+3557FF</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+        <Byte>83</Byte>
+        <Byte>C0</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>DD</Byte>
+        <Byte>18</Byte>
+      </Actual>
+      <After>
+        <Byte>BF</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of fstp qword ptr [esi]</Description>
+      <AddressString>Bejeweled3.exe+355921</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+        <Byte>83</Byte>
+        <Byte>C6</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>DD</Byte>
+        <Byte>1E</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+        <Byte>DD</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov ecx,ebx</Description>
+      <AddressString>Bejeweled3.exe+355923</AddressString>
+      <Before>
+        <Byte>83</Byte>
+        <Byte>C6</Byte>
+        <Byte>08</Byte>
+        <Byte>DD</Byte>
+        <Byte>1E</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>CB</Byte>
+      </Actual>
+      <After>
+        <Byte>DD</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+        <Byte>DD</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of add [edi+00000D24],esi</Description>
+      <AddressString>Bejeweled3.exe+2C7595</AddressString>
+      <Before>
+        <Byte>9F</Byte>
+        <Byte>30</Byte>
+        <Byte>3A</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>01</Byte>
+        <Byte>B7</Byte>
+        <Byte>24</Byte>
+        <Byte>0D</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>01</Byte>
+        <Byte>B7</Byte>
+        <Byte>88</Byte>
+        <Byte>0C</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [edi+00000E00],ebx</Description>
+      <AddressString>Bejeweled3.exe+360C79</AddressString>
+      <Before>
+        <Byte>87</Byte>
+        <Byte>04</Byte>
+        <Byte>0E</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>9F</Byte>
+        <Byte>00</Byte>
+        <Byte>0E</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>9F</Byte>
+        <Byte>34</Byte>
+        <Byte>0E</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [ebp-00000868],edi</Description>
+      <AddressString>Bejeweled3.exe+1A5E02</AddressString>
+      <Before>
+        <Byte>9D</Byte>
+        <Byte>A4</Byte>
+        <Byte>F7</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>BD</Byte>
+        <Byte>98</Byte>
+        <Byte>F7</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>C6</Byte>
+        <Byte>85</Byte>
+        <Byte>B3</Byte>
+        <Byte>F7</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [ebp-00000868],ebx</Description>
+      <AddressString>Bejeweled3.exe+1A6791</AddressString>
+      <Before>
+        <Byte>FF</Byte>
+        <Byte>80</Byte>
+        <Byte>7D</Byte>
+        <Byte>18</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>9D</Byte>
+        <Byte>98</Byte>
+        <Byte>F7</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>89</Byte>
+        <Byte>9D</Byte>
+        <Byte>70</Byte>
+        <Byte>F7</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Code :mov [ebp-00000868],esi</Description>
+      <AddressString>Bejeweled3.exe+1A67F3</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>36</Byte>
+        <Byte>8B</Byte>
+        <Byte>76</Byte>
+        <Byte>FC</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>B5</Byte>
+        <Byte>98</Byte>
+        <Byte>F7</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>F6</Byte>
+        <Byte>C2</Byte>
+        <Byte>40</Byte>
+        <Byte>74</Byte>
+        <Byte>08</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedhack_wantedspeed</Name>
+      <Address>18FD0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>
