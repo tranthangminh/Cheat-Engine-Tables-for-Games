@@ -4,6 +4,7 @@
     <CheatEntry>
       <ID>42</ID>
       <Description>"IMPORTANT: Active Mono first (Menu bar ➜ Mono ➜ Active mono features)"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
       <LastState Value="" RealAddress="00000000"/>
       <Color>BF40BF</Color>
       <GroupHeader>1</GroupHeader>
@@ -23,59 +24,68 @@
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>86</ID>
-      <Description>"HP"</Description>
-      <ShowAsSigned>0</ShowAsSigned>
-      <Color>BF4040</Color>
-      <VariableType>4 Bytes</VariableType>
-      <Address>PlayerStatsManager:TakeDamage+f9</Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>91</ID>
-      <Description>"Energy"</Description>
-      <ShowAsSigned>0</ShowAsSigned>
-      <Color>BF4040</Color>
-      <VariableType>4 Bytes</VariableType>
-      <Address>PlayerStatsManager:OnSuperChanged+8b</Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>95</ID>
-      <Description>"Parry Count"</Description>
-      <ShowAsSigned>0</ShowAsSigned>
-      <Color>BF4040</Color>
-      <VariableType>4 Bytes</VariableType>
-      <Address>LevelPlayerMotor:LeaveGround+e4</Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>106</ID>
-      <Description>"Total Parry - Run &amp; Gun"</Description>
-      <ShowAsSigned>0</ShowAsSigned>
-      <Color>BF4040</Color>
-      <VariableType>4 Bytes</VariableType>
-      <Address>PlayerStatsManager:OnParry+13b </Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>108</ID>
-      <Description>"Total Parry - Boss"</Description>
-      <LastState Value="410421580" RealAddress="7FFD6C737E0B"/>
-      <ShowAsSigned>0</ShowAsSigned>
-      <Color>BF4040</Color>
-      <VariableType>4 Bytes</VariableType>
-      <Address>UnityPlayer.dll.text+4E6E0B</Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>102</ID>
-      <Description>"Coins (PlayerData+PlayerInventory:Buy+8b)"</Description>
-      <ShowAsSigned>0</ShowAsSigned>
-      <Color>BF4040</Color>
-      <VariableType>4 Bytes</VariableType>
-      <Address>CoinsMemoryViewer</Address>
+      <ID>110</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>86</ID>
+          <Description>"HP"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>PlayerStatsManager:TakeDamage+f9</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>91</ID>
+          <Description>"Energy"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>PlayerStatsManager:OnSuperChanged+8b</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>95</ID>
+          <Description>"Parry Count"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>LevelPlayerMotor:LeaveGround+e4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>106</ID>
+          <Description>"Total Parry - Run &amp; Gun"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>PlayerStatsManager:OnParry+13b </Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>108</ID>
+          <Description>"Total Parry - Boss"</Description>
+          <LastState Value="410421580" RealAddress="7FFB5F4B7E0B"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>UnityPlayer.dll.text+4E6E0B</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>102</ID>
+          <Description>"Coins (PlayerData+PlayerInventory:Buy+8b)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>CoinsMemoryViewer</Address>
+        </CheatEntry>
+      </CheatEntries>
     </CheatEntry>
     <CheatEntry>
       <ID>76</ID>
       <Description>"Active this"</Description>
       <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
-      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <LastState Value="" RealAddress="00000000"/>
       <Color>40BF40</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>

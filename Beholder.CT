@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>9</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"Inventory Item Base Add"</Description>
+          <LastState Value="2336509577" RealAddress="07568200"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>InventoryItemBase:AddCount+10</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"Inventory Item Base Decrease"</Description>
+          <LastState Value="2336507529" RealAddress="07568244"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>InventoryItemBase:RemCount+1c</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"Inventory (Realtime)"</Description>
+          <LastState Value="2302951563" RealAddress="07567EC6"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>InventoryItemView:Update+1e</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"Props Inventory Item View (Realtime)"</Description>
+          <LastState Value="2302951563" RealAddress="07568196"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>PropsInventoryItemView:Update+1e</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>23</ID>
+          <Description>"Money"</Description>
+          <LastState Value="2004694761" RealAddress="075682C5"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Funds:set_money+15</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>21</ID>
+          <Description>"Money (Realtime)"</Description>
+          <LastState Value="2299805835" RealAddress="075680F4"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Book:Update+1ac</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"Points"</Description>
+          <LastState Value="1987932905" RealAddress="07568289"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Funds:set_statePoints+19</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>18</ID>
+          <Description>"Sell Item"</Description>
+          <LastState Value="3947120777" RealAddress="075683C0"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>InventoryItemView:OnBuyClick+28</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10</ID>
+      <Description>"Cheat"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"+10 Items on Collect"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Beholder
+  Version: 
+  Date   : 2025-11-25
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+define(INJECT,InventoryItemBase:AddCount+10) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [esi+44],(int)10
+  //mov [esi+44],ecx
+  mov edi,eax
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 4E 44 8B F8
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: InventoryItemBase:AddCount+10
+
+07885A63: 00 00     - add [eax],al
+07885A65: 00 00     - add [eax],al
+07885A67: 00 55 8B  - add [ebp-75],dl
+InventoryItemBase:AddCount+2: EC        - in al,dx
+InventoryItemBase:AddCount+3: 57        - push edi
+InventoryItemBase:AddCount+4: 56        - push esi
+InventoryItemBase:AddCount+5: 8B 75 08  - mov esi,[ebp+08]
+InventoryItemBase:AddCount+8: 8B 46 44  - mov eax,[esi+44]
+InventoryItemBase:AddCount+b: 03 45 0C  - add eax,[ebp+0C]
+InventoryItemBase:AddCount+e: 8B C8     - mov ecx,eax
+// ---------- INJECTING HERE ----------
+InventoryItemBase:AddCount+10: 89 4E 44  - mov [esi+44],ecx
+// ---------- DONE INJECTING  ----------
+InventoryItemBase:AddCount+13: 8B F8     - mov edi,eax
+InventoryItemBase:AddCount+15: 8B 46 28  - mov eax,[esi+28]
+InventoryItemBase:AddCount+18: 85 C0     - test eax,eax
+InventoryItemBase:AddCount+1a: 74 11     - je InventoryItemBase:AddCount+2d
+InventoryItemBase:AddCount+1c: 8B 46 28  - mov eax,[esi+28]
+InventoryItemBase:AddCount+1f: 83 EC 08  - sub esp,08
+InventoryItemBase:AddCount+22: 56        - push esi
+InventoryItemBase:AddCount+23: 50        - push eax
+InventoryItemBase:AddCount+24: 90        - nop 
+InventoryItemBase:AddCount+25: 90        - nop 
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"Inventory won't decrease"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Beholder
+  Version: 
+  Date   : 2025-11-25
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 46 44 8B F8 8B) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [esi+44],eax
+  mov edi,eax
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 46 44 8B F8
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: InventoryItemBase:RemCount+1c
+
+InventoryItemBase:RemCount+3: 57              - push edi
+InventoryItemBase:RemCount+4: 56              - push esi
+InventoryItemBase:RemCount+5: 8B 75 08        - mov esi,[ebp+08]
+InventoryItemBase:RemCount+8: 8B 46 44        - mov eax,[esi+44]
+InventoryItemBase:RemCount+b: 2B 45 0C        - sub eax,[ebp+0C]
+InventoryItemBase:RemCount+e: 83 EC 08        - sub esp,08
+InventoryItemBase:RemCount+11: 50              - push eax
+InventoryItemBase:RemCount+12: 6A 00           - push 00
+InventoryItemBase:RemCount+14: E8 5F 5C 54 FF  - call UnityEngine.Mathf:Max
+InventoryItemBase:RemCount+19: 83 C4 10        - add esp,10
+// ---------- INJECTING HERE ----------
+InventoryItemBase:RemCount+1c: 89 46 44        - mov [esi+44],eax
+// ---------- DONE INJECTING  ----------
+InventoryItemBase:RemCount+1f: 8B F8           - mov edi,eax
+InventoryItemBase:RemCount+21: 8B 46 28        - mov eax,[esi+28]
+InventoryItemBase:RemCount+24: 85 C0           - test eax,eax
+InventoryItemBase:RemCount+26: 74 11           - je InventoryItemBase:RemCount+39
+InventoryItemBase:RemCount+28: 8B 46 28        - mov eax,[esi+28]
+InventoryItemBase:RemCount+2b: 83 EC 08        - sub esp,08
+InventoryItemBase:RemCount+2e: 56              - push esi
+InventoryItemBase:RemCount+2f: 50              - push eax
+InventoryItemBase:RemCount+30: 90              - nop 
+InventoryItemBase:RemCount+31: 90              - nop 
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>19</ID>
+          <Description>"Sell won't change item"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Beholder
+  Version: 
+  Date   : 2025-11-25
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+define(INJECT,InventoryItemView:OnBuyClick+28) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [eax+44],ecx
+  jmp InventoryItemView:OnBuyClick+60
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 48 44 EB 33
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: InventoryItemView:OnBuyClick+28
+
+InventoryItemView:OnBuyClick+f: 39 09           - cmp [ecx],ecx
+InventoryItemView:OnBuyClick+11: 8B 40 44        - mov eax,[eax+44]
+InventoryItemView:OnBuyClick+14: 3D 01 00 00 00  - cmp eax,00000001
+InventoryItemView:OnBuyClick+19: 7E 12           - jle InventoryItemView:OnBuyClick+2d
+InventoryItemView:OnBuyClick+1b: 8B 4F 34        - mov ecx,[edi+34]
+InventoryItemView:OnBuyClick+1e: 8B C1           - mov eax,ecx
+InventoryItemView:OnBuyClick+20: 39 09           - cmp [ecx],ecx
+InventoryItemView:OnBuyClick+22: 8B 49 44        - mov ecx,[ecx+44]
+InventoryItemView:OnBuyClick+25: 49              - dec ecx
+InventoryItemView:OnBuyClick+26: 39 00           - cmp [eax],eax
+// ---------- INJECTING HERE ----------
+InventoryItemView:OnBuyClick+28: 89 48 44        - mov [eax+44],ecx
+// ---------- DONE INJECTING  ----------
+InventoryItemView:OnBuyClick+2b: EB 33           - jmp InventoryItemView:OnBuyClick+60
+InventoryItemView:OnBuyClick+2d: 83 EC 08        - sub esp,08
+InventoryItemView:OnBuyClick+30: 6A 00           - push 00
+InventoryItemView:OnBuyClick+32: 57              - push edi
+InventoryItemView:OnBuyClick+33: E8 E4 00 00 00  - call 07912D4C
+InventoryItemView:OnBuyClick+38: 83 C4 10        - add esp,10
+InventoryItemView:OnBuyClick+3b: BA C4 0E 1F 14  - mov edx,141F0EC4
+InventoryItemView:OnBuyClick+40: E8 83 CF F6 FF  - call 0787FBF8
+InventoryItemView:OnBuyClick+45: 8B C8           - mov ecx,eax
+InventoryItemView:OnBuyClick+47: 39 09           - cmp [ecx],ecx
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>25</ID>
+          <Description>"Money = 50000 on use"</Description>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Beholder
+  Version: 
+  Date   : 2025-11-27
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+define(INJECT,Funds:set_money+15) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [esi+14],(int)50000
+  //mov [esi+14],eax
+  test ebx,ebx
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 46 14 85 DB
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Funds:set_money+15
+
+Funds:set_money: 55        - push ebp
+Funds:set_money+1: 8B EC     - mov ebp,esp
+Funds:set_money+3: 53        - push ebx
+Funds:set_money+4: 56        - push esi
+Funds:set_money+5: 83 EC 10  - sub esp,10
+Funds:set_money+8: 8B 75 08  - mov esi,[ebp+08]
+Funds:set_money+b: 8B 4E 14  - mov ecx,[esi+14]
+Funds:set_money+e: 8B 45 0C  - mov eax,[ebp+0C]
+Funds:set_money+11: 8B D8     - mov ebx,eax
+Funds:set_money+13: 2B D9     - sub ebx,ecx
+// ---------- INJECTING HERE ----------
+Funds:set_money+15: 89 46 14  - mov [esi+14],eax
+// ---------- DONE INJECTING  ----------
+Funds:set_money+18: 85 DB     - test ebx,ebx
+Funds:set_money+1a: 74 18     - je Funds:set_money+34
+Funds:set_money+1c: 8B 46 0C  - mov eax,[esi+0C]
+Funds:set_money+1f: 85 C0     - test eax,eax
+Funds:set_money+21: 74 11     - je Funds:set_money+34
+Funds:set_money+23: 8B 46 0C  - mov eax,[esi+0C]
+Funds:set_money+26: 83 EC 08  - sub esp,08
+Funds:set_money+29: 53        - push ebx
+Funds:set_money+2a: 50        - push eax
+Funds:set_money+2b: 90        - nop 
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"Points = 50000 on use"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Beholder
+  Version: 
+  Date   : 2025-11-25
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+
+define(INJECT,Funds:set_statePoints+19) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [esi+1C],(int)50000
+  //mov [esi+1C],eax
+  test ebx,ebx
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 46 1C 85 DB
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Funds:set_statePoints+19
+
+Funds:set_statePoints+3: 53        - push ebx
+Funds:set_statePoints+4: 56        - push esi
+Funds:set_statePoints+5: 8B 75 08  - mov esi,[ebp+08]
+Funds:set_statePoints+8: 8B 46 1C  - mov eax,[esi+1C]
+Funds:set_statePoints+b: 8B 4D 0C  - mov ecx,[ebp+0C]
+Funds:set_statePoints+e: 8B D9     - mov ebx,ecx
+Funds:set_statePoints+10: 2B D8     - sub ebx,eax
+Funds:set_statePoints+12: 33 C0     - xor eax,eax
+Funds:set_statePoints+14: 85 C9     - test ecx,ecx
+Funds:set_statePoints+16: 0F 4D C1  - cmovge eax,ecx
+// ---------- INJECTING HERE ----------
+Funds:set_statePoints+19: 89 46 1C  - mov [esi+1C],eax
+// ---------- DONE INJECTING  ----------
+Funds:set_statePoints+1c: 85 DB     - test ebx,ebx
+Funds:set_statePoints+1e: 74 18     - je Funds:set_statePoints+38
+Funds:set_statePoints+20: 8B 46 10  - mov eax,[esi+10]
+Funds:set_statePoints+23: 85 C0     - test eax,eax
+Funds:set_statePoints+25: 74 11     - je Funds:set_statePoints+38
+Funds:set_statePoints+27: 8B 46 10  - mov eax,[esi+10]
+Funds:set_statePoints+2a: 83 EC 08  - sub esp,08
+Funds:set_statePoints+2d: 53        - push ebx
+Funds:set_statePoints+2e: 50        - push eax
+Funds:set_statePoints+2f: 90        - nop 
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Resolve Player"</Description>
+      <LastState/>
+      <Color>FF0000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+label(Player.threadexit)
+label(classname)
+label(namespace)
+label(assemblyname)
+label(status)
+label(domain)
+label(assembly)
+label(Player.Static)
+label(Player.Class)
+alloc(Player.threadstart, 2048)
+
+registersymbol(Player.Static)
+registersymbol(Player.Class)
+
+Player.threadstart:
+mov [Player.Class],0
+mov [Player.Static],0
+
+call mono.mono_get_root_domain
+cmp eax,0
+je Player.threadexit
+mov [domain],eax
+
+push [domain]
+call mono.mono_thread_attach
+add esp,4
+
+push status
+push assemblyname
+call mono.mono_assembly_load_with_partial_name
+add esp,8
+cmp eax,0
+je Player.threadexit
+
+push eax
+call mono.mono_assembly_get_image
+add esp,4
+cmp eax,0
+je Player.threadexit
+mov [assembly], eax
+
+push classname
+push namespace
+push eax
+call mono.mono_class_from_name_case
+add esp,C
+cmp eax,0
+je Player.threadexit
+mov [Player.Class],eax
+
+push eax
+push [domain]
+call mono.mono_class_vtable
+add esp,8
+cmp eax,0
+je Player.threadexit
+
+push eax
+call mono.mono_vtable_get_static_field_data
+add esp,4
+mov [Player.Static],eax
+jmp Player.threadexit
+///////////////////////////////////////////////////////
+// Data section
+Player.Static:
+dd 0
+Player.Class:
+dd 0
+assemblyname:
+db 'Assembly-CSharp',0
+namespace:
+db '',0
+classname:
+db 'Player',0
+status:
+dd 0
+domain:
+dd 0
+assembly:
+dd 0
+Player.threadexit:
+ret
+createthread(Player.threadstart)
+
+[DISABLE]
+unregistersymbol(Player.Static)
+unregistersymbol(Player.Class)
+dealloc(Player.threadstart)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"Player.Static"</Description>
+          <LastState Value="" RealAddress="0648BD30"/>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>Pointer</VariableType>
+          <Address>[Player.Static]</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"Player.Class"</Description>
+          <LastState Value="" RealAddress="135C5CF0"/>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>Pointer</VariableType>
+          <Address>[Player.Class]</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"&lt;&gt;f__am$cache31"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>Pointer</VariableType>
+          <Address>Player.Static</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>22</ID>
+      <Description>"No Description"</Description>
+      <LastState Value="48503" RealAddress="27750084"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>27750084</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>24</ID>
+      <Description>"No Description"</Description>
+      <LastState Value="50000" RealAddress="2775008C"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>2775008C</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
