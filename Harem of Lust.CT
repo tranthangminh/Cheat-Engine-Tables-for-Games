@@ -4,7 +4,7 @@
     <CheatEntry>
       <ID>59</ID>
       <Description>"IMPORTANT: Active Mono first (Menu bar ➜ Mono ➜ Active mono features)"</Description>
-      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
       <LastState Value="" RealAddress="00000000"/>
       <Color>BF40BF</Color>
       <GroupHeader>1</GroupHeader>
@@ -26,7 +26,7 @@
     <CheatEntry>
       <ID>42</ID>
       <Description>"Memory Viewer"</Description>
-      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
       <LastState Value="" RealAddress="00000000"/>
       <Color>BF4040</Color>
       <GroupHeader>1</GroupHeader>
@@ -88,6 +88,21 @@ unregistersymbol(Everything)
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
+          <ID>65</ID>
+          <Description>"Boss Event"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>64</ID>
+              <Description>"Quests Process"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1f8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
           <ID>49</ID>
           <Description>"Mini Event Process"</Description>
           <LastState Value="" RealAddress="00000000"/>
@@ -117,6 +132,13 @@ unregistersymbol(Everything)
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
           <Address>Infrastructure.Services.ProgressUpdater.BattlePassProgressUpdater:get_CurrentProgress+29</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>67</ID>
+          <Description>"Card Count"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Scripts.Data.CardCopy:AddNotConfiguredExemplar+98</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>52</ID>
@@ -242,9 +264,81 @@ Services.MiniEventService:GetSpinsCompleted+49: C3                             -
 </AssemblerScript>
         </CheatEntry>
         <CheatEntry>
+          <ID>66</ID>
+          <Description>"[Boss Event] +300 Process"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Harem of Lust
+  Version: 
+  Date   : 2025-11-29
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+define(INJECT,Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1f8) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [rax+18],(int)300
+  //mov [rax+18],ecx
+  mov rsi,[rbp-18]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 48 18 48 8B 75 E8
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1f8
+
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1d7: FF 50 F0        - call qword ptr [rax-10]
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1da: 48 8B 47 18     - mov rax,[rdi+18]
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1de: 48 8B 4F 10     - mov rcx,[rdi+10]
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1e2: 48 63 49 40     - movsxd  rcx,dword ptr [rcx+40]
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1e6: 89 48 18        - mov [rax+18],ecx
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1e9: EB 10           - jmp Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1fb
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1eb: 48 8B 47 18     - mov rax,[rdi+18]
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1ef: 48 8B D0        - mov rdx,rax
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1f2: 48 63 48 18     - movsxd  rcx,dword ptr [rax+18]
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1f6: 03 CE           - add ecx,esi
+// ---------- INJECTING HERE ----------
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1f8: 89 48 18        - mov [rax+18],ecx
+// ---------- DONE INJECTING  ----------
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1fb: 48 8B 75 E8     - mov rsi,[rbp-18]
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+1ff: 48 8B 7D F0     - mov rdi,[rbp-10]
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+203: 4C 8B 7D F8     - mov r15,[rbp-08]
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+207: 48 8D 65 00     - lea rsp,[rbp+00]
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+20b: 5D              - pop rbp
+Infrastructure.Services.QuestService.Quests.QuestBase:BoostProgressValue+20c: C3              - ret 
+256E2A020DD: 00 00           - add [rax],al
+256E2A020DF: 00 01           - add [rcx],al
+256E2A020E1: 04 02           - add al,02
+256E2A020E3: 05 04 03 01 50  - add eax,50010304
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
           <ID>63</ID>
           <Description>"Battle Pass = 500 (on collect)"</Description>
-          <LastState Activated="1"/>
+          <LastState/>
           <Color>40BF40</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : Harem of Lust
@@ -317,7 +411,7 @@ Infrastructure.Services.ProgressUpdater.BattlePassProgressUpdater:UpdateExperien
         <CheatEntry>
           <ID>53</ID>
           <Description>"HP = 0 - Enemy"</Description>
-          <LastState Activated="1"/>
+          <LastState/>
           <Color>40BF40</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : Harem of Lust
@@ -390,7 +484,7 @@ Scripts.Services.AutoCompetitor:GetDamage+1b9: 74 27                          - 
         <CheatEntry>
           <ID>54</ID>
           <Description>"HP = 100 - You"</Description>
-          <LastState Activated="1"/>
+          <LastState/>
           <Color>40BF40</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : Harem of Lust
@@ -533,13 +627,79 @@ Scripts.Data.LevelData:AddExp+46: 49 8B 47 10        - mov rax,[r15+10]
 }
 </AssemblerScript>
         </CheatEntry>
+        <CheatEntry>
+          <ID>68</ID>
+          <Description>"Card Copy = 3"</Description>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Harem of Lust
+  Version: 
+  Date   : 2025-11-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+define(INJECT,Scripts.Data.CardCopy:AddNotConfiguredExemplar+98)
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rdi+18],(int)3
+  //mov [rdi+18],eax
+  mov rcx,r15
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 47 18 49 8B CF
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Scripts.Data.CardCopy:AddNotConfiguredExemplar+98
+
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+74: 48 63 47 1C                    - movsxd  rax,dword ptr [rdi+1C]
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+78: FF C0                          - inc eax
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+7a: 89 47 1C                       - mov [rdi+1C],eax
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+7d: 4C 8B 7F 10                    - mov r15,[rdi+10]
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+81: 4C 63 77 18                    - movsxd  r14,dword ptr [rdi+18]
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+85: 49 8B C6                       - mov rax,r14
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+88: 49 63 4F 18                    - movsxd  rcx,dword ptr [r15+18]
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+8c: 3B C1                          - cmp eax,ecx
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+8e: 0F 83 1B 00 00 00              - jae Scripts.Data.CardCopy:AddNotConfiguredExemplar+af
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+94: 41 8D 46 01                    - lea eax,[r14+01]
+// ---------- INJECTING HERE ----------
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+98: 89 47 18                       - mov [rdi+18],eax
+// ---------- DONE INJECTING  ----------
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+9b: 49 8B CF                       - mov rcx,r15
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+9e: 49 8B D6                       - mov rdx,r14
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+a1: 4C 8B C6                       - mov r8,rsi
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+a4: 49 8B 07                       - mov rax,[r15]
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+a7: FF 90 10 01 00 00              - call qword ptr [rax+00000110]
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+ad: EB 14                          - jmp Scripts.Data.CardCopy:AddNotConfiguredExemplar+c3
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+af: 48 8B CF                       - mov rcx,rdi
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+b2: 48 8B D6                       - mov rdx,rsi
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+b5: 90                             - nop 
+Scripts.Data.CardCopy:AddNotConfiguredExemplar+b6: 49 BB F0 D1 D8 06 05 02 00 00  - mov r11,System.Collections.Generic.List`1[T_REF]:AddWithResize
+}
+</AssemblerScript>
+        </CheatEntry>
       </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>64</ID>
-      <Description>"No Description"</Description>
-      <VariableType>4 Bytes</VariableType>
-      <Address>1D5DB9FBF9C</Address>
     </CheatEntry>
   </CheatEntries>
   <CheatCodes>
@@ -567,7 +727,12 @@ Scripts.Data.LevelData:AddExp+46: 49 8B 47 10        - mov rax,[r15+10]
       </After>
     </CodeEntry>
   </CheatCodes>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedhack_wantedspeed</Name>
+      <Address>2061BEF0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
   <Structures StructVersion="2">
     <Structure Name="unnamed structure" AutoFill="0" AutoCreate="1" DefaultHex="0" AutoDestroy="0" DoNotSaveLocal="0" RLECompression="1" AutoCreateStructsize="4096">
       <Elements>

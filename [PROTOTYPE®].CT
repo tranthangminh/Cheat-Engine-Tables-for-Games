@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>9</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"HP - Recovery"</Description>
+          <LastState Value="9.066393852" RealAddress="108480DD"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>prototypeenginef.dll.text+8470DD</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"HP All - Hit"</Description>
+          <LastState Value="1175523315" RealAddress="1084820B"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>prototypeenginef.dll.text+84720B</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"HP (Realtime)"</Description>
+          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>6</ID>
+              <Description>"HP - You"</Description>
+              <LastState Value="3.867142963E10" RealAddress="102B5F55"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>Float</VariableType>
+              <Address>prototypeenginef.dll.text+2B4F55</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>3</ID>
+              <Description>"HP - You"</Description>
+              <LastState Value="-2.467431063E15" RealAddress="102C2983"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>Float</VariableType>
+              <Address>prototypeenginef.dll.text+2C1983</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>5</ID>
+              <Description>"HP - All"</Description>
+              <LastState Value="-2.701255749E-32" RealAddress="10847FC0"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>Float</VariableType>
+              <Address>prototypeenginef.dll.text+846FC0</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"Evolution Points"</Description>
+          <LastState Value="3900779657" RealAddress="10843952"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>prototypeenginef.dll.text+842952</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10</ID>
+      <Description>"Cheats"</Description>
+      <Options moManualExpandCollapse="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>11</ID>
+          <Description>"HP"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : [PROTOTYPE®]
+  Version: 
+  Date   : 2025-11-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"prototypeenginef.dll"+2B5F55)
+define(bytes,F3 0F 10 51 0C)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss xmm2,[ecx+0C]
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // movss xmm2,[ecx+0C]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: prototypeenginef.dll.text+2B4F55
+
+prototypeenginef.dll.text+2B4F47: CC                    - int 3 
+prototypeenginef.dll.text+2B4F48: CC                    - int 3 
+prototypeenginef.dll.text+2B4F49: CC                    - int 3 
+prototypeenginef.dll.text+2B4F4A: CC                    - int 3 
+prototypeenginef.dll.text+2B4F4B: CC                    - int 3 
+prototypeenginef.dll.text+2B4F4C: CC                    - int 3 
+prototypeenginef.dll.text+2B4F4D: CC                    - int 3 
+prototypeenginef.dll.text+2B4F4E: CC                    - int 3 
+prototypeenginef.dll.text+2B4F4F: CC                    - int 3 
+prototypeenginef.dll.text+2B4F50: F3 0F 10 49 14        - movss xmm1,[ecx+14]
+// ---------- INJECTING HERE ----------
+prototypeenginef.dll.text+2B4F55: F3 0F 10 51 0C        - movss xmm2,[ecx+0C]
+// ---------- DONE INJECTING  ----------
+prototypeenginef.dll.text+2B4F5A: F3 0F 59 4C 24 0C     - mulss xmm1,[esp+0C]
+prototypeenginef.dll.text+2B4F60: 0F 2F CA              - comiss xmm1,xmm2
+prototypeenginef.dll.text+2B4F63: 76 37                 - jna prototypeenginef.dll.text+2B4F9C
+prototypeenginef.dll.text+2B4F65: 0F 2F 15 78 4F D9 10  - comiss xmm2,[prototypeenginef.dll.rdata+4F78]
+prototypeenginef.dll.text+2B4F6C: 76 2E                 - jna prototypeenginef.dll.text+2B4F9C
+prototypeenginef.dll.text+2B4F6E: F3 0F 10 44 24 04     - movss xmm0,[esp+04]
+prototypeenginef.dll.text+2B4F74: F3 0F 59 44 24 08     - mulss xmm0,[esp+08]
+prototypeenginef.dll.text+2B4F7A: F3 0F 58 C2           - addss xmm0,xmm2
+prototypeenginef.dll.text+2B4F7E: 0F 2F C1              - comiss xmm0,xmm1
+prototypeenginef.dll.text+2B4F81: F3 0F 11 44 24 0C     - movss [esp+0C],xmm0
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"HP = 3000 when Recovery"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : [PROTOTYPE®]
+  Version: 
+  Date   : 2025-11-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,prototypeenginef.dll,F3 0F 11 41 0C 76 04) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [ecx+0C],(float)3000
+  //movss [ecx+0C],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db F3 0F 11 41 0C
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: prototypeenginef.dll.text+8470DD
+
+prototypeenginef.dll.text+8470B3: 75 EA                    - jne prototypeenginef.dll.text+84709F
+prototypeenginef.dll.text+8470B5: 8B 49 20                 - mov ecx,[ecx+20]
+prototypeenginef.dll.text+8470B8: 89 48 0C                 - mov [eax+0C],ecx
+prototypeenginef.dll.text+8470BB: C2 04 00                 - ret 0004
+prototypeenginef.dll.text+8470BE: 89 44 24 04              - mov [esp+04],eax
+prototypeenginef.dll.text+8470C2: E9 79 FF FF FF           - jmp prototypeenginef.dll.text+847040
+prototypeenginef.dll.text+8470C7: 89 44 24 04              - mov [esp+04],eax
+prototypeenginef.dll.text+8470CB: E9 F0 FE FF FF           - jmp prototypeenginef.dll.text+846FC0
+prototypeenginef.dll.text+8470D0: F3 0F 10 44 24 04        - movss xmm0,[esp+04]
+prototypeenginef.dll.text+8470D6: 0F 2F 05 78 4F D9 10     - comiss xmm0,[prototypeenginef.dll.rdata+4F78]
+// ---------- INJECTING HERE ----------
+prototypeenginef.dll.text+8470DD: F3 0F 11 41 0C           - movss [ecx+0C],xmm0
+// ---------- DONE INJECTING  ----------
+prototypeenginef.dll.text+8470E2: 76 04                    - jna prototypeenginef.dll.text+8470E8
+prototypeenginef.dll.text+8470E4: C6 41 24 00              - mov byte ptr [ecx+24],00
+prototypeenginef.dll.text+8470E8: 8B 01                    - mov eax,[ecx]
+prototypeenginef.dll.text+8470EA: 8B 50 20                 - mov edx,[eax+20]
+prototypeenginef.dll.text+8470ED: C7 44 24 04 00 00 00 00  - mov [esp+04],00000000
+prototypeenginef.dll.text+8470F5: FF E2                    - jmp edx
+prototypeenginef.dll.text+8470F7: CC                       - int 3 
+prototypeenginef.dll.text+8470F8: CC                       - int 3 
+prototypeenginef.dll.text+8470F9: CC                       - int 3 
+prototypeenginef.dll.text+8470FA: CC                       - int 3 
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"Evolution Points +500 on Collect"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : [PROTOTYPE®]
+  Version: 
+  Date   : 2025-11-30
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"prototypeenginef.dll"+843952)
+define(bytes,89 2C 81 E8 36 B6 F9 FF)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [ecx+eax*4],(int)500
+  //mov [ecx+eax*4],ebp
+
+  call prototypeenginef.dll.text+7DDF90
+  jmp return
+
+address:
+  jmp newmem
+  nop 3
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [ecx+eax*4],ebp
+  // call prototypeenginef.dll.text+7DDF90
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: prototypeenginef.dll.text+842952
+
+prototypeenginef.dll.text+84293A: 56              - push esi
+prototypeenginef.dll.text+84293B: 8B F1           - mov esi,ecx
+prototypeenginef.dll.text+84293D: 0F B6 46 21     - movzx eax,byte ptr [esi+21]
+prototypeenginef.dll.text+842941: 8B 4E 30        - mov ecx,[esi+30]
+prototypeenginef.dll.text+842944: 57              - push edi
+prototypeenginef.dll.text+842945: 8B 7C 24 14     - mov edi,[esp+14]
+prototypeenginef.dll.text+842949: 0F AF C7        - imul eax,edi
+prototypeenginef.dll.text+84294C: 03 C3           - add eax,ebx
+prototypeenginef.dll.text+84294E: 6A 01           - push 01
+prototypeenginef.dll.text+842950: 6A 10           - push 10
+// ---------- INJECTING HERE ----------
+prototypeenginef.dll.text+842952: 89 2C 81        - mov [ecx+eax*4],ebp
+// ---------- DONE INJECTING  ----------
+prototypeenginef.dll.text+842955: E8 36 B6 F9 FF  - call prototypeenginef.dll.text+7DDF90
+prototypeenginef.dll.text+84295A: 83 C4 08        - add esp,08
+prototypeenginef.dll.text+84295D: 85 C0           - test eax,eax
+prototypeenginef.dll.text+84295F: 74 19           - je prototypeenginef.dll.text+84297A
+prototypeenginef.dll.text+842961: 53              - push ebx
+prototypeenginef.dll.text+842962: 55              - push ebp
+prototypeenginef.dll.text+842963: 57              - push edi
+prototypeenginef.dll.text+842964: 8B C8           - mov ecx,eax
+prototypeenginef.dll.text+842966: E8 E5 F5 FF FF  - call prototypeenginef.dll.text+841F50
+prototypeenginef.dll.text+84296B: 50              - push eax
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of movss [esi+0C],xmm0</Description>
+      <AddressString>prototypeenginef.dll+84820B</AddressString>
+      <Before>
+        <Byte>C2</Byte>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>C8</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>46</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>8D</Byte>
+        <Byte>4C</Byte>
+        <Byte>24</Byte>
+        <Byte>08</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [ecx+eax*4],ebp</Description>
+      <AddressString>prototypeenginef.dll+843952</AddressString>
+      <Before>
+        <Byte>C3</Byte>
+        <Byte>6A</Byte>
+        <Byte>01</Byte>
+        <Byte>6A</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>2C</Byte>
+        <Byte>81</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>36</Byte>
+        <Byte>B6</Byte>
+        <Byte>F9</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>
