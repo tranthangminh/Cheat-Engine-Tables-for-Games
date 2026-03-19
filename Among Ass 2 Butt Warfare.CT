@@ -2,6 +2,75 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
       <ID>0</ID>
       <Description>"HP"</Description>
       <ShowAsSigned>0</ShowAsSigned>
@@ -102,7 +171,7 @@ Among Ass Butt Warfare.exe.text+EB65D: 83 78 14 00        - cmp dword ptr [eax+1
     <CheatEntry>
       <ID>3</ID>
       <Description>"Magazine"</Description>
-      <LastState Activated="1"/>
+      <LastState/>
       <Color>40BF40</Color>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{ Game   : Among Ass 2 Butt Warfare
@@ -174,7 +243,7 @@ Among Ass Butt Warfare.exe.text+E239A: FF 35 E8 C5 5E 00  - push ["Among Ass But
     <CheatEntry>
       <ID>5</ID>
       <Description>"Ammo"</Description>
-      <LastState Activated="1"/>
+      <LastState/>
       <Color>40BF40</Color>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{ Game   : Among Ass 2 Butt Warfare

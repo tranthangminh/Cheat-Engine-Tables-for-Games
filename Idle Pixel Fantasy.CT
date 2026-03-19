@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16282</ID>
+      <Description>"◀️ IMPORTANT: Enable this checkbox to ACTIVE Mono features FIRST"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//Activate Mono Features
+
+[ENABLE]
+
+{$lua}
+activateMono()
+{$asm}
+
+[DISABLE]
+{$lua}
+activateMono()
+{$asm}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16283</ID>
+          <Description>"Active Mono (Menu bar ➜ Mono ➜ Active mono features)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16284</ID>
+          <Description>"Make sure you have Cheat Engine 7.4 or later"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16285</ID>
+          <Description>"◀️ Enable checkbox to Download the latest version from: https://www.cheatengine.org/"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.cheatengine.org/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>77</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16300</ID>
+          <Description>"Prestige, Rubies"</Description>
+          <LastState Value="1080954726" RealAddress="7FFE25F6F1D6"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+2E1D6</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16298</ID>
+          <Description>"Gem"</Description>
+          <LastState Value="9.003893852" RealAddress="7FFE25F6D9BB"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>"GameAssembly.dll"+46D9BB</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16293</ID>
+          <Description>"Gold (realtime)"</Description>
+          <LastState Value="36.01557541" RealAddress="7FFE25F6D986"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>GameAssembly.dll.il2cpp+2C986</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16299</ID>
+          <Description>"BossHP"</Description>
+          <LastState Value="144.0623016" RealAddress="7FFE25F5CC3D"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>"GameAssembly.dll"+45CC3D</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16303</ID>
+          <Description>"Destroy Chests Count"</Description>
+          <LastState Value="17859467" RealAddress="7FFE25F44C27"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+3C27</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16311</ID>
+      <Description>"Active cheats"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//Activate Mono Features
+
+[ENABLE]
+
+{$lua}
+activateMono()
+{$asm}
+
+[DISABLE]
+{$lua}
+activateMono()
+{$asm}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16294</ID>
+          <Description>"Get Stats (real-time)     ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Pixel Fantasy
+  Version: 
+  Date   : 2026-02-17
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(addressGold,"GameAssembly.dll"+46D986)
+define(bytesGold,F3 0F 10 42 20)
+
+define(addressCrystal,"GameAssembly.dll"+46D9BB)
+define(bytesCrystal,F3 0F 10 41 38)
+
+define(addressBossHP,"GameAssembly.dll"+45CC3D)
+define(bytesBossHP,F3 0F 10 43 48)
+
+define(addressPrestige,"GameAssembly.dll"+46F1D6)
+define(bytesPrestige,66 0F 6E 40 2C)
+
+define(addressChests,"GameAssembly.dll"+444C27)
+define(bytesChests,8B 83 10 01 00 00)
+
+define(addressPresents,"GameAssembly.dll"+20DEA7B)
+define(bytesPresents,FF 41 1C 48 89 5C 24 30)
+
+[ENABLE]
+
+assert(addressGold,bytesGold)
+alloc(newmemGold,$1000,"GameAssembly.dll"+46D986)
+
+alloc(Gold,4)
+registersymbol(Gold)
+
+label(codeGold)
+label(returnGold)
+
+newmemGold:
+
+codeGold:
+  mov [Gold],rdx
+  movss xmm0,[rdx+20]
+  //movss xmm0,[rdx+20]
+  jmp returnGold
+
+addressGold:
+  jmp newmemGold
+returnGold:
+
+
+
+
+assert(addressCrystal,bytesCrystal)
+alloc(newmemCrystal,$1000,"GameAssembly.dll"+46D9BB)
+
+alloc(Crystal,4)
+registersymbol(Crystal)
+
+label(codeCrystal)
+label(returnCrystal)
+
+newmemCrystal:
+
+codeCrystal:
+  mov [Crystal],rcx
+  movss xmm0,[rcx+38]
+  jmp returnCrystal
+
+addressCrystal:
+  jmp newmemCrystal
+returnCrystal:
+
+
+
+
+assert(addressBossHP,bytesBossHP)
+alloc(newmemBossHP,$1000,"GameAssembly.dll"+45CC3D)
+
+alloc(BossHP,4)
+registersymbol(BossHP)
+
+label(codeBossHP)
+label(returnBossHP)
+
+newmemBossHP:
+
+codeBossHP:
+  mov [BossHP],rbx
+  movss xmm0,[rbx+48]
+  jmp returnBossHP
+
+addressBossHP:
+  jmp newmemBossHP
+returnBossHP:
+
+
+
+
+assert(addressPrestige,bytesPrestige)
+alloc(newmemPrestige,$1000,"GameAssembly.dll"+46F1D6)
+
+alloc(Prestige,4)
+registersymbol(Prestige)
+
+label(codePrestige)
+label(returnPrestige)
+
+newmemPrestige:
+
+codePrestige:
+  mov [Prestige],rax
+  movd xmm0,[rax+2C]
+  //movd xmm0,[rax+2C]
+  jmp returnPrestige
+
+addressPrestige:
+  jmp newmemPrestige
+returnPrestige:
+
+
+
+assert(addressChests,bytesChests)
+alloc(newmemChests,$1000,"GameAssembly.dll"+444C27)
+
+alloc(Chests,4)
+registersymbol(Chests)
+
+label(codeChests)
+label(returnChests)
+
+newmemChests:
+
+codeChests:
+  mov [Chests],rbx
+  mov eax,[rbx+00000110]
+  jmp returnChests
+
+addressChests:
+  jmp newmemChests
+  nop
+returnChests:
+
+
+
+
+assert(addressPresents,bytesPresents)
+alloc(newmemPresents,$1000,"GameAssembly.dll"+20DEA7B)
+
+alloc(Presents,4)
+registersymbol(Presents)
+
+label(codePresents)
+label(returnPresents)
+
+newmemPresents:
+
+codePresents:
+  mov [Presents],rcx
+  inc [rcx+1C]
+  mov [rsp+30],rbx
+  jmp returnPresents
+
+addressPresents:
+  jmp newmemPresents
+  nop 3
+returnPresents:
+
+
+
+
+[DISABLE]
+
+addressGold:
+  db bytesGold
+  // movss xmm0,[rdx+20]
+
+dealloc(newmemGold)
+dealloc(Gold,4)
+unregistersymbol(Gold)
+
+
+addressCrystal:
+  db bytesCrystal
+  // movss xmm0,[rcx+38]
+
+dealloc(newmemCrystal)
+dealloc(Crystal,4)
+unregistersymbol(Crystal)
+
+
+addressBossHP:
+  db bytesBossHP
+  // movss xmm0,[rbx+48]
+
+dealloc(newmemBossHP)
+dealloc(BossHP,4)
+unregistersymbol(BossHP)
+
+
+
+addressPrestige:
+  db bytesPrestige
+  // movd xmm0,[rax+2C]
+
+dealloc(newmemPrestige)
+dealloc(Prestige,4)
+unregistersymbol(Prestige)
+
+
+
+addressChests:
+  db bytesChests
+  // mov eax,[rbx+00000110]
+
+dealloc(newmemChests)
+dealloc(Chests,4)
+unregistersymbol(Chests)
+
+
+
+addressPresents:
+  db bytesPresents
+  // inc [rcx+1C]
+  // mov [rsp+30],rbx
+
+dealloc(newmemPresents)
+dealloc(Presents,4)
+unregistersymbol(Presents)
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16302</ID>
+              <Description>"Presents"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Presents</Address>
+              <Offsets>
+                <Offset>1C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16305</ID>
+              <Description>"Rubies"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Prestige</Address>
+              <Offsets>
+                <Offset>28</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16301</ID>
+              <Description>"Prestige"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Prestige</Address>
+              <Offsets>
+                <Offset>2C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16296</ID>
+              <Description>"BossHP (hit the Boss first)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>BossHP</Address>
+              <Offsets>
+                <Offset>48</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16304</ID>
+              <Description>"Gold"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>Gold</Address>
+              <Offsets>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16295</ID>
+              <Description>"Crystal"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>Crystal</Address>
+              <Offsets>
+                <Offset>38</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16297</ID>
+              <Description>"Destroy Chests Count (destroy a chest first)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Chests</Address>
+              <Offsets>
+                <Offset>110</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16308</ID>
+          <Description>"Get Stats (trigger required)     ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+
+
+
+
+
+
+[DISABLE]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16310</ID>
+          <Description>"No Unit Limit"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Idle Pixel Fantasy
+  Version: 
+  Date   : 2026-03-11
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+CC316F)
+define(bytes,89 0C C3 B0 01)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"GameAssembly.dll"+CC316F)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rbx+rax*8],0
+  //mov [rbx+rax*8],ecx
+  mov al,01
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [rbx+rax*8],ecx
+  // mov al,01
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll.il2cpp+88216F
+
+GameAssembly.dll.il2cpp+88214B: 49 8B CC           - mov rcx,r12
+GameAssembly.dll.il2cpp+88214E: E8 ED F3 71 00     - call GameAssembly.dll.il2cpp+FA1540
+GameAssembly.dll.il2cpp+882153: 32 C0              - xor al,al
+GameAssembly.dll.il2cpp+882155: EB 1D              - jmp GameAssembly.dll.il2cpp+882174
+GameAssembly.dll.il2cpp+882157: 3B 7B 18           - cmp edi,[rbx+18]
+GameAssembly.dll.il2cpp+88215A: 0F 83 5C 01 00 00  - jae GameAssembly.dll.il2cpp+8822BC
+GameAssembly.dll.il2cpp+882160: 8B 4C 24 70        - mov ecx,[rsp+70]
+GameAssembly.dll.il2cpp+882164: 48 63 C7           - movsxd  rax,edi
+GameAssembly.dll.il2cpp+882167: 48 83 C0 02        - add rax,02
+GameAssembly.dll.il2cpp+88216B: 48 8D 04 40        - lea rax,[rax+rax*2]
+// ---------- INJECTING HERE ----------
+GameAssembly.dll.il2cpp+88216F: 89 0C C3           - mov [rbx+rax*8],ecx
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll.il2cpp+882172: B0 01              - mov al,01
+GameAssembly.dll.il2cpp+882174: 4C 8B 6C 24 20     - mov r13,[rsp+20]
+GameAssembly.dll.il2cpp+882179: 48 8B 7C 24 28     - mov rdi,[rsp+28]
+GameAssembly.dll.il2cpp+88217E: 48 8B 74 24 68     - mov rsi,[rsp+68]
+GameAssembly.dll.il2cpp+882183: 48 83 C4 30        - add rsp,30
+GameAssembly.dll.il2cpp+882187: 41 5F              - pop r15
+GameAssembly.dll.il2cpp+882189: 41 5E              - pop r14
+GameAssembly.dll.il2cpp+88218B: 41 5C              - pop r12
+GameAssembly.dll.il2cpp+88218D: 5D                 - pop rbp
+GameAssembly.dll.il2cpp+88218E: 5B                 - pop rbx
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedhack_wantedspeed</Name>
+      <Address>1EACC4C0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <LuaScript>GameName = "Idle Pixel Fantasy"
+
+if syntaxcheck then return end
+
+
+
+
+-- Title + Author
+getMainForm().Caption = GameName.. " | Created by Max (Tran Thang Minh)" --input GameName here
+
+
+
+
+-- Activate Mono Features
+function activateMono()
+  if getOpenedProcessID() == 0 then
+      OpenProcess(GameName..".exe") --------------------------------------input GameName.exe here
+  end
+  if getOpenedProcessID()== 0 then
+      showMessage(GameName.. " not found")
+      return
+  end
+
+  -- initialize mono
+  mono_initialize()
+
+  -- kiểm tra game có mono hay không
+  local domains = mono_enumDomains()
+
+  if domains==nil or #domains==0 then
+      --showMessage("Mono not found in this game")
+      return
+  end
+
+  sleep(100)
+
+  if monopipe==nil then
+      LaunchMonoDataCollector()
+  end
+  beep()
+
+end
+
+
+
+
+
+-- Toggle Compact / Full
+function toggleView(sender)
+  local f = getMainForm()
+  local state = (sender.Caption == "Compact View Mode")
+
+  f.Panel5.Visible = state
+  f.Splitter1.Visible = state
+  sender.Caption = state and "Full View Mode" or "Compact View Mode"
+end
+
+
+
+
+
+-- Check if menu already exists
+local parent = getMainForm().Menu.Items
+local exists = false
+
+for i=0,parent.Count-1 do
+  if parent[i].Caption == "Compact View Mode" or parent[i].Caption == "Full View Mode" then
+    exists = true
+    break
+  end
+end
+
+
+
+
+
+-- Create menu if not exists
+if not exists then
+  local m = createMenuItem(parent)
+  m.Caption = "Compact View Mode"
+  m.OnClick = toggleView
+  parent.add(m)
+end
+</LuaScript>
+</CheatTable>

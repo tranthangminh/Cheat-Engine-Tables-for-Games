@@ -2,24 +2,115 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
-      <ID>42</ID>
-      <Description>"IMPORTANT: Active Mono first (Menu bar ➜ Mono ➜ Active mono features)"</Description>
-      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-      <LastState Value="" RealAddress="00000000"/>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
       <Color>BF40BF</Color>
-      <GroupHeader>1</GroupHeader>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
       <CheatEntries>
         <CheatEntry>
-          <ID>43</ID>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16292</ID>
+      <Description>"◀️ IMPORTANT: Enable this checkbox to ACTIVE Mono features FIRST"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Activated="1"/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+mono_initialize()
+LaunchMonoDataCollector()
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16293</ID>
+          <Description>"Active Mono (Menu bar ➜ Mono ➜ Active mono features)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16294</ID>
           <Description>"Make sure you have Cheat Engine 7.4 or later"</Description>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
-          <ID>44</ID>
-          <Description>"Download lastest version here: https://www.cheatengine.org/"</Description>
-          <LastState Value="" RealAddress="00000000"/>
-          <GroupHeader>1</GroupHeader>
+          <ID>16295</ID>
+          <Description>"◀️ Enable this checkbox to Download the latest version from: https://www.cheatengine.org/"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.cheatengine.org/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
@@ -67,6 +158,7 @@
             <CheatEntry>
               <ID>50</ID>
               <Description>"Gold"</Description>
+              <LastState Value="-4.11072666601224E300" RealAddress="16419201298"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>BF4040</Color>
               <VariableType>Double</VariableType>
@@ -75,6 +167,7 @@
             <CheatEntry>
               <ID>49</ID>
               <Description>"Gold (Realtime)"</Description>
+              <LastState Value="1.42018079541517E42" RealAddress="1641D25B873"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>BF4040</Color>
               <VariableType>Double</VariableType>
@@ -83,6 +176,7 @@
             <CheatEntry>
               <ID>107</ID>
               <Description>"Ancient Souls"</Description>
+              <LastState Value="2.71721616279227E-311" RealAddress="1641920196B"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>BF4040</Color>
               <VariableType>Double</VariableType>
@@ -91,6 +185,7 @@
             <CheatEntry>
               <ID>104</ID>
               <Description>"Rubies"</Description>
+              <LastState Value="2.51350456685961E-311" RealAddress="16419201A44"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>BF4040</Color>
               <VariableType>Double</VariableType>
@@ -107,6 +202,7 @@
             <CheatEntry>
               <ID>52</ID>
               <Description>"Zone Level"</Description>
+              <LastState Value="1227652745" RealAddress="1639C8E2EC9"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>BF4040</Color>
               <VariableType>4 Bytes</VariableType>
@@ -115,6 +211,7 @@
             <CheatEntry>
               <ID>119</ID>
               <Description>"Monster HP"</Description>
+              <LastState Value="-5.38800495874716E305" RealAddress="1641D323B70"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>BF4040</Color>
               <VariableType>Double</VariableType>
@@ -123,6 +220,7 @@
             <CheatEntry>
               <ID>51</ID>
               <Description>"Stage in Zone Passed"</Description>
+              <LastState Value="1210337161" RealAddress="16419201BDA"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>BF4040</Color>
               <VariableType>4 Bytes</VariableType>
@@ -133,6 +231,7 @@
         <CheatEntry>
           <ID>105</ID>
           <Description>"Mercenary Entry timer (Realtime) (View Only)"</Description>
+          <LastState Value="3901131592" RealAddress="1641920296D"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>
@@ -141,6 +240,7 @@
         <CheatEntry>
           <ID>95</ID>
           <Description>"Ancients Level"</Description>
+          <LastState Value="2.11708174132508E42" RealAddress="16419203034"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>Double</VariableType>
@@ -149,6 +249,7 @@
         <CheatEntry>
           <ID>92</ID>
           <Description>"Hero Souls"</Description>
+          <LastState Value="-5.38801165567556E305" RealAddress="16419203570"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>Double</VariableType>
@@ -157,6 +258,7 @@
         <CheatEntry>
           <ID>81</ID>
           <Description>"Hero Level"</Description>
+          <LastState Value="675776840" RealAddress="1641920381B"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>
@@ -165,19 +267,311 @@
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>83</ID>
-      <Description>"Cheats"</Description>
+      <ID>16296</ID>
+      <Description>"Active cheats"</Description>
       <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
-      <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//Active Mono Features
+
+[ENABLE]
+{$lua}
+mono_initialize()
+LaunchMonoDataCollector()
+{$asm}
+
+[DISABLE]
+{$lua}
+mono_initialize()
+LaunchMonoDataCollector()
+{$asm}
+</AssemblerScript>
       <CheatEntries>
         <CheatEntry>
-          <ID>89</ID>
-          <Description>"Level +100 (on Level Up)"</Description>
+          <ID>16297</ID>
+          <Description>"Get Stats"</Description>
           <LastState/>
           <Color>40BF40</Color>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Clicker Heroes
+          <AssemblerScript>//Gold
+define(addressGold,Logic.Controllers.UpgradesController:CanAffordUpgrade+33)
+define(bytesGold,48 8B 08 48 89 4D B0)
+
+//Rubies
+define(addressRubies,RubyPurchaseUIController:UpdateRubiesText+37)
+define(bytesRubies,F2 0F 10 80 A0 04 00 00)
+
+//AncientSouls
+define(addressAncientSouls,OutsidersHeaderController:OnMouseEnterAncientSouls+2d)
+define(bytesAncientSouls,F2 0F 10 80 00 05 00 00)
+
+//ZoneLevel
+define(addressZoneLevel,Logic.Controllers.ZoneController:Update+43)
+define(bytesZoneLevel,48 63 46 2C B9 05 00 00 00)
+
+//MonsterHP
+define(addressMonsterHP,Logic.Controllers.MonsterController:TakeDamage+e0)
+define(bytesMonsterHP,48 8B 08 48 89 8D 68 FF FF FF)
+
+
+
+
+
+
+[ENABLE]
+
+//==============================Gold
+
+assert(addressGold,bytesGold)
+alloc(newmemGold,$1000,Logic.Controllers.UpgradesController:CanAffordUpgrade+33)
+
+alloc(Gold,4)
+registersymbol(Gold)
+
+label(codeGold)
+label(returnGold)
+
+newmemGold:
+
+codeGold:
+ mov [Gold],rax
+ mov rcx,[rax]
+ mov [rbp-50],rcx
+ jmp returnGold
+
+addressGold:
+ jmp newmemGold
+ nop 2
+returnGold:
+
+//==============================Rubies
+
+assert(addressRubies,bytesRubies)
+alloc(newmemRubies,$1000,RubyPurchaseUIController:UpdateRubiesText+37)
+
+alloc(Rubies,4)
+registersymbol(Rubies)
+
+label(codeRubies)
+label(returnRubies)
+
+newmemRubies:
+
+codeRubies:
+ mov [Rubies],rax
+ movsd xmm0,[rax+000004A0]
+ jmp returnRubies
+
+addressRubies:
+ jmp newmemRubies
+ nop 3
+returnRubies:
+
+//==============================AncientSouls
+
+assert(addressAncientSouls,bytesAncientSouls)
+alloc(newmemAncientSouls,$1000,OutsidersHeaderController:OnMouseEnterAncientSouls+2d)
+
+alloc(AncientSouls,4)
+registersymbol(AncientSouls)
+
+label(codeAncientSouls)
+label(returnAncientSouls)
+
+newmemAncientSouls:
+
+codeAncientSouls:
+ mov [AncientSouls],rax
+ movsd xmm0,[rax+00000500]
+ jmp returnAncientSouls
+
+addressAncientSouls:
+ jmp newmemAncientSouls
+ nop 3
+returnAncientSouls:
+
+//==============================ZoneLevel
+
+assert(addressZoneLevel,bytesZoneLevel)
+alloc(newmemZoneLevel,$1000,Logic.Controllers.ZoneController:Update+43)
+
+alloc(ZoneLevel,4)
+registersymbol(ZoneLevel)
+
+label(codeZoneLevel)
+label(returnZoneLevel)
+
+newmemZoneLevel:
+
+codeZoneLevel:
+ mov [ZoneLevel],rsi
+ movsxd rax,dword ptr [rsi+2C]
+ mov ecx,00000005
+ jmp returnZoneLevel
+
+addressZoneLevel:
+ jmp newmemZoneLevel
+ nop 4
+returnZoneLevel:
+
+//==============================MonsterHP
+
+assert(addressMonsterHP,bytesMonsterHP)
+alloc(newmemMonsterHP,$1000,Logic.Controllers.MonsterController:TakeDamage+e0)
+
+alloc(MonsterHP,4)
+registersymbol(MonsterHP)
+
+label(codeMonsterHP)
+label(returnMonsterHP)
+
+newmemMonsterHP:
+
+codeMonsterHP:
+ mov [MonsterHP],rax
+ mov rcx,[rax]
+ mov [rbp-00000098],rcx
+ jmp returnMonsterHP
+
+addressMonsterHP:
+ jmp newmemMonsterHP
+ nop 5
+returnMonsterHP:
+
+
+
+
+
+
+
+[DISABLE]
+
+//==============================Gold
+
+addressGold:
+ db bytesGold
+ // mov rcx,[rax]
+ // mov [rbp-50],rcx
+
+dealloc(newmemGold)
+dealloc(Gold)
+unregistersymbol(Gold)
+
+//==============================Rubies
+
+addressRubies:
+ db bytesRubies
+ // movsd xmm0,[rax+000004A0]
+
+dealloc(newmemRubies)
+dealloc(Rubies)
+unregistersymbol(Rubies)
+
+//==============================AncientSouls
+
+addressAncientSouls:
+ db bytesAncientSouls
+ // movsd xmm0,[rax+00000500]
+
+dealloc(newmemAncientSouls)
+dealloc(AncientSouls)
+unregistersymbol(AncientSouls)
+
+//==============================ZoneLevel
+
+addressZoneLevel:
+ db bytesZoneLevel
+ // movsxd rax,dword ptr [rsi+2C]
+ // mov ecx,00000005
+
+dealloc(newmemZoneLevel)
+dealloc(ZoneLevel)
+unregistersymbol(ZoneLevel)
+
+//==============================MonsterHP
+
+addressMonsterHP:
+ db bytesMonsterHP
+ // mov rcx,[rax]
+ // mov [rbp-00000098],rcx
+
+dealloc(newmemMonsterHP)
+dealloc(MonsterHP)
+unregistersymbol(MonsterHP)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16306</ID>
+              <Description>"Ancient Souls (get to Ancient Souls tab first)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Double</VariableType>
+              <Address>AncientSouls</Address>
+              <Offsets>
+                <Offset>500</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16302</ID>
+              <Description>"Rubies (get to Shop tab first)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Double</VariableType>
+              <Address>Rubies</Address>
+              <Offsets>
+                <Offset>4A0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16300</ID>
+              <Description>"Gold"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Double</VariableType>
+              <Address>Gold</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16298</ID>
+              <Description>"Zone Level"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>ZoneLevel</Address>
+              <Offsets>
+                <Offset>2C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16304</ID>
+              <Description>"Monster HP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Double</VariableType>
+              <Address>MonsterHP</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>83</ID>
+          <Description>"Cheats"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>89</ID>
+              <Description>"Level +100 (on Level Up)"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Clicker Heroes
   Version: 
   Date   : 2025-11-25
   Author : Max
@@ -244,14 +638,14 @@ Logic.Controllers.HeroesController:AddLevel+56: 83 38 00                       -
 Logic.Controllers.HeroesController:AddLevel+59: 48 8D 64 24 00                 - lea rsp,[rsp+00]
 }
 </AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>90</ID>
-          <Description>"Level +100,000 (on Level Up)"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Clicker Heroes
+            </CheatEntry>
+            <CheatEntry>
+              <ID>90</ID>
+              <Description>"Level +100,000 (on Level Up)"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Clicker Heroes
   Version: 
   Date   : 2025-11-25
   Author : Max
@@ -318,14 +712,14 @@ Logic.Controllers.HeroesController:AddLevel+56: 83 38 00                       -
 Logic.Controllers.HeroesController:AddLevel+59: 48 8D 64 24 00                 - lea rsp,[rsp+00]
 }
 </AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>91</ID>
-          <Description>"Level +100,000,000 (on Level Up)"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Clicker Heroes
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91</ID>
+              <Description>"Level +100,000,000 (on Level Up)"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Clicker Heroes
   Version: 
   Date   : 2025-11-25
   Author : Max
@@ -392,14 +786,14 @@ Logic.Controllers.HeroesController:AddLevel+56: 83 38 00                       -
 Logic.Controllers.HeroesController:AddLevel+59: 48 8D 64 24 00                 - lea rsp,[rsp+00]
 }
 </AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>109</ID>
-          <Description>"Stages +1000 on pass"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Clicker Heroes
+            </CheatEntry>
+            <CheatEntry>
+              <ID>109</ID>
+              <Description>"Stages +1000 on pass"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Clicker Heroes
   Version: 
   Date   : 2025-11-27
   Author : Max
@@ -465,88 +859,14 @@ Logic.Controllers.ZoneController:IncrProgress+3e: FF 50 18                      
 Logic.Controllers.ZoneController:IncrProgress+41: 48 8B 45 E0                    - mov rax,[rbp-20]
 }
 </AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>121</ID>
-          <Description>"Instant Death - Monster"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Clicker Heroes
-  Version: 
-  Date   : 2025-11-27
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-define(INJECT,Logic.Controllers.MonsterController:TakeDamage+e0) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  nop 
-  nop 
-  nop 
-  mov [rbp-00000098],rcx
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop 5
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 90 90 90 48 89 8D 68 FF FF FF
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: Logic.Controllers.MonsterController:TakeDamage+e0
-
-Logic.Controllers.MonsterController:TakeDamage+af: 48 89 8D 60 FF FF FF           - mov [rbp-000000A0],rcx
-Logic.Controllers.MonsterController:TakeDamage+b6: 48 8D 08                       - lea rcx,[rax]
-Logic.Controllers.MonsterController:TakeDamage+b9: 48 8D 64 24 00                 - lea rsp,[rsp+00]
-Logic.Controllers.MonsterController:TakeDamage+be: 49 BB A0 9D B1 F9 11 02 00 00  - mov r11,Logic.Core.BigNumber:op_GreaterThan
-Logic.Controllers.MonsterController:TakeDamage+c8: 41 FF D3                       - call r11
-Logic.Controllers.MonsterController:TakeDamage+cb: 85 C0                          - test eax,eax
-Logic.Controllers.MonsterController:TakeDamage+cd: 0F 84 40 01 00 00              - je Logic.Controllers.MonsterController:TakeDamage+213
-Logic.Controllers.MonsterController:TakeDamage+d3: 48 85 FF                       - test rdi,rdi
-Logic.Controllers.MonsterController:TakeDamage+d6: 0F 84 66 01 00 00              - je Logic.Controllers.MonsterController:TakeDamage+242
-Logic.Controllers.MonsterController:TakeDamage+dc: 48 8D 47 20                    - lea rax,[rdi+20]
-// ---------- INJECTING HERE ----------
-Logic.Controllers.MonsterController:TakeDamage+e0: 90                             - nop 
-// ---------- DONE INJECTING  ----------
-Logic.Controllers.MonsterController:TakeDamage+e1: 90                             - nop 
-Logic.Controllers.MonsterController:TakeDamage+e2: 90                             - nop 
-Logic.Controllers.MonsterController:TakeDamage+e3: 48 89 8D 68 FF FF FF           - mov [rbp-00000098],rcx
-Logic.Controllers.MonsterController:TakeDamage+ea: 48 8B 40 08                    - mov rax,[rax+08]
-Logic.Controllers.MonsterController:TakeDamage+ee: 48 89 85 70 FF FF FF           - mov [rbp-00000090],rax
-Logic.Controllers.MonsterController:TakeDamage+f5: 48 8B CD                       - mov rcx,rbp
-Logic.Controllers.MonsterController:TakeDamage+f8: 48 81 C1 78 FF FF FF           - add rcx,FFFFFFFFFFFFFF78
-Logic.Controllers.MonsterController:TakeDamage+ff: 48 8B 95 20 FF FF FF           - mov rdx,[rbp-000000E0]
-Logic.Controllers.MonsterController:TakeDamage+106: 48 8B C5                       - mov rax,rbp
-Logic.Controllers.MonsterController:TakeDamage+109: 48 83 C0 88                    - add rax,-78
-}
-</AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>110</ID>
-          <Description>"Zone +10 on pass"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Clicker Heroes
+            </CheatEntry>
+            <CheatEntry>
+              <ID>110</ID>
+              <Description>"Zone +10 on pass"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Clicker Heroes
   Version: 
   Date   : 2025-11-27
   Author : Max
@@ -612,14 +932,14 @@ Logic.Controllers.ZoneController:GetZoneByHeight+9e: 4C 8B 7D F8                
 Logic.Controllers.ZoneController:GetZoneByHeight+a2: 48 8D 65 00                    - lea rsp,[rbp+00]
 }
 </AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>115</ID>
-          <Description>"Zone +100 on pass"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Clicker Heroes
+            </CheatEntry>
+            <CheatEntry>
+              <ID>115</ID>
+              <Description>"Zone +100 on pass"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Clicker Heroes
   Version: 
   Date   : 2025-11-27
   Author : Max
@@ -685,14 +1005,14 @@ Logic.Controllers.ZoneController:GetZoneByHeight+9e: 4C 8B 7D F8                
 Logic.Controllers.ZoneController:GetZoneByHeight+a2: 48 8D 65 00                    - lea rsp,[rbp+00]
 }
 </AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>116</ID>
-          <Description>"Zone +1000 on pass"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Clicker Heroes
+            </CheatEntry>
+            <CheatEntry>
+              <ID>116</ID>
+              <Description>"Zone +1000 on pass"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Clicker Heroes
   Version: 
   Date   : 2025-11-27
   Author : Max
@@ -758,14 +1078,14 @@ Logic.Controllers.ZoneController:GetZoneByHeight+9e: 4C 8B 7D F8                
 Logic.Controllers.ZoneController:GetZoneByHeight+a2: 48 8D 65 00                    - lea rsp,[rbp+00]
 }
 </AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>111</ID>
-          <Description>"Zone = 100 on pass"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Clicker Heroes
+            </CheatEntry>
+            <CheatEntry>
+              <ID>111</ID>
+              <Description>"Zone = 100 on pass"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Clicker Heroes
   Version: 
   Date   : 2025-11-27
   Author : Max
@@ -831,14 +1151,14 @@ Logic.Controllers.ZoneController:GetZoneByHeight+9e: 4C 8B 7D F8                
 Logic.Controllers.ZoneController:GetZoneByHeight+a2: 48 8D 65 00                    - lea rsp,[rbp+00]
 }
 </AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>113</ID>
-          <Description>"Zone = 100,000 on pass"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Clicker Heroes
+            </CheatEntry>
+            <CheatEntry>
+              <ID>113</ID>
+              <Description>"Zone = 100,000 on pass"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Clicker Heroes
   Version: 
   Date   : 2025-11-27
   Author : Max
@@ -904,14 +1224,14 @@ Logic.Controllers.ZoneController:GetZoneByHeight+9e: 4C 8B 7D F8                
 Logic.Controllers.ZoneController:GetZoneByHeight+a2: 48 8D 65 00                    - lea rsp,[rbp+00]
 }
 </AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>112</ID>
-          <Description>"Zone = 100,000,000 on pass"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Clicker Heroes
+            </CheatEntry>
+            <CheatEntry>
+              <ID>112</ID>
+              <Description>"Zone = 100,000,000 on pass"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Clicker Heroes
   Version: 
   Date   : 2025-11-27
   Author : Max
@@ -977,6 +1297,8 @@ Logic.Controllers.ZoneController:GetZoneByHeight+9e: 4C 8B 7D F8                
 Logic.Controllers.ZoneController:GetZoneByHeight+a2: 48 8D 65 00                    - lea rsp,[rbp+00]
 }
 </AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
@@ -2810,6 +3132,18 @@ dealloc(newmem)
 </AssemblerScript>
         </CheatEntry>
       </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16303</ID>
+      <Description>"No Description"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>1A863BADCAC</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16305</ID>
+      <Description>"No Description"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>1A863BADCA4</Address>
     </CheatEntry>
   </CheatEntries>
   <CheatCodes>

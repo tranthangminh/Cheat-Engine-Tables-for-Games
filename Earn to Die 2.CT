@@ -1,0 +1,1575 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>77</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"Money - Buy"</Description>
+          <LastState Value="2957352425" RealAddress="5832BA5E"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>earntodie_2.s86.text+FAA5E</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>78</ID>
+          <Description>"Ammo"</Description>
+          <LastState Value="3068189161" RealAddress="582D1F22"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>earntodie_2.s86.text+A0F22</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>80</ID>
+          <Description>"Booster"</Description>
+          <LastState Value="-0.00007687492325" RealAddress="582C5EC4"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>earntodie_2.s86.text+94EC4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82</ID>
+          <Description>"Zombie Smashed Count (realtime)"</Description>
+          <LastState Value="1178271883" RealAddress="582B75B9"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>earntodie_2.s86.text+865B9</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>83</ID>
+          <Description>"Fuel"</Description>
+          <LastState Value="-0.0002997510892" RealAddress="582C62D4"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>earntodie_2.s86.text+952D4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>96</ID>
+          <Description>"Mission Process"</Description>
+          <LastState Value="251938441" RealAddress="583048D2"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>earntodie_2.s86.text+D38D2</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>72</ID>
+      <Description>"Active cheats"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16292</ID>
+          <Description>"Get Stats"</Description>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Earn to Die 2
+  Date   : 2026-03-19
+  Author : Max Chen (Trần Thắng Minh) - Contact me:
+    🌐Facebook  : https://www.facebook.com/maxiechen
+    🌐Reddit    : https://www.reddit.com/user/maxiechen96
+    🌐Discord   : https://discord.com/users/@maxiechen
+
+  Update Here
+    ☁️GoogleDrive: https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link
+    ☁️Github     : https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games
+}
+
+
+
+//Speed
+//INJECTING HERE: earntodie_2.s86.text+E13B2: D9 40 48  - fld dword ptr [eax+48]
+define(addressSpeed,earntodie_2.s86.text+E13B2)
+//define(bytesSpeed,D9 40 48 C3 CC)
+
+//Ammo
+//INJECTING HERE: earntodie_2.s86.text+CA2F9: FF 70 04                 - push [eax+04]
+define(addressAmmo,earntodie_2.s86.text+CA2F9)
+//define(bytesAmmo,FF 70 04 8D 45 F4)
+
+//Fuel
+//INJECTING HERE: earntodie_2.s86.text+CA1FC: F3 0F 10 43 34           - movss xmm0,[ebx+34]
+define(addressFuel,earntodie_2.s86.text+CA1FC)
+//define(bytesFuel,F3 0F 10 43 34)
+
+//Booster
+//INJECTING HERE: earntodie_2.s86.text+CA23B: F3 0F 10 43 38           - movss xmm0,[ebx+38]
+define(addressBooster,earntodie_2.s86.text+CA23B)
+//define(bytesBooster,F3 0F 10 43 38)
+
+//Money:  earntodie_2.s86.text+FAEC1: 39 41 10              - cmp [ecx+10],eax
+define(addressMoney,earntodie_2.s86.text+FAEC1)
+//define(bytesMoney,39 41 10 8D 45 E4)
+
+
+
+
+
+
+[ENABLE]
+
+//──────────────────────────────────────── Speed: earntodie_2.s86.text+E13B2: D9 40 48  - fld dword ptr [eax+48]
+
+//assert(addressSpeed,bytesSpeed)
+alloc(newmemSpeed,$1000)
+
+alloc(Speed,8)
+registersymbol(Speed)
+
+label(codeSpeed)
+label(returnSpeed)
+
+newmemSpeed:
+
+codeSpeed:
+  mov [Speed],eax //Save ecx address into Speed
+  fld dword ptr [eax+48]
+  ret
+  int 3
+  jmp returnSpeed
+
+addressSpeed:
+  jmp newmemSpeed
+returnSpeed:
+
+//──────────────────────────────────────── Ammo: earntodie_2.s86.text+CA2F9: FF 70 04                 - push [eax+04]
+
+//assert(addressAmmo,bytesAmmo)
+alloc(newmemAmmo,$1000)
+
+alloc(Ammo,8)
+registersymbol(Ammo)
+
+label(codeAmmo)
+label(returnAmmo)
+
+newmemAmmo:
+
+codeAmmo:
+  mov [Ammo],eax //Save ebp address into Ammo
+  push [eax+04]
+  lea eax,[ebp-0C]
+  jmp returnAmmo
+
+addressAmmo:
+  jmp newmemAmmo
+  nop
+returnAmmo:
+
+//──────────────────────────────────────── Fuel: earntodie_2.s86.text+CA1FC: F3 0F 10 43 34           - movss xmm0,[ebx+34]
+
+//assert(addressFuel,bytesFuel)
+alloc(newmemFuel,$1000)
+
+alloc(Fuel,8)
+registersymbol(Fuel)
+
+label(codeFuel)
+label(returnFuel)
+
+newmemFuel:
+
+codeFuel:
+  mov [Fuel],ebx //Save ebx address into Fuel
+  movss xmm0,[ebx+34]
+  jmp returnFuel
+
+addressFuel:
+  jmp newmemFuel
+returnFuel:
+
+//──────────────────────────────────────── Booster: earntodie_2.s86.text+CA23B: F3 0F 10 43 38           - movss xmm0,[ebx+38]
+
+//assert(addressBooster,bytesBooster)
+alloc(newmemBooster,$1000)
+
+alloc(Booster,8)
+registersymbol(Booster)
+
+label(codeBooster)
+label(returnBooster)
+
+newmemBooster:
+
+codeBooster:
+  mov [Booster],ebx //Save ebx address into Booster
+  movss xmm0,[ebx+38]
+  jmp returnBooster
+
+addressBooster:
+  jmp newmemBooster
+returnBooster:
+
+//──────────────────────────────────────── Money: earntodie_2.s86.text+FAEC1: 39 41 10              - cmp [ecx+10],eax
+
+//assert(addressMoney,bytesMoney)
+alloc(newmemMoney,$1000)
+
+alloc(Money,8)
+registersymbol(Money)
+
+label(codeMoney)
+label(returnMoney)
+
+newmemMoney:
+
+codeMoney:
+  mov [Money],ecx //Save eax address into Money
+  cmp [ecx+10],eax
+  lea eax,[ebp-1C]
+  jmp returnMoney
+
+addressMoney:
+  jmp newmemMoney
+  nop
+returnMoney:
+
+
+
+
+
+
+
+[DISABLE]
+
+//──────────────────── Speed: earntodie_2.s86.text+E13B2: D9 40 48  - fld dword ptr [eax+48]
+addressSpeed:
+  //db bytesSpeed
+  fld dword ptr [eax+48]
+  ret
+  int 3
+
+dealloc(newmemSpeed)
+dealloc(Speed)
+unregistersymbol(Speed)
+
+//──────────────────── Ammo: earntodie_2.s86.text+CA2F9: FF 70 04                 - push [eax+04]
+addressAmmo:
+  //db bytesAmmo
+  push [eax+04]
+  lea eax,[ebp-0C]
+
+dealloc(newmemAmmo)
+dealloc(Ammo)
+unregistersymbol(Ammo)
+
+//──────────────────── Fuel: earntodie_2.s86.text+CA1FC: F3 0F 10 43 34           - movss xmm0,[ebx+34]
+addressFuel:
+  //db bytesFuel
+  movss xmm0,[ebx+34]
+
+dealloc(newmemFuel)
+dealloc(Fuel)
+unregistersymbol(Fuel)
+
+//──────────────────── Booster: earntodie_2.s86.text+CA23B: F3 0F 10 43 38           - movss xmm0,[ebx+38]
+addressBooster:
+  //db bytesBooster
+  movss xmm0,[ebx+38]
+
+dealloc(newmemBooster)
+dealloc(Booster)
+unregistersymbol(Booster)
+
+//──────────────────── Money: earntodie_2.s86.text+FAEC1: 39 41 10              - cmp [ecx+10],eax
+addressMoney:
+  //db bytesMoney
+  cmp [ecx+10],eax
+  lea eax,[ebp-1C]
+
+dealloc(newmemMoney)
+dealloc(Money)
+unregistersymbol(Money)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16304</ID>
+              <Description>"Money"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Money</Address>
+              <Offsets>
+                <Offset>10</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16306</ID>
+              <Description>"Ammo"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Ammo</Address>
+              <Offsets>
+                <Offset>4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16310</ID>
+              <Description>"Booster"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>Booster</Address>
+              <Offsets>
+                <Offset>38</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16308</ID>
+              <Description>"Fuel"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>Fuel</Address>
+              <Offsets>
+                <Offset>34</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16297</ID>
+              <Description>"Jump/Dmg?? (set bigger than 1 will make Car jump)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>Speed</Address>
+              <Offsets>
+                <Offset>48</Offset>
+              </Offsets>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16298</ID>
+                  <Description>"Set bigger than 0 -&gt; Car roller forward"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16299</ID>
+                  <Description>"Set smaller than 0 -&gt; Car roller backward"</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16300</ID>
+              <Description>"Your wheels will roll automatically. The higher the value, the faster they roll."</Description>
+              <Options moRecursiveSetValue="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>40BF40</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16293</ID>
+                  <Description>"Front Wheel RPM"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>Speed</Address>
+                  <Offsets>
+                    <Offset>E8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16296</ID>
+                  <Description>"Rear Wheel RPM"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>Speed</Address>
+                  <Offsets>
+                    <Offset>188</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"Money = 999.999"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Earn to Die 2
+  Version: 
+  Date   : 2025-12-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"earntodie_2.s86"+FBA5E)
+define(bytes,89 70 10 FF B7 F8 00 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [eax+10],(int)999999
+  //mov [eax+10],esi
+  push [edi+000000F8]
+  jmp return
+
+address:
+  jmp newmem
+  nop 4
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [eax+10],esi
+  // push [edi+000000F8]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: earntodie_2.s86.text+FAA5E
+
+earntodie_2.s86.text+FAA39: 50                 - push eax
+earntodie_2.s86.text+FAA3A: FF B7 F8 00 00 00  - push [edi+000000F8]
+earntodie_2.s86.text+FAA40: FF 71 14           - push [ecx+14]
+earntodie_2.s86.text+FAA43: 8B 0D 00 7C 5F 61  - mov ecx,[earntodie_2.s86+1E7C00]
+earntodie_2.s86.text+FAA49: E8 62 1C 00 00     - call earntodie_2.s86.text+FC6B0
+earntodie_2.s86.text+FAA4E: 3B F0              - cmp esi,eax
+earntodie_2.s86.text+FAA50: 0F 8C 17 01 00 00  - jl earntodie_2.s86.text+FAB6D
+earntodie_2.s86.text+FAA56: 2B F0              - sub esi,eax
+earntodie_2.s86.text+FAA58: A1 E0 7B 5F 61     - mov eax,[earntodie_2.s86.data+FBE0]
+earntodie_2.s86.text+FAA5D: 53                 - push ebx
+// ---------- INJECTING HERE ----------
+earntodie_2.s86.text+FAA5E: 89 70 10           - mov [eax+10],esi
+// ---------- DONE INJECTING  ----------
+earntodie_2.s86.text+FAA61: FF B7 F8 00 00 00  - push [edi+000000F8]
+earntodie_2.s86.text+FAA67: 8B 0D E0 7B 5F 61  - mov ecx,[earntodie_2.s86.data+FBE0]
+earntodie_2.s86.text+FAA6D: E8 AE B8 FF FF     - call earntodie_2.s86.text+F6320
+earntodie_2.s86.text+FAA72: 8B C8              - mov ecx,eax
+earntodie_2.s86.text+FAA74: E8 C7 05 00 00     - call earntodie_2.s86.text+FB040
+earntodie_2.s86.text+FAA79: 8B 0D E0 7B 5F 61  - mov ecx,[earntodie_2.s86.data+FBE0]
+earntodie_2.s86.text+FAA7F: 40                 - inc eax
+earntodie_2.s86.text+FAA80: 50                 - push eax
+earntodie_2.s86.text+FAA81: FF B7 F8 00 00 00  - push [edi+000000F8]
+earntodie_2.s86.text+FAA87: E8 94 B8 FF FF     - call earntodie_2.s86.text+F6320
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>79</ID>
+          <Description>"Ammo"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Earn to Die 2
+  Version: 
+  Date   : 2025-12-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"earntodie_2.s86"+A1F22)
+define(bytes,FF 4E 04 8B 46 1C)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //dec [esi+04]
+  mov eax,[esi+1C]
+  jmp return
+
+address:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // dec [esi+04]
+  // mov eax,[esi+1C]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: earntodie_2.s86.text+A0F22
+
+earntodie_2.s86.text+A0F03: E8 88 33 FF FF        - call earntodie_2.s86.text+94290
+earntodie_2.s86.text+A0F08: 84 C0                 - test al,al
+earntodie_2.s86.text+A0F0A: 75 75                 - jne earntodie_2.s86.text+A0F81
+earntodie_2.s86.text+A0F0C: F3 0F 10 46 18        - movss xmm0,[esi+18]
+earntodie_2.s86.text+A0F11: 0F 2F 46 14           - comiss xmm0,[esi+14]
+earntodie_2.s86.text+A0F15: 72 4E                 - jb earntodie_2.s86.text+A0F65
+earntodie_2.s86.text+A0F17: 8B CE                 - mov ecx,esi
+earntodie_2.s86.text+A0F19: E8 52 FF FF FF        - call earntodie_2.s86.text+A0E70
+earntodie_2.s86.text+A0F1E: 84 C0                 - test al,al
+earntodie_2.s86.text+A0F20: 74 43                 - je earntodie_2.s86.text+A0F65
+// ---------- INJECTING HERE ----------
+earntodie_2.s86.text+A0F22: FF 4E 04              - dec [esi+04]
+// ---------- DONE INJECTING  ----------
+earntodie_2.s86.text+A0F25: 8B 46 1C              - mov eax,[esi+1C]
+earntodie_2.s86.text+A0F28: 8B 4E 04              - mov ecx,[esi+04]
+earntodie_2.s86.text+A0F2B: C7 46 18 00 00 00 00  - mov [esi+18],00000000
+earntodie_2.s86.text+A0F32: C6 46 20 01           - mov byte ptr [esi+20],01
+earntodie_2.s86.text+A0F36: 3B 46 10              - cmp eax,[esi+10]
+earntodie_2.s86.text+A0F39: 7D 09                 - jnl earntodie_2.s86.text+A0F44
+earntodie_2.s86.text+A0F3B: 40                    - inc eax
+earntodie_2.s86.text+A0F3C: 89 46 1C              - mov [esi+1C],eax
+earntodie_2.s86.text+A0F3F: 8B 46 08              - mov eax,[esi+08]
+earntodie_2.s86.text+A0F42: EB 0A                 - jmp earntodie_2.s86.text+A0F4E
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>81</ID>
+          <Description>"Booster"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Earn to Die 2
+  Version: 
+  Date   : 2025-12-23
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"earntodie_2.s86"+95EC4)
+define(bytes,F3 0F 11 43 38)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [ebx+38],xmm0
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // movss [ebx+38],xmm0
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: earntodie_2.s86.text+94EC4
+
+earntodie_2.s86.text+94E9C: 8B CF                 - mov ecx,edi
+earntodie_2.s86.text+94E9E: 50                    - push eax
+earntodie_2.s86.text+94E9F: E8 4C BC 04 00        - call earntodie_2.s86.text+E0AF0
+earntodie_2.s86.text+94EA4: 80 BB B8 00 00 00 00  - cmp byte ptr [ebx+000000B8],00
+earntodie_2.s86.text+94EAB: C6 83 94 00 00 00 01  - mov byte ptr [ebx+00000094],01
+earntodie_2.s86.text+94EB2: 75 5E                 - jne earntodie_2.s86.text+94F12
+earntodie_2.s86.text+94EB4: F3 0F 10 43 38        - movss xmm0,[ebx+38]
+earntodie_2.s86.text+94EB9: 0F 57 C9              - xorps xmm1,xmm1
+earntodie_2.s86.text+94EBC: F3 0F 5C 45 08        - subss xmm0,[ebp+08]
+earntodie_2.s86.text+94EC1: 0F 2F C8              - comiss xmm1,xmm0
+// ---------- INJECTING HERE ----------
+earntodie_2.s86.text+94EC4: F3 0F 11 43 38        - movss [ebx+38],xmm0
+// ---------- DONE INJECTING  ----------
+earntodie_2.s86.text+94EC9: 72 47                 - jb earntodie_2.s86.text+94F12
+earntodie_2.s86.text+94ECB: C7 43 38 00 00 00 00  - mov [ebx+38],00000000
+earntodie_2.s86.text+94ED2: EB 33                 - jmp earntodie_2.s86.text+94F07
+earntodie_2.s86.text+94ED4: 8B CB                 - mov ecx,ebx
+earntodie_2.s86.text+94ED6: E8 85 F2 FF FF        - call earntodie_2.s86.text+94160
+earntodie_2.s86.text+94EDB: 84 C0                 - test al,al
+earntodie_2.s86.text+94EDD: 74 16                 - je earntodie_2.s86.text+94EF5
+earntodie_2.s86.text+94EDF: 80 BB B0 00 00 00 00  - cmp byte ptr [ebx+000000B0],00
+earntodie_2.s86.text+94EE6: 75 2A                 - jne earntodie_2.s86.text+94F12
+earntodie_2.s86.text+94EE8: 8B 0D 34 C4 5F 61     - mov ecx,[earntodie_2.s86+1EC434]
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>84</ID>
+          <Description>"Fuel"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Earn to Die 2
+  Version: 
+  Date   : 2025-12-24
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"earntodie_2.s86"+962D4)
+define(bytes,F3 0F 11 47 34)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [edi+34],xmm0
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // movss [edi+34],xmm0
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: earntodie_2.s86.text+952D4
+
+earntodie_2.s86.text+952A8: A8 01                    - test al,01
+earntodie_2.s86.text+952AA: 74 07                    - je earntodie_2.s86.text+952B3
+earntodie_2.s86.text+952AC: C7 47 34 00 00 00 00     - mov [edi+34],00000000
+earntodie_2.s86.text+952B3: 80 7D E1 00              - cmp byte ptr [ebp-1F],00
+earntodie_2.s86.text+952B7: F3 0F 10 4F 50           - movss xmm1,[edi+50]
+earntodie_2.s86.text+952BC: F3 0F 10 47 34           - movss xmm0,[edi+34]
+earntodie_2.s86.text+952C1: F3 0F 59 4D 08           - mulss xmm1,[ebp+08]
+earntodie_2.s86.text+952C6: 75 08                    - jne earntodie_2.s86.text+952D0
+earntodie_2.s86.text+952C8: F3 0F 59 0D B8 C6 55 61  - mulss xmm1,[earntodie_2.IwAppEntry+AC48]
+earntodie_2.s86.text+952D0: F3 0F 5C C1              - subss xmm0,xmm1
+// ---------- INJECTING HERE ----------
+earntodie_2.s86.text+952D4: F3 0F 11 47 34           - movss [edi+34],xmm0
+// ---------- DONE INJECTING  ----------
+earntodie_2.s86.text+952D9: 0F 57 C0                 - xorps xmm0,xmm0
+earntodie_2.s86.text+952DC: 0F 2F 47 34              - comiss xmm0,[edi+34]
+earntodie_2.s86.text+952E0: 0F 82 E4 00 00 00        - jb earntodie_2.s86.text+953CA
+earntodie_2.s86.text+952E6: C7 47 34 00 00 00 00     - mov [edi+34],00000000
+earntodie_2.s86.text+952ED: 8B 0D 34 C4 5F 61        - mov ecx,[earntodie_2.s86+1EC434]
+earntodie_2.s86.text+952F3: 8B 01                    - mov eax,[ecx]
+earntodie_2.s86.text+952F5: FF 50 18                 - call dword ptr [eax+18]
+earntodie_2.s86.text+952F8: 5F                       - pop edi
+earntodie_2.s86.text+952F9: 8B 4D FC                 - mov ecx,[ebp-04]
+earntodie_2.s86.text+952FC: 33 CD                    - xor ecx,ebp
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>94</ID>
+      <Description>"SOURCE: https://fearlessrevolution.com/viewtopic.php?t=26059"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>63</ID>
+          <Description>"Pointers &amp; Staatic Adresses"</Description>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>00FF00</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>21</ID>
+              <Description>"Money Static Address"</Description>
+              <LastState Value="1028260000" RealAddress="5841B830"/>
+              <Color>008000</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>earntodie_2.s86+1EB830</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>24</ID>
+              <Description>"Money (4 Bytes : 0 - ?) Pointer "</Description>
+              <LastState Value="1028260000" RealAddress="0CFE9128"/>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"earntodie_2.s86"+001E7BE8</Address>
+              <Offsets>
+                <Offset>918</Offset>
+                <Offset>0</Offset>
+                <Offset>C</Offset>
+                <Offset>34</Offset>
+                <Offset>4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>85</ID>
+              <Description>"Fuel (float : 0 - 100) Pointer"</Description>
+              <Color>0080FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"earntodie_2.s86"+001E812C</Address>
+              <Offsets>
+                <Offset>34</Offset>
+                <Offset>0</Offset>
+                <Offset>4</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+                <Offset>68</Offset>
+                <Offset>18</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>87</ID>
+              <Description>"Boost (Float : 0 - 10) Pointer"</Description>
+              <Color>00FFFF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"earntodie_2.s86"+001EC438</Address>
+              <Offsets>
+                <Offset>38</Offset>
+                <Offset>0</Offset>
+                <Offset>4</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+                <Offset>68</Offset>
+                <Offset>4</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>64</ID>
+          <Description>"Hack Scripts"</Description>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>19</ID>
+              <Description>"Money Add 9999"</Description>
+              <LastState/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Earn to Die 2
+  Version: 
+  Date   : 2023-10-14
+  Author : pc
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+aobscanmodule(INJECT,earntodie_2.s86,01 59 10 0F 2F C1) // should be unique
+alloc(newmem,$1000)
+label(code)
+label(return)
+
+newmem:
+mov ebx,(int)9999
+
+code:
+  add [ecx+10],ebx
+  comiss xmm0,xmm1
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECT:
+  db 01 59 10 0F 2F C1
+
+unregistersymbol(INJECT)
+unregistersymbol(assdat)
+dealloc(newmem)
+dealloc(ass)
+{
+// ORIGINAL CODE - INJECTION POINT: earntodie_2.s86+F63BB
+
+earntodie_2.s86+F6397: E8 74 46 FE FF  - call earntodie_2.s86+DAA10
+earntodie_2.s86+F639C: 0F AF C3        - imul eax,ebx
+earntodie_2.s86+F639F: 50              - push eax
+earntodie_2.s86+F63A0: E8 4B 12 F9 FF  - call earntodie_2.s86+875F0
+earntodie_2.s86+F63A5: 8B C8           - mov ecx,eax
+earntodie_2.s86+F63A7: E8 A4 13 F9 FF  - call earntodie_2.s86+87750
+earntodie_2.s86+F63AC: 8B 4D 08        - mov ecx,[ebp+08]
+earntodie_2.s86+F63AF: 2B DE           - sub ebx,esi
+earntodie_2.s86+F63B1: F3 0F 10 4D DC  - movss xmm1,[ebp-24]
+earntodie_2.s86+F63B6: F3 0F 10 41 1C  - movss xmm0,[ecx+1C]
+// ---------- INJECTING HERE ----------
+earntodie_2.s86+F63BB: 01 59 10        - add [ecx+10],ebx
+// ---------- DONE INJECTING  ----------
+earntodie_2.s86+F63BE: 0F 2F C1        - comiss xmm0,xmm1
+earntodie_2.s86+F63C1: 77 03           - ja earntodie_2.s86+F63C6
+earntodie_2.s86+F63C3: 0F 28 C1        - movaps xmm0,xmm1
+earntodie_2.s86+F63C6: 8B 41 20        - mov eax,[ecx+20]
+earntodie_2.s86+F63C9: 8D 71 20        - lea esi,[ecx+20]
+earntodie_2.s86+F63CC: 8B 5D E4        - mov ebx,[ebp-1C]
+earntodie_2.s86+F63CF: 8D 57 4C        - lea edx,[edi+4C]
+earntodie_2.s86+F63D2: F3 0F 11 41 1C  - movss [ecx+1C],xmm0
+earntodie_2.s86+F63D7: 0F 57 C9        - xorps xmm1,xmm1
+earntodie_2.s86+F63DA: 3B 02           - cmp eax,[edx]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>25</ID>
+              <Description>"Money Remain Same"</Description>
+              <LastState/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Earn to Die 2
+  Version: 
+  Date   : 2023-10-14
+  Author : pc
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+aobscanmodule(INJECT,earntodie_2.s86,01 59 10 0F 2F C1) // should be unique
+alloc(newmem,$1000)
+label(code)
+label(return)
+
+newmem:
+mov ebx,(int)0
+
+code:
+  add [ecx+10],ebx
+  comiss xmm0,xmm1
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECT:
+  db 01 59 10 0F 2F C1
+
+unregistersymbol(INJECT)
+unregistersymbol(assdat)
+dealloc(newmem)
+dealloc(ass)
+{
+// ORIGINAL CODE - INJECTION POINT: earntodie_2.s86+F63BB
+
+earntodie_2.s86+F6397: E8 74 46 FE FF  - call earntodie_2.s86+DAA10
+earntodie_2.s86+F639C: 0F AF C3        - imul eax,ebx
+earntodie_2.s86+F639F: 50              - push eax
+earntodie_2.s86+F63A0: E8 4B 12 F9 FF  - call earntodie_2.s86+875F0
+earntodie_2.s86+F63A5: 8B C8           - mov ecx,eax
+earntodie_2.s86+F63A7: E8 A4 13 F9 FF  - call earntodie_2.s86+87750
+earntodie_2.s86+F63AC: 8B 4D 08        - mov ecx,[ebp+08]
+earntodie_2.s86+F63AF: 2B DE           - sub ebx,esi
+earntodie_2.s86+F63B1: F3 0F 10 4D DC  - movss xmm1,[ebp-24]
+earntodie_2.s86+F63B6: F3 0F 10 41 1C  - movss xmm0,[ecx+1C]
+// ---------- INJECTING HERE ----------
+earntodie_2.s86+F63BB: 01 59 10        - add [ecx+10],ebx
+// ---------- DONE INJECTING  ----------
+earntodie_2.s86+F63BE: 0F 2F C1        - comiss xmm0,xmm1
+earntodie_2.s86+F63C1: 77 03           - ja earntodie_2.s86+F63C6
+earntodie_2.s86+F63C3: 0F 28 C1        - movaps xmm0,xmm1
+earntodie_2.s86+F63C6: 8B 41 20        - mov eax,[ecx+20]
+earntodie_2.s86+F63C9: 8D 71 20        - lea esi,[ecx+20]
+earntodie_2.s86+F63CC: 8B 5D E4        - mov ebx,[ebp-1C]
+earntodie_2.s86+F63CF: 8D 57 4C        - lea edx,[edi+4C]
+earntodie_2.s86+F63D2: F3 0F 11 41 1C  - movss [ecx+1C],xmm0
+earntodie_2.s86+F63D7: 0F 57 C9        - xorps xmm1,xmm1
+earntodie_2.s86+F63DA: 3B 02           - cmp eax,[edx]
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>9</ID>
+              <Description>"Infinite Money"</Description>
+              <LastState/>
+              <Color>00FF00</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+mov esi,(int)9999
+
+originalcode:
+mov [eax+10],esi
+push [edi+000000F8]
+
+exit:
+jmp returnhere
+
+"earntodie_2.s86"+FBA5E:
+jmp newmem
+nop 4
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"earntodie_2.s86"+FBA5E:
+db 89 70 10 FF B7 F8 00 00 00
+//mov [eax+10],esi
+//push [edi+000000F8]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12</ID>
+              <Description>"Infinite Bullets"</Description>
+              <LastState/>
+              <Color>0080FF</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+mov [esi+04],(int)99
+mov eax,(int)99
+
+originalcode:
+//dec [esi+04]
+//mov eax,[esi+1C]
+
+exit:
+jmp returnhere
+
+"earntodie_2.s86"+A1F22:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"earntodie_2.s86"+A1F22:
+db FF 4E 04 8B 46 1C
+//dec [esi+04]
+//mov eax,[esi+1C]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>32</ID>
+              <Description>"Infinite Boost"</Description>
+              <LastState/>
+              <Color>00FFFF</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+//mov [ebx+38],(int)150
+
+originalcode:
+//movss [ebx+38],xmm0
+
+exit:
+jmp returnhere
+
+"earntodie_2.s86"+95EC4:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"earntodie_2.s86"+95EC4:
+db F3 0F 11 43 38
+//movss [ebx+38],xmm0
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>65</ID>
+          <Description>"Research"</Description>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FFFF00</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>92</ID>
+              <Description>"Money (4 Bytes : 0 - ?)"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" Activated="1" RealAddress="00000000"/>
+              <Color>00FF00</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>89</ID>
+                  <Description>"Money (Code Injection)"</Description>
+                  <LastState/>
+                  <Color>00FF00</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+add [ecx+10],ebx
+comiss xmm0,xmm1
+
+exit:
+jmp returnhere
+
+"earntodie_2.s86"+F63BB:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"earntodie_2.s86"+F63BB:
+db 01 59 10 0F 2F C1
+//add [ecx+10],ebx
+//comiss xmm0,xmm1
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>90</ID>
+                  <Description>"Money (AOB)"</Description>
+                  <LastState/>
+                  <Color>00FF00</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Earn to Die 2
+  Version: 
+  Date   : 2023-10-14
+  Author : pc
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(INJECT,earntodie_2.s86,01 59 10 0F 2F C1) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [ecx+10],ebx
+  comiss xmm0,xmm1
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECT:
+  db 01 59 10 0F 2F C1
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: earntodie_2.s86+F63BB
+
+earntodie_2.s86+F6397: E8 74 46 FE FF  - call earntodie_2.s86+DAA10
+earntodie_2.s86+F639C: 0F AF C3        - imul eax,ebx
+earntodie_2.s86+F639F: 50              - push eax
+earntodie_2.s86+F63A0: E8 4B 12 F9 FF  - call earntodie_2.s86+875F0
+earntodie_2.s86+F63A5: 8B C8           - mov ecx,eax
+earntodie_2.s86+F63A7: E8 A4 13 F9 FF  - call earntodie_2.s86+87750
+earntodie_2.s86+F63AC: 8B 4D 08        - mov ecx,[ebp+08]
+earntodie_2.s86+F63AF: 2B DE           - sub ebx,esi
+earntodie_2.s86+F63B1: F3 0F 10 4D DC  - movss xmm1,[ebp-24]
+earntodie_2.s86+F63B6: F3 0F 10 41 1C  - movss xmm0,[ecx+1C]
+// ---------- INJECTING HERE ----------
+earntodie_2.s86+F63BB: 01 59 10        - add [ecx+10],ebx
+// ---------- DONE INJECTING  ----------
+earntodie_2.s86+F63BE: 0F 2F C1        - comiss xmm0,xmm1
+earntodie_2.s86+F63C1: 77 03           - ja earntodie_2.s86+F63C6
+earntodie_2.s86+F63C3: 0F 28 C1        - movaps xmm0,xmm1
+earntodie_2.s86+F63C6: 8B 41 20        - mov eax,[ecx+20]
+earntodie_2.s86+F63C9: 8D 71 20        - lea esi,[ecx+20]
+earntodie_2.s86+F63CC: 8B 5D E4        - mov ebx,[ebp-1C]
+earntodie_2.s86+F63CF: 8D 57 4C        - lea edx,[edi+4C]
+earntodie_2.s86+F63D2: F3 0F 11 41 1C  - movss [ecx+1C],xmm0
+earntodie_2.s86+F63D7: 0F 57 C9        - xorps xmm1,xmm1
+earntodie_2.s86+F63DA: 3B 02           - cmp eax,[edx]
+}
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>93</ID>
+              <Description>"Fuel (float : 0 - 100)"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" Activated="1" RealAddress="00000000"/>
+              <Color>0080FF</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>68</ID>
+                  <Description>"Fuel (Code Injection)"</Description>
+                  <LastState/>
+                  <Color>0080FF</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+movss [edi+34],xmm0
+
+exit:
+jmp returnhere
+
+"earntodie_2.s86"+962D4:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"earntodie_2.s86"+962D4:
+db F3 0F 11 47 34
+//movss [edi+34],xmm0
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>69</ID>
+                  <Description>"Fuel (AOB)"</Description>
+                  <LastState/>
+                  <Color>0080FF</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Earn to Die 2
+  Version: 
+  Date   : 2023-10-14
+  Author : pc
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(INJECT,earntodie_2.s86,F3 0F 11 47 34 0F) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  movss [edi+34],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECT:
+  db F3 0F 11 47 34
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: earntodie_2.s86+962D4
+
+earntodie_2.s86+962A8: A8 01                    - test al,01
+earntodie_2.s86+962AA: 74 07                    - je earntodie_2.s86+962B3
+earntodie_2.s86+962AC: C7 47 34 00 00 00 00     - mov [edi+34],00000000
+earntodie_2.s86+962B3: 80 7D E1 00              - cmp byte ptr [ebp-1F],00
+earntodie_2.s86+962B7: F3 0F 10 4F 50           - movss xmm1,[edi+50]
+earntodie_2.s86+962BC: F3 0F 10 47 34           - movss xmm0,[edi+34]
+earntodie_2.s86+962C1: F3 0F 59 4D 08           - mulss xmm1,[ebp+08]
+earntodie_2.s86+962C6: 75 08                    - jne earntodie_2.s86+962D0
+earntodie_2.s86+962C8: F3 0F 59 0D B8 C6 4A 69  - mulss xmm1,[earntodie_2.IwAppEntry+AC48]
+earntodie_2.s86+962D0: F3 0F 5C C1              - subss xmm0,xmm1
+// ---------- INJECTING HERE ----------
+earntodie_2.s86+962D4: F3 0F 11 47 34           - movss [edi+34],xmm0
+// ---------- DONE INJECTING  ----------
+earntodie_2.s86+962D9: 0F 57 C0                 - xorps xmm0,xmm0
+earntodie_2.s86+962DC: 0F 2F 47 34              - comiss xmm0,[edi+34]
+earntodie_2.s86+962E0: 0F 82 E4 00 00 00        - jb earntodie_2.s86+963CA
+earntodie_2.s86+962E6: C7 47 34 00 00 00 00     - mov [edi+34],00000000
+earntodie_2.s86+962ED: 8B 0D 34 C4 54 69        - mov ecx,[earntodie_2.s86+1EC434]
+earntodie_2.s86+962F3: 8B 01                    - mov eax,[ecx]
+earntodie_2.s86+962F5: FF 50 18                 - call dword ptr [eax+18]
+earntodie_2.s86+962F8: 5F                       - pop edi
+earntodie_2.s86+962F9: 8B 4D FC                 - mov ecx,[ebp-04]
+earntodie_2.s86+962FC: 33 CD                    - xor ecx,ebp
+}
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>91</ID>
+              <Description>"Boost (float : 0 - 10)"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" Activated="1" RealAddress="00000000"/>
+              <Color>00FFFF</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>30</ID>
+                  <Description>"Boost (Code Injection)"</Description>
+                  <LastState/>
+                  <Color>00FFFF</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+
+originalcode:
+movss [ebx+38],xmm0
+
+exit:
+jmp returnhere
+
+"earntodie_2.s86"+95EC4:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"earntodie_2.s86"+95EC4:
+db F3 0F 11 43 38
+//movss [ebx+38],xmm0
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>31</ID>
+                  <Description>"Boost (AOB)"</Description>
+                  <LastState/>
+                  <Color>00FFFF</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Earn to Die 2
+  Version: 
+  Date   : 2023-10-14
+  Author : pc
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscanmodule(INJECT,earntodie_2.s86,F3 0F 11 43 38) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  movss [ebx+38],xmm0
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECT:
+  db F3 0F 11 43 38
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: earntodie_2.s86+95EC4
+
+earntodie_2.s86+95E9C: 8B CF                 - mov ecx,edi
+earntodie_2.s86+95E9E: 50                    - push eax
+earntodie_2.s86+95E9F: E8 4C BC 04 00        - call earntodie_2.s86+E1AF0
+earntodie_2.s86+95EA4: 80 BB B8 00 00 00 00  - cmp byte ptr [ebx+000000B8],00
+earntodie_2.s86+95EAB: C6 83 94 00 00 00 01  - mov byte ptr [ebx+00000094],01
+earntodie_2.s86+95EB2: 75 5E                 - jne earntodie_2.s86+95F12
+earntodie_2.s86+95EB4: F3 0F 10 43 38        - movss xmm0,[ebx+38]
+earntodie_2.s86+95EB9: 0F 57 C9              - xorps xmm1,xmm1
+earntodie_2.s86+95EBC: F3 0F 5C 45 08        - subss xmm0,[ebp+08]
+earntodie_2.s86+95EC1: 0F 2F C8              - comiss xmm1,xmm0
+// ---------- INJECTING HERE ----------
+earntodie_2.s86+95EC4: F3 0F 11 43 38        - movss [ebx+38],xmm0
+// ---------- DONE INJECTING  ----------
+earntodie_2.s86+95EC9: 72 47                 - jb earntodie_2.s86+95F12
+earntodie_2.s86+95ECB: C7 43 38 00 00 00 00  - mov [ebx+38],00000000
+earntodie_2.s86+95ED2: EB 33                 - jmp earntodie_2.s86+95F07
+earntodie_2.s86+95ED4: 8B CB                 - mov ecx,ebx
+earntodie_2.s86+95ED6: E8 85 F2 FF FF        - call earntodie_2.s86+95160
+earntodie_2.s86+95EDB: 84 C0                 - test al,al
+earntodie_2.s86+95EDD: 74 16                 - je earntodie_2.s86+95EF5
+earntodie_2.s86+95EDF: 80 BB B0 00 00 00 00  - cmp byte ptr [ebx+000000B0],00
+earntodie_2.s86+95EE6: 75 2A                 - jne earntodie_2.s86+95F12
+earntodie_2.s86+95EE8: 8B 0D 34 C4 D6 69     - mov ecx,[earntodie_2.s86+1EC434]
+}
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <LuaScript>GameName = "Earn to Die 2"
+
+if syntaxcheck then return end
+
+
+
+
+-- Title + Author
+getMainForm().Caption = GameName.." | Created by Max (Tran Thang Minh)" --input GameName here
+
+
+
+
+-- Activate Mono Features
+function activateMono()
+
+  --if getOpenedProcessID() == 0 then
+      OpenProcess(GameName..".exe")--------------------------------------input GameName.exe here
+  --end
+
+  if getOpenedProcessID() == 0 then
+      showMessage(GameName.." not found")
+      return
+  end
+
+  -- check menu Mono có tồn tại không
+  if getMainForm().miMono ~= nil then
+    mono_initialize()
+    if monopipe==nil then
+      LaunchMonoDataCollector()
+    end
+  end
+end
+
+
+
+
+
+-- Toggle Compact / Full
+function toggleView(sender)
+  local f = getMainForm()
+  local state = (sender.Caption == "Compact View Mode")
+
+  f.Panel5.Visible = state
+  f.Splitter1.Visible = state
+  sender.Caption = state and "Full View Mode" or "Compact View Mode"
+end
+
+
+
+
+
+-- Check if menu already exists
+local parent = getMainForm().Menu.Items
+local exists = false
+
+for i=0,parent.Count-1 do
+  if parent[i].Caption == "Compact View Mode" or parent[i].Caption == "Full View Mode" then
+    exists = true
+    break
+  end
+end
+
+
+
+
+
+-- Create menu if not exists
+if not exists then
+  local m = createMenuItem(parent)
+  m.Caption = "Full View Mode"
+  m.OnClick = toggleView
+  parent.add(m)
+end
+
+</LuaScript>
+</CheatTable>

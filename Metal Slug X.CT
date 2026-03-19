@@ -2,83 +2,470 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
-      <ID>1</ID>
-      <Description>"Ammo"</Description>
-      <LastState Value="1880394086" RealAddress="0090573A"/>
-      <ShowAsSigned>0</ShowAsSigned>
-      <VariableType>4 Bytes</VariableType>
-      <Address>mslugx.exe+5573A</Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>0</ID>
-      <Description>"Ammo"</Description>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
       <LastState/>
+      <Color>BF40BF</Color>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : Metal Slug X
-  Version: 
-  Date   : 2025-09-11
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,mslugx.exe,66 89 14 70 5E) // should be unique
-alloc(newmem,$1000)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //mov [eax+esi*2],dx
-  pop esi
-  jmp return
-
-INJECT:
-  jmp newmem
-return:
-registersymbol(INJECT)
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
 
 [DISABLE]
-
-INJECT:
-  db 66 89 14 70 5E
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: mslugx.exe+5573A
-
-mslugx.exe+55713: 81 E2 FF 7F 00 00     - and edx,00007FFF
-mslugx.exe+55719: 84 D2                 - test dl,dl
-mslugx.exe+5571B: 74 0F                 - je mslugx.exe+5572C
-mslugx.exe+5571D: 83 3D F4 99 99 00 00  - cmp dword ptr [mslugx.exe+E99F4],00
-mslugx.exe+55724: 75 06                 - jne mslugx.exe+5572C
-mslugx.exe+55726: 81 E2 00 FF 00 00     - and edx,0000FF00
-mslugx.exe+5572C: A1 DC 9B 99 00        - mov eax,[mslugx.exe+E9BDC]
-mslugx.exe+55731: D1 EE                 - shr esi,1
-mslugx.exe+55733: 81 E6 FF 7F 00 00     - and esi,00007FFF
-mslugx.exe+55739: 5F                    - pop edi
-// ---------- INJECTING HERE ----------
-mslugx.exe+5573A: 66 89 14 70           - mov [eax+esi*2],dx
-// ---------- DONE INJECTING  ----------
-mslugx.exe+5573E: 5E                    - pop esi
-mslugx.exe+5573F: C3                    - ret 
-mslugx.exe+55740: 83 FF 0C              - cmp edi,0C
-mslugx.exe+55743: 75 09                 - jne mslugx.exe+5574E
-mslugx.exe+55745: 5F                    - pop edi
-mslugx.exe+55746: 8B CE                 - mov ecx,esi
-mslugx.exe+55748: 5E                    - pop esi
-mslugx.exe+55749: E9 D2 6A 03 00        - jmp mslugx.exe+8C220
-mslugx.exe+5574E: 83 FF 08              - cmp edi,08
-mslugx.exe+55751: 75 07                 - jne mslugx.exe+5575A
-}
 </AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16292</ID>
+      <Description>"◀️ SOURCE: https://fearlessrevolution.com/viewtopic.php?t=1828"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://fearlessrevolution.com/viewtopic.php?t=1828")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>44</ID>
+          <Description>"Combine (by Max)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>14</ID>
+              <Description>"Gun Type"</Description>
+              <DropDownList DisplayValueAsItem="1">0:Handgun
+1:Tank Shells
+2:Shotgun
+3:Rocket Launcher
+4:Flame Shot
+5:Machine Gun
+6:Laser Gun
+7:Shotgun
+8:Rocket Launcher
+9:Flame Shot
+10:Machine Gun
+12:Enemy Chasers
+13:Iron Lizard
+14:Drop Shot
+15:Super Grenade
+</DropDownList>
+              <Color>40BFBF</Color>
+              <VariableType>Byte</VariableType>
+              <Address>mslugx.exe+E9BD8</Address>
+              <Offsets>
+                <Offset>C71F</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>11</ID>
+              <Description>"Ammo"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>8 Bytes</VariableType>
+              <Address>mslugx.exe+E9BD8</Address>
+              <Offsets>
+                <Offset>C724</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12</ID>
+              <Description>"Grenade Type"</Description>
+              <DropDownList DisplayValueAsItem="1">1:Normal
+2:Molotovs
+3:Stone
+</DropDownList>
+              <Color>40BFBF</Color>
+              <VariableType>Byte</VariableType>
+              <Address>mslugx.exe+E9BD8</Address>
+              <Offsets>
+                <Offset>C723</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>13</ID>
+              <Description>"Grenades"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>Byte</VariableType>
+              <Address>mslugx.exe+E9BD8</Address>
+              <Offsets>
+                <Offset>C721</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16</ID>
+              <Description>"Lives"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>Byte</VariableType>
+              <Address>mslugx.exe+E9BD8</Address>
+              <Offsets>
+                <Offset>1289</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>15</ID>
+              <Description>"POWs"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>2 Bytes</VariableType>
+              <Address>mslugx.exe+E9BD8</Address>
+              <Offsets>
+                <Offset>C5FC</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>101</Key>
+                  </Keys>
+                  <Value>25</Value>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>53</ID>
+              <Description>"Invincible *blink* (set as 60 and freeze)"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>Byte</VariableType>
+              <Address>mslugx.exe+E9BD8</Address>
+              <Offsets>
+                <Offset>1548</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Set Value</Action>
+                  <Keys>
+                    <Key>73</Key>
+                  </Keys>
+                  <Value>80</Value>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>54</ID>
+              <Description>"Vehicle Cannon ( Max = 99 )"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>Byte</VariableType>
+              <Address>mslugx.exe+E9BD8</Address>
+              <Offsets>
+                <Offset>C626</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>55</ID>
+              <Description>"Vehicle Health ( Max = 48 )"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>Byte</VariableType>
+              <Address>mslugx.exe+E9BD8</Address>
+              <Offsets>
+                <Offset>C620</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>45</ID>
+          <Description>"Made by onedementedsmurf, WarC0zes"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>46</ID>
+              <Description>"onedementedsmurf"</Description>
+              <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>47</ID>
+                  <Description>"Ammo"</Description>
+                  <VariableType>8 Bytes</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>C724</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>48</ID>
+                  <Description>"Grenade Type"</Description>
+                  <DropDownList DisplayValueAsItem="1">1:Normal
+2:Molotovs
+3:Stone
+</DropDownList>
+                  <VariableType>Byte</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>C723</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>49</ID>
+                  <Description>"Grenades"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>C721</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>50</ID>
+                  <Description>"Gun Type"</Description>
+                  <DropDownList DisplayValueAsItem="1">0:Handgun
+1:Tank Shells
+2:Shotgun
+3:Rocket Launcher
+4:Flame Shot
+5:Machine Gun
+6:Laser Gun
+7:Shotgun
+8:Rocket Launcher
+9:Flame Shot
+10:Machine Gun
+12:Enemy Chasers
+13:Iron Lizard
+14:Drop Shot
+15:Super Grenade
+</DropDownList>
+                  <VariableType>Byte</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>C71F</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>51</ID>
+                  <Description>"Lives"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>1289</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>52</ID>
+                  <Description>"POWs"</Description>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>C5FC</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>101</Key>
+                      </Keys>
+                      <Value>25</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>43</ID>
+              <Description>"WarC0zes"</Description>
+              <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>42</ID>
+                  <Description>"Airplane Invincible *blink* ( set as 40 and freeze )"</Description>
+                  <Color>0080FF</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>42B0</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>73</Key>
+                      </Keys>
+                      <Value>80</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20</ID>
+                  <Description>"Arms Ammo ( Infinite = -1 )"</Description>
+                  <Color>FF0000</Color>
+                  <VariableType>2 Bytes</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>C724</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>34</ID>
+                  <Description>"Arms type"</Description>
+                  <Color>FF0000</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>C71F</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>18</ID>
+                  <Description>"Grenade ( Max = 99 )"</Description>
+                  <Color>008000</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>C721</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>35</ID>
+                  <Description>"Grenade type"</Description>
+                  <Color>008000</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>C723</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>27</ID>
+                  <Description>"Invincible *blink* (set as 60 and freeze)"</Description>
+                  <Color>FF00FF</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>1548</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>73</Key>
+                      </Keys>
+                      <Value>80</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>22</ID>
+                  <Description>"Lives"</Description>
+                  <Color>0000FF</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>1289</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>33</ID>
+                  <Description>"Mission Timer"</Description>
+                  <Color>00E1E1</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>13DF</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>40</ID>
+                  <Description>"Recaptured Prisoners"</Description>
+                  <Color>808000</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>C5FC</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>37</ID>
+                  <Description>"Vehicle Cannon ( Max = 99 )"</Description>
+                  <Color>0080FF</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>C626</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>36</ID>
+                  <Description>"Vehicle Health ( Max = 48 )"</Description>
+                  <Color>0080FF</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>mslugx.exe+E9BD8</Address>
+                  <Offsets>
+                    <Offset>C620</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
     </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols/>
+  <Comments>Handgun shows as 65535 ammo.
+</Comments>
 </CheatTable>

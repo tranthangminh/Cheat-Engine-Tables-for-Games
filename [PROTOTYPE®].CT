@@ -2,6 +2,75 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
+      <ID>16288</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16289</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16292</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
       <ID>9</ID>
       <Description>"Memory Viewer"</Description>
       <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
@@ -12,7 +81,6 @@
         <CheatEntry>
           <ID>2</ID>
           <Description>"HP - Recovery"</Description>
-          <LastState Value="9.066393852" RealAddress="108480DD"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>Float</VariableType>
@@ -21,7 +89,6 @@
         <CheatEntry>
           <ID>7</ID>
           <Description>"HP All - Hit"</Description>
-          <LastState Value="1175523315" RealAddress="1084820B"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>
@@ -37,7 +104,6 @@
             <CheatEntry>
               <ID>6</ID>
               <Description>"HP - You"</Description>
-              <LastState Value="3.867142963E10" RealAddress="102B5F55"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>BF4040</Color>
               <VariableType>Float</VariableType>
@@ -46,7 +112,6 @@
             <CheatEntry>
               <ID>3</ID>
               <Description>"HP - You"</Description>
-              <LastState Value="-2.467431063E15" RealAddress="102C2983"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>BF4040</Color>
               <VariableType>Float</VariableType>
@@ -55,7 +120,6 @@
             <CheatEntry>
               <ID>5</ID>
               <Description>"HP - All"</Description>
-              <LastState Value="-2.701255749E-32" RealAddress="10847FC0"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>BF4040</Color>
               <VariableType>Float</VariableType>
@@ -66,7 +130,6 @@
         <CheatEntry>
           <ID>14</ID>
           <Description>"Evolution Points"</Description>
-          <LastState Value="3900779657" RealAddress="10843952"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>

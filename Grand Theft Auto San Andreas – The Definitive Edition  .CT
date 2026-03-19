@@ -1,0 +1,4784 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>77</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16292</ID>
+      <Description>"Active cheats"</Description>
+      <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//Activate Mono Features
+
+[ENABLE]
+
+{$lua}
+activateMono()
+{$asm}
+
+[DISABLE]
+{$lua}
+activateMono()
+{$asm}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16479</ID>
+          <Description>"Infinite HP"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : SanAndreas.exe
+  Version: 
+  Date   : 2026-03-15
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"SanAndreas.exe"+119B697)
+define(bytes,F3 0F 11 83 6C 07 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"SanAndreas.exe"+119B697)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov rax,[HP+76]
+  cmp [rbx+0000076C],rax
+  je return
+  movss [rbx+0000076C],xmm0
+  jmp return
+
+address:
+  jmp newmem
+  nop 3
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // movss [rbx+0000076C],xmm0
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe.text+119A697
+
+SanAndreas.exe.text+119A663: F3 0F 10 83 6C 07 00 00  - movss xmm0,[rbx+0000076C]
+SanAndreas.exe.text+119A66B: F3 0F 5C 47 08           - subss xmm0,[rdi+08]
+SanAndreas.exe.text+119A670: F3 0F 10 35 20 D4 A2 03  - movss xmm6,[SanAndreas.exe.rdata+C87A98]
+SanAndreas.exe.text+119A678: 0F 2F C6                 - comiss xmm0,xmm6
+SanAndreas.exe.text+119A67B: 0F 82 B9 00 00 00        - jb SanAndreas.exe.text+119A73A
+SanAndreas.exe.text+119A681: 44 88 4E 08              - mov [rsi+08],r9b
+SanAndreas.exe.text+119A685: 8B 47 08                 - mov eax,[rdi+08]
+SanAndreas.exe.text+119A688: 89 06                    - mov [rsi],eax
+SanAndreas.exe.text+119A68A: F3 0F 10 83 6C 07 00 00  - movss xmm0,[rbx+0000076C]
+SanAndreas.exe.text+119A692: F3 0F 5C 47 08           - subss xmm0,[rdi+08]
+// ---------- INJECTING HERE ----------
+SanAndreas.exe.text+119A697: F3 0F 11 83 6C 07 00 00  - movss [rbx+0000076C],xmm0
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe.text+119A69F: 40 84 ED                 - test bpl,bpl
+SanAndreas.exe.text+119A6A2: 0F 84 A5 00 00 00        - je SanAndreas.exe.text+119A74D
+SanAndreas.exe.text+119A6A8: 83 7F 10 35              - cmp dword ptr [rdi+10],35
+SanAndreas.exe.text+119A6AC: 75 17                    - jne SanAndreas.exe.text+119A6C5
+SanAndreas.exe.text+119A6AE: 44 88 4C 24 38           - mov [rsp+38],r9b
+SanAndreas.exe.text+119A6B3: 41 B8 65 01 00 00        - mov r8d,00000165
+SanAndreas.exe.text+119A6B9: 44 88 4C 24 30           - mov [rsp+30],r9b
+SanAndreas.exe.text+119A6BE: 44 88 4C 24 28           - mov [rsp+28],r9b
+SanAndreas.exe.text+119A6C3: EB 61                    - jmp SanAndreas.exe.text+119A726
+SanAndreas.exe.text+119A6C5: 49 69 C0 C0 01 00 00     - imul rax,r8,000001C0
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16364</ID>
+          <Description>"Infinite Armor"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Grand Theft Auto: San Andreas – The Definitive Edition
+  Version:
+  Date   : 2026-03-13
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"SanAndreas.exe"+119AF76)
+define(bytes,F3 0F 11 83 74 07 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"SanAndreas.exe"+119AF76)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rbx+00000774],xmm0
+  jmp return
+
+address:
+  jmp newmem
+  nop 3
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // movss [rbx+00000774],xmm0
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe.text+1199F76
+
+SanAndreas.exe.text+1199F3D: 8B 05 15 F5 09 04        - mov eax,[SanAndreas.exe+523A458]
+SanAndreas.exe.text+1199F43: 48 69 CA C0 01 00 00     - imul rcx,rdx,000001C0
+SanAndreas.exe.text+1199F4A: 42 89 84 39 3C B8 3E 05  - mov [rcx+r15+053EB83C],eax
+SanAndreas.exe.text+1199F52: F3 0F 10 8B 74 07 00 00  - movss xmm1,[rbx+00000774]
+SanAndreas.exe.text+1199F5A: F3 0F 10 46 08           - movss xmm0,[rsi+08]
+SanAndreas.exe.text+1199F5F: 0F 2F C1                 - comiss xmm0,xmm1
+SanAndreas.exe.text+1199F62: 77 20                    - ja SanAndreas.exe.text+1199F84
+SanAndreas.exe.text+1199F64: F3 0F 11 47 04           - movss [rdi+04],xmm0
+SanAndreas.exe.text+1199F69: F3 0F 10 83 74 07 00 00  - movss xmm0,[rbx+00000774]
+SanAndreas.exe.text+1199F71: F3 0F 5C 46 08           - subss xmm0,[rsi+08]
+// ---------- INJECTING HERE ----------
+SanAndreas.exe.text+1199F76: F3 0F 11 83 74 07 00 00  - movss [rbx+00000774],xmm0
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe.text+1199F7E: 44 89 66 08              - mov [rsi+08],r12d
+SanAndreas.exe.text+1199F82: EB 19                    - jmp SanAndreas.exe.text+1199F9D
+SanAndreas.exe.text+1199F84: F3 0F 5C C1              - subss xmm0,xmm1
+SanAndreas.exe.text+1199F88: F3 0F 11 46 08           - movss [rsi+08],xmm0
+SanAndreas.exe.text+1199F8D: 8B 83 74 07 00 00        - mov eax,[rbx+00000774]
+SanAndreas.exe.text+1199F93: 89 47 04                 - mov [rdi+04],eax
+SanAndreas.exe.text+1199F96: 44 89 A3 74 07 00 00     - mov [rbx+00000774],r12d
+SanAndreas.exe.text+1199F9D: 45 0F B6 CE              - movzx r9d,r14b
+SanAndreas.exe.text+1199FA1: 4C 8B C7                 - mov r8,rdi
+SanAndreas.exe.text+1199FA4: 48 8B D3                 - mov rdx,rbx
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16365</ID>
+          <Description>"Infinite Oxygen"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Grand Theft Auto: San Andreas – The Definitive Edition
+  Version:
+  Date   : 2026-03-11
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"SanAndreas.exe"+125849E)
+define(bytes,F3 0F 11 40 5C)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"SanAndreas.exe"+125849E)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //movss [rax+5C],xmm0
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // movss [rax+5C],xmm0
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe.text+125749E
+
+SanAndreas.exe.text+125746E: 48 8B 81 F0 05 00 00           - mov rax,[rcx+000005F0]
+SanAndreas.exe.text+1257475: 0F 57 C9                       - xorps xmm1,xmm1
+SanAndreas.exe.text+1257478: F3 0F 59 15 58 1E FE 03        - mulss xmm2,[SanAndreas.exe+523A2D8]
+SanAndreas.exe.text+1257480: F3 0F 10 40 5C                 - movss xmm0,[rax+5C]
+SanAndreas.exe.text+1257485: 0F 2F C1                       - comiss xmm0,xmm1
+SanAndreas.exe.text+1257488: 76 1E                          - jna SanAndreas.exe.text+12574A8
+SanAndreas.exe.text+125748A: F7 81 38 06 00 00 00 00 10 00  - test [rcx+00000638],00100000
+SanAndreas.exe.text+1257494: 74 12                          - je SanAndreas.exe.text+12574A8
+SanAndreas.exe.text+1257496: F3 0F 5C C2                    - subss xmm0,xmm2
+SanAndreas.exe.text+125749A: F3 0F 5F C1                    - maxss xmm0,xmm1
+// ---------- INJECTING HERE ----------
+SanAndreas.exe.text+125749E: F3 0F 11 40 5C                 - movss [rax+5C],xmm0
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe.text+12574A3: E9 AB 00 00 00                 - jmp SanAndreas.exe.text+1257553
+SanAndreas.exe.text+12574A8: F3 0F 10 05 B0 38 4D 04        - movss xmm0,[SanAndreas.exe+572BD60]
+SanAndreas.exe.text+12574B0: F3 0F 59 15 DC 0D 97 03        - mulss xmm2,[SanAndreas.exe.rdata+C88294]
+SanAndreas.exe.text+12574B8: F3 0F 58 C2                    - addss xmm0,xmm2
+SanAndreas.exe.text+12574BC: 0F 2F 05 D5 05 97 03           - comiss xmm0,[SanAndreas.exe.rdata+C87A98]
+SanAndreas.exe.text+12574C3: F3 0F 11 05 95 38 4D 04        - movss [SanAndreas.exe+572BD60],xmm0
+SanAndreas.exe.text+12574CB: F3 44 0F 2C C8                 - cvttss2si r9d,xmm0
+SanAndreas.exe.text+12574D0: 72 0A                          - jb SanAndreas.exe.text+12574DC
+SanAndreas.exe.text+12574D2: C7 05 84 38 4D 04 00 00 00 00  - mov [SanAndreas.exe+572BD60],00000000
+SanAndreas.exe.text+12574DC: C7 44 24 28 00 00 00 00        - mov [rsp+28],00000000
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16480</ID>
+          <Description>"Auto Assemble script"</Description>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : SanAndreas.exe
+  Version: 
+  Date   : 2026-03-15
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"SanAndreas.exe"+13EE911)
+define(bytes,89 43 0C 83 7B 08 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"SanAndreas.exe"+13EE911)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov rax,[TotalAmmo+C]
+  cmp [rbx+0C],rax
+  je return
+
+  mov [rbx+0C],eax
+  cmp dword ptr [rbx+08],00
+  jmp return
+
+address:
+  jmp newmem
+  nop 2
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [rbx+0C],eax
+  // cmp dword ptr [rbx+08],00
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe.text+13ED911
+
+SanAndreas.exe.text+13ED8F3: 74 1F                          - je SanAndreas.exe.text+13ED914
+SanAndreas.exe.text+13ED8F5: EB 05                          - jmp SanAndreas.exe.text+13ED8FC
+SanAndreas.exe.text+13ED8F7: 40 84 ED                       - test bpl,bpl
+SanAndreas.exe.text+13ED8FA: 74 13                          - je SanAndreas.exe.text+13ED90F
+SanAndreas.exe.text+13ED8FC: E8 BF D0 D8 FF                 - call SanAndreas.exe.text+117A9C0
+SanAndreas.exe.text+13ED901: 0F 2F 05 84 B0 7D 03           - comiss xmm0,[SanAndreas.exe.rdata+C8898C]
+SanAndreas.exe.text+13ED908: 72 05                          - jb SanAndreas.exe.text+13ED90F
+SanAndreas.exe.text+13ED90A: 83 F9 28                       - cmp ecx,28
+SanAndreas.exe.text+13ED90D: 75 05                          - jne SanAndreas.exe.text+13ED914
+SanAndreas.exe.text+13ED90F: 2B C2                          - sub eax,edx
+// ---------- INJECTING HERE ----------
+SanAndreas.exe.text+13ED911: 89 43 0C                       - mov [rbx+0C],eax
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe.text+13ED914: 83 7B 08 00                    - cmp dword ptr [rbx+08],00
+SanAndreas.exe.text+13ED918: C7 43 04 01 00 00 00           - mov [rbx+04],00000001
+SanAndreas.exe.text+13ED91F: 0F 85 98 00 00 00              - jne SanAndreas.exe.text+13ED9BD
+SanAndreas.exe.text+13ED925: 83 7B 0C 00                    - cmp dword ptr [rbx+0C],00
+SanAndreas.exe.text+13ED929: 75 32                          - jne SanAndreas.exe.text+13ED95D
+SanAndreas.exe.text+13ED92B: 0F B6 05 F9 3A FF 03           - movzx eax,byte ptr [SanAndreas.exe+53E242B]
+SanAndreas.exe.text+13ED932: 48 69 C8 B8 01 00 00           - imul rcx,rax,000001B8
+SanAndreas.exe.text+13ED939: 66 42 83 BC 31 80 25 3E 05 2E  - cmp word ptr [rcx+r14+053E2580],2E
+SanAndreas.exe.text+13ED943: 75 11                          - jne SanAndreas.exe.text+13ED956
+SanAndreas.exe.text+13ED945: 41 B0 01                       - mov r8b,01
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16366</ID>
+          <Description>"No Reload Needed"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{
+Game   : Grand Theft Auto: San Andreas – The Definitive Edition
+Author : Max Chen (Trần Thắng Minh) - Contact me:
+  🌐Facebook  : https://www.facebook.com/maxiechen
+  🌐Reddit    : https://www.reddit.com/user/maxiechen96
+  🌐Discord   : https://discord.com/users/@maxiechen
+
+Update Here
+  ☁️GoogleDrive: https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link
+  ☁️Github     : https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games
+   Date        : 2026-03-11
+}
+
+
+
+//AmmoRemain
+define(addressAmmoRemain,SanAndreas.exe.text+13ED8DF)
+
+
+
+
+
+
+[ENABLE]
+
+//──────────────────────────────────────── AmmoRemain
+
+alloc(newmemAmmoRemain,$1000,SanAndreas.exe.text+13ED8DF)
+
+label(codeAmmoRemain)
+label(returnAmmoRemain)
+
+newmemAmmoRemain:
+
+codeAmmoRemain:
+ //mov [rbx+08],eax
+ mov eax,[rbx+0C]
+ jmp returnAmmoRemain
+
+addressAmmoRemain:
+ jmp newmemAmmoRemain
+ nop
+returnAmmoRemain:
+
+
+
+
+
+
+
+[DISABLE]
+
+//──────────────────────────────────────── AmmoRemain
+
+addressAmmoRemain:
+ mov [rbx+08],eax
+ mov eax,[rbx+0C]
+
+dealloc(newmemAmmoRemain)
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16354</ID>
+          <Description>"Get Stats"</Description>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{
+Game   : SanAndreas.exe
+Author : Max Chen (Trần Thắng Minh) - Contact me:
+  🌐Facebook  : https://www.facebook.com/maxiechen
+  🌐Reddit    : https://www.reddit.com/user/maxiechen96
+  🌐Discord   : https://discord.com/users/@maxiechen
+
+Update Here
+  ☁️GoogleDrive: https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link
+  ☁️Github     : https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games
+   Date        : 2026-03-15
+}
+
+
+
+//YourCarHP
+define(addressYourCarHP,SanAndreas.exe.text+117ED6B)
+
+//HP
+define(addressHP,SanAndreas.exe.text+12E9524)
+
+//TotalAmmo
+define(addressTotalAmmo,SanAndreas.exe.text+11E806B)
+
+//Armor - INJECTION HERE: SanAndreas.exe.text+11E750A
+define(addressArmor,SanAndreas.exe.text+11E750A)
+
+//WantedLevel - //INJECTION HERE: SanAndreas.exe.text+13B1E84
+define(addressWantedLevel,SanAndreas.exe.text+13B1E84)
+
+
+
+
+
+
+[ENABLE]
+
+//──────────────────────────────────────── YourCarHP
+
+alloc(newmemYourCarHP,$1000,SanAndreas.exe.text+117ED6B)
+
+alloc(YourCarHP,8)
+registersymbol(YourCarHP)
+label(codeYourCarHP)
+label(returnYourCarHP)
+
+newmemYourCarHP:
+
+codeYourCarHP:
+ mov [YourCarHP],r8 //Save r8 address into YourCarHP
+ movss xmm2,[r8+0000079C]
+ jmp returnYourCarHP
+
+addressYourCarHP:
+ jmp newmemYourCarHP
+ nop 4
+returnYourCarHP:
+
+//──────────────────────────────────────── HP
+
+alloc(newmemHP,$1000,SanAndreas.exe.text+12E9524)
+
+alloc(HP,8)
+registersymbol(HP)
+label(codeHP)
+label(returnHP)
+
+newmemHP:
+
+codeHP:
+ mov [HP],rax //Save rax address into HP
+ comiss xmm0,[rax+0000076C]
+ jmp returnHP
+
+addressHP:
+ jmp newmemHP
+ nop 2
+returnHP:
+
+//──────────────────────────────────────── TotalAmmo
+
+alloc(newmemTotalAmmo,$1000,SanAndreas.exe.text+11E806B)
+
+alloc(TotalAmmo,8)
+registersymbol(TotalAmmo)
+label(codeTotalAmmo)
+label(returnTotalAmmo)
+
+newmemTotalAmmo:
+
+codeTotalAmmo:
+ mov [TotalAmmo],rcx //Save rcx address into TotalAmmo
+ mov eax,[rcx+0C]
+ sub eax,[rcx+08]
+ jmp returnTotalAmmo
+
+addressTotalAmmo:
+ jmp newmemTotalAmmo
+ nop
+returnTotalAmmo:
+
+//──────────────────────────────────────── Armor
+//INJECTION HERE: SanAndreas.exe.text+11E750A
+
+alloc(newmemArmor,$1000,SanAndreas.exe.text+11E750A)
+
+alloc(Armor,8)
+registersymbol(Armor)
+label(codeArmor)
+label(returnArmor)
+
+newmemArmor:
+
+codeArmor:
+ mov [Armor],rsi //Save rsi address into Armor
+ comiss xmm0,[rsi+00000774]
+ jmp returnArmor
+
+addressArmor:
+ jmp newmemArmor
+ nop 2
+returnArmor:
+
+//──────────────────────────────────────── WantedLevel
+//INJECTION HERE: SanAndreas.exe.text+13B1E84
+
+alloc(newmemWantedLevel,$1000,SanAndreas.exe.text+13B1E84)
+
+alloc(WantedLevel,8)
+registersymbol(WantedLevel)
+label(codeWantedLevel)
+label(returnWantedLevel)
+
+newmemWantedLevel:
+
+codeWantedLevel:
+ mov [WantedLevel],r8 //Save r8 address into WantedLevel
+ mov ecx,[r8+2C]
+ sub ecx,03
+ jmp returnWantedLevel
+
+addressWantedLevel:
+ jmp newmemWantedLevel
+ nop 2
+returnWantedLevel:
+
+
+
+
+
+
+
+[DISABLE]
+
+//──────────────────────────────────────── YourCarHP
+
+addressYourCarHP:
+ movss xmm2,[r8+0000079C]
+
+dealloc(newmemYourCarHP)
+dealloc(YourCarHP)
+unregistersymbol(YourCarHP)
+
+//──────────────────────────────────────── HP
+
+addressHP:
+ comiss xmm0,[rax+0000076C]
+
+dealloc(newmemHP)
+dealloc(HP)
+unregistersymbol(HP)
+
+//──────────────────────────────────────── TotalAmmo
+
+addressTotalAmmo:
+ mov eax,[rcx+0C]
+ sub eax,[rcx+08]
+
+dealloc(newmemTotalAmmo)
+dealloc(TotalAmmo)
+unregistersymbol(TotalAmmo)
+
+//──────────────────────────────────────── Armor
+//INJECTION HERE: SanAndreas.exe.text+11E750A
+
+addressArmor:
+ comiss xmm0,[rsi+00000774]
+
+dealloc(newmemArmor)
+dealloc(Armor)
+unregistersymbol(Armor)
+
+//──────────────────────────────────────── WantedLevel
+//INJECTION HERE: SanAndreas.exe.text+13B1E84
+
+addressWantedLevel:
+ mov ecx,[r8+2C]
+ sub ecx,03
+
+dealloc(newmemWantedLevel)
+dealloc(WantedLevel)
+unregistersymbol(WantedLevel)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16361</ID>
+              <Description>"Money"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SanAndreas.exe+53EB808</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16473</ID>
+              <Description>"HP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>HP</Address>
+              <Offsets>
+                <Offset>76C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16356</ID>
+              <Description>"Armor"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>HP</Address>
+              <Offsets>
+                <Offset>774</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16357</ID>
+              <Description>"Your Car HP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>YourCarHP</Address>
+              <Offsets>
+                <Offset>79C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16355</ID>
+              <Description>"Wanted Level"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Byte</VariableType>
+              <Address>WantedLevel</Address>
+              <Offsets>
+                <Offset>2C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16358</ID>
+              <Description>"Total Ammo (current selecting)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>TotalAmmo</Address>
+              <Offsets>
+                <Offset>0C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16359</ID>
+              <Description>"Magazine (current selecting)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>TotalAmmo</Address>
+              <Offsets>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16478</ID>
+              <Description>"Misc"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16474</ID>
+                  <Description>"Hour"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>timeHours</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16476</ID>
+                  <Description>"Minutes"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>timeMinutes</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16360</ID>
+                  <Description>"Oxygen"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+53EB784</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16367</ID>
+                  <Description>"Speed"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+5067BFC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16467</ID>
+                  <Description>"Playtime"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+56EF1CC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16477</ID>
+                  <Description>"Weapon ID"</Description>
+                  <DropDownList ReadOnly="1" DisplayValueAsItem="1">0: Hand
+1: Melee Weapon
+2: Pistol
+3: Shotgun
+4: Machine Gun
+5: AK 47
+6:
+7:
+8: Mosolov
+9: Camera
+10:
+</DropDownList>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+53EB754</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16381</ID>
+          <Description>"Stats (Menu)"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16433</ID>
+              <Description>"All 4 Bytes Value"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SanAndreas.exe.text+117CF78</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16426</ID>
+              <Description>"All Float Value"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>Float</VariableType>
+              <Address>SanAndreas.exe.text+1179E40</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16330</ID>
+              <Description>"PLAYER (max 1000)"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16332</ID>
+                  <Description>"Fat"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C794</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16334</ID>
+                  <Description>"Stamina"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C798</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16333</ID>
+                  <Description>"Muscle"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C79C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16413</ID>
+                  <Description>"Lung capacity"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522CA34</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16331</ID>
+                  <Description>"Sex Appeal"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C7A4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16329</ID>
+                  <Description>"Respect"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C840</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16369</ID>
+                  <Description>"Respect (real) (Max 2439)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C850</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16423</ID>
+                  <Description>"All SKILL Value"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>BF4040</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe.text+1179E4A</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16424</ID>
+                  <Description>"Driving skill"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C930</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16415</ID>
+                  <Description>"Flying skill"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522CA2C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16416</ID>
+                  <Description>"Bike skill"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522CA44</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16414</ID>
+                  <Description>"Cycling skill"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522CA48</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16378</ID>
+                  <Description>"Times drowned"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C958</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16435</ID>
+                  <Description>"Number of hospital visits"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8CC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16377</ID>
+                  <Description>"Number of meals eaten"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C9D0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16436</ID>
+                  <Description>"Luck"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522CA54</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16380</ID>
+              <Description>"MONEY"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16379</ID>
+                  <Description>"Weapon Budget"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C774</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16389</ID>
+                  <Description>"Fashion Budget"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C778</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16419</ID>
+                  <Description>"Property Budget"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C77C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16383</ID>
+                  <Description>"Auto Repair and Painting Budget"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C780</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16418</ID>
+                  <Description>"Tattoo budget"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C7B8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16420</ID>
+                  <Description>"Hairdressing budget"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C7BC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16421</ID>
+                  <Description>"Prostitute budget"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C7C4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16422</ID>
+                  <Description>"Strip club budget"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C818</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16384</ID>
+                  <Description>"Car modification budget"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C81C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16456</ID>
+                  <Description>"Food Budget"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C790</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16385</ID>
+                  <Description>"Total shopping budget"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C838</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16306</ID>
+              <Description>"WEAPONS (max 1000)"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16303</ID>
+                  <Description>"Pistol"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C854</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16308</ID>
+                  <Description>"Silenced Pistol"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C858</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16309</ID>
+                  <Description>"Desert Eagle"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C85C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16307</ID>
+                  <Description>"Shotgun"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C860</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16310</ID>
+                  <Description>"Sawn-Off Shotgun"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C864</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16311</ID>
+                  <Description>"Combat Shotgun"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C868</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16305</ID>
+                  <Description>"Machine Pistol"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C86C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16312</ID>
+                  <Description>"SMG"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C870</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16314</ID>
+                  <Description>"AK-47"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C874</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16313</ID>
+                  <Description>"M4"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C878</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16386</ID>
+                  <Description>"Bullets fired"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8A8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16387</ID>
+                  <Description>"Kgs of explosives used"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8AC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16388</ID>
+                  <Description>"Bullets that hit"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8B0</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16391</ID>
+              <Description>"CRIMES"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16390</ID>
+                  <Description>"Total number of wanted stars attained"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8BC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16392</ID>
+                  <Description>"Total number of wanted stars evaded"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8C0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16393</ID>
+                  <Description>"Times busted"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8C4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16394</ID>
+                  <Description>"People wasted by others"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C890</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16395</ID>
+                  <Description>"People you've wasted"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C894</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16396</ID>
+                  <Description>"Road Vehicles destroyed"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C898</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16397</ID>
+                  <Description>"Boat destroyed"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C89C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16398</ID>
+                  <Description>"Planes &amp; Helicopters destroyed"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8A0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16399</ID>
+                  <Description>"Cost of property damaged"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8A4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16400</ID>
+                  <Description>"Tires popped with gunfire"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8B4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16401</ID>
+                  <Description>"Number of headshots"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8B8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16438</ID>
+                  <Description>"Fires started"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522CA10</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16437</ID>
+                  <Description>"Total legitimate kills"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C974</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16439</ID>
+              <Description>"GANGS"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16452</ID>
+                  <Description>"Territories held"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522CA60</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16453</ID>
+                  <Description>"Highest number of territories held"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522CA64</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16454</ID>
+                  <Description>"Enemy gang members killed"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522CA6C</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16321</ID>
+              <Description>"ACHIEVEMENTS"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16408</ID>
+                  <Description>"Distance travelled on foot (meter)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C74C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16409</ID>
+                  <Description>"Distance travelled by car (meter)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C750</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16411</ID>
+                  <Description>"Distance travelled by bicycle (meter)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C7AC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16410</ID>
+                  <Description>"Distance travelled by motorbike (meter)"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C754</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16427</ID>
+                  <Description>"Longest Wheelie distance (meter)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C768</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16457</ID>
+                  <Description>"Longest Wheelie time"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C784</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16429</ID>
+                  <Description>"Longest Stoppie distance (meter)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C76C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16458</ID>
+                  <Description>"Longest Stoppie time"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C788</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16455</ID>
+                  <Description>"Longest 2 wheels distance (meter)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C770</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16459</ID>
+                  <Description>"Longest 2 wheels time"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C78C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16428</ID>
+                  <Description>"Maximum INSANE Jump flips"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8E4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16462</ID>
+                  <Description>"Maximum INSANE Jump rotation"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8E8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16460</ID>
+                  <Description>"Last chase time with 5 or more stars"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C810</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16461</ID>
+                  <Description>"Longest chase time with 5 or more stars"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Float</VariableType>
+                  <Address>SanAndreas.exe+522C80C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16338</ID>
+                  <Description>"Tags sprayed (text view)"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+51BEACC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16337</ID>
+                  <Description>"Tags sprayed (max 100)"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+572B41C</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16382</ID>
+              <Description>"MISSION"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16320</ID>
+                  <Description>"Mission attempts"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8F8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16404</ID>
+                  <Description>"Mission passed"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8FC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16432</ID>
+                  <Description>"Highest Firefighter Mission level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C92C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16431</ID>
+                  <Description>"Total fires extinguished"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C914</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16430</ID>
+                  <Description>"Highest Paramedic Mission level"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C928</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16403</ID>
+                  <Description>"Cash made in a Taxi"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C904</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16402</ID>
+                  <Description>"Passengers dropped off"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C908</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16407</ID>
+              <Description>"MISC"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16405</ID>
+                  <Description>"Days passed in game"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8C8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16406</ID>
+                  <Description>"Safehouse visits"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8D0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16434</ID>
+                  <Description>"Vehicle Resprays"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+522C8D8</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16316</ID>
+          <Description>"Vehical Mission"</Description>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16322</ID>
+              <Description>"Taxi - Acheivements (set 50 to get Nitro)"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SanAndreas.exe+51BEDB4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16319</ID>
+              <Description>"Taxi - Fares"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SanAndreas.exe+51C8150</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16335</ID>
+              <Description>"Taxi - Timer"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>SanAndreas.exe+506809C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16315</ID>
+              <Description>"Paramedic Level"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SanAndreas.exe+51C8194</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16318</ID>
+              <Description>"Paramedic (set 0 to complete Level)"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SanAndreas.exe+5211EE4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16323</ID>
+              <Description>"Firefighter Level"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SanAndreas.exe+51C81A8</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16324</ID>
+              <Description>"Firefighter (set 0 to complete Level)"</Description>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SanAndreas.exe+5211FB0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16371</ID>
+              <Description>"Vigilante Level"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SanAndreas.exe+51C81E0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16373</ID>
+              <Description>"Vigilante Kill"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SanAndreas.exe+51C81D0</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16343</ID>
+          <Description>"Machine (Game)"</Description>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16342</ID>
+              <Description>"Let's Get Ready To Bumble"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16339</ID>
+                  <Description>"Flower Left"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+51C6228</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16340</ID>
+                  <Description>"Score"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+5211F18</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16341</ID>
+                  <Description>"Lives"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+5211F0C</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16344</ID>
+              <Description>"Go, Go Space Monkey"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16348</ID>
+                  <Description>"Score"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+51C5954</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16349</ID>
+                  <Description>"Lives"</Description>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+51C5950</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16353</ID>
+      <Description>"SOURCE: https://fearlessrevolution.com/viewtopic.php?t=18171"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://fearlessrevolution.com/viewtopic.php?t=18171")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>27</ID>
+          <Description>"[[ ENABLE ]]"</Description>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState/>
+          <Color>FF8000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript Async="1">[ENABLE]
+{$lua}
+get_Time = AOBScanModuleUnique('SanAndreas.exe','FE C0 44 88 * * * * * 88')
+local x1, x2, x3, x4 = splitDisassembledString(disassemble('get_Time+2'))
+registerSymbol('timeMinutes',x2:match("%x+"))
+local x1, x2, x3, x4 = splitDisassembledString(disassemble('get_Time+9'))
+registerSymbol('timeHours',x2:match("%x+"))
+{$asm}
+//
+aobscanmodule(GiveWeapon,SanAndreas.exe,4C 8B DC 55 56 41 54 41 57 49 8D AB)
+registersymbol(GiveWeapon)
+aobscanmodule(SetWantedLevel,SanAndreas.exe,80 3D * * * * 00 4C 8B C1 0F 85 * * * * 3B)
+registersymbol(SetWantedLevel)
+aobscanmodule(SpawnVehicle,SanAndreas.exe,40 56 57 41 57 48 83 EC 40 0F)
+registersymbol(SpawnVehicle)
+//
+aobscanmodule(get_playerVehicle,SanAndreas.exe,B6 D1 48 8B 03 48 8B CB)
+aobscanmodule(get_Player,SanAndreas.exe,48 8B 82 88 05 00 00 F6 40 48 08 74)
+aobscanmodule(get_selNPC,SanAndreas.exe,48 8B 01 FF 90 C0 00 00 00 83 F8 03)
+aobscanmodule(get_CJStats,SanAndreas.exe,00 83 F8 52 73 0B F3 0F 10 * * * * * * EB)
+aobscanmodule(get_wantedLevel,SanAndreas.exe,48 8B 4C 18 08 83 79 2C 04)
+aobscanmodule(get_Waypoint,SanAndreas.exe,F3 44 0F 10 4C C8 08 F3)
+aobscanmodule(get_vehColor,SanAndreas.exe,30 42 0F B6 8C 10 50 06 00 00)
+aobscanmodule(get_allCarsHaveNitro,SanAndreas.exe,44 38 2D * * * * 75 05)
+registersymbol(get_allCarsHaveNitro)
+alloc(fWaypoint,$1000,get_Waypoint)
+alloc(fvehColor,$1000,get_vehColor)
+registersymbol(get_CJStats)
+alloc(CJStats,10)
+registersymbol(CJStats)
+alloc(newmem,$1000,get_playerVehicle)
+alloc(fPlayer,$1000,get_Player)
+alloc(fselNPC,$1000,get_selNPC)
+alloc(fwantedLevel,$1000,get_wantedLevel)
+label(return)
+label(fPlayerRet)
+label(fPlayerExit)
+label(fselNPCRet)
+label(fwantedLevelRet)
+label(fvehColorRet)
+label(PushTime)
+label(PopTime)
+alloc(playerVehicle,8)
+alloc(Player,8)
+alloc(selNPC,8)
+alloc(Waypoint,8)
+alloc(wantedLevel,8)
+alloc(freezeLevel,8)
+alloc(desiredWeapon,2)
+alloc(veh2Spawn,2)
+alloc(Cheats,5)
+alloc(dWantedLevel,1)
+alloc(runSetWantedLevel,1)
+alloc(get_allCarsHaveNitroS,7)
+globalalloc(isActive,1)
+globalalloc(vehColor,2)
+registersymbol(playerVehicle)
+registersymbol(Player)
+registersymbol(selNPC)
+registersymbol(Waypoint)
+registersymbol(desiredWeapon)
+registersymbol(veh2Spawn)
+registersymbol(Cheats)
+registersymbol(dWantedLevel)
+registersymbol(wantedLevel)
+registersymbol(freezeLevel)
+registersymbol(runSetWantedLevel)
+registersymbol(setWantedLevel)
+registersymbol(get_allCarsHaveNitroS)
+
+CJStats:
+readmem(get_CJStats+B,4)
+dd 0
+readmem(get_CJStats+16,4)
+dd 0
+wantedLevel:
+readmem(get_wantedLevel+5,4)
+dd 0
+freezeLevel:
+readmem(SetWantedLevel+2,4)
+dd 0
+vehColor+1:
+db 7F
+get_allCarsHaveNitroS:
+readMem(get_allCarsHaveNitro,7)
+
+newmem:
+mov rax,playerVehicle
+mov [rax],rbx
+mov rax,[rbx]
+mov rcx,rbx
+jmp return
+
+fPlayer:
+cmp byte ptr [Cheats],01
+jne @f
+mov byte ptr [Cheats],00
+cmp [desiredWeapon],0
+je fPlayerExit
+cmp [selNPC],0
+je fPlayerExit
+call PushTime
+mov rcx,[selNPC]
+mov edx,[desiredWeapon]
+xor r8,r8
+sub rsp,30
+and spl,F0
+call GiveWeapon
+call PopTime
+@@:
+cmp byte ptr [Cheats+2],01
+jne @f
+mov byte ptr [Cheats+2],00
+call PushTime
+mov byte ptr [runSetWantedLevel],01
+mov rcx,[wantedLevel]
+xor rdx,rdx
+mov dl,[dWantedLevel]
+sub rsp,30
+and spl,F0
+call SetWantedLevel
+mov byte ptr [runSetWantedLevel],00
+call PopTime
+@@:
+cmp byte ptr [Cheats+4],01
+jne @f
+mov byte ptr [Cheats+4],00
+cmp byte ptr [veh2Spawn],00
+je fPlayerExit //If vehicle not selected, skip. Otherwise it'll crash due to missing parameter.
+call PushTime
+mov rcx,vehColor
+mov byte ptr [rcx],01
+xor rcx,rcx
+mov r8,19F
+mov cx,[veh2Spawn]
+mov rdx,[Player]
+sub rsp,30
+and spl,F0
+call SpawnVehicle //Returns Spawned Vehicle Pointer
+call PopTime
+@@:
+fPlayerExit:
+mov rax,Player
+mov [rax],rdx
+mov rax,[rdx+00000588]
+jmp fPlayerRet
+
+fselNPC:
+mov rax,selNPC
+mov [rax],rcx
+mov rax,[rcx]
+call qword ptr [rax+000000C0]
+jmp fselNPCRet
+
+fWaypoint:
+push rbx
+lea rbx,[rax+rcx*8+08]
+mov [Waypoint],rbx
+cmp byte ptr [Cheats+1],00
+je @f
+mov byte ptr [Cheats+1],00
+push rdx
+mov rdx,Player
+mov rdx,[rdx]
+mov rdx,[rdx+18]
+mov ebx,[rax+rcx*8+08]
+mov [rdx+30],ebx
+mov ebx,[rax+rcx*8+0C]
+mov [rdx+34],ebx
+mov ebx,[rax+rcx*8+10]
+sub rsp,08
+mov [rsp],ebx
+mov ebx,404A00000 //Just in case
+mov [rsp+04],ebx
+fld [rsp]
+fld [rsp+04]
+faddp
+fstp [rsp]
+mov ebx,[rsp]
+add rsp,08
+mov [rdx+38],ebx
+pop rdx
+@@:
+pop rbx
+movss xmm9,[rax+rcx*8+08]
+jmp fWaypointRet
+
+fwantedLevel:
+mov rcx,[rax+rbx+08]
+mov [wantedLevel],rcx
+jmp fwantedLevelRet
+
+fvehColor:
+push rbx
+mov rbx,vehColor
+cmp byte ptr [rbx],00
+je @f
+cmp byte ptr [rbx+1],7F //Default Game Choice
+je @f
+mov cl,[rbx+1]
+mov byte ptr [rbx],00
+pop rbx
+jmp fvehColorRet
+@@:
+mov byte ptr [rbx],00
+pop rbx
+movzx ecx,byte ptr [rax+r10+00000650]
+jmp fvehColorRet
+
+PushTime:
+push rax
+push rbx
+push rcx
+push rdx
+push rsi
+push rdi
+push r8
+push r9
+push r10
+push r11
+push r12
+push r13
+push r14
+push r15
+push rbp
+mov rbp,rsp
+jmp [rsp+78]
+
+PopTime:
+mov rax,[rsp]
+mov rsp,rbp
+mov [rsp+78],rax
+pop rbp
+pop r15
+pop r14
+pop r13
+pop r12
+pop r11
+pop r10
+pop r9
+pop r8
+pop rdi
+pop rsi
+pop rdx
+pop rcx
+pop rbx
+pop rax
+ret
+
+get_playerVehicle+02:
+  jmp newmem
+  nop
+return:
+registersymbol(get_playerVehicle)
+
+get_Player:
+  jmp fPlayer
+  nop 2
+fPlayerRet:
+registersymbol(get_Player)
+
+get_selNPC:
+  jmp fselNPC
+  nop 4
+fselNPCRet:
+registersymbol(get_selNPC)
+
+get_Waypoint:
+  jmp fWaypoint
+  nop 2
+fWaypointRet:
+registersymbol(get_Waypoint)
+
+get_wantedLevel:
+  jmp fwantedLevel
+fwantedLevelRet:
+registersymbol(get_wantedLevel)
+
+get_vehColor+01:
+  jmp fvehColor
+  nop 4
+fvehColorRet:
+registersymbol(get_vehColor)
+
+[DISABLE]
+get_playerVehicle+02:
+  db 48 8B 03 48 8B CB
+
+get_Player:
+  db 48 8B 82 88 05 00 00
+
+get_selNPC:
+  db 48 8B 01 FF 90 C0 00 00 00
+
+get_Waypoint:
+  db F3 44 0F 10 4C C8 08
+
+get_wantedLevel:
+  db 48 8B 4C 18 08
+
+get_vehColor+01:
+  db 42 0F B6 8C 10 50 06 00 00
+
+unregistersymbol(get_playerVehicle)
+unregistersymbol(get_Player)
+unregistersymbol(get_selNPC)
+unregistersymbol(get_Waypoint)
+unregistersymbol(get_wantedLevel)
+unregistersymbol(get_vehColor)
+dealloc(newmem)
+dealloc(fPlayer)
+dealloc(fselNPC)
+dealloc(fWaypoint)
+dealloc(fwantedLevel)
+dealloc(fvehColor)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+11F5F35
+
+SanAndreas.exe+11F5F13: EB 2C                 - jmp SanAndreas.exe+11F5F41
+SanAndreas.exe+11F5F15: 45 85 F6              - test r14d,r14d
+SanAndreas.exe+11F5F18: 78 27                 - js SanAndreas.exe+11F5F41
+SanAndreas.exe+11F5F1A: 41 0F B6 D6           - movzx edx,r14l
+SanAndreas.exe+11F5F1E: EB 15                 - jmp SanAndreas.exe+11F5F35
+SanAndreas.exe+11F5F20: 48 8B 83 D0 05 00 00  - mov rax,[rbx+000005D0]
+SanAndreas.exe+11F5F27: 8B 88 78 07 00 00     - mov ecx,[rax+00000778]
+SanAndreas.exe+11F5F2D: 83 F9 01              - cmp ecx,01
+SanAndreas.exe+11F5F30: 77 0F                 - ja SanAndreas.exe+11F5F41
+SanAndreas.exe+11F5F32: 0F B6 D1              - movzx edx,cl
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+11F5F35: 48 8B 03              - mov rax,[rbx]
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+11F5F38: 48 8B CB              - mov rcx,rbx
+SanAndreas.exe+11F5F3B: FF 90 E8 00 00 00     - call qword ptr [rax+000000E8]
+SanAndreas.exe+11F5F41: 80 7B 5A 08           - cmp byte ptr [rbx+5A],08
+SanAndreas.exe+11F5F45: 73 3A                 - jae SanAndreas.exe+11F5F81
+SanAndreas.exe+11F5F47: 8B 8B B4 07 00 00     - mov ecx,[rbx+000007B4]
+SanAndreas.exe+11F5F4D: 83 F9 03              - cmp ecx,03
+SanAndreas.exe+11F5F50: 74 2F                 - je SanAndreas.exe+11F5F81
+SanAndreas.exe+11F5F52: 0F B7 43 3A           - movzx eax,word ptr [rbx+3A]
+SanAndreas.exe+11F5F56: BA 1B 02 00 00        - mov edx,0000021B
+SanAndreas.exe+11F5F5B: 66 3B C2              - cmp ax,dx
+
+
+SanAndreas.exe+F965CC: CC                       - int 3
+SanAndreas.exe+F965CD: CC                       - int 3
+SanAndreas.exe+F965CE: CC                       - int 3
+SanAndreas.exe+F965CF: CC                       - int 3
+SanAndreas.exe+F965D0: 0F B6 05 77 8D 0C 04     - movzx eax,byte ptr [SanAndreas.exe+505F34E]
+SanAndreas.exe+F965D7: 48 8D 15 12 8A 2B 04     - lea rdx,[SanAndreas.exe+524EFF0]
+SanAndreas.exe+F965DE: 48 69 C0 C0 01 00 00     - imul rax,rax,000001C0
+SanAndreas.exe+F965E5: 48 8B 14 10              - mov rdx,[rax+rdx]
+SanAndreas.exe+F965E9: 48 85 D2                 - test rdx,rdx
+SanAndreas.exe+F965EC: 74 1A                    - je SanAndreas.exe+F96608
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+F965EE: 48 8B 82 88 05 00 00     - mov rax,[rdx+00000588]
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+F965F5: F6 40 48 08              - test byte ptr [rax+48],08
+SanAndreas.exe+F965F9: 74 03                    - je SanAndreas.exe+F965FE
+SanAndreas.exe+F965FB: B0 01                    - mov al,01
+SanAndreas.exe+F965FD: C3                       - ret
+SanAndreas.exe+F965FE: 48 83 BA A0 09 00 00 00  - cmp qword ptr [rdx+000009A0],00
+SanAndreas.exe+F96606: 75 F3                    - jne SanAndreas.exe+F965FB
+SanAndreas.exe+F96608: 0F B7 81 CC 06 00 00     - movzx eax,word ptr [rcx+000006CC]
+SanAndreas.exe+F9660F: 66 83 E8 07              - sub ax,07
+SanAndreas.exe+F96613: 66 83 F8 3A              - cmp ax,3A
+SanAndreas.exe+F96617: 77 10                    - ja SanAndreas.exe+F96629
+
+
+SanAndreas.exe+10D0992: 48 8B CB                 - mov rcx,rbx
+SanAndreas.exe+10D0995: E8 B6 FB FF FF           - call SanAndreas.exe+10D0550
+SanAndreas.exe+10D099A: 45 33 C0                 - xor r8d,r8d
+SanAndreas.exe+10D099D: 48 89 3E                 - mov [rsi],rdi
+SanAndreas.exe+10D09A0: 48 8B D6                 - mov rdx,rsi
+SanAndreas.exe+10D09A3: 48 8B CF                 - mov rcx,rdi
+SanAndreas.exe+10D09A6: E8 15 6F F1 FF           - call SanAndreas.exe+FE78C0
+SanAndreas.exe+10D09AB: 48 8B 0E                 - mov rcx,[rsi]
+SanAndreas.exe+10D09AE: 4C 39 79 20              - cmp [rcx+20],r15
+SanAndreas.exe+10D09B2: 74 3C                    - je SanAndreas.exe+10D09F0
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+10D09B4: 48 8B 01                 - mov rax,[rcx]
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+10D09B7: FF 90 C0 00 00 00        - call qword ptr [rax+000000C0]
+SanAndreas.exe+10D09BD: 83 F8 03                 - cmp eax,03
+SanAndreas.exe+10D09C0: 74 2E                    - je SanAndreas.exe+10D09F0
+SanAndreas.exe+10D09C2: 48 8B 16                 - mov rdx,[rsi]
+SanAndreas.exe+10D09C5: 44 8B C8                 - mov r9d,eax
+SanAndreas.exe+10D09C8: 48 8B 0D B9 B1 49 04     - mov rcx,[SanAndreas.exe+556BB88]
+SanAndreas.exe+10D09CF: 41 B0 01                 - mov r8l,01
+SanAndreas.exe+10D09D2: F3 0F 10 05 32 AC 97 03  - movss xmm0,[SanAndreas.exe+4A4B60C]
+SanAndreas.exe+10D09DA: F3 0F 11 44 24 20        - movss [rsp+20],xmm0
+SanAndreas.exe+10D09E0: 48 8B 52 20              - mov rdx,[rdx+20]
+
+
+SanAndreas.exe+1112032: F3 0F 10 2D BE CD 54 04  - movss xmm5,[SanAndreas.exe+565EDF8]
+SanAndreas.exe+111203A: F3 0F 10 25 8E 98 93 03  - movss xmm4,[SanAndreas.exe+4A4B8D0]
+SanAndreas.exe+1112042: F3 0F 10 0D B6 CD 54 04  - movss xmm1,[SanAndreas.exe+565EE00]
+SanAndreas.exe+111204A: F3 0F 10 05 AA CD 54 04  - movss xmm0,[SanAndreas.exe+565EDFC]
+SanAndreas.exe+1112052: 48 63 C1                 - movsxd  rax,ecx
+SanAndreas.exe+1112055: 44 0F 29 44 24 30        - movaps [rsp+30],xmm8
+SanAndreas.exe+111205B: 44 0F 29 4C 24 20        - movaps [rsp+20],xmm9
+SanAndreas.exe+1112061: 48 8D 0C 40              - lea rcx,[rax+rax*2]
+SanAndreas.exe+1112065: 48 03 C9                 - add rcx,rcx
+SanAndreas.exe+1112068: 48 8D 05 01 D0 17 04     - lea rax,[SanAndreas.exe+528F070]
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+111206F: F3 44 0F 10 4C C8 08     - movss xmm9,[rax+rcx*8+08]
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+1112076: F3 44 0F 10 44 C8 0C     - movss xmm8,[rax+rcx*8+0C]
+SanAndreas.exe+111207D: F3 44 0F 59 CB           - mulss xmm9,xmm3
+SanAndreas.exe+1112082: F3 44 0F 59 C4           - mulss xmm8,xmm4
+SanAndreas.exe+1112087: 44 0F 2E CD              - ucomiss xmm9,xmm5
+SanAndreas.exe+111208B: 75 0F                    - jne SanAndreas.exe+111209C
+SanAndreas.exe+111208D: 44 0F 2E C0              - ucomiss xmm8,xmm0
+SanAndreas.exe+1112091: 75 09                    - jne SanAndreas.exe+111209C
+SanAndreas.exe+1112093: 0F 2E CA                 - ucomiss xmm1,xmm2
+SanAndreas.exe+1112096: 0F 84 FE 00 00 00        - je SanAndreas.exe+111219A
+SanAndreas.exe+111209C: 0F 29 74 24 50           - movaps [rsp+50],xmm6
+
+
+SanAndreas.exe+11028AE: CC                    - int 3
+SanAndreas.exe+11028AF: CC                    - int 3
+SanAndreas.exe+11028B0: 48 83 EC 28           - sub rsp,28
+SanAndreas.exe+11028B4: 8B 0D 1E EE F6 03     - mov ecx,[SanAndreas.exe+50716D8]
+SanAndreas.exe+11028BA: 48 89 5C 24 30        - mov [rsp+30],rbx
+SanAndreas.exe+11028BF: 48 89 6C 24 38        - mov [rsp+38],rbp
+SanAndreas.exe+11028C4: E8 D7 E6 FF FF        - call SanAndreas.exe+1100FA0
+SanAndreas.exe+11028C9: 0F B6 05 7E CA F5 03  - movzx eax,byte ptr [SanAndreas.exe+505F34E]
+SanAndreas.exe+11028D0: 48 8D 1D 19 C7 14 04  - lea rbx,[SanAndreas.exe+524EFF0]
+SanAndreas.exe+11028D7: 48 69 C0 C0 01 00 00  - imul rax,rax,000001C0
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+11028DE: 48 8B 4C 18 08        - mov rcx,[rax+rbx+08]
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+11028E3: 83 79 2C 04           - cmp dword ptr [rcx+2C],04
+SanAndreas.exe+11028E7: 0F 84 AE 00 00 00     - je SanAndreas.exe+110299B
+SanAndreas.exe+11028ED: F6 41 1E 08           - test byte ptr [rcx+1E],08
+SanAndreas.exe+11028F1: 0F 85 A4 00 00 00     - jne SanAndreas.exe+110299B
+SanAndreas.exe+11028F7: B9 AB 01 00 00        - mov ecx,000001AB
+SanAndreas.exe+11028FC: E8 0F E2 FF FF        - call SanAndreas.exe+1100B10
+SanAndreas.exe+1102901: 80 3D 65 44 FD 03 01  - cmp byte ptr [SanAndreas.exe+50D6D6D],01
+SanAndreas.exe+1102908: 0F 84 AF 00 00 00     - je SanAndreas.exe+11029BD
+SanAndreas.exe+110290E: 0F B6 05 77 3B FD 03  - movzx eax,byte ptr [SanAndreas.exe+50D648C]
+SanAndreas.exe+1102915: 24 FD                 - and al,-03
+
+
+SanAndreas.exe+1089B3F: 33 D2                       - xor edx,edx
+SanAndreas.exe+1089B41: FF C0                       - inc eax
+SanAndreas.exe+1089B43: 48 89 5C 24 10              - mov [rsp+10],rbx
+SanAndreas.exe+1089B48: F7 F1                       - div ecx
+SanAndreas.exe+1089B4A: 48 89 74 24 18              - mov [rsp+18],rsi
+SanAndreas.exe+1089B4F: 48 8D 35 AA 64 F7 FE        - lea rsi,[SanAndreas.exe]
+SanAndreas.exe+1089B56: 41 88 92 71 06 00 00        - mov [r10+00000671],dl
+SanAndreas.exe+1089B5D: 0F B6 C2                    - movzx eax,dl
+SanAndreas.exe+1089B60: 48 89 3C 24                 - mov [rsp],rdi
+SanAndreas.exe+1089B64: 48 8B 7C 24 30              - mov rdi,[rsp+30]
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+1089B69: 42 0F B6 8C 10 50 06 00 00  - movzx ecx,byte ptr [rax+r10+00000650]
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+1089B72: 41 88 0B                    - mov [r11],cl
+SanAndreas.exe+1089B75: 41 0F B6 82 71 06 00 00     - movzx eax,byte ptr [r10+00000671]
+SanAndreas.exe+1089B7D: 42 0F B6 8C 10 58 06 00 00  - movzx ecx,byte ptr [rax+r10+00000658]
+SanAndreas.exe+1089B86: 41 88 08                    - mov [r8],cl
+SanAndreas.exe+1089B89: 41 0F B6 82 71 06 00 00     - movzx eax,byte ptr [r10+00000671]
+SanAndreas.exe+1089B91: 42 0F B6 8C 10 60 06 00 00  - movzx ecx,byte ptr [rax+r10+00000660]
+SanAndreas.exe+1089B9A: 41 88 09                    - mov [r9],cl
+SanAndreas.exe+1089B9D: 41 0F B6 82 71 06 00 00     - movzx eax,byte ptr [r10+00000671]
+SanAndreas.exe+1089BA5: 42 0F B6 9C 10 68 06 00 00  - movzx ebx,byte ptr [rax+r10+00000668]
+SanAndreas.exe+1089BAE: 0F B6 05 99 57 FD 03        - movzx eax,byte ptr [SanAndreas.exe+505F34E]
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>277</ID>
+              <Description>"[ Functions ]"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>FF0080</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>180</ID>
+                  <Description>"Go To Waypoint [Hotkey: F1]"</Description>
+                  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:Teleport
+*:Waiting...
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>8000FF</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>Cheats+1</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>112</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>211</ID>
+                      <Description>"Possibility to fall of the map. So enable 'Infinite Health' if you teleport again, as it'll make you die by hitting the floor."</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>0000BF</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>275</ID>
+                  <Description>"Set Wanted Level"</Description>
+                  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:Set Wanted Level
+*:Waiting...
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>8000FF</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>Cheats+2</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>112</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>276</ID>
+                      <Description>"Set to... 0 -&gt; 6 ( Game limits still apply )"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>dWantedLevel</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>297</ID>
+                  <Description>"Activate Radio Anywhere [Hotkey: F2] (Scuffy)"</Description>
+                  <LastState/>
+                  <Color>8000FF</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//Kind of scuffed, but works. So it's fine I guess.
+aobscanmodule(get_activateRadio,SanAndreas.exe,80 BB CD 00 00 00 00 0F 84 CD)
+aobscanmodule(get_Bool,SanAndreas.exe,40 84 ED 0F 84 81 00 00 00)
+registersymbol(get_Bool)
+alloc(newmem,$1000,get_activateRadio)
+label(code)
+label(return)
+
+newmem:
+xor r8,r8
+cmp byte ptr [Cheats+3],00
+je code
+mov byte ptr [Cheats+3],00
+cmp qword ptr [SanAndreas.exe+4FF2380],0
+je @f
+mov qword ptr [SanAndreas.exe+4FF2380],0
+jmp code
+@@:
+mov r8l,01
+code:
+cmp byte ptr [rbx+000000CD],00
+jmp return
+
+get_activateRadio:
+  jmp newmem
+  nop 2
+return:
+registersymbol(get_activateRadio)
+
+get_Bool:
+db 45 84 C0
+
+[DISABLE]
+get_activateRadio:
+  db 80 BB CD 00 00 00 00
+
+get_Bool:
+db 40 84 ED
+
+unregistersymbol(get_activateRadio)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+E9A929
+
+SanAndreas.exe+E9A90C: 40 B5 01              - mov bpl,01
+SanAndreas.exe+E9A90F: EB 03                 - jmp SanAndreas.exe+E9A914
+SanAndreas.exe+E9A911: 40 32 ED              - xor bpl,bpl
+SanAndreas.exe+E9A914: E8 07 3D FE FF        - call SanAndreas.exe+E7E620
+SanAndreas.exe+E9A919: 4C 8B F8              - mov r15,rax
+SanAndreas.exe+E9A91C: 48 3B C6              - cmp rax,rsi
+SanAndreas.exe+E9A91F: 75 6F                 - jne SanAndreas.exe+E9A990
+SanAndreas.exe+E9A921: 40 84 ED              - test bpl,bpl
+SanAndreas.exe+E9A924: 75 6A                 - jne SanAndreas.exe+E9A990
+SanAndreas.exe+E9A926: 41 B6 01              - mov r14l,01
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+E9A929: 80 BB CD 00 00 00 00  - cmp byte ptr [rbx+000000CD],00
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+E9A930: 0F 84 CD 01 00 00     - je SanAndreas.exe+E9AB03
+SanAndreas.exe+E9A936: 0F B6 8B A4 00 00 00  - movzx ecx,byte ptr [rbx+000000A4]
+SanAndreas.exe+E9A93D: 4C 89 64 24 58        - mov [rsp+58],r12
+SanAndreas.exe+E9A942: 45 33 E4              - xor r12d,r12d
+SanAndreas.exe+E9A945: C6 83 CF 00 00 00 00  - mov byte ptr [rbx+000000CF],00
+SanAndreas.exe+E9A94C: 80 F9 01              - cmp cl,01
+SanAndreas.exe+E9A94F: 0F 86 C8 00 00 00     - jbe SanAndreas.exe+E9AA1D
+SanAndreas.exe+E9A955: 8D 41 FC              - lea eax,[rcx-04]
+SanAndreas.exe+E9A958: 3C 02                 - cmp al,02
+SanAndreas.exe+E9A95A: 0F 86 82 00 00 00     - jbe SanAndreas.exe+E9A9E2
+}
+</AssemblerScript>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>298</ID>
+                      <Description>"Recommended to change keys that cycle through stations to something that you won't press by accident."</Description>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>0000BF</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>296</ID>
+                      <Description>"Action ---&gt;"</Description>
+                      <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:Activate/Deactivate
+*:Waiting...
+</DropDownList>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <Color>8000FF</Color>
+                      <VariableType>Byte</VariableType>
+                      <Address>Cheats+3</Address>
+                      <Hotkeys>
+                        <Hotkey>
+                          <Action>Set Value</Action>
+                          <Keys>
+                            <Key>113</Key>
+                          </Keys>
+                          <Value>1</Value>
+                          <ID>0</ID>
+                        </Hotkey>
+                      </Hotkeys>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>323</ID>
+                  <Description>"Spawn Vehicle [Hotkey: F3]"</Description>
+                  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:Spawn
+*:Waiting...
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>8000FF</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>Cheats+4</Address>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>114</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>325</ID>
+                      <Description>"Vehicle to Spawn"</Description>
+                      <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">577:AT-400
+445:Admiral
+592:Adromada
+602:Alpha
+416:Ambulance
+435:Artict 1
+450:Artict 2
+591:Artict 3
+424:BF Injection
+581:BF-400
+481:BMX
+606:Bag Box A
+607:Bag Box B
+485:Baggage
+568:Bandito
+429:Banshee
+433:Barracks OL
+511:Beagle
+499:Benson
+509:Bike
+536:Blade
+496:Blista Compact
+504:Bloodring Banger
+422:Bobcat
+609:Boxville
+498:Boxville
+575:Broadway
+518:Buccaneer
+401:Buffalo
+541:Bullet
+402:Burava
+482:Burrito
+431:Bus
+438:Cabbie
+457:Caddy
+527:Cadrona
+483:Camper
+548:Cargobob
+524:Cement
+415:Cheetah
+542:Clover
+589:Club
+437:Coach
+472:Coastguard
+532:Combine
+480:Comet
+512:Cropduster
+578:DFT-30
+473:Dinghy
+593:Dodo
+486:Dozer
+406:Dumper
+573:Dune
+507:Elegant
+562:Elegy
+585:Emperor
+427:Enforcer
+419:Esperanto
+587:Euros
+490:FBI Rancher
+528:FBI Truck
+521:FCR-900
+462:Faggio
+610:Farm Trailer 1
+533:Feltzer
+544:Firetruck (Last Mission One)
+407:Firetruck
+565:Flash
+455:Flatbed
+530:Forklift
+526:Fortune
+463:Freeway
+537:Freight
+569:Freight
+590:Freight Box
+466:Glendale
+604:Glendale
+492:Greenwood
+523:HPV-1000
+474:Hermes
+588:Hotdog
+434:Hotknife
+494:Hotring
+502:Hotring Racer A
+503:Hotring Racer B
+425:Hunter
+579:Huntley
+545:Hustler
+520:Hydra
+411:Infernus
+546:Intruder
+559:Jester
+493:Jetmax
+508:Journey
+571:Kart
+400:Landstalker
+595:Launch
+417:Leviathan
+403:Linerunner
+517:Majestic
+410:Manana
+484:Marquis
+487:Maverick
+551:Merit
+500:Mesa
+444:Monster
+556:Monster A
+557:Monster B
+418:Moonbeam
+510:Mountain Bike
+572:Mover
+423:Mr. Whoopee
+414:Mule
+522:NRG-500
+516:Nebula
+553:Nevada
+582:News Van
+467:Oceanic
+461:PCJ-600
+443:Packer
+470:Patriot
+404:Perennial
+584:Petrol Trailer
+603:Phoenix
+600:Picador
+448:Pizza Boy
+497:Police Maverick
+598:Police [Las Venturas]
+596:Police [Los Santos]
+597:Police [San Fierro]
+413:Pony
+430:Predator
+426:Premier
+436:Previon
+547:Primo
+471:Quad
+441:RC Bandit
+464:RC Baron
+594:RC Cam
+501:RC Goblin
+465:RC Raider
+564:RC Tiger
+563:Raindance
+505:Rancher
+489:Rancher	ranc
+599:Ranger
+453:Reefer
+479:Regina
+534:Remington
+432:Rhino
+515:Roadtrain
+442:Romero
+440:Rumpo
+476:Rustler
+488:SAN Maverick
+475:Sabre
+605:Sadler
+543:Sadler
+468:Sanchez
+495:Sandking
+567:Savanna
+447:Sea Sparrow
+428:Securicar
+405:Sentinel
+519:Shamal
+460:Skimmer
+535:Slamva
+458:Solair
+469:Sparrow
+452:Speeder
+446:Squalo
+580:Stafford
+439:Stallion
+561:Stratum
+538:Streak
+409:Stretch
+513:Stuntplane
+560:Sultan
+550:Sunrise
+506:Super GT
+601:Swat Van
+574:Sweeper
+566:Tahoma
+549:Tampa
+514:Tanker
+420:Taxi
+459:Topfun
+576:Tornado
+525:Tow Truck
+531:Tractor
+570:Trailer
+449:Tram
+408:Trashmaster
+454:Tropic
+583:Tug
+608:Tug Stair
+451:Turismo
+558:Uranus
+611:Utility Trailer 1
+552:Utility Van
+540:Vincent
+491:Virgo
+412:Voodoo
+539:Vortex
+478:Walton
+421:Washington
+586:Wayfarer
+529:Willard
+555:Windsor
+456:Yankee
+554:Yosemite
+477:ZR-350
+*:None
+</DropDownList>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>2 Bytes</VariableType>
+                      <Address>veh2Spawn</Address>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>333</ID>
+                      <Description>"Custom Color"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>vehColor+1</Address>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>336</ID>
+                          <Description>"Color IDs: https://i.imgur.com/6eRDYhu.png"</Description>
+                          <LastState Value="" RealAddress="00000000"/>
+                          <Color>800040</Color>
+                          <GroupHeader>1</GroupHeader>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>130</ID>
+              <Description>"[ Editable Values ]"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>FF8000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>269</ID>
+                  <Description>"Police Ignore the Player"</Description>
+                  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:Yes
+0:No
+*:Unknown
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Binary</VariableType>
+                  <BitStart>2</BitStart>
+                  <BitLength>1</BitLength>
+                  <ShowAsBinary>0</ShowAsBinary>
+                  <Address>wantedLevel</Address>
+                  <Offsets>
+                    <Offset>1E</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>435</ID>
+                  <Description>"Current Hour"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>timeHours</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>434</ID>
+                  <Description>"Current Minutes"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>timeMinutes</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>344</ID>
+                  <Description>"Generic Player Stuff"</Description>
+                  <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>FF8000</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>345</ID>
+                      <Description>"Cash"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>Player</Address>
+                      <Offsets>
+                        <Offset>E8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>106</ID>
+                  <Description>"CJ Stats"</Description>
+                  <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>FF8000</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>260</ID>
+                      <Description>"Current Health"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>Player</Address>
+                      <Offsets>
+                        <Offset>704</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>255</ID>
+                      <Description>"Max Health"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>Player</Address>
+                      <Offsets>
+                        <Offset>708</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>256</ID>
+                      <Description>"Armor"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>Player</Address>
+                      <Offsets>
+                        <Offset>70C</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>128</ID>
+                      <Description>"General Stats"</Description>
+                      <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>FF8000</Color>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>231</ID>
+                          <Description>"Energy"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>SanAndreas.exe+A5*4+[CJStats+8]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>436</ID>
+                          <Description>"Lung Capacity"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>SanAndreas.exe+E1*4+[CJStats+8]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>104</ID>
+                          <Description>"Fat"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+15*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>107</ID>
+                          <Description>"Stamina"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+16*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>229</ID>
+                          <Description>"Body Muscle"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+17*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>240</ID>
+                          <Description>"Health"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+18*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>127</ID>
+                          <Description>"Sex Appeal"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+50*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>109</ID>
+                          <Description>"Respect"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+40*4+[CJStats]</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>129</ID>
+                      <Description>"Weapons Skill"</Description>
+                      <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>FF8000</Color>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>110</ID>
+                          <Description>"Pistol Skill"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+45*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>111</ID>
+                          <Description>"Silenced Pistol Skill"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+46*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>112</ID>
+                          <Description>"Desert Eagle Skill"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+47*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>113</ID>
+                          <Description>"Shotgun Skill"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+48*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>114</ID>
+                          <Description>"Sawn-Off Shotgun Skill"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+49*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>115</ID>
+                          <Description>"Combat Shotgun Skill"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+4A*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>116</ID>
+                          <Description>"Machine Pistol Skill"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+4B*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>117</ID>
+                          <Description>"SMG Skill"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+4C*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>118</ID>
+                          <Description>"AK-47 Skill"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+4D*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>119</ID>
+                          <Description>"M4 Skill"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+4E*4+[CJStats]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>120</ID>
+                          <Description>"Rifle Skill"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+4F*4+[CJStats]</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>232</ID>
+                      <Description>"General Skills"</Description>
+                      <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                      <LastState Value="" RealAddress="00000000"/>
+                      <Color>FF8000</Color>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>233</ID>
+                          <Description>"Driving"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>SanAndreas.exe+A0*4+[CJStats+8]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>238</ID>
+                          <Description>"Flying"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>SanAndreas.exe+DF*4+[CJStats+8]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>237</ID>
+                          <Description>"Bike"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>SanAndreas.exe+E5*4+[CJStats+8]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>236</ID>
+                          <Description>"Cycling"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>SanAndreas.exe+E6*4+[CJStats+8]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>235</ID>
+                          <Description>"Luck at Gambling"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>SanAndreas.exe+E9*4+[CJStats+8]</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>121</ID>
+                          <Description>"Gambling Skill"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>SanAndreas.exe+51*4+[CJStats]</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>257</ID>
+                  <Description>"Other Stuff [Only Useful for Scripting]"</Description>
+                  <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>FF8000</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>258</ID>
+                      <Description>"Current or Last Driven Car"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>8 Bytes</VariableType>
+                      <Address>Player</Address>
+                      <Offsets>
+                        <Offset>760</Offset>
+                      </Offsets>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>465</ID>
+                          <Description>"Cleanliness"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>Player</Address>
+                          <Offsets>
+                            <Offset>6B4</Offset>
+                            <Offset>760</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>342</ID>
+                          <Description>"Vehicle Mass"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <VariableType>Float</VariableType>
+                          <Address>Player</Address>
+                          <Offsets>
+                            <Offset>B4</Offset>
+                            <Offset>1A8</Offset>
+                            <Offset>760</Offset>
+                          </Offsets>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>259</ID>
+                      <Description>"Current Targeted Ped"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>8 Bytes</VariableType>
+                      <Address>Player</Address>
+                      <Offsets>
+                        <Offset>A60</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>131</ID>
+              <Description>"[ Scripts ]"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>FF8000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>14</ID>
+                  <Description>"Infinite Health"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_doDamage,SanAndreas.exe,48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 50 83)
+alloc(newmem,$1000,get_doDamage)
+label(return)
+
+newmem:
+cmp rbx,[Player]
+jne @f
+mov eax,[rbx+00000708]
+mov [rcx+08],0
+mov [rbx+00000704],eax
+@@:
+mov [rsp+08],rbx
+jmp return
+
+get_doDamage:
+  jmp newmem
+return:
+registersymbol(get_doDamage)
+
+[DISABLE]
+get_doDamage:
+  db 48 89 5C 24 08
+
+unregistersymbol(get_doDamage)
+dealloc(newmem)
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>11</ID>
+                  <Description>"Infinite Armor"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_Armor,SanAndreas.exe,F3 0F 10 83 0C 07 00 00) //When taking damage, set to max
+aobscanmodule(get_noArmor,SanAndreas.exe,0F 2F A6 0C 07 00 00) //Also always set to max, in case you have none
+alloc(newmem,$1000,get_Armor)
+label(return)
+label(NoArmor)
+label(NoArmorRet)
+
+newmem:
+cmp rbx,[Player]
+jne @f
+mov [rbx+0000070C],(float)100
+mov [r14+08],0
+@@:
+movss xmm0,[rbx+0000070C]
+jmp return
+
+NoArmor:
+cmp rbx,[Player]
+jne @f
+mov [rsi+0000070C],(float)100
+@@:
+comiss xmm4,[rsi+0000070C]
+jmp NoArmorRet
+
+get_Armor:
+  jmp newmem
+  nop 3
+return:
+registersymbol(get_Armor)
+
+get_noArmor:
+  jmp NoArmor
+  nop 2
+NoArmorRet:
+registersymbol(get_noArmor)
+
+[DISABLE]
+get_Armor:
+  db F3 0F 10 83 0C 07 00 00
+
+get_noArmor:
+  db 0F 2F A6 0C 07 00 00
+
+unregistersymbol(get_Armor)
+unregistersymbol(get_noArmor)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+100D1EB
+
+SanAndreas.exe+100D1B4: 4A 39 9C 21 F0 EF 24 05  - cmp [rcx+r12+0524EFF0],rbx
+SanAndreas.exe+100D1BC: 75 1D                    - jne SanAndreas.exe+100D1DB
+SanAndreas.exe+100D1BE: 8B 05 88 34 06 04        - mov eax,[SanAndreas.exe+507064C]
+SanAndreas.exe+100D1C4: 48 69 CA C0 01 00 00     - imul rcx,rdx,000001C0
+SanAndreas.exe+100D1CB: 42 89 84 21 0C F1 24 05  - mov [rcx+r12+0524F10C],eax
+SanAndreas.exe+100D1D3: F3 0F 10 8B 0C 07 00 00  - movss xmm1,[rbx+0000070C]
+SanAndreas.exe+100D1DB: F3 41 0F 10 46 08        - movss xmm0,[r14+08]
+SanAndreas.exe+100D1E1: 0F 2F C1                 - comiss xmm0,xmm1
+SanAndreas.exe+100D1E4: 77 21                    - ja SanAndreas.exe+100D207
+SanAndreas.exe+100D1E6: F3 0F 11 46 04           - movss [rsi+04],xmm0
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+100D1EB: F3 0F 10 83 0C 07 00 00  - movss xmm0,[rbx+0000070C]
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+100D1F3: F3 41 0F 5C 46 08        - subss xmm0,[r14+08]
+SanAndreas.exe+100D1F9: F3 0F 11 83 0C 07 00 00  - movss [rbx+0000070C],xmm0
+SanAndreas.exe+100D201: 41 89 7E 08              - mov [r14+08],edi
+SanAndreas.exe+100D205: EB 19                    - jmp SanAndreas.exe+100D220
+SanAndreas.exe+100D207: F3 0F 5C C1              - subss xmm0,xmm1
+SanAndreas.exe+100D20B: F3 41 0F 11 46 08        - movss [r14+08],xmm0
+SanAndreas.exe+100D211: 8B 83 0C 07 00 00        - mov eax,[rbx+0000070C]
+SanAndreas.exe+100D217: 89 46 04                 - mov [rsi+04],eax
+SanAndreas.exe+100D21A: 89 BB 0C 07 00 00        - mov [rbx+0000070C],edi
+SanAndreas.exe+100D220: 45 0F B6 CF              - movzx r9d,r15l
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>348</ID>
+                  <Description>"Infinite Sprint"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_runStamina,SanAndreas.exe,F3 0F 5C C8 F3 0F 5F CB F3 0F 11 48 24)
+registersymbol(get_runStamina)
+
+get_runStamina:
+db 90 90 90 90
+ 
+[DISABLE]
+get_runStamina:
+db F3 0F 5C C8
+
+unregistersymbol(get_runStamina)
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>31</ID>
+                  <Description>"Infinite Vehicle Health (Damage, will never explode)"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_vehicleDamage1,SanAndreas.exe,F3 0F 11 83 C4 06 00 00 44)
+aobscanmodule(get_vehicleDamage2,SanAndreas.exe,F3 0F 11 83 C4 06 00 00 85)
+aobscanmodule(get_damageWhenFlipped,SanAndreas.exe,F3 0F 11 80 C4 06 00 00 49)
+aobscanmodule(get_damageExplode,SanAndreas.exe,F3 0F 11 5C 24 20 55 53 57)
+registersymbol(get_damageWhenFlipped)
+alloc(newmem,$1000,get_vehicleDamage1)
+alloc(vehicleDamage2,$1000,get_vehicleDamage2)
+alloc(fDamageExplode,$1000,get_damageExplode)
+label(return)
+label(vehicleDamage2Ret)
+label(fDamageExplodeRet)
+
+newmem:
+cmp [playerVehicle],rbx
+jne @f
+mov [rbx+000006C4],(float)1000
+jmp return
+@@:
+movss [rbx+000006C4],xmm0
+jmp return
+
+vehicleDamage2:
+cmp [playerVehicle],rbx
+jne @f
+mov [rbx+000006C4],(float)1000
+jmp vehicleDamage2Ret
+@@:
+movss [rbx+000006C4],xmm0
+jmp vehicleDamage2Ret
+
+fDamageExplode:
+cmp [playerVehicle],rcx
+jne @f
+ret
+@@:
+movss [rsp+20],xmm3
+jmp fDamageExplodeRet
+
+get_vehicleDamage1:
+  jmp newmem
+  nop 3
+return:
+registersymbol(get_vehicleDamage1)
+
+get_vehicleDamage2:
+  jmp vehicleDamage2
+  nop 3
+vehicleDamage2Ret:
+registersymbol(get_vehicleDamage2)
+
+get_damageExplode:
+  jmp fDamageExplode
+  nop
+fDamageExplodeRet:
+registersymbol(get_damageExplode)
+
+get_damageWhenFlipped:
+db 90 90 90 90 90 90 90 90
+
+[DISABLE]
+get_vehicleDamage1:
+  db F3 0F 11 83 C4 06 00 00
+
+get_vehicleDamage2:
+  db F3 0F 11 83 C4 06 00 00
+
+get_damageWhenFlipped:
+db F3 0F 11 80 C4 06 00 00
+
+get_damageExplode:
+db F3 0F 11 5C 24 20
+
+unregistersymbol(get_vehicleDamage1)
+unregistersymbol(get_vehicleDamage2)
+unregistersymbol(get_damageWhenFlipped)
+unregistersymbol(get_damageExplode)
+unregistersymbol(get_damageExplode)
+dealloc(newmem)
+dealloc(vehicleDamage2)
+dealloc(fDamageExplode)
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+11F05C7
+
+SanAndreas.exe+11F0596: F7 81 CC 05 00 00 00 01 00 00  - test [rcx+000005CC],00000100
+SanAndreas.exe+11F05A0: 74 13                          - je SanAndreas.exe+11F05B5
+SanAndreas.exe+11F05A2: 48 3B 81 60 07 00 00           - cmp rax,[rcx+00000760]
+SanAndreas.exe+11F05A9: 75 0A                          - jne SanAndreas.exe+11F05B5
+SanAndreas.exe+11F05AB: F3 0F 59 35 95 96 85 03        - mulss xmm6,[SanAndreas.exe+4A49C48]
+SanAndreas.exe+11F05B3: EB 0E                          - jmp SanAndreas.exe+11F05C3
+SanAndreas.exe+11F05B5: F3 0F 59 F7                    - mulss xmm6,xmm7
+SanAndreas.exe+11F05B9: EB 08                          - jmp SanAndreas.exe+11F05C3
+SanAndreas.exe+11F05BB: F3 0F 59 35 21 91 85 03        - mulss xmm6,[SanAndreas.exe+4A496E4]
+SanAndreas.exe+11F05C3: F3 0F 5C C6                    - subss xmm0,xmm6
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+11F05C7: F3 0F 11 83 BC 06 00 00        - movss [rbx+000006BC],xmm0
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+11F05CF: 44 38 2D 4A 3D E0 03           - cmp [SanAndreas.exe+4FF4320],r13l
+SanAndreas.exe+11F05D6: 74 35                          - je SanAndreas.exe+11F060D
+SanAndreas.exe+11F05D8: 48 8B 93 28 01 00 00           - mov rdx,[rbx+00000128]
+SanAndreas.exe+11F05DF: 48 85 D2                       - test rdx,rdx
+SanAndreas.exe+11F05E2: 74 29                          - je SanAndreas.exe+11F060D
+SanAndreas.exe+11F05E4: 49 69 C0 C0 01 00 00           - imul rax,r8,000001C0
+SanAndreas.exe+11F05EB: 4A 8B 8C 10 F0 EF 24 05        - mov rcx,[rax+r10+0524EFF0]
+SanAndreas.exe+11F05F3: 48 85 C9                       - test rcx,rcx
+SanAndreas.exe+11F05F6: 74 15                          - je SanAndreas.exe+11F060D
+SanAndreas.exe+11F05F8: F7 81 CC 05 00 00 00 01 00 00  - test [rcx+000005CC],00000100
+//
+//
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+1239548
+
+SanAndreas.exe+123951E: 48 8B CF                 - mov rcx,rdi
+SanAndreas.exe+1239521: 48 89 3A                 - mov [rdx],rdi
+SanAndreas.exe+1239524: E8 97 E3 DA FF           - call SanAndreas.exe+FE78C0
+SanAndreas.exe+1239529: F3 0F 10 BB BC 06 00 00  - movss xmm7,[rbx+000006BC]
+SanAndreas.exe+1239531: 0F 2F FE                 - comiss xmm7,xmm6
+SanAndreas.exe+1239534: 0F 86 D9 01 00 00        - jbe SanAndreas.exe+1239713
+SanAndreas.exe+123953A: 0F B6 43 5A              - movzx eax,byte ptr [rbx+5A]
+SanAndreas.exe+123953E: 0F 28 C7                 - movaps xmm0,xmm7
+SanAndreas.exe+1239541: F3 0F 5C C6              - subss xmm0,xmm6
+SanAndreas.exe+1239545: C1 E8 03                 - shr eax,03
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+1239548: F3 0F 11 83 BC 06 00 00  - movss [rbx+000006BC],xmm0
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+1239550: 85 C0                    - test eax,eax
+SanAndreas.exe+1239552: 74 0C                    - je SanAndreas.exe+1239560
+SanAndreas.exe+1239554: 83 C0 FE                 - add eax,-02
+SanAndreas.exe+1239557: 41 3B C4                 - cmp eax,r12d
+SanAndreas.exe+123955A: 0F 87 75 01 00 00        - ja SanAndreas.exe+12396D5
+SanAndreas.exe+1239560: 48 85 FF                 - test rdi,rdi
+SanAndreas.exe+1239563: 0F 84 6C 01 00 00        - je SanAndreas.exe+12396D5
+SanAndreas.exe+1239569: 0F B6 47 5A              - movzx eax,byte ptr [rdi+5A]
+SanAndreas.exe+123956D: 24 07                    - and al,07
+SanAndreas.exe+123956F: 3C 03                    - cmp al,03
+
+
+SanAndreas.exe+FE2757: 48 8B 81 60 07 00 00           - mov rax,[rcx+00000760]
+SanAndreas.exe+FE275E: EB 03                          - jmp SanAndreas.exe+FE2763
+SanAndreas.exe+FE2760: 48 8B C6                       - mov rax,rsi
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+FE2763: F3 0F 11 80 BC 06 00 00        - movss [rax+000006BC],xmm0
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+FE276B: 49 69 C1 C0 01 00 00           - imul rax,r9,000001C0
+SanAndreas.exe+FE2772: 48 8B 8C 18 F0 EF 24 05        - mov rcx,[rax+rbx+0524EFF0]
+SanAndreas.exe+FE277A: 48 85 C9                       - test rcx,rcx
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>424</ID>
+                  <Description>"Unbreakable Vehicle (No visible damage + Tires)"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_vehicleCollision,SanAndreas.exe,4C 8B DC 55 53 56 57 41 54 41 56 49 8D 6B)
+aobscanmodule(get_flatWheels,SanAndreas.exe,C6 84 38 D5 07 00 00 01)
+alloc(newmem,$1000,get_vehicleCollision)
+alloc(fFlatWheels,$1000,get_flatWheels)
+label(return)
+label(fFlatWheelsRet)
+
+newmem:
+cmp [playerVehicle],rcx
+jne @f
+ret
+@@:
+db 4C 8B DC 55 53
+jmp return
+
+fFlatWheels:
+cmp [playerVehicle],rdi
+jne @f
+mov [rdi+000007D5],0
+jmp fFlatWheelsRet
+@@:
+mov byte ptr [rax+rdi+000007D5],01
+jmp fFlatWheelsRet
+
+get_vehicleCollision:
+  jmp newmem
+return:
+registersymbol(get_vehicleCollision)
+
+get_flatWheels:
+  jmp fFlatWheels
+  nop 3
+fFlatWheelsRet:
+registersymbol(get_flatWheels)
+
+[DISABLE]
+get_vehicleCollision:
+db 4C 8B DC 55 53
+
+get_flatWheels:
+  db C6 84 38 D5 07 00 00 01
+
+unregistersymbol(get_vehicleCollision)
+unregistersymbol(get_flatWheels)
+dealloc(newmem)
+dealloc(fFlatWheels)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+11EFBB0
+
+SanAndreas.exe+11EFB94: 44 0F 28 84 24 E0 00 00 00  - movaps xmm8,[rsp+000000E0]
+SanAndreas.exe+11EFB9D: 48 81 C4 28 01 00 00        - add rsp,00000128
+SanAndreas.exe+11EFBA4: 5F                          - pop rdi
+SanAndreas.exe+11EFBA5: 5D                          - pop rbp
+SanAndreas.exe+11EFBA6: E9 D5 A8 04 00              - jmp SanAndreas.exe+123A480
+SanAndreas.exe+11EFBAB: CC                          - int 3 
+SanAndreas.exe+11EFBAC: CC                          - int 3 
+SanAndreas.exe+11EFBAD: CC                          - int 3 
+SanAndreas.exe+11EFBAE: CC                          - int 3 
+SanAndreas.exe+11EFBAF: CC                          - int 3 
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+11EFBB0: 4C 8B DC                    - mov r11,rsp
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+11EFBB3: 55                          - push rbp
+SanAndreas.exe+11EFBB4: 53                          - push rbx
+SanAndreas.exe+11EFBB5: 56                          - push rsi
+SanAndreas.exe+11EFBB6: 57                          - push rdi
+SanAndreas.exe+11EFBB7: 41 54                       - push r12
+SanAndreas.exe+11EFBB9: 41 56                       - push r14
+SanAndreas.exe+11EFBBB: 49 8D 6B 88                 - lea rbp,[r11-78]
+SanAndreas.exe+11EFBBF: 48 81 EC 48 01 00 00        - sub rsp,00000148
+SanAndreas.exe+11EFBC6: 41 0F 29 7B A8              - movaps [r11-58],xmm7
+SanAndreas.exe+11EFBCB: 45 0F 29 9B 78 FF FF FF     - movaps [r11-00000088],xmm11
+
+//Flat Wheels
+SanAndreas.exe+1206BB9: B2 02                    - mov dl,02
+SanAndreas.exe+1206BBB: EB 02                    - jmp SanAndreas.exe+1206BBF
+SanAndreas.exe+1206BBD: 32 D2                    - xor dl,dl
+SanAndreas.exe+1206BBF: 0F B6 C2                 - movzx eax,dl
+SanAndreas.exe+1206BC2: 80 BC 38 D5 07 00 00 00  - cmp byte ptr [rax+rdi+000007D5],00
+SanAndreas.exe+1206BCA: 0F 85 86 01 00 00        - jne SanAndreas.exe+1206D56
+SanAndreas.exe+1206BD0: 0F 29 74 24 50           - movaps [rsp+50],xmm6
+SanAndreas.exe+1206BD5: B9 81 00 00 00           - mov ecx,00000081
+SanAndreas.exe+1206BDA: F3 0F 10 35 B2 04 85 03  - movss xmm6,[SanAndreas.exe+4A57094]
+SanAndreas.exe+1206BE2: 0F 28 CE                 - movaps xmm1,xmm6
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+1206BE5: C6 84 38 D5 07 00 00 01  - mov byte ptr [rax+rdi+000007D5],01
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+1206BED: E8 DE E5 DE FF           - call SanAndreas.exe+FF51D0
+SanAndreas.exe+1206BF2: 48 8D 8F A0 01 00 00     - lea rcx,[rdi+000001A0]
+SanAndreas.exe+1206BF9: 0F 57 D2                 - xorps xmm2,xmm2
+SanAndreas.exe+1206BFC: BA 5A 00 00 00           - mov edx,0000005A
+SanAndreas.exe+1206C01: E8 9A 74 C9 FF           - call SanAndreas.exe+E9E0A0
+SanAndreas.exe+1206C06: 0F B6 4F 5A              - movzx ecx,byte ptr [rdi+5A]
+SanAndreas.exe+1206C0A: 0F B6 C1                 - movzx eax,cl
+SanAndreas.exe+1206C0D: 24 F8                    - and al,-08
+SanAndreas.exe+1206C0F: 3C 10                    - cmp al,10
+SanAndreas.exe+1206C11: 75 34                    - jne SanAndreas.exe+1206C47
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>449</ID>
+                  <Description>"Vehicle Always Clean"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_vehicleDirt,SanAndreas.exe,F3 0F 11 87 B4 06 00 00 E9)
+alloc(newmem,$1000,get_vehicleDirt)
+label(return)
+
+newmem:
+cmp [playerVehicle],rdi
+jne @f
+xorps xmm0,xmm0
+@@:
+movss [rdi+000006B4],xmm0
+jmp return
+
+get_vehicleDirt:
+  jmp newmem
+  nop 3
+return:
+registersymbol(get_vehicleDirt)
+
+[DISABLE]
+get_vehicleDirt:
+  db F3 0F 11 87 B4 06 00 00
+
+unregistersymbol(get_vehicleDirt)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+124BA5E
+
+SanAndreas.exe+124BA22: F3 0F 59 C9                 - mulss xmm1,xmm1
+SanAndreas.exe+124BA26: F3 0F 58 C8                 - addss xmm1,xmm0
+SanAndreas.exe+124BA2A: 0F 57 C0                    - xorps xmm0,xmm0
+SanAndreas.exe+124BA2D: F3 0F 51 C1                 - sqrtss xmm0,xmm1
+SanAndreas.exe+124BA31: 0F 2F 05 0C AE 80 03        - comiss xmm0,[SanAndreas.exe+4A56844]
+SanAndreas.exe+124BA38: 0F 86 BF 00 00 00           - jbe SanAndreas.exe+124BAFD
+SanAndreas.exe+124BA3E: F3 0F 10 05 46 49 E3 03     - movss xmm0,[SanAndreas.exe+508038C]
+SanAndreas.exe+124BA46: F3 0F 59 05 36 AA 80 03     - mulss xmm0,[SanAndreas.exe+4A56484]
+SanAndreas.exe+124BA4E: F3 0F 58 87 B4 06 00 00     - addss xmm0,[rdi+000006B4]
+SanAndreas.exe+124BA56: F3 0F 5D 05 6A C2 80 03     - minss xmm0,[SanAndreas.exe+4A57CC8]
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+124BA5E: F3 0F 11 87 B4 06 00 00     - movss [rdi+000006B4],xmm0
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+124BA66: E9 8A 00 00 00              - jmp SanAndreas.exe+124BAF5
+SanAndreas.exe+124BA6B: 41 F6 84 90 28 08 26 05 01  - test byte ptr [r8+rdx*4+05260828],01
+SanAndreas.exe+124BA74: 0F 84 83 00 00 00           - je SanAndreas.exe+124BAFD
+SanAndreas.exe+124BA7A: F3 0F 10 47 70              - movss xmm0,[rdi+70]
+SanAndreas.exe+124BA7F: F3 0F 10 4F 6C              - movss xmm1,[rdi+6C]
+SanAndreas.exe+124BA84: F3 0F 59 C0                 - mulss xmm0,xmm0
+SanAndreas.exe+124BA88: F3 0F 59 C9                 - mulss xmm1,xmm1
+SanAndreas.exe+124BA8C: F3 0F 58 C8                 - addss xmm1,xmm0
+SanAndreas.exe+124BA90: 0F 57 C0                    - xorps xmm0,xmm0
+SanAndreas.exe+124BA93: F3 0F 51 C1                 - sqrtss xmm0,xmm1
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1</ID>
+                  <Description>"Infinite Ammo"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_Ammo,SanAndreas.exe,8B 43 08 85 C0 7E 05 2B)
+aobscanmodule(get_driveByAmmo,SanAndreas.exe,FF C8 89 43 08 8B 43 0C FF C8)
+registersymbol(get_driveByAmmo)
+alloc(newmem,$1000,get_Ammo)
+label(code)
+label(return)
+
+newmem:
+cmp rdi,[Player]
+jne code
+xor rax,rax
+mov ax,[r13+20]
+cmp ax,1 //If 1, it means that it doesn't have ammo magazines
+je @f
+inc ax
+mov [rbx+08],ax
+mov [rbx+0C],#900
+add [rbx+0C],ax
+jmp code
+@@:
+mov rax,isActive
+cmp byte ptr [rax],00
+je @f
+mov [rbx+08],2
+@@:
+mov [rbx+0C],#901
+code:
+mov eax,[rbx+08]
+test eax,eax
+jmp return
+
+get_Ammo:
+  jmp newmem
+return:
+registersymbol(get_Ammo)
+
+get_driveByAmmo:
+db 90 90 89 43 08 8B 43 0C 90 90
+
+[DISABLE]
+get_Ammo:
+db 8B 43 08 85 C0
+
+get_driveByAmmo:
+db FF C8 89 43 08 8B 43 0C FF C8
+
+unregistersymbol(get_Ammo)
+unregistersymbol(get_driveByAmmo)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+125E879
+
+SanAndreas.exe+125E855: 2B D0                 - sub edx,eax
+SanAndreas.exe+125E857: 66 0F 6E D2           - movd xmm2,edx
+SanAndreas.exe+125E85B: 0F 5B D2              - cvtdq2ps xmm2,xmm2
+SanAndreas.exe+125E85E: 0F 2F CE              - comiss xmm1,xmm6
+SanAndreas.exe+125E861: F3 0F 2C D2           - cvttss2si edx,xmm2
+SanAndreas.exe+125E865: 72 09                 - jb SanAndreas.exe+125E870
+SanAndreas.exe+125E867: F3 0F 5C CA           - subss xmm1,xmm2
+SanAndreas.exe+125E86B: F3 0F 11 4B 20        - movss [rbx+20],xmm1
+SanAndreas.exe+125E870: 80 3D BD 5A D9 03 00  - cmp byte ptr [SanAndreas.exe+4FF4334],00
+SanAndreas.exe+125E877: 75 3E                 - jne SanAndreas.exe+125E8B7
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+125E879: 8B 43 08              - mov eax,[rbx+08]
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+125E87C: 85 C0                 - test eax,eax
+SanAndreas.exe+125E87E: 7E 05                 - jle SanAndreas.exe+125E885
+SanAndreas.exe+125E880: 2B C2                 - sub eax,edx
+SanAndreas.exe+125E882: 89 43 08              - mov [rbx+08],eax
+SanAndreas.exe+125E885: 8B 43 0C              - mov eax,[rbx+0C]
+SanAndreas.exe+125E888: 85 C0                 - test eax,eax
+SanAndreas.exe+125E88A: 7E 2B                 - jle SanAndreas.exe+125E8B7
+SanAndreas.exe+125E88C: 3D A8 61 00 00        - cmp eax,000061A8
+SanAndreas.exe+125E891: 7C 07                 - jl SanAndreas.exe+125E89A
+SanAndreas.exe+125E893: 40 84 ED              - test bpl,bpl
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>4</ID>
+                  <Description>"Infinite Cash"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_Cash,SanAndreas.exe,44 8B 8F E8 00 00 00 45)
+alloc(newmem,$1000,get_Cash)
+label(return)
+
+newmem:
+mov [rdi+000000E8],#99999999 //Current Cash
+mov [rdi+000000EC],#99999999 //Display Cash
+mov r8d,#99999999 //Temp Flowing Cash
+mov r9d,[rdi+000000E8]
+jmp return
+
+get_Cash:
+  jmp newmem
+  nop 2
+return:
+registersymbol(get_Cash)
+
+[DISABLE]
+get_Cash:
+  db 44 8B 8F E8 00 00 00
+
+unregistersymbol(get_Cash)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+FE14FD
+
+SanAndreas.exe+FE14CB: EB 1B                 - jmp SanAndreas.exe+FE14E8
+SanAndreas.exe+FE14CD: 33 F6                 - xor esi,esi
+SanAndreas.exe+FE14CF: 89 B7 48 01 00 00     - mov [rdi+00000148],esi
+SanAndreas.exe+FE14D5: 48 89 B7 34 01 00 00  - mov [rdi+00000134],rsi
+SanAndreas.exe+FE14DC: 89 B7 2C 01 00 00     - mov [rdi+0000012C],esi
+SanAndreas.exe+FE14E2: 89 B7 40 01 00 00     - mov [rdi+00000140],esi
+SanAndreas.exe+FE14E8: 48 8B CF              - mov rcx,rdi
+SanAndreas.exe+FE14EB: E8 D0 2A 00 00        - call SanAndreas.exe+FE3FC0
+SanAndreas.exe+FE14F0: 44 8B 87 EC 00 00 00  - mov r8d,[rdi+000000EC]
+SanAndreas.exe+FE14F7: 41 BF 01 00 00 00     - mov r15d,00000001
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+FE14FD: 44 8B 8F E8 00 00 00  - mov r9d,[rdi+000000E8]
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+FE1504: 45 3B C1              - cmp r8d,r9d
+SanAndreas.exe+FE1507: 74 5E                 - je SanAndreas.exe+FE1567
+SanAndreas.exe+FE1509: 45 2B C8              - sub r9d,r8d
+SanAndreas.exe+FE150C: 41 8B C1              - mov eax,r9d
+SanAndreas.exe+FE150F: 99                    - cdq 
+SanAndreas.exe+FE1510: 33 C2                 - xor eax,edx
+SanAndreas.exe+FE1512: 2B C2                 - sub eax,edx
+SanAndreas.exe+FE1514: 3D A0 86 01 00        - cmp eax,000186A0
+SanAndreas.exe+FE1519: 7E 07                 - jle SanAndreas.exe+FE1522
+SanAndreas.exe+FE151B: B9 39 30 00 00        - mov ecx,00003039
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>350</ID>
+                  <Description>"Infinite Gang Size"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_groupLimit,SanAndreas.exe,8B D0 3B D8 7C 41)
+aobscanmodule(get_groupLimit2,SanAndreas.exe,0F 4C CA 3B D9 7C 0A)
+registersymbol(get_groupLimit)
+registersymbol(get_groupLimit2)
+
+get_groupLimit+4:
+db EB
+
+get_groupLimit2+5:
+db EB
+
+[DISABLE]
+get_groupLimit+4:
+db 7C
+
+get_groupLimit2+5:
+db 7C
+
+unregistersymbol(get_groupLimit)
+unregistersymbol(get_groupLimit2)
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>303</ID>
+                  <Description>"Infinite Bullet Range"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_weaponRange,SanAndreas.exe,F3 41 0F 10 4E 08 4C)
+aobscanmodule(get_weaponRange2,SanAndreas.exe,F3 41 0F 59 46 08 0F 2F)
+alloc(weaponRange,$1000,get_weaponRange)
+alloc(weaponRange2,$1000,get_weaponRange2)
+label(weaponRangeRet)
+label(weaponRange2Ret)
+
+weaponRange:
+sub rsp,04
+mov [rsp],(float)10000
+movss xmm1,[rsp]
+add rsp,04
+jmp weaponRangeRet
+
+weaponRange2:
+sub rsp,04
+mov [rsp],(float)10000
+movss xmm0,[rsp]
+add rsp,04
+jmp weaponRange2Ret
+
+get_weaponRange:
+  jmp weaponRange
+  nop
+weaponRangeRet:
+registersymbol(get_weaponRange)
+
+get_weaponRange2:
+  jmp weaponRange2
+  nop
+weaponRange2Ret:
+registersymbol(get_weaponRange2)
+
+[DISABLE]
+get_weaponRange:
+  db F3 41 0F 10 4E 08
+
+get_weaponRange2:
+  db F3 41 0F 59 46 08
+
+unregistersymbol(get_weaponRange)
+unregistersymbol(get_weaponRange2)
+dealloc(weaponRange)
+dealloc(weaponRange2)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+125FD67
+
+SanAndreas.exe+125FD37: 48 0F BF 84 CB 88 07 00 00  - movsx rax,word ptr [rbx+rcx*8+00000788]
+SanAndreas.exe+125FD40: 48 6B C8 70                 - imul rcx,rax,70
+SanAndreas.exe+125FD44: 48 8D 05 95 31 26 04        - lea rax,[SanAndreas.exe+54C2EE0]
+SanAndreas.exe+125FD4B: 83 3C 01 01                 - cmp dword ptr [rcx+rax],01
+SanAndreas.exe+125FD4F: 75 12                       - jne SanAndreas.exe+125FD63
+SanAndreas.exe+125FD51: 48 8B 0D 10 25 F5 03        - mov rcx,[SanAndreas.exe+51B2268]
+SanAndreas.exe+125FD58: 48 8B 01                    - mov rax,[rcx]
+SanAndreas.exe+125FD5B: FF 90 98 00 00 00           - call qword ptr [rax+00000098]
+SanAndreas.exe+125FD61: EB 04                       - jmp SanAndreas.exe+125FD67
+SanAndreas.exe+125FD63: 41 0F 28 C1                 - movaps xmm0,xmm9
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+125FD67: F3 41 0F 59 46 08           - mulss xmm0,[r14+08]
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+125FD6D: 0F 2F F0                    - comiss xmm6,xmm0
+SanAndreas.exe+125FD70: 76 08                       - jna SanAndreas.exe+125FD7A
+SanAndreas.exe+125FD72: 48 8B FE                    - mov rdi,rsi
+SanAndreas.exe+125FD75: E9 5F 04 00 00              - jmp SanAndreas.exe+12601D9
+SanAndreas.exe+125FD7A: 4C 8D 4D 20                 - lea r9,[rbp+20]
+SanAndreas.exe+125FD7E: 48 8D 45 00                 - lea rax,[rbp+00]
+SanAndreas.exe+125FD82: 48 8D 55 40                 - lea rdx,[rbp+40]
+SanAndreas.exe+125FD86: 48 89 44 24 20              - mov [rsp+20],rax
+SanAndreas.exe+125FD8B: 48 8D 4C 24 70              - lea rcx,[rsp+70]
+SanAndreas.exe+125FD90: E8 CB 81 00 00              - call SanAndreas.exe+1267F60
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>426</ID>
+                  <Description>"Freeze Wanted Level"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_freezeWantedLevel,SanAndreas.exe,48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 8B 01 48 8B D9 8B)
+alloc(newmem,$1000,get_freezeWantedLevel)
+label(return)
+
+newmem:
+cmp byte ptr [runSetWantedLevel],01
+je @f
+mov byte ptr [runSetWantedLevel],00
+ret
+@@:
+db 48 89 5C 24 08
+jmp return
+
+get_freezeWantedLevel:
+  jmp newmem
+return:
+registersymbol(get_freezeWantedLevel)
+
+[DISABLE]
+get_freezeWantedLevel:
+db 48 89 5C 24 08
+
+unregistersymbol(get_freezeWantedLevel)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+FFC800
+
+SanAndreas.exe+FFC7F6: 5B                 - pop rbx
+SanAndreas.exe+FFC7F7: C3                 - ret 
+SanAndreas.exe+FFC7F8: CC                 - int 3 
+SanAndreas.exe+FFC7F9: CC                 - int 3 
+SanAndreas.exe+FFC7FA: CC                 - int 3 
+SanAndreas.exe+FFC7FB: CC                 - int 3 
+SanAndreas.exe+FFC7FC: CC                 - int 3 
+SanAndreas.exe+FFC7FD: CC                 - int 3 
+SanAndreas.exe+FFC7FE: CC                 - int 3 
+SanAndreas.exe+FFC7FF: CC                 - int 3 
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+FFC800: 48 89 5C 24 08     - mov [rsp+08],rbx
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+FFC805: 48 89 6C 24 10     - mov [rsp+10],rbp
+SanAndreas.exe+FFC80A: 48 89 74 24 18     - mov [rsp+18],rsi
+SanAndreas.exe+FFC80F: 57                 - push rdi
+SanAndreas.exe+FFC810: 48 83 EC 20        - sub rsp,20
+SanAndreas.exe+FFC814: 8B 01              - mov eax,[rcx]
+SanAndreas.exe+FFC816: 48 8B D9           - mov rbx,rcx
+SanAndreas.exe+FFC819: 8B 71 2C           - mov esi,[rcx+2C]
+SanAndreas.exe+FFC81C: 8B 0D 12 A1 E7 03  - mov ecx,[SanAndreas.exe+4E76934]
+SanAndreas.exe+FFC822: 3B C1              - cmp eax,ecx
+SanAndreas.exe+FFC824: 7E 08              - jle SanAndreas.exe+FFC82E
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>307</ID>
+                  <Description>"Perfect Weapon Accuracy"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_weaponAccuracy,SanAndreas.exe,F3 0F 5E 58 38)
+alloc(newmem,$1000,get_weaponAccuracy)
+label(return)
+
+newmem:
+cmp rdi,[Player]
+jne @f
+xorps xmm3,xmm3
+jmp return
+@@:
+divss xmm3,[rax+38]
+jmp return
+
+get_weaponAccuracy:
+  jmp newmem
+return:
+registersymbol(get_weaponAccuracy)
+
+[DISABLE]
+get_weaponAccuracy:
+  db F3 0F 5E 58 38
+
+unregistersymbol(get_weaponAccuracy)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+10CD1AE
+
+SanAndreas.exe+10CD185: 8B 9C D1 88 07 00 00              - mov ebx,[rcx+rdx*8+00000788]
+SanAndreas.exe+10CD18C: 8B D3                             - mov edx,ebx
+SanAndreas.exe+10CD18E: E8 AD 02 FD FF                    - call SanAndreas.exe+109D440
+SanAndreas.exe+10CD193: 0F B6 D0                          - movzx edx,al
+SanAndreas.exe+10CD196: 8B CB                             - mov ecx,ebx
+SanAndreas.exe+10CD198: E8 F3 D6 19 00                    - call SanAndreas.exe+126A890
+SanAndreas.exe+10CD19D: F3 0F 10 25 8B C9 97 03           - movss xmm4,[SanAndreas.exe+4A49B30]
+SanAndreas.exe+10CD1A5: 48 8B D0                          - mov rdx,rax
+SanAndreas.exe+10CD1A8: 0F 28 DC                          - movaps xmm3,xmm4
+SanAndreas.exe+10CD1AB: 83 38 00                          - cmp dword ptr [rax],00
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+10CD1AE: F3 0F 5E 58 38                    - divss xmm3,[rax+38]
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+10CD1B3: 75 0E                             - jne SanAndreas.exe+10CD1C3
+SanAndreas.exe+10CD1B5: F3 0F 10 05 B7 C7 97 03           - movss xmm0,[SanAndreas.exe+4A49974]
+SanAndreas.exe+10CD1BD: 48 83 C4 20                       - add rsp,20
+SanAndreas.exe+10CD1C1: 5B                                - pop rbx
+SanAndreas.exe+10CD1C2: C3                                - ret 
+SanAndreas.exe+10CD1C3: 8D 43 E7                          - lea eax,[rbx-19]
+SanAndreas.exe+10CD1C6: 83 F8 02                          - cmp eax,02
+SanAndreas.exe+10CD1C9: 76 49                             - jna SanAndreas.exe+10CD214
+SanAndreas.exe+10CD1CB: 41 F7 83 CC 05 00 00 00 00 00 04  - test [r11+000005CC],04000000
+SanAndreas.exe+10CD1D6: F3 0F 10 15 FA D8 97 03           - movss xmm2,[SanAndreas.exe+4A4AAD8]
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>317</ID>
+                  <Description>"Rapid Fire"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_fireRateStanding,SanAndreas.exe,F3 45 0F 10 40 48)
+aobscanmodule(get_fireRateCrouch,SanAndreas.exe,F3 45 0F 10 40 54)
+alloc(fireRateStanding,$1000,get_fireRateStanding)
+alloc(fireRateCrouch,$1000,get_fireRateCrouch)
+label(fireRateStandingRet)
+label(fireRateCrouchRet)
+globalalloc(isActive,1)
+
+isActive:
+db 01
+
+fireRateStanding:
+cmp rdi,[Player]
+jne @f
+sub rsp,04
+mov [rsp],(float)0.11
+movss xmm6,[rsp]
+movss xmm8,[rsp]
+mov [rsp],(float)0.15
+movss xmm10,[rsp]
+add rsp,04
+jmp fireRateStandingRet
+@@:
+movss xmm6,[r8+40]
+movss xmm10,[r8+44]
+movss xmm8,[r8+48]
+jmp fireRateStandingRet
+
+fireRateCrouch:
+cmp rdi,[Player]
+jne @f
+sub rsp,04
+mov [rsp],(float)0.11
+movss xmm6,[rsp]
+movss xmm8,[rsp]
+mov [rsp],(float)0.15
+movss xmm10,[rsp]
+add rsp,04
+jmp fireRateCrouchRet
+@@:
+movss xmm6,[r8+4C]
+movss xmm10,[r8+50]
+movss xmm8,[r8+54]
+jmp fireRateCrouchRet
+
+get_fireRateStanding:
+  jmp fireRateStanding
+  nop d
+fireRateStandingRet:
+registersymbol(get_fireRateStanding)
+
+get_fireRateCrouch:
+  jmp fireRateCrouch
+  nop d
+fireRateCrouchRet:
+registersymbol(get_fireRateCrouch)
+
+[DISABLE]
+get_fireRateStanding:
+  db F3 45 0F 10 40 48 F3 45 0F 10 50 44 F3 41 0F 10 70 40
+
+get_fireRateCrouch:
+  db F3 45 0F 10 40 54 F3 45 0F 10 50 50 F3 41 0F 10 70 4C
+
+unregistersymbol(get_fireRateStanding)
+unregistersymbol(get_fireRateCrouch)
+dealloc(fireRateStanding)
+dealloc(fireRateCrouch)
+
+{$lua}
+writeByte('isActive',00)
+{$asm}
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+1158AB0
+
+SanAndreas.exe+1158A85: 0F 87 27 04 00 00           - ja SanAndreas.exe+1158EB2
+SanAndreas.exe+1158A8B: 8B 87 CC 05 00 00           - mov eax,[rdi+000005CC]
+SanAndreas.exe+1158A91: 4C 8B 43 48                 - mov r8,[rbx+48]
+SanAndreas.exe+1158A95: C1 E8 1A                    - shr eax,1A
+SanAndreas.exe+1158A98: A8 01                       - test al,01
+SanAndreas.exe+1158A9A: 74 14                       - je SanAndreas.exe+1158AB0
+SanAndreas.exe+1158A9C: F3 45 0F 10 40 54           - movss xmm8,[r8+54]
+SanAndreas.exe+1158AA2: F3 45 0F 10 50 50           - movss xmm10,[r8+50]
+SanAndreas.exe+1158AA8: F3 41 0F 10 70 4C           - movss xmm6,[r8+4C]
+SanAndreas.exe+1158AAE: EB 12                       - jmp SanAndreas.exe+1158AC2
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+1158AB0: F3 45 0F 10 40 48           - movss xmm8,[r8+48]
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+1158AB6: F3 45 0F 10 50 44           - movss xmm10,[r8+44]
+SanAndreas.exe+1158ABC: F3 41 0F 10 70 40           - movss xmm6,[r8+40]
+SanAndreas.exe+1158AC2: F3 44 0F 58 05 0D 09 8F 03  - addss xmm8,[SanAndreas.exe+4A493D8]
+SanAndreas.exe+1158ACB: 41 0F 28 FA                 - movaps xmm7,xmm10
+SanAndreas.exe+1158ACF: 80 E9 02                    - sub cl,02
+SanAndreas.exe+1158AD2: F3 0F 5C FE                 - subss xmm7,xmm6
+SanAndreas.exe+1158AD6: 41 BE FE FF 00 00           - mov r14d,0000FFFE
+SanAndreas.exe+1158ADC: F3 0F 59 3D 4C 10 8F 03     - mulss xmm7,[SanAndreas.exe+4A49B30]
+SanAndreas.exe+1158AE4: F3 41 0F 58 F8              - addss xmm7,xmm8
+SanAndreas.exe+1158AE9: 80 F9 01                    - cmp cl,01
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>70</ID>
+                  <Description>"Everyone is Recruitable"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_canJoinGang,SanAndreas.exe,83 BF 78 07 00 00 08)
+aobscanmodule(get_canBeRecruited,SanAndreas.exe,41 83 B8 78 07 00 00 08)
+aobscanmodule(get_canDisband,SanAndreas.exe,83 B8 78 07 00 00 08 74 0B)
+registersymbol(get_canJoinGang)
+registersymbol(get_canBeRecruited)
+registersymbol(get_canDisband)
+
+get_canJoinGang:
+db 38 C0 90 90 90 90 90
+
+get_canBeRecruited:
+db 38 C0 90 90 90 90 90 90
+
+get_canDisband:
+db 38 C0 90 90 90 90 90
+[DISABLE]
+get_canJoinGang:
+db 83 BF 78 07 00 00 08
+
+get_canBeRecruited:
+db 41 83 B8 78 07 00 00 08
+
+get_canDisband:
+db 83 B8 78 07 00 00 08
+
+unregistersymbol(get_canJoinGang)
+unregistersymbol(get_canBeRecruited)
+unregistersymbol(get_canDisband)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+10D274A
+
+SanAndreas.exe+10D272E: 74 1A                 - je SanAndreas.exe+10D274A
+SanAndreas.exe+10D2730: 45 33 C0              - xor r8d,r8d
+SanAndreas.exe+10D2733: 48 8B CE              - mov rcx,rsi
+SanAndreas.exe+10D2736: 41 8D 50 02           - lea edx,[r8+02]
+SanAndreas.exe+10D273A: E8 F1 F5 FF FF        - call SanAndreas.exe+10D1D30
+SanAndreas.exe+10D273F: 48 81 C4 A0 00 00 00  - add rsp,000000A0
+SanAndreas.exe+10D2746: 5F                    - pop rdi
+SanAndreas.exe+10D2747: 5E                    - pop rsi
+SanAndreas.exe+10D2748: 5D                    - pop rbp
+SanAndreas.exe+10D2749: C3                    - ret 
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+10D274A: 83 BF 78 07 00 00 08  - cmp dword ptr [rdi+00000778],08
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+10D2751: 74 35                 - je SanAndreas.exe+10D2788
+SanAndreas.exe+10D2753: 80 3D DE 1B F2 03 00  - cmp byte ptr [SanAndreas.exe+4FF4338],00
+SanAndreas.exe+10D275A: 75 2C                 - jne SanAndreas.exe+10D2788
+SanAndreas.exe+10D275C: 80 3D D6 1B F2 03 00  - cmp byte ptr [SanAndreas.exe+4FF4339],00
+SanAndreas.exe+10D2763: 75 23                 - jne SanAndreas.exe+10D2788
+SanAndreas.exe+10D2765: 80 3D CE 1B F2 03 00  - cmp byte ptr [SanAndreas.exe+4FF433A],00
+SanAndreas.exe+10D276C: 75 1A                 - jne SanAndreas.exe+10D2788
+SanAndreas.exe+10D276E: 45 33 C0              - xor r8d,r8d
+SanAndreas.exe+10D2771: 48 8B CE              - mov rcx,rsi
+SanAndreas.exe+10D2774: 41 8D 50 03           - lea edx,[r8+03]
+
+
+SanAndreas.exe+10D1688: FF C2                    - inc edx
+SanAndreas.exe+10D168A: 48 8B EB                 - mov rbp,rbx
+SanAndreas.exe+10D168D: 45 84 DB                 - test r11l,r11l
+SanAndreas.exe+10D1690: 75 35                    - jne SanAndreas.exe+10D16C7
+SanAndreas.exe+10D1692: 4D 85 C0                 - test r8,r8
+SanAndreas.exe+10D1695: 74 30                    - je SanAndreas.exe+10D16C7
+SanAndreas.exe+10D1697: 41 0F B6 40 5A           - movzx eax,byte ptr [r8+5A]
+SanAndreas.exe+10D169C: 24 07                    - and al,07
+SanAndreas.exe+10D169E: 3C 03                    - cmp al,03
+SanAndreas.exe+10D16A0: 75 25                    - jne SanAndreas.exe+10D16C7
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+10D16A2: 41 83 B8 78 07 00 00 08  - cmp dword ptr [r8+00000778],08
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+10D16AA: 74 18                    - je SanAndreas.exe+10D16C4
+SanAndreas.exe+10D16AC: 38 1D 86 2C F2 03        - cmp [SanAndreas.exe+4FF4338],bl
+SanAndreas.exe+10D16B2: 75 10                    - jne SanAndreas.exe+10D16C4
+SanAndreas.exe+10D16B4: 38 1D 7F 2C F2 03        - cmp [SanAndreas.exe+4FF4339],bl
+SanAndreas.exe+10D16BA: 75 08                    - jne SanAndreas.exe+10D16C4
+SanAndreas.exe+10D16BC: 38 1D 78 2C F2 03        - cmp [SanAndreas.exe+4FF433A],bl
+SanAndreas.exe+10D16C2: 74 03                    - je SanAndreas.exe+10D16C7
+SanAndreas.exe+10D16C4: 49 8B E8                 - mov rbp,r8
+SanAndreas.exe+10D16C7: 44 3B D2                 - cmp r10d,edx
+SanAndreas.exe+10D16CA: 0F 8C 70 02 00 00        - jl SanAndreas.exe+10D1940
+
+
+SanAndreas.exe+10D164B: 41 B3 01              - mov r11l,01
+SanAndreas.exe+10D164E: 8B D3                 - mov edx,ebx
+SanAndreas.exe+10D1650: 4D 85 D2              - test r10,r10
+SanAndreas.exe+10D1653: 74 33                 - je SanAndreas.exe+10D1688
+SanAndreas.exe+10D1655: 49 69 C9 A0 04 00 00  - imul rcx,r9,000004A0
+SanAndreas.exe+10D165C: 4D 8B CA              - mov r9,r10
+SanAndreas.exe+10D165F: 48 03 CE              - add rcx,rsi
+SanAndreas.exe+10D1662: 48 8B 01              - mov rax,[rcx]
+SanAndreas.exe+10D1665: 48 85 C0              - test rax,rax
+SanAndreas.exe+10D1668: 74 14                 - je SanAndreas.exe+10D167E
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+10D166A: 83 B8 78 07 00 00 08  - cmp dword ptr [rax+00000778],08
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+10D1671: 74 0B                 - je SanAndreas.exe+10D167E
+SanAndreas.exe+10D1673: E8 C8 63 FF FF        - call SanAndreas.exe+10C7A40
+SanAndreas.exe+10D1678: 84 C0                 - test al,al
+SanAndreas.exe+10D167A: 75 02                 - jne SanAndreas.exe+10D167E
+SanAndreas.exe+10D167C: FF C2                 - inc edx
+SanAndreas.exe+10D167E: 48 83 C1 08           - add rcx,08
+SanAndreas.exe+10D1682: 49 83 E9 01           - sub r9,01
+SanAndreas.exe+10D1686: 75 DA                 - jne SanAndreas.exe+10D1662
+SanAndreas.exe+10D1688: FF C2                 - inc edx
+SanAndreas.exe+10D168A: 48 8B EB              - mov rbp,rbx
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>388</ID>
+                  <Description>"Infinite NOS"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_NOSCapacity,SanAndreas.exe,F3 0F 11 91 24 0B 00 00)
+registersymbol(get_NOSCapacity)
+
+get_NOSCapacity:
+db 90 90 90 90 90 90 90 90
+
+
+[DISABLE]
+get_NOSCapacity:
+db F3 0F 11 91 24 0B 00 00
+
+unregistersymbol(get_NOSCapacity)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+120263B
+
+SanAndreas.exe+120260A: 48 83 C4 40                    - add rsp,40
+SanAndreas.exe+120260E: 5B                             - pop rbx
+SanAndreas.exe+120260F: E9 FC FD FF FF                 - jmp SanAndreas.exe+1202410
+SanAndreas.exe+1202614: 0F 57 FF                       - xorps xmm7,xmm7
+SanAndreas.exe+1202617: 0F 2F D7                       - comiss xmm2,xmm7
+SanAndreas.exe+120261A: 0F 83 88 00 00 00              - jae SanAndreas.exe+12026A8
+SanAndreas.exe+1202620: F3 0F 10 05 60 1A E7 03        - movss xmm0,[SanAndreas.exe+5074088]
+SanAndreas.exe+1202628: F3 0F 59 05 04 81 84 03        - mulss xmm0,[SanAndreas.exe+4A4A734]
+SanAndreas.exe+1202630: F3 0F 5C D0                    - subss xmm2,xmm0
+SanAndreas.exe+1202634: 0F 2F 15 21 A5 84 03           - comiss xmm2,[SanAndreas.exe+4A4CB5C]
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+120263B: F3 0F 11 91 1C 0B 00 00        - movss [rcx+00000B1C],xmm2
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+1202643: 73 31                          - jae SanAndreas.exe+1202676
+SanAndreas.exe+1202645: 80 B9 1E 06 00 00 00           - cmp byte ptr [rcx+0000061E],00
+SanAndreas.exe+120264C: C7 81 1C 0B 00 00 BD 37 86 35  - mov [rcx+00000B1C],358637BD
+SanAndreas.exe+1202656: 75 1E                          - jne SanAndreas.exe+1202676
+SanAndreas.exe+1202658: 81 A1 E8 04 00 00 FF FF F7 FF  - and [rcx+000004E8],FFF7FFFF
+SanAndreas.exe+1202662: BA 0F 00 00 00                 - mov edx,0000000F
+SanAndreas.exe+1202667: E8 44 3B 04 00                 - call SanAndreas.exe+12461B0
+SanAndreas.exe+120266C: C7 83 1C 0B 00 00 00 00 80 3F  - mov [rbx+00000B1C],3F800000
+SanAndreas.exe+1202676: F3 0F 10 8B 38 06 00 00        - movss xmm1,[rbx+00000638]
+SanAndreas.exe+120267E: 0F 2F CF                       - comiss xmm1,xmm7
+}
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>402</ID>
+                  <Description>"Always Have Nitro and Hydraulics"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+aobscanmodule(get_hasNitro,SanAndreas.exe,8B 87 BC 07 00 00 83 E8 03 83 F8 01 77 6C) // should be unique
+alloc(newmem,$1000,get_hasNitro)
+label(return)
+
+newmem:
+mov rax,playerVehicle
+mov rax,[rax]
+cmp rcx,rax
+jne @f
+mov [rbp-80],10
+@@:
+xor rax,rax
+mov eax,[rdi+000007BC]
+jmp return
+
+get_hasNitro:
+  jmp newmem
+  nop
+return:
+registersymbol(get_hasNitro)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+get_hasNitro:
+  db 8B 87 BC 07 00 00
+
+unregistersymbol(get_hasNitro)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: SanAndreas.exe+11F3507
+
+SanAndreas.exe+11F34E8: 66 3B C6                 - cmp ax,si
+SanAndreas.exe+11F34EB: 74 1A                    - je SanAndreas.exe+11F3507
+SanAndreas.exe+11F34ED: 66 3B C3                 - cmp ax,bx
+SanAndreas.exe+11F34F0: 74 15                    - je SanAndreas.exe+11F3507
+SanAndreas.exe+11F34F2: 48 8B 47 18              - mov rax,[rdi+18]
+SanAndreas.exe+11F34F6: 44 0F 2F 70 28           - comiss xmm14,[rax+28]
+SanAndreas.exe+11F34FB: 76 0A                    - jna SanAndreas.exe+11F3507
+SanAndreas.exe+11F34FD: 33 D2                    - xor edx,edx
+SanAndreas.exe+11F34FF: 48 8B CF                 - mov rcx,rdi
+SanAndreas.exe+11F3502: E8 A9 C5 00 00           - call SanAndreas.exe+11FFAB0
+// ---------- INJECTING HERE ----------
+SanAndreas.exe+11F3507: 8B 87 B4 07 00 00        - mov eax,[rdi+000007B4]
+// ---------- DONE INJECTING  ----------
+SanAndreas.exe+11F350D: 83 E8 03                 - sub eax,03
+SanAndreas.exe+11F3510: 83 F8 01                 - cmp eax,01
+SanAndreas.exe+11F3513: 77 6C                    - ja SanAndreas.exe+11F3581
+SanAndreas.exe+11F3515: 0F B6 87 1A 05 00 00     - movzx eax,byte ptr [rdi+0000051A]
+SanAndreas.exe+11F351C: 2C 39                    - sub al,39
+SanAndreas.exe+11F351E: 3C 01                    - cmp al,01
+SanAndreas.exe+11F3520: 76 20                    - jna SanAndreas.exe+11F3542
+SanAndreas.exe+11F3522: 80 7F 5A 08              - cmp byte ptr [rdi+5A],08
+SanAndreas.exe+11F3526: 73 59                    - jae SanAndreas.exe+11F3581
+SanAndreas.exe+11F3528: F3 0F 10 05 E4 8E 85 03  - movss xmm0,[SanAndreas.exe+4A4C414]
+}
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>85</ID>
+          <Description>"Other Stuff [Don't Use]"</Description>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>92</ID>
+              <Description>"[ Selected NPC ]"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <Address>0</Address>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>61</ID>
+                  <Description>"BASE"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>selNPC</Address>
+                  <Offsets>
+                    <Offset>0</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>74</ID>
+                  <Description>"Stat Pointer"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>selNPC</Address>
+                  <Offsets>
+                    <Offset>780</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>76</ID>
+                  <Description>"Current Weapon"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>selNPC</Address>
+                  <Offsets>
+                    <Offset>698</Offset>
+                  </Offsets>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>78</ID>
+                      <Description>"Weapon ID"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[selNPC]+698</Address>
+                      <Offsets>
+                        <Offset>220</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>93</ID>
+              <Description>"[ Player ]"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>94</ID>
+                  <Description>"BASE"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>Player</Address>
+                  <Offsets>
+                    <Offset>0</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>272</ID>
+                  <Description>"Stat Pointer"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>Player</Address>
+                  <Offsets>
+                    <Offset>780</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>176</ID>
+                  <Description>"Axis"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>Player</Address>
+                  <Offsets>
+                    <Offset>18</Offset>
+                  </Offsets>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>177</ID>
+                      <Description>"X"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>Player</Address>
+                      <Offsets>
+                        <Offset>30</Offset>
+                        <Offset>18</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>179</ID>
+                      <Description>"Y"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>Player</Address>
+                      <Offsets>
+                        <Offset>34</Offset>
+                        <Offset>18</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>178</ID>
+                      <Description>"Z"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Float</VariableType>
+                      <Address>Player</Address>
+                      <Offsets>
+                        <Offset>38</Offset>
+                        <Offset>18</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>90</ID>
+                  <Description>"Current Weapon"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>Player</Address>
+                  <Offsets>
+                    <Offset>698</Offset>
+                  </Offsets>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>91</ID>
+                      <Description>"Weapon ID"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[Player]+698</Address>
+                      <Offsets>
+                        <Offset>220</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>244</ID>
+                  <Description>"Player Vehicle"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>playerVehicle</Address>
+                  <Offsets>
+                    <Offset>0</Offset>
+                  </Offsets>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>245</ID>
+                      <Description>"Weapon ID"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>Byte</VariableType>
+                      <Address>playerVehicle</Address>
+                      <Offsets>
+                        <Offset>48A</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>122</ID>
+              <Description>"Sex Appeal (Actual Stat)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Float</VariableType>
+              <Address>SanAndreas.exe+19*4+[CJStats]</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>87</ID>
+              <Description>"[ Execute ] ( Only Visible + Needs Some other stuff )"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>8000FF</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>88</ID>
+                  <Description>"Check the options available. When you decide, open that group, choose the parameters and then set Action to what you wanted."</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>0000AA</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>89</ID>
+                  <Description>"Yes, there's only one group now. Maybe at one point there's more."</Description>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>0000AA</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>83</ID>
+                  <Description>"Action"</Description>
+                  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:Give Weapon
+0:Nothing
+*:Unknown
+</DropDownList>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>FF0080</Color>
+                  <VariableType>Byte</VariableType>
+                  <Address>Cheats</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>86</ID>
+                  <Description>"Give Weapon"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>FF8000</Color>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>84</ID>
+                      <Description>"Weapon"</Description>
+                      <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">00000000:Nothing
+0000014B:[Hand] Brass Knuckles
+00000150:[Melee Weapons] Baseball Bat
+00000155:[Melee Weapons] Chainsaw
+0000014F:[Melee Weapons] Knife
+0000015A:[Handguns] Pistol
+0000015B:[Handguns] Silenced Pistol
+0000015C:[Handguns] Desert Eagle
+0000015D:[Shotguns] Shotgun
+0000015E:[Shotguns] Sawn-Off Shotgun
+0000015F:[Shotguns] Combat Shotgun
+00000160:[Machine Pistols] Micro SMG
+00000161:[Machine Pistols] SMG
+00000174:[Machine Pistols] Tec-9
+00000163:[Assault Rifles] AK-47
+00000164:[Assault Rifles] M4
+00000165:[Rifles] Country Rifle
+00000166:[Rifles] Sniper Rifle
+00000169:[Heavy Weapons] Flamethrower
+00000167:[Heavy Weapons] Rocket Launcher
+00000168:[Heavy Weapons] Heat-Seeking Rocket Launcher
+00000156:[Thrown Weapons] Grenade
+00000158:[Thrown Weapons] Molotov Cocktail
+0000016B:[Thrown Weapons] Satchel Charges
+0000016E:[Handheld Items] Fire Extinguisher
+0000016D:[Handheld Items] Spray Can
+*:Unknown
+</DropDownList>
+                      <ShowAsHex>1</ShowAsHex>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <Color>FF0080</Color>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>desiredWeapon</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>472</ID>
+              <Description>"Denise Alive"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SanAndreas.exe+501CB6C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>375</ID>
+              <Description>"Girlfriends"</Description>
+              <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>FF8000</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>374</ID>
+                  <Description>"Denise Progress (0-100)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+50107B0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>376</ID>
+                  <Description>"Michelle Progress (0-100)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+50107B4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>377</ID>
+                  <Description>"Helena Progress (0-100)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+50107B8</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>378</ID>
+                  <Description>"Barbara Progress (0-100)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+50107BC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>379</ID>
+                  <Description>"Katie Progress (0-100)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+50107C0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>380</ID>
+                  <Description>"Millie Progress (0-100)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>SanAndreas.exe+50107C4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of movss xmm2,[r8+0000079C]</Description>
+      <AddressString>SanAndreas.exe+117FD6B</AddressString>
+      <Before>
+        <Byte>9F</Byte>
+        <Byte>A4</Byte>
+        <Byte>03</Byte>
+        <Byte>73</Byte>
+        <Byte>67</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>41</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>90</Byte>
+        <Byte>9C</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>D2</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rbx+0000076C],xmm0</Description>
+      <AddressString>SanAndreas.exe+119B697</AddressString>
+      <Before>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5C</Byte>
+        <Byte>47</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>83</Byte>
+        <Byte>6C</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>40</Byte>
+        <Byte>84</Byte>
+        <Byte>ED</Byte>
+        <Byte>0F</Byte>
+        <Byte>84</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [SanAndreas.exe+5067B98],xmm5</Description>
+      <AddressString>SanAndreas.exe+11516EE</AddressString>
+      <Before>
+        <Byte>25</Byte>
+        <Byte>A6</Byte>
+        <Byte>64</Byte>
+        <Byte>F1</Byte>
+        <Byte>03</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>2D</Byte>
+        <Byte>A2</Byte>
+        <Byte>64</Byte>
+        <Byte>F1</Byte>
+        <Byte>03</Byte>
+      </Actual>
+      <After>
+        <Byte>66</Byte>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+        <Byte>1F</Byte>
+        <Byte>84</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [SanAndreas.exe+5067B98],xmm5</Description>
+      <AddressString>SanAndreas.exe+1151634</AddressString>
+      <Before>
+        <Byte>25</Byte>
+        <Byte>60</Byte>
+        <Byte>65</Byte>
+        <Byte>F1</Byte>
+        <Byte>03</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>2D</Byte>
+        <Byte>5C</Byte>
+        <Byte>65</Byte>
+        <Byte>F1</Byte>
+        <Byte>03</Byte>
+      </Actual>
+      <After>
+        <Byte>3D</Byte>
+        <Byte>D0</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of addss xmm5,[SanAndreas.exe+5067B98]</Description>
+      <AddressString>SanAndreas.exe+1151624</AddressString>
+      <Before>
+        <Byte>25</Byte>
+        <Byte>70</Byte>
+        <Byte>65</Byte>
+        <Byte>F1</Byte>
+        <Byte>03</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>58</Byte>
+        <Byte>2D</Byte>
+        <Byte>6C</Byte>
+        <Byte>65</Byte>
+        <Byte>F1</Byte>
+        <Byte>03</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>25</Byte>
+        <Byte>60</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [rbx+0C],eax</Description>
+      <AddressString>SanAndreas.exe+13EE911</AddressString>
+      <Before>
+        <Byte>28</Byte>
+        <Byte>75</Byte>
+        <Byte>05</Byte>
+        <Byte>2B</Byte>
+        <Byte>C2</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>43</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>7B</Byte>
+        <Byte>08</Byte>
+        <Byte>00</Byte>
+        <Byte>C7</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of sub rsp,48</Description>
+      <AddressString>SanAndreas.exe+AD1810</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>CC</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>48</Byte>
+      </Actual>
+      <After>
+        <Byte>80</Byte>
+        <Byte>3D</Byte>
+        <Byte>C9</Byte>
+        <Byte>3D</Byte>
+        <Byte>C5</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of push rbx</Description>
+      <AddressString>SanAndreas.exe+107E260</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </Before>
+      <Actual>
+        <Byte>40</Byte>
+        <Byte>53</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>20</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>timeMinutes</Name>
+      <Address>7FF7C01EC923</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>timeHours</Name>
+      <Address>7FF7C01EC917</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <LuaScript>GameName = "SanAndreas"
+
+if syntaxcheck then return end
+
+
+
+
+-- Title + Author
+getMainForm().Caption = "Grand Theft Auto: San Andreas – The Definitive Edition | Created by Max (Tran Thang Minh)" --input GameName here
+
+
+
+
+-- Activate Mono Features
+function activateMono()
+
+  OpenProcess(GameName..".exe")--------------------------------------input GameName.exe here
+
+  --[[if getOpenedProcessID() == 0 then
+      showMessage(GameName.." not found")
+      return
+  end]]
+
+  -- check menu Mono có tồn tại không
+  if getMainForm().miMono ~= nil then
+    mono_initialize()
+    if monopipe==nil then
+      LaunchMonoDataCollector()
+    end
+  end
+end
+
+
+
+
+
+-- Toggle Compact / Full
+function toggleView(sender)
+  local f = getMainForm()
+  local state = (sender.Caption == "Compact View Mode")
+
+  f.Panel5.Visible = state
+  f.Splitter1.Visible = state
+  sender.Caption = state and "Full View Mode" or "Compact View Mode"
+end
+
+
+
+
+
+-- Check if menu already exists
+local parent = getMainForm().Menu.Items
+local exists = false
+
+for i=0,parent.Count-1 do
+  if parent[i].Caption == "Compact View Mode" or parent[i].Caption == "Full View Mode" then
+    exists = true
+    break
+  end
+end
+
+
+
+
+
+-- Create menu if not exists
+if not exists then
+  local m = createMenuItem(parent)
+  m.Caption = "Full View Mode"
+  m.OnClick = toggleView
+  parent.add(m)
+end
+</LuaScript>
+</CheatTable>

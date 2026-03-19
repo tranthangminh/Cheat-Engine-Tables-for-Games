@@ -2,6 +2,75 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
       <ID>140</ID>
       <Description>"Memory Viewer"</Description>
       <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
@@ -198,471 +267,6 @@ Dynasty Warriors 4 Hyper.exe+16EBC: 0F 94 C0              - sete al
               <ID>0</ID>
             </Hotkey>
           </Hotkeys>
-        </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>205</ID>
-      <Description>"After Battle"</Description>
-      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-      <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>130</ID>
-          <Description>"+EXP (After Battle)"</Description>
-          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-          <LastState Value="" RealAddress="00000000"/>
-          <GroupHeader>1</GroupHeader>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>125</ID>
-              <Description>"+6000 EXP (Lv4)"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
-  Version: 
-  Date   : 2025-10-01
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,66 89 08 C3 CC CC CC CC CC CC CC) // should be unique
-alloc(newmem,$1000)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  add [eax],(int)6000
-  //mov [eax],cx
-  ret 
-  int 3 
-  jmp return
-
-INJECT:
-  jmp newmem
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 66 89 08 C3 CC
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+B5B32
-
-Dynasty Warriors 4 Hyper.exe+B5B13: 0F B7 04 45 C2 14 65 00  - movzx eax,word ptr [eax*2+"Dynasty Warriors 4 Hyper.exe"+2514C2]
-Dynasty Warriors 4 Hyper.exe+B5B1B: 2B C1                    - sub eax,ecx
-Dynasty Warriors 4 Hyper.exe+B5B1D: C3                       - ret 
-Dynasty Warriors 4 Hyper.exe+B5B1E: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B1F: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B20: 8B 44 24 04              - mov eax,[esp+04]
-Dynasty Warriors 4 Hyper.exe+B5B24: 50                       - push eax
-Dynasty Warriors 4 Hyper.exe+B5B25: E8 D6 CA FF FF           - call "Dynasty Warriors 4 Hyper.exe"+B2600
-Dynasty Warriors 4 Hyper.exe+B5B2A: 66 8B 4C 24 0C           - mov cx,[esp+0C]
-Dynasty Warriors 4 Hyper.exe+B5B2F: 83 C4 04                 - add esp,04
-// ---------- INJECTING HERE ----------
-Dynasty Warriors 4 Hyper.exe+B5B32: 66 89 08                 - mov [eax],cx
-// ---------- DONE INJECTING  ----------
-Dynasty Warriors 4 Hyper.exe+B5B35: C3                       - ret 
-Dynasty Warriors 4 Hyper.exe+B5B36: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B37: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B38: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B39: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3A: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3B: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3C: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3D: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3E: CC                       - int 3 
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>128</ID>
-              <Description>"+21000 EXP (Lv7)"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
-  Version: 
-  Date   : 2025-10-01
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,66 89 08 C3 CC CC CC CC CC CC CC) // should be unique
-alloc(newmem,$1000)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  add [eax],(int)21000
-  //mov [eax],cx
-  ret 
-  int 3 
-  jmp return
-
-INJECT:
-  jmp newmem
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 66 89 08 C3 CC
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+B5B32
-
-Dynasty Warriors 4 Hyper.exe+B5B13: 0F B7 04 45 C2 14 65 00  - movzx eax,word ptr [eax*2+"Dynasty Warriors 4 Hyper.exe"+2514C2]
-Dynasty Warriors 4 Hyper.exe+B5B1B: 2B C1                    - sub eax,ecx
-Dynasty Warriors 4 Hyper.exe+B5B1D: C3                       - ret 
-Dynasty Warriors 4 Hyper.exe+B5B1E: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B1F: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B20: 8B 44 24 04              - mov eax,[esp+04]
-Dynasty Warriors 4 Hyper.exe+B5B24: 50                       - push eax
-Dynasty Warriors 4 Hyper.exe+B5B25: E8 D6 CA FF FF           - call "Dynasty Warriors 4 Hyper.exe"+B2600
-Dynasty Warriors 4 Hyper.exe+B5B2A: 66 8B 4C 24 0C           - mov cx,[esp+0C]
-Dynasty Warriors 4 Hyper.exe+B5B2F: 83 C4 04                 - add esp,04
-// ---------- INJECTING HERE ----------
-Dynasty Warriors 4 Hyper.exe+B5B32: 66 89 08                 - mov [eax],cx
-// ---------- DONE INJECTING  ----------
-Dynasty Warriors 4 Hyper.exe+B5B35: C3                       - ret 
-Dynasty Warriors 4 Hyper.exe+B5B36: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B37: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B38: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B39: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3A: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3B: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3C: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3D: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3E: CC                       - int 3 
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>122</ID>
-              <Description>"+36000 EXP (Lv9)"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
-  Version: 
-  Date   : 2025-10-01
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,66 89 08 C3 CC CC CC CC CC CC CC) // should be unique
-alloc(newmem,$1000)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  add [eax],(int)36000
-  //mov [eax],cx
-  ret 
-  int 3 
-  jmp return
-
-INJECT:
-  jmp newmem
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 66 89 08 C3 CC
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+B5B32
-
-Dynasty Warriors 4 Hyper.exe+B5B13: 0F B7 04 45 C2 14 65 00  - movzx eax,word ptr [eax*2+"Dynasty Warriors 4 Hyper.exe"+2514C2]
-Dynasty Warriors 4 Hyper.exe+B5B1B: 2B C1                    - sub eax,ecx
-Dynasty Warriors 4 Hyper.exe+B5B1D: C3                       - ret 
-Dynasty Warriors 4 Hyper.exe+B5B1E: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B1F: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B20: 8B 44 24 04              - mov eax,[esp+04]
-Dynasty Warriors 4 Hyper.exe+B5B24: 50                       - push eax
-Dynasty Warriors 4 Hyper.exe+B5B25: E8 D6 CA FF FF           - call "Dynasty Warriors 4 Hyper.exe"+B2600
-Dynasty Warriors 4 Hyper.exe+B5B2A: 66 8B 4C 24 0C           - mov cx,[esp+0C]
-Dynasty Warriors 4 Hyper.exe+B5B2F: 83 C4 04                 - add esp,04
-// ---------- INJECTING HERE ----------
-Dynasty Warriors 4 Hyper.exe+B5B32: 66 89 08                 - mov [eax],cx
-// ---------- DONE INJECTING  ----------
-Dynasty Warriors 4 Hyper.exe+B5B35: C3                       - ret 
-Dynasty Warriors 4 Hyper.exe+B5B36: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B37: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B38: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B39: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3A: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3B: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3C: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3D: CC                       - int 3 
-Dynasty Warriors 4 Hyper.exe+B5B3E: CC                       - int 3 
-}
-</AssemblerScript>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>131</ID>
-          <Description>"+Points (After Battle)"</Description>
-          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-          <LastState Value="" RealAddress="00000000"/>
-          <GroupHeader>1</GroupHeader>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>78</ID>
-              <Description>"+6000 Points (Rank 12)"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
-  Version: 
-  Date   : 2025-10-01
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,04 89 70 10 5E C3) // should be unique
-alloc(newmem,$1000)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  add [eax+10],(int)6000
-  //mov [eax+10],esi
-  pop esi
-  ret 
-  jmp return
-
-INJECT+01:
-  jmp newmem
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT+01:
-  db 89 70 10 5E C3
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+B4D0F
-
-Dynasty Warriors 4 Hyper.exe+B4CEF: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4CF0: 56                 - push esi
-Dynasty Warriors 4 Hyper.exe+B4CF1: 8B 74 24 0C        - mov esi,[esp+0C]
-Dynasty Warriors 4 Hyper.exe+B4CF5: 81 FE 9F 86 01 00  - cmp esi,0001869F
-Dynasty Warriors 4 Hyper.exe+B4CFB: 7C 05              - jl "Dynasty Warriors 4 Hyper.exe"+B4D02
-Dynasty Warriors 4 Hyper.exe+B4CFD: BE 9F 86 01 00     - mov esi,0001869F
-Dynasty Warriors 4 Hyper.exe+B4D02: 8B 44 24 08        - mov eax,[esp+08]
-Dynasty Warriors 4 Hyper.exe+B4D06: 50                 - push eax
-Dynasty Warriors 4 Hyper.exe+B4D07: E8 B4 D8 FF FF     - call "Dynasty Warriors 4 Hyper.exe"+B25C0
-Dynasty Warriors 4 Hyper.exe+B4D0C: 83 C4 04           - add esp,04
-// ---------- INJECTING HERE ----------
-Dynasty Warriors 4 Hyper.exe+B4D0F: 89 70 10           - mov [eax+10],esi
-// ---------- DONE INJECTING  ----------
-Dynasty Warriors 4 Hyper.exe+B4D12: 5E                 - pop esi
-Dynasty Warriors 4 Hyper.exe+B4D13: C3                 - ret 
-Dynasty Warriors 4 Hyper.exe+B4D14: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D15: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D16: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D17: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D18: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D19: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D1A: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D1B: CC                 - int 3 
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>133</ID>
-              <Description>"+20000 Points (Rank 7)"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
-  Version: 
-  Date   : 2025-10-01
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,04 89 70 10 5E C3) // should be unique
-alloc(newmem,$1000)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  add [eax+10],(int)20000
-  //mov [eax+10],esi
-  pop esi
-  ret 
-  jmp return
-
-INJECT+01:
-  jmp newmem
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT+01:
-  db 89 70 10 5E C3
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+B4D0F
-
-Dynasty Warriors 4 Hyper.exe+B4CEF: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4CF0: 56                 - push esi
-Dynasty Warriors 4 Hyper.exe+B4CF1: 8B 74 24 0C        - mov esi,[esp+0C]
-Dynasty Warriors 4 Hyper.exe+B4CF5: 81 FE 9F 86 01 00  - cmp esi,0001869F
-Dynasty Warriors 4 Hyper.exe+B4CFB: 7C 05              - jl "Dynasty Warriors 4 Hyper.exe"+B4D02
-Dynasty Warriors 4 Hyper.exe+B4CFD: BE 9F 86 01 00     - mov esi,0001869F
-Dynasty Warriors 4 Hyper.exe+B4D02: 8B 44 24 08        - mov eax,[esp+08]
-Dynasty Warriors 4 Hyper.exe+B4D06: 50                 - push eax
-Dynasty Warriors 4 Hyper.exe+B4D07: E8 B4 D8 FF FF     - call "Dynasty Warriors 4 Hyper.exe"+B25C0
-Dynasty Warriors 4 Hyper.exe+B4D0C: 83 C4 04           - add esp,04
-// ---------- INJECTING HERE ----------
-Dynasty Warriors 4 Hyper.exe+B4D0F: 89 70 10           - mov [eax+10],esi
-// ---------- DONE INJECTING  ----------
-Dynasty Warriors 4 Hyper.exe+B4D12: 5E                 - pop esi
-Dynasty Warriors 4 Hyper.exe+B4D13: C3                 - ret 
-Dynasty Warriors 4 Hyper.exe+B4D14: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D15: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D16: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D17: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D18: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D19: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D1A: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D1B: CC                 - int 3 
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>132</ID>
-              <Description>"+60000 Points (Rank MAX)"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
-  Version: 
-  Date   : 2025-10-01
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,Dynasty Warriors 4 Hyper.exe,04 89 70 10 5E C3) // should be unique
-alloc(newmem,$1000)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  add [eax+10],(int)60000
-  //mov [eax+10],esi
-  pop esi
-  ret 
-  jmp return
-
-INJECT+01:
-  jmp newmem
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT+01:
-  db 89 70 10 5E C3
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: Dynasty Warriors 4 Hyper.exe+B4D0F
-
-Dynasty Warriors 4 Hyper.exe+B4CEF: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4CF0: 56                 - push esi
-Dynasty Warriors 4 Hyper.exe+B4CF1: 8B 74 24 0C        - mov esi,[esp+0C]
-Dynasty Warriors 4 Hyper.exe+B4CF5: 81 FE 9F 86 01 00  - cmp esi,0001869F
-Dynasty Warriors 4 Hyper.exe+B4CFB: 7C 05              - jl "Dynasty Warriors 4 Hyper.exe"+B4D02
-Dynasty Warriors 4 Hyper.exe+B4CFD: BE 9F 86 01 00     - mov esi,0001869F
-Dynasty Warriors 4 Hyper.exe+B4D02: 8B 44 24 08        - mov eax,[esp+08]
-Dynasty Warriors 4 Hyper.exe+B4D06: 50                 - push eax
-Dynasty Warriors 4 Hyper.exe+B4D07: E8 B4 D8 FF FF     - call "Dynasty Warriors 4 Hyper.exe"+B25C0
-Dynasty Warriors 4 Hyper.exe+B4D0C: 83 C4 04           - add esp,04
-// ---------- INJECTING HERE ----------
-Dynasty Warriors 4 Hyper.exe+B4D0F: 89 70 10           - mov [eax+10],esi
-// ---------- DONE INJECTING  ----------
-Dynasty Warriors 4 Hyper.exe+B4D12: 5E                 - pop esi
-Dynasty Warriors 4 Hyper.exe+B4D13: C3                 - ret 
-Dynasty Warriors 4 Hyper.exe+B4D14: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D15: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D16: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D17: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D18: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D19: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D1A: CC                 - int 3 
-Dynasty Warriors 4 Hyper.exe+B4D1B: CC                 - int 3 
-}
-</AssemblerScript>
-            </CheatEntry>
-          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
@@ -968,7 +572,7 @@ Dynasty Warriors 4 Hyper.exe+16C4E: CC                    - int 3
             <CheatEntry>
               <ID>141</ID>
               <Description>"Musou Gauge fill up Super Fast &amp; won't reduce"</Description>
-              <LastState Activated="1"/>
+              <LastState/>
               <Color>40BF40</Color>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>{ Game   : Dynasty Warriors 4 Hyper.exe
@@ -1049,19 +653,6 @@ Dynasty Warriors 4 Hyper.exe+16F85: 7E 05           - jle "Dynasty Warriors 4 Hy
           <Address>Dynasty Warriors 4 Hyper.exe+306D4E</Address>
         </CheatEntry>
         <CheatEntry>
-          <ID>204</ID>
-          <Description>"HP (Max)"</Description>
-          <VariableType>4 Bytes</VariableType>
-          <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FC0</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>152</ID>
-          <Description>"HP (Current)❤️❤️❤️"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>4 Bytes</VariableType>
-          <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FC4</Address>
-        </CheatEntry>
-        <CheatEntry>
           <ID>135</ID>
           <Description>"Musou"</Description>
           <ShowAsSigned>0</ShowAsSigned>
@@ -1084,6 +675,48 @@ Dynasty Warriors 4 Hyper.exe+16F85: 7E 05           - jle "Dynasty Warriors 4 Hy
           <Color>40BFBF</Color>
           <VariableType>2 Bytes</VariableType>
           <Address>"Dynasty Warriors 4 Hyper.exe"+5D22FC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>76</ID>
+          <Description>"View Only"</Description>
+          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>72</ID>
+              <Description>"HP (Max)"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FC0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>70</ID>
+              <Description>"HP (Current)❤️❤️❤️"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FC4</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>74</ID>
+              <Description>"Musou (Max)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FCC</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>75</ID>
+              <Description>"Musou (Current)⚡⚡⚡"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FD0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>59</ID>
+              <Description>"Lastest EXP⭐⭐⭐"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"Dynasty Warriors 4 Hyper.exe"+62473C</Address>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
         <CheatEntry>
           <ID>143</ID>
@@ -1966,48 +1599,6 @@ Dynasty Warriors 4 Hyper.exe+16F85: 7E 05           - jle "Dynasty Warriors 4 Hy
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
-    <CheatEntry>
-      <ID>76</ID>
-      <Description>"INGAME (View Only)"</Description>
-      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-      <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>72</ID>
-          <Description>"HP (Max)"</Description>
-          <VariableType>4 Bytes</VariableType>
-          <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FC0</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>70</ID>
-          <Description>"HP (Current)❤️❤️❤️"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>4 Bytes</VariableType>
-          <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FC4</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>74</ID>
-          <Description>"Musou (Max)"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>4 Bytes</VariableType>
-          <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FCC</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>75</ID>
-          <Description>"Musou (Current)⚡⚡⚡"</Description>
-          <ShowAsSigned>0</ShowAsSigned>
-          <VariableType>4 Bytes</VariableType>
-          <Address>"Dynasty Warriors 4 Hyper.exe"+5D4FD0</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>59</ID>
-          <Description>"Lastest EXP⭐⭐⭐"</Description>
-          <VariableType>4 Bytes</VariableType>
-          <Address>"Dynasty Warriors 4 Hyper.exe"+62473C</Address>
-        </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
   </CheatEntries>
   <CheatCodes>
     <CodeEntry>
@@ -2210,4 +1801,89 @@ Dynasty Warriors 4 Hyper.exe+16F85: 7E 05           - jle "Dynasty Warriors 4 Hy
     </CodeEntry>
   </CheatCodes>
   <UserdefinedSymbols/>
+  <LuaScript>GameName = "Dynasty Warriors 4 Hyper"
+
+if syntaxcheck then return end
+
+
+
+
+-- Title + Author
+getMainForm().Caption = GameName.. " | Created by Max (Tran Thang Minh)" --input GameName here
+
+
+
+
+-- Activate Mono Features
+function activateMono()
+  if getOpenedProcessID() == 0 then
+      OpenProcess(GameName..".exe") --------------------------------------input GameName.exe here
+  end
+  if getOpenedProcessID()== 0 then
+      showMessage(GameName.. " not found")
+      return
+  end
+
+  -- initialize mono
+  mono_initialize()
+
+  -- kiểm tra game có mono hay không
+  local domains = mono_enumDomains()
+
+  if domains==nil or #domains==0 then
+      --showMessage("Mono not found in this game")
+      return
+  end
+
+  sleep(100)
+
+  if monopipe==nil then
+      LaunchMonoDataCollector()
+  end
+  beep()
+
+end
+
+
+
+
+
+-- Toggle Compact / Full
+function toggleView(sender)
+  local f = getMainForm()
+  local state = (sender.Caption == "Compact View Mode")
+
+  f.Panel5.Visible = state
+  f.Splitter1.Visible = state
+  sender.Caption = state and "Full View Mode" or "Compact View Mode"
+end
+
+
+
+
+
+-- Check if menu already exists
+local parent = getMainForm().Menu.Items
+local exists = false
+
+for i=0,parent.Count-1 do
+  if parent[i].Caption == "Compact View Mode" or parent[i].Caption == "Full View Mode" then
+    exists = true
+    break
+  end
+end
+
+
+
+
+
+-- Create menu if not exists
+if not exists then
+  local m = createMenuItem(parent)
+  m.Caption = "Compact View Mode"
+  m.OnClick = toggleView
+  parent.add(m)
+end
+
+</LuaScript>
 </CheatTable>

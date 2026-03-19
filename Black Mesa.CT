@@ -2,10 +2,80 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
-      <ID>15</ID>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>77</ID>
       <Description>"Memory Viewer"</Description>
       <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
       <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
@@ -75,20 +145,377 @@
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>207</ID>
-      <Description>"Life Points"</Description>
+      <ID>72</ID>
+      <Description>"Active cheats"</Description>
       <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
       <LastState Value="" RealAddress="00000000"/>
       <Color>40BF40</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
-          <ID>7</ID>
-          <Description>"Armor"</Description>
+          <ID>16292</ID>
+          <Description>"Get Stats"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Black Mesa
+  Version: 
+  Date   : 2026-01-11
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(addressHP,"server.dll"+1A34BB)
+define(bytesHP,83 B9 E4 00 00 00 00)
+
+define(addressArmor,"server.dll"+476DE8)
+define(bytesArmor,8B 87 A4 0D 00 00)
+
+define(addressOtherHP,"server.dll"+C7A0F)
+define(bytesOtherHP,8B B7 E4 00 00 00)
+
+define(addressNo2,"server.dll"+1058B1)
+define(bytesNo2,83 BE E0 04 00 00 00)
+
+define(addressNo5,"server.dll"+FF54E)
+define(bytesNo5,8B 84 B7 08 07 00 00)
+
+[ENABLE]
+
+assert(addressHP,bytesHP)
+alloc(newmemHP,$1000)
+
+alloc(pHP,4)
+registersymbol(pHP)
+
+label(codeHP)
+label(returnHP)
+
+newmemHP:
+
+codeHP:
+  mov [pHP], ecx
+  cmp dword ptr [ecx+000000E4],00
+  jmp returnHP
+
+addressHP:
+  jmp newmemHP
+  nop 2
+returnHP:
+
+
+
+assert(addressArmor,bytesArmor)
+alloc(newmemArmor,$1000)
+
+alloc(pArmor,4)
+registersymbol(pArmor)
+
+label(codeArmor)
+label(returnArmor)
+
+newmemArmor:
+
+codeArmor:
+  mov [pArmor], edi
+  mov eax,[edi+00000DA4]
+  //mov eax,[edi+00000DA4]
+  jmp returnArmor
+
+addressArmor:
+  jmp newmemArmor
+  nop
+returnArmor:
+
+
+
+assert(addressOtherHP,bytesOtherHP)
+alloc(newmemOtherHP,$1000)
+
+alloc(pOtherHP,4)
+registersymbol(pOtherHP)
+
+label(codeOtherHP)
+label(returnOtherHP)
+
+newmempOtherHP:
+
+codeOtherHP:
+  mov [pOtherHP],edi
+  mov esi,[edi+000000E4]
+  jmp returnOtherHP
+
+addressOtherHP:
+  jmp newmempOtherHP
+  nop
+returnOtherHP:
+
+
+
+
+assert(addressNo2,bytesNo2)
+alloc(newmemNo2,$1000)
+
+alloc(wNo2,4)
+registersymbol(wNo2)
+
+label(codeNo2)
+label(returnNo2)
+
+newmemNo2:
+
+codeNo2:
+  mov [wNo2], esi
+  cmp dword ptr [esi+000004E0],00
+  jmp returnNo2
+
+addressNo2:
+  jmp newmemNo2
+  nop 2
+returnNo2:
+
+
+
+
+
+assert(addressNo5,bytesNo5)
+alloc(newmemNo5,$1000)
+
+alloc(wNo5,4)
+registersymbol(wNo5)
+
+label(codeNo5)
+label(returnNo5)
+
+newmemNo5:
+
+codeNo5:
+  lea eax, [edi+esi*4+708]
+  mov [wNo5], eax
+  mov eax, [eax]
+  //mov eax,[edi+esi*4+00000708]
+  jmp returnNo5
+
+addressNo5:
+  jmp newmemNo5
+  nop 2
+returnNo5:
+
+
+
+
+
+[DISABLE]
+
+addressHP:
+  db bytesHP
+  // cmp dword ptr [ecx+000000E4],00
+
+dealloc(newmemHP)
+dealloc(pHP)
+unregistersymbol(pHP)
+
+
+addressArmor:
+  db bytesArmor
+  // mov eax,[edi+00000DA4]
+
+dealloc(newmemArmor)
+dealloc(pArmor)
+unregistersymbol(pArmor)
+
+
+
+addressOtherHP:
+  db bytesOtherHP
+  // mov esi,[edi+000000E4]
+
+dealloc(newmemOtherHP)
+dealloc(pOtherHP)
+unregistersymbol(pOtherHP)
+
+
+
+addressNo2:
+  db bytesNo2
+  // cmp dword ptr [esi+000004E0],00
+
+dealloc(newmemNo2)
+dealloc(wNo2)
+unregistersymbol(wNo2)
+
+
+
+addressNo5:
+  db bytesNo5
+  // mov eax,[edi+esi*4+00000708]
+
+dealloc(newmemNo5)
+dealloc(wNo5)
+unregistersymbol(wNo5)
+
+
+
+
+
+
+
+{
+// ORIGINAL CODE - INJECTION POINT: server.dll.text+1A24BB
+
+server.dll.text+1A249B: C6 45 A6 01           - mov byte ptr [ebp-5A],01
+server.dll.text+1A249F: 75 04                 - jne server.dll.text+1A24A5
+server.dll.text+1A24A1: C6 45 A6 00           - mov byte ptr [ebp-5A],00
+server.dll.text+1A24A5: 8B 47 08              - mov eax,[edi+08]
+server.dll.text+1A24A8: F6 40 24 04           - test byte ptr [eax+24],04
+server.dll.text+1A24AC: 74 06                 - je server.dll.text+1A24B4
+server.dll.text+1A24AE: 83 48 28 04           - or dword ptr [eax+28],04
+server.dll.text+1A24B2: EB 04                 - jmp server.dll.text+1A24B8
+server.dll.text+1A24B4: 83 60 28 FB           - and dword ptr [eax+28],-05
+server.dll.text+1A24B8: 8B 4F 04              - mov ecx,[edi+04]
+// ---------- INJECTING HERE ----------
+server.dll.text+1A24BB: 83 B9 E4 00 00 00 00  - cmp dword ptr [ecx+000000E4],00
+// ---------- DONE INJECTING  ----------
+server.dll.text+1A24C2: 7F 12                 - jg server.dll.text+1A24D6
+server.dll.text+1A24C4: 8B 01                 - mov eax,[ecx]
+server.dll.text+1A24C6: 8B 80 1C 01 00 00     - mov eax,[eax+0000011C]
+server.dll.text+1A24CC: FF D0                 - call eax
+server.dll.text+1A24CE: 84 C0                 - test al,al
+server.dll.text+1A24D0: 0F 84 2B 06 00 00     - je server.dll.text+1A2B01
+server.dll.text+1A24D6: 8B 07                 - mov eax,[edi]
+server.dll.text+1A24D8: 8B CF                 - mov ecx,edi
+server.dll.text+1A24DA: 56                    - push esi
+server.dll.text+1A24DB: FF 90 EC 00 00 00     - call dword ptr [eax+000000EC]
+}
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16300</ID>
+              <Description>"Player Health"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pHP</Address>
+              <Offsets>
+                <Offset>E4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16299</ID>
+              <Description>"Armor"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pArmor</Address>
+              <Offsets>
+                <Offset>DA4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16297</ID>
+              <Description>"Weapon No.2"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>wNo2</Address>
+              <Offsets>
+                <Offset>4E0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16295</ID>
+              <Description>"Weapon No.5"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>wNo5</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16301</ID>
+          <Description>"Get Stats"</Description>
           <LastState/>
           <Color>40BF40</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : Black Mesa
+  Version: 
+  Date   : 2026-01-11
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(addressOtherHP,"server.dll"+C7A0F)
+define(bytesOtherHP,8B B7 E4 00 00 00)
+
+[ENABLE]
+
+assert(addressOtherHP,bytesOtherHP)
+alloc(newmemOtherHP,$1000)
+
+alloc(pOtherHP,4)
+registersymbol(pOtherHP)
+
+label(codeOtherHP)
+label(returnOtherHP)
+
+newmempOtherHP:
+
+codeOtherHP:
+  mov [pOtherHP],edi
+  mov esi,[edi+000000E4]
+  jmp returnOtherHP
+
+addressOtherHP:
+  jmp newmempOtherHP
+  nop
+returnOtherHP:
+
+
+[DISABLE]
+
+addressOtherHP:
+  db bytesOtherHP
+  // mov esi,[edi+000000E4]
+
+dealloc(newmemOtherHP)
+dealloc(pOtherHP)
+unregistersymbol(pOtherHP)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16304</ID>
+              <Description>"Other HP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>pOtherHP</Address>
+              <Offsets>
+                <Offset>E4</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>207</ID>
+          <Description>"Life Points"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>7</ID>
+              <Description>"Armor"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Black Mesa
   Version: 
   Date   : 2025-11-11
   Author : Max
@@ -154,14 +581,14 @@ server.dll.text+2329E1: 8B EC              - mov ebp,esp
 server.dll.text+2329E3: 56                 - push esi
 }
 </AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>211</ID>
-          <Description>"Instant Death on touch"</Description>
-          <LastState/>
-          <Color>4040BF</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Black Mesa
+            </CheatEntry>
+            <CheatEntry>
+              <ID>211</ID>
+              <Description>"Instant Death on touch"</Description>
+              <LastState/>
+              <Color>4040BF</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Black Mesa
   Version: 
   Date   : 2025-11-24
   Author : Max
@@ -225,24 +652,24 @@ server.dll.text+F9D33: 53                    - push ebx
 server.dll.text+F9D34: 8B 80 C8 04 00 00     - mov eax,[eax+000004C8]
 }
 </AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>10</ID>
-      <Description>"Ammo"</Description>
-      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
-      <LastState Value="" Activated="1" RealAddress="00000000"/>
-      <Color>40BF40</Color>
-      <GroupHeader>1</GroupHeader>
-      <CheatEntries>
         <CheatEntry>
-          <ID>3</ID>
-          <Description>"Pistols/Machine Guns"</Description>
-          <LastState Activated="1"/>
+          <ID>10</ID>
+          <Description>"Ammo"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
           <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Black Mesa
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>3</ID>
+              <Description>"Pistols/Machine Guns"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Black Mesa
   Version: 
   Date   : 2025-11-11
   Author : Max
@@ -261,6 +688,7 @@ label(return)
 newmem:
 
 code:
+  mov [edx],(int)9999
   //mov [edx],eax
   jmp server.dll.text+48DFD5
   mov eax,[ebx]
@@ -308,14 +736,14 @@ server.dll.text+48DFB4: 8B CB              - mov ecx,ebx
 server.dll.text+48DFB6: FF B7 D8 04 00 00  - push [edi+000004D8]
 }
 </AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>12</ID>
-          <Description>"Shotgun"</Description>
-          <LastState Activated="1"/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Black Mesa
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12</ID>
+              <Description>"Shotgun"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Black Mesa
   Version: 
   Date   : 2025-11-15
   Author : Max
@@ -334,6 +762,7 @@ label(return)
 newmem:
 
 code:
+  mov [edi],(int)9999
   //mov [edi],eax
   cmp dword ptr [edi],00
   jmp return
@@ -379,14 +808,14 @@ server.dll.text+48A523: 74 06              - je server.dll.text+48A52B
 server.dll.text+48A525: 80 49 58 01        - or byte ptr [ecx+58],01
 }
 </AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>9</ID>
-          <Description>"Grenade"</Description>
-          <LastState Activated="1"/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Black Mesa
+            </CheatEntry>
+            <CheatEntry>
+              <ID>9</ID>
+              <Description>"Grenade"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Black Mesa
   Version: 
   Date   : 2025-11-11
   Author : Max
@@ -405,6 +834,7 @@ label(return)
 newmem:
 
 code:
+  mov [esi],(int)9999
   //mov [esi],ebx
   pop edi
   pop esi
@@ -452,6 +882,8 @@ server.dll.text+FF741: 8B EC              - mov ebp,esp
 server.dll.text+FF743: 56                 - push esi
 }
 </AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>

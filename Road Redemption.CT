@@ -2,144 +2,203 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
-      <ID>1</ID>
-      <Description>"_Pointers"</Description>
-      <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
-      <LastState Value="" RealAddress="00000000"/>
-      <GroupHeader>1</GroupHeader>
+      <ID>16296</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
       <CheatEntries>
         <CheatEntry>
-          <ID>2</ID>
-          <Description>"MONEY 1"</Description>
-          <VariableType>4 Bytes</VariableType>
-          <Address>20FB74826C4</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>4</ID>
-          <Description>"MONEY 2"</Description>
-          <VariableType>4 Bytes</VariableType>
-          <Address>1D8D0799C14</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>29</ID>
-          <Description>"3 Pistol 1"</Description>
-          <VariableType>4 Bytes</VariableType>
-          <Address>1AF9CE54F20</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>30</ID>
-          <Description>"3 Pistol 2"</Description>
-          <VariableType>4 Bytes</VariableType>
-          <Address>23562159428</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>28</ID>
-          <Description>"1 EXP 1"</Description>
-          <VariableType>4 Bytes</VariableType>
-          <Address>136AFDF6424</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>85</ID>
-          <Description>"Nitro 1"</Description>
-          <VariableType>Float</VariableType>
-          <Address>2159F32637C</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>86</ID>
-          <Description>"Nitro 2"</Description>
-          <VariableType>Float</VariableType>
-          <Address>21632A5837C</Address>
+          <ID>16297</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16298</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16299</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>51</ID>
-      <Description>"HEALTH ∞"</Description>
-      <LastState/>
-      <Color>40BF40</Color>
+      <ID>16300</ID>
+      <Description>"◀️ IMPORTANT: Enable this checkbox to ACTIVE Mono features FIRST"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Activated="1"/>
+      <Color>BF40BF</Color>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : Road Redemption
-  Version: 
-  Date   : 2025-06-28
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscan(INJECT,F3 0F 11 6E 44 48 8B 75) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  nop
-  jmp return
-
-INJECT:
-  jmp newmem
-return:
-registersymbol(INJECT)
+      <AssemblerScript>[ENABLE]
+{$lua}
+mono_initialize()
+LaunchMonoDataCollector()
+{$asm}
 
 [DISABLE]
-
-INJECT:
-  db F3 0F 11 6E 44
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: 2351D8DC0F8
-
-2351D8DC0CF: 48 8B 4D E0        - mov rcx,[rbp-20]
-2351D8DC0D3: 48 89 08           - mov [rax],rcx
-2351D8DC0D6: 48 8B 4D E8        - mov rcx,[rbp-18]
-2351D8DC0DA: 48 89 48 08        - mov [rax+08],rcx
-2351D8DC0DE: 48 8B 4D F0        - mov rcx,[rbp-10]
-2351D8DC0E2: 48 89 48 10        - mov [rax+10],rcx
-2351D8DC0E6: E9 12 00 00 00     - jmp 2351D8DC0FD
-2351D8DC0EB: F3 0F 10 45 D8     - movss xmm0,[rbp-28]
-2351D8DC0F0: F3 0F 5A C0        - cvtss2sd xmm0,xmm0
-2351D8DC0F4: F2 0F 5A E8        - cvtsd2ss xmm5,xmm0
-// ---------- INJECTING HERE ----------
-2351D8DC0F8: F3 0F 11 6E 44     - movss [rsi+44],xmm5
-// ---------- DONE INJECTING  ----------
-2351D8DC0FD: 48 8B 75 F8        - mov rsi,[rbp-08]
-2351D8DC101: C9                 - leave 
-2351D8DC102: C3                 - ret 
-2351D8DC103: 00 00              - add [rax],al
-2351D8DC105: 00 00              - add [rax],al
-2351D8DC107: 00 00              - add [rax],al
-2351D8DC109: 00 00              - add [rax],al
-2351D8DC10B: 00 93 00 00 00 A4  - add [rbx-5C000000],dl
-2351D8DC111: 00 00              - add [rax],al
-2351D8DC113: 00 01              - add [rcx],al
-}
 </AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16301</ID>
+          <Description>"Active Mono (Menu bar ➜ Mono ➜ Active mono features)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16302</ID>
+          <Description>"Make sure you have Cheat Engine 7.4 or later"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16303</ID>
+          <Description>"◀️ Enable checkbox to Download the latest version from: https://www.cheatengine.org/"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.cheatengine.org/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>49</ID>
-      <Description>"NITRO ∞"</Description>
+      <ID>16284</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16282</ID>
+          <Description>"HP"</Description>
+          <LastState Value="1.519267674E-30" RealAddress="19ECC1E0978"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>HealthTracker:set_CurrentHealth+88</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16283</ID>
+          <Description>"Nitro"</Description>
+          <LastState Value="6.058581767E-30" RealAddress="19ECC1E0A38"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>ActorStats:set_CurrentNitro+88</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16292</ID>
+          <Description>"Jump Jets (0-1)"</Description>
+          <LastState Value="2.416037136E-29" RealAddress="19ECC1E0AF8"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>JumpJetsScript:set_FuelPercentageRemaining+88</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16287</ID>
+          <Description>"Ammo"</Description>
+          <LastState Value="284424937" RealAddress="19ECC1E0C01"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>PlayerCombatController:set_RemainingRounds+d1</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16289</ID>
+          <Description>"Cash"</Description>
+          <LastState Value="301102569" RealAddress="19ECC1E0D86"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>PlayerStats:AddToCash+146</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16294</ID>
+          <Description>"EXP"</Description>
+          <LastState Value="317635561" RealAddress="19ECC1E1140"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>PlayerStats:AddToExperience+210</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16286</ID>
+      <Description>"HEALTH (Active this after you get in the race)"</Description>
       <LastState Activated="1"/>
       <Color>40BF40</Color>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>{ Game   : Road Redemption
   Version: 
-  Date   : 2025-06-28
+  Date   : 2026-01-03
   Author : Max
 
   This script does blah blah blah
 }
 
+define(address,HealthTracker:set_CurrentHealth+88)
+define(bytes,F3 0F 11 6E 44)
+
 [ENABLE]
 
-aobscan(INJECT,F3 0F 11 AE D4 00 00 00 48 8B 75) // should be unique
-alloc(newmem,$1000,INJECT)
+assert(address,bytes)
+alloc(newmem,$1000,HealthTracker:set_CurrentHealth+88)
 
 label(code)
 label(return)
@@ -147,70 +206,82 @@ label(return)
 newmem:
 
 code:
-  nop
+  cmp [rsi+AC],0
+  jne return
+
+  movss [rsi+44],xmm5
   jmp return
 
-INJECT:
+address:
   jmp newmem
-  nop 3
 return:
-registersymbol(INJECT)
 
 [DISABLE]
 
-INJECT:
-  db F3 0F 11 AE D4 00 00 00
+address:
+  db bytes
+  // movss [rsi+44],xmm5
 
-unregistersymbol(INJECT)
 dealloc(newmem)
 
 {
-// ORIGINAL CODE - INJECTION POINT: 2351D8DC9D8
+// ORIGINAL CODE - INJECTION POINT: HealthTracker:set_CurrentHealth+88
 
-2351D8DC9AF: 48 8B 4D E0              - mov rcx,[rbp-20]
-2351D8DC9B3: 48 89 08                 - mov [rax],rcx
-2351D8DC9B6: 48 8B 4D E8              - mov rcx,[rbp-18]
-2351D8DC9BA: 48 89 48 08              - mov [rax+08],rcx
-2351D8DC9BE: 48 8B 4D F0              - mov rcx,[rbp-10]
-2351D8DC9C2: 48 89 48 10              - mov [rax+10],rcx
-2351D8DC9C6: E9 15 00 00 00           - jmp 2351D8DC9E0
-2351D8DC9CB: F3 0F 10 45 D8           - movss xmm0,[rbp-28]
-2351D8DC9D0: F3 0F 5A C0              - cvtss2sd xmm0,xmm0
-2351D8DC9D4: F2 0F 5A E8              - cvtsd2ss xmm5,xmm0
+HealthTracker:set_CurrentHealth+5f: 48 8B 4D E0        - mov rcx,[rbp-20]
+HealthTracker:set_CurrentHealth+63: 48 89 08           - mov [rax],rcx
+HealthTracker:set_CurrentHealth+66: 48 8B 4D E8        - mov rcx,[rbp-18]
+HealthTracker:set_CurrentHealth+6a: 48 89 48 08        - mov [rax+08],rcx
+HealthTracker:set_CurrentHealth+6e: 48 8B 4D F0        - mov rcx,[rbp-10]
+HealthTracker:set_CurrentHealth+72: 48 89 48 10        - mov [rax+10],rcx
+HealthTracker:set_CurrentHealth+76: E9 12 00 00 00     - jmp HealthTracker:set_CurrentHealth+8d
+HealthTracker:set_CurrentHealth+7b: F3 0F 10 45 D8     - movss xmm0,[rbp-28]
+HealthTracker:set_CurrentHealth+80: F3 0F 5A C0        - cvtss2sd xmm0,xmm0
+HealthTracker:set_CurrentHealth+84: F2 0F 5A E8        - cvtsd2ss xmm5,xmm0
 // ---------- INJECTING HERE ----------
-2351D8DC9D8: F3 0F 11 AE D4 00 00 00  - movss [rsi+000000D4],xmm5
+HealthTracker:set_CurrentHealth+88: F3 0F 11 6E 44     - movss [rsi+44],xmm5
 // ---------- DONE INJECTING  ----------
-2351D8DC9E0: 48 8B 75 F8              - mov rsi,[rbp-08]
-2351D8DC9E4: C9                       - leave 
-2351D8DC9E5: C3                       - ret 
-2351D8DC9E6: 00 00                    - add [rax],al
-2351D8DC9E8: 00 00                    - add [rax],al
-2351D8DC9EA: 00 00                    - add [rax],al
-2351D8DC9EC: 96                       - xchg eax,esi
-2351D8DC9ED: 00 00                    - add [rax],al
-2351D8DC9EF: 00 A4 00 00 00 01 04     - add [rax+rax+04010000],ah
-2351D8DC9F6: 03 05 00 00 04 53        - add eax,[2357091C9FC]
+HealthTracker:set_CurrentHealth+8d: 48 8B 75 F8        - mov rsi,[rbp-08]
+HealthTracker:set_CurrentHealth+91: C9                 - leave 
+HealthTracker:set_CurrentHealth+92: C3                 - ret 
+27298BF6013: 00 00              - add [rax],al
+27298BF6015: 00 00              - add [rax],al
+27298BF6017: 00 00              - add [rax],al
+27298BF6019: 00 00              - add [rax],al
+27298BF601B: 00 93 00 00 00 A4  - add [rbx-5C000000],dl
+27298BF6021: 00 00              - add [rax],al
+27298BF6023: 00 01              - add [rcx],al
 }
 </AssemblerScript>
     </CheatEntry>
     <CheatEntry>
-      <ID>53</ID>
-      <Description>"AMMO ∞"</Description>
-      <LastState/>
+      <ID>72</ID>
+      <Description>"Active cheats"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" Activated="1" RealAddress="00000000"/>
       <Color>40BF40</Color>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : Road Redemption
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16285</ID>
+          <Description>"NITRO ∞"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Road Redemption
   Version: 
-  Date   : 2025-06-28
+  Date   : 2026-01-03
   Author : Max
 
   This script does blah blah blah
 }
 
+define(address,ActorStats:set_CurrentNitro+88)
+define(bytes,F3 0F 11 AE D4 00 00 00)
+
 [ENABLE]
 
-aobscan(INJECT,89 B7 80 00 00 00 EB 0A) // should be unique
-alloc(newmem,$1000,INJECT)
+assert(address,bytes)
+alloc(newmem,$1000,ActorStats:set_CurrentNitro+88)
 
 label(code)
 label(return)
@@ -218,51 +289,348 @@ label(return)
 newmem:
 
 code:
-  nop
+  //movss [rsi+000000D4],xmm5
   jmp return
 
-INJECT:
+address:
   jmp newmem
-  nop
+  nop 3
 return:
-registersymbol(INJECT)
 
 [DISABLE]
 
-INJECT:
-  db 89 B7 80 00 00 00
+address:
+  db bytes
+  // movss [rsi+000000D4],xmm5
 
-unregistersymbol(INJECT)
 dealloc(newmem)
 
 {
-// ORIGINAL CODE - INJECTION POINT: 26BCF8B51B1
+// ORIGINAL CODE - INJECTION POINT: ActorStats:set_CurrentNitro+88
 
-26BCF8B518B: 48 8B 4D E8                    - mov rcx,[rbp-18]
-26BCF8B518F: 48 89 48 08                    - mov [rax+08],rcx
-26BCF8B5193: E9 2B 00 00 00                 - jmp 26BCF8B51C3
-26BCF8B5198: 48 B8 82 5F 4D C4 6B 02 00 00  - mov rax,0000026BC44D5F82
-26BCF8B51A2: 0F B6 00                       - movzx eax,byte ptr [rax]
-26BCF8B51A5: 85 C0                          - test eax,eax
-26BCF8B51A7: 75 10                          - jne 26BCF8B51B9
-26BCF8B51A9: 0F B6 47 7C                    - movzx eax,byte ptr [rdi+7C]
-26BCF8B51AD: 85 C0                          - test eax,eax
-26BCF8B51AF: 75 08                          - jne 26BCF8B51B9
+ActorStats:set_CurrentNitro+5f: 48 8B 4D E0              - mov rcx,[rbp-20]
+ActorStats:set_CurrentNitro+63: 48 89 08                 - mov [rax],rcx
+ActorStats:set_CurrentNitro+66: 48 8B 4D E8              - mov rcx,[rbp-18]
+ActorStats:set_CurrentNitro+6a: 48 89 48 08              - mov [rax+08],rcx
+ActorStats:set_CurrentNitro+6e: 48 8B 4D F0              - mov rcx,[rbp-10]
+ActorStats:set_CurrentNitro+72: 48 89 48 10              - mov [rax+10],rcx
+ActorStats:set_CurrentNitro+76: E9 15 00 00 00           - jmp ActorStats:set_CurrentNitro+90
+ActorStats:set_CurrentNitro+7b: F3 0F 10 45 D8           - movss xmm0,[rbp-28]
+ActorStats:set_CurrentNitro+80: F3 0F 5A C0              - cvtss2sd xmm0,xmm0
+ActorStats:set_CurrentNitro+84: F2 0F 5A E8              - cvtsd2ss xmm5,xmm0
 // ---------- INJECTING HERE ----------
-26BCF8B51B1: 89 B7 80 00 00 00              - mov [rdi+00000080],esi
+ActorStats:set_CurrentNitro+88: F3 0F 11 AE D4 00 00 00  - movss [rsi+000000D4],xmm5
 // ---------- DONE INJECTING  ----------
-26BCF8B51B7: EB 0A                          - jmp 26BCF8B51C3
-26BCF8B51B9: C7 87 80 00 00 00 E7 03 00 00  - mov [rdi+00000080],000003E7
-26BCF8B51C3: 48 8D 65 F0                    - lea rsp,[rbp-10]
-26BCF8B51C7: 5F                             - pop rdi
-26BCF8B51C8: 5E                             - pop rsi
-26BCF8B51C9: C9                             - leave 
-26BCF8B51CA: C3                             - ret 
-26BCF8B51CB: 00 00                          - add [rax],al
-26BCF8B51CD: 00 00                          - add [rax],al
-26BCF8B51CF: 00 00                          - add [rax],al
+ActorStats:set_CurrentNitro+90: 48 8B 75 F8              - mov rsi,[rbp-08]
+ActorStats:set_CurrentNitro+94: C9                       - leave 
+ActorStats:set_CurrentNitro+95: C3                       - ret 
+27298BF6836: 00 00                    - add [rax],al
+27298BF6838: 00 00                    - add [rax],al
+27298BF683A: 00 00                    - add [rax],al
+27298BF683C: 96                       - xchg eax,esi
+27298BF683D: 00 00                    - add [rax],al
+27298BF683F: 00 A4 00 00 00 01 04     - add [rax+rax+04010000],ah
+27298BF6846: 03 05 00 00 04 53        - add eax,[272EBC3684C]
 }
 </AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16293</ID>
+          <Description>"Jump Jets"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Road Redemption
+  Version: 
+  Date   : 2026-01-03
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,JumpJetsScript:set_FuelPercentageRemaining+88)
+define(bytes,F3 0F 11 AE E0 00 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,JumpJetsScript:set_FuelPercentageRemaining+88)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rsi+000000E0],(float)1
+  //movss [rsi+000000E0],xmm5
+  jmp return
+
+address:
+  jmp newmem
+  nop 3
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // movss [rsi+000000E0],xmm5
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: JumpJetsScript:set_FuelPercentageRemaining+88
+
+JumpJetsScript:set_FuelPercentageRemaining+5f: 48 8B 4D E0              - mov rcx,[rbp-20]
+JumpJetsScript:set_FuelPercentageRemaining+63: 48 89 08                 - mov [rax],rcx
+JumpJetsScript:set_FuelPercentageRemaining+66: 48 8B 4D E8              - mov rcx,[rbp-18]
+JumpJetsScript:set_FuelPercentageRemaining+6a: 48 89 48 08              - mov [rax+08],rcx
+JumpJetsScript:set_FuelPercentageRemaining+6e: 48 8B 4D F0              - mov rcx,[rbp-10]
+JumpJetsScript:set_FuelPercentageRemaining+72: 48 89 48 10              - mov [rax+10],rcx
+JumpJetsScript:set_FuelPercentageRemaining+76: E9 15 00 00 00           - jmp JumpJetsScript:set_FuelPercentageRemaining+90
+JumpJetsScript:set_FuelPercentageRemaining+7b: F3 0F 10 45 D8           - movss xmm0,[rbp-28]
+JumpJetsScript:set_FuelPercentageRemaining+80: F3 0F 5A C0              - cvtss2sd xmm0,xmm0
+JumpJetsScript:set_FuelPercentageRemaining+84: F2 0F 5A E8              - cvtsd2ss xmm5,xmm0
+// ---------- INJECTING HERE ----------
+JumpJetsScript:set_FuelPercentageRemaining+88: F3 0F 11 AE E0 00 00 00  - movss [rsi+000000E0],xmm5
+// ---------- DONE INJECTING  ----------
+JumpJetsScript:set_FuelPercentageRemaining+90: 48 8B 75 F8              - mov rsi,[rbp-08]
+JumpJetsScript:set_FuelPercentageRemaining+94: C9                       - leave 
+JumpJetsScript:set_FuelPercentageRemaining+95: C3                       - ret 
+27298C08B76: 00 00                    - add [rax],al
+27298C08B78: 00 00                    - add [rax],al
+27298C08B7A: 00 00                    - add [rax],al
+27298C08B7C: 96                       - xchg eax,esi
+27298C08B7D: 00 00                    - add [rax],al
+27298C08B7F: 00 A4 00 00 00 01 04     - add [rax+rax+04010000],ah
+27298C08B86: 03 05 00 00 04 53        - add eax,[272EBC48B8C]
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"Ammo"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Road Redemption
+  Version: 
+  Date   : 2026-01-03
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,PlayerCombatController:set_RemainingRounds+d1)
+define(bytes,89 B7 80 00 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,PlayerCombatController:set_RemainingRounds+d1)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rdi+00000080],9
+  //mov [rdi+00000080],esi
+  jmp return
+
+address:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [rdi+00000080],esi
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: PlayerCombatController:set_RemainingRounds+d1
+
+PlayerCombatController:set_RemainingRounds+ab: 48 8B 4D E8                    - mov rcx,[rbp-18]
+PlayerCombatController:set_RemainingRounds+af: 48 89 48 08                    - mov [rax+08],rcx
+PlayerCombatController:set_RemainingRounds+b3: E9 2B 00 00 00                 - jmp PlayerCombatController:set_RemainingRounds+e3
+PlayerCombatController:set_RemainingRounds+b8: 48 B8 82 5F 00 95 72 02 00 00  - mov rax,0000027295005F82
+PlayerCombatController:set_RemainingRounds+c2: 0F B6 00                       - movzx eax,byte ptr [rax]
+PlayerCombatController:set_RemainingRounds+c5: 85 C0                          - test eax,eax
+PlayerCombatController:set_RemainingRounds+c7: 75 10                          - jne PlayerCombatController:set_RemainingRounds+d9
+PlayerCombatController:set_RemainingRounds+c9: 0F B6 47 7C                    - movzx eax,byte ptr [rdi+7C]
+PlayerCombatController:set_RemainingRounds+cd: 85 C0                          - test eax,eax
+PlayerCombatController:set_RemainingRounds+cf: 75 08                          - jne PlayerCombatController:set_RemainingRounds+d9
+// ---------- INJECTING HERE ----------
+PlayerCombatController:set_RemainingRounds+d1: 89 B7 80 00 00 00              - mov [rdi+00000080],esi
+// ---------- DONE INJECTING  ----------
+PlayerCombatController:set_RemainingRounds+d7: EB 0A                          - jmp PlayerCombatController:set_RemainingRounds+e3
+PlayerCombatController:set_RemainingRounds+d9: C7 87 80 00 00 00 E7 03 00 00  - mov [rdi+00000080],000003E7
+PlayerCombatController:set_RemainingRounds+e3: 48 8D 65 F0                    - lea rsp,[rbp-10]
+PlayerCombatController:set_RemainingRounds+e7: 5F                             - pop rdi
+PlayerCombatController:set_RemainingRounds+e8: 5E                             - pop rsi
+PlayerCombatController:set_RemainingRounds+e9: C9                             - leave 
+PlayerCombatController:set_RemainingRounds+ea: C3                             - ret 
+2727FB5A61B: 00 00                          - add [rax],al
+2727FB5A61D: 00 00                          - add [rax],al
+2727FB5A61F: 00 00                          - add [rax],al
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16290</ID>
+          <Description>"Cash = $10000"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Road Redemption
+  Version: 
+  Date   : 2026-01-03
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,PlayerStats:AddToCash+146)
+define(bytes,41 89 87 74 01 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,PlayerStats:AddToCash+146)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [r15+00000174],(int)10000
+  //mov [r15+00000174],eax
+  jmp return
+
+address:
+  jmp newmem
+  nop 2
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [r15+00000174],eax
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: PlayerStats:AddToCash+146
+
+PlayerStats:AddToCash+116: 49 63 87 78 01 00 00           - movsxd  rax,dword ptr [r15+00000178]
+PlayerStats:AddToCash+11d: 03 C7                          - add eax,edi
+PlayerStats:AddToCash+11f: 41 89 87 78 01 00 00           - mov [r15+00000178],eax
+PlayerStats:AddToCash+126: 49 63 97 74 01 00 00           - movsxd  rdx,dword ptr [r15+00000174]
+PlayerStats:AddToCash+12d: 03 D7                          - add edx,edi
+PlayerStats:AddToCash+12f: 33 C9                          - xor ecx,ecx
+PlayerStats:AddToCash+131: 48 83 EC 20                    - sub rsp,20
+PlayerStats:AddToCash+135: 49 BB 40 A7 96 4A 72 02 00 00  - mov r11,UnityEngine.Mathf:Max
+PlayerStats:AddToCash+13f: 41 FF D3                       - call r11
+PlayerStats:AddToCash+142: 48 83 C4 20                    - add rsp,20
+// ---------- INJECTING HERE ----------
+PlayerStats:AddToCash+146: 41 89 87 74 01 00 00           - mov [r15+00000174],eax
+// ---------- DONE INJECTING  ----------
+PlayerStats:AddToCash+14d: 49 8B 87 98 01 00 00           - mov rax,[r15+00000198]
+PlayerStats:AddToCash+154: 48 8B 40 40                    - mov rax,[rax+40]
+PlayerStats:AddToCash+158: 48 8B C8                       - mov rcx,rax
+PlayerStats:AddToCash+15b: 33 D2                          - xor edx,edx
+PlayerStats:AddToCash+15d: 48 83 EC 20                    - sub rsp,20
+PlayerStats:AddToCash+161: 83 38 00                       - cmp dword ptr [rax],00
+PlayerStats:AddToCash+164: 49 BB 60 98 C0 98 72 02 00 00  - mov r11,RRHUD:UpdateCashDisplay
+PlayerStats:AddToCash+16e: 41 FF D3                       - call r11
+PlayerStats:AddToCash+171: 48 83 C4 20                    - add rsp,20
+PlayerStats:AddToCash+175: 85 FF                          - test edi,edi
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16295</ID>
+          <Description>"EXP = 50000"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Road Redemption
+  Version: 
+  Date   : 2026-01-03
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,PlayerStats:AddToExperience+210)
+define(bytes,89 87 7C 01 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,PlayerStats:AddToExperience+210)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rdi+0000017C],(int)50000
+  //mov [rdi+0000017C],eax
+  jmp return
+
+address:
+  jmp newmem
+  nop
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [rdi+0000017C],eax
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: PlayerStats:AddToExperience+210
+
+PlayerStats:AddToExperience+1e6: 41 FF D3                       - call r11
+PlayerStats:AddToExperience+1e9: 48 83 C4 20                    - add rsp,20
+PlayerStats:AddToExperience+1ed: 48 8B F0                       - mov rsi,rax
+PlayerStats:AddToExperience+1f0: 48 63 97 7C 01 00 00           - movsxd  rdx,dword ptr [rdi+0000017C]
+PlayerStats:AddToExperience+1f7: 03 D6                          - add edx,esi
+PlayerStats:AddToExperience+1f9: 33 C9                          - xor ecx,ecx
+PlayerStats:AddToExperience+1fb: 48 83 EC 20                    - sub rsp,20
+PlayerStats:AddToExperience+1ff: 49 BB 40 A7 96 4A 72 02 00 00  - mov r11,UnityEngine.Mathf:Max
+PlayerStats:AddToExperience+209: 41 FF D3                       - call r11
+PlayerStats:AddToExperience+20c: 48 83 C4 20                    - add rsp,20
+// ---------- INJECTING HERE ----------
+PlayerStats:AddToExperience+210: 89 87 7C 01 00 00              - mov [rdi+0000017C],eax
+// ---------- DONE INJECTING  ----------
+PlayerStats:AddToExperience+216: 49 BA 80 D7 6A 31 72 02 00 00  - mov r10,00000272316AD780
+PlayerStats:AddToExperience+220: 48 83 EC 20                    - sub rsp,20
+PlayerStats:AddToExperience+224: 49 BB 40 E8 0D 29 72 02 00 00  - mov r11,PixelDash.Tools.Manager`1[System.Object]:get_Instance
+PlayerStats:AddToExperience+22e: 41 FF D3                       - call r11
+PlayerStats:AddToExperience+231: 48 83 C4 20                    - add rsp,20
+PlayerStats:AddToExperience+235: 48 8B C8                       - mov rcx,rax
+PlayerStats:AddToExperience+238: 33 D2                          - xor edx,edx
+PlayerStats:AddToExperience+23a: 48 83 EC 20                    - sub rsp,20
+PlayerStats:AddToExperience+23e: 49 BB C0 E1 0D 29 72 02 00 00  - mov r11,UnityEngine.Object:op_Inequality
+PlayerStats:AddToExperience+248: 41 FF D3                       - call r11
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
     </CheatEntry>
     <CheatEntry>
       <ID>25</ID>
@@ -272,9 +640,10 @@ dealloc(newmem)
       <Color>40BFBF</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>54</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="10000" RealAddress="19EC17E241C"/>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>"THREADSTACK1"-000001C0</Address>
@@ -288,9 +657,10 @@ dealloc(newmem)
             <Offset>A0</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>55</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="10000" RealAddress="19EC17E241C"/>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>"mono.dll"+00267618</Address>
@@ -304,9 +674,10 @@ dealloc(newmem)
             <Offset>A0</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>56</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="10000" RealAddress="19EC17E241C"/>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>"THREADSTACK1"-00000268</Address>
@@ -320,7 +691,7 @@ dealloc(newmem)
             <Offset>A0</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>58</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -336,9 +707,10 @@ dealloc(newmem)
             <Offset>90</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>59</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="10000" RealAddress="19EC17E241C"/>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>"THREADSTACK1"-000000C8</Address>
@@ -352,9 +724,10 @@ dealloc(newmem)
             <Offset>A0</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>60</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="10000" RealAddress="19EC17E241C"/>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>"THREADSTACK1"-00000268</Address>
@@ -368,9 +741,10 @@ dealloc(newmem)
             <Offset>A0</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>61</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="10000" RealAddress="19EC17E241C"/>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>"mono.dll"+00264A68</Address>
@@ -383,9 +757,10 @@ dealloc(newmem)
             <Offset>50</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>62</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="10000" RealAddress="19EC17E241C"/>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>"THREADSTACK1"-00000180</Address>
@@ -399,9 +774,10 @@ dealloc(newmem)
             <Offset>A0</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>63</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="10000" RealAddress="19EC17E241C"/>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>"mono.dll"+00264A68</Address>
@@ -424,9 +800,10 @@ dealloc(newmem)
       <Color>40BFBF</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>65</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00268188</Address>
@@ -440,9 +817,10 @@ dealloc(newmem)
             <Offset>90</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>66</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"UnityPlayer.dll"+0144EB78</Address>
@@ -456,9 +834,10 @@ dealloc(newmem)
             <Offset>0</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>67</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -472,9 +851,10 @@ dealloc(newmem)
             <Offset>1A8</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>68</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -488,9 +868,10 @@ dealloc(newmem)
             <Offset>148</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>69</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -504,9 +885,10 @@ dealloc(newmem)
             <Offset>1C0</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>70</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -520,9 +902,10 @@ dealloc(newmem)
             <Offset>188</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>71</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -536,9 +919,10 @@ dealloc(newmem)
             <Offset>158</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>73</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -552,9 +936,10 @@ dealloc(newmem)
             <Offset>188</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>74</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -568,9 +953,10 @@ dealloc(newmem)
             <Offset>140</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>75</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -583,9 +969,10 @@ dealloc(newmem)
             <Offset>190</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>76</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -599,9 +986,10 @@ dealloc(newmem)
             <Offset>A08</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>77</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -615,9 +1003,10 @@ dealloc(newmem)
             <Offset>118</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>78</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -631,9 +1020,10 @@ dealloc(newmem)
             <Offset>130</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>79</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -647,9 +1037,10 @@ dealloc(newmem)
             <Offset>1C0</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>80</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -663,9 +1054,10 @@ dealloc(newmem)
             <Offset>138</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>81</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -679,9 +1071,10 @@ dealloc(newmem)
             <Offset>1B0</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>82</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -695,9 +1088,10 @@ dealloc(newmem)
             <Offset>170</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="500">
+        <CheatEntry>
           <ID>84</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="390" RealAddress="19EC185DC44"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -719,9 +1113,10 @@ dealloc(newmem)
       <Color>40BFBF</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>87</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="85" RealAddress="19EC17E237C"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"UnityPlayer.dll"+013BD830</Address>
@@ -735,9 +1130,10 @@ dealloc(newmem)
             <Offset>10</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>88</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="85" RealAddress="19EC17E237C"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"UnityPlayer.dll"+01470470</Address>
@@ -751,9 +1147,10 @@ dealloc(newmem)
             <Offset>28</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>89</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="85" RealAddress="19EC17E237C"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"UnityPlayer.dll"+01470470</Address>
@@ -767,9 +1164,10 @@ dealloc(newmem)
             <Offset>30</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>90</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="85" RealAddress="19EC17E237C"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"UnityPlayer.dll"+01470470</Address>
@@ -783,9 +1181,10 @@ dealloc(newmem)
             <Offset>30</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>91</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="85" RealAddress="19EC17E237C"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"UnityPlayer.dll"+01470470</Address>
@@ -799,9 +1198,10 @@ dealloc(newmem)
             <Offset>28</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>92</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="85" RealAddress="19EC17E237C"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -815,9 +1215,10 @@ dealloc(newmem)
             <Offset>210</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>93</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="85" RealAddress="19EC17E237C"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -831,9 +1232,10 @@ dealloc(newmem)
             <Offset>188</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>94</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="85" RealAddress="19EC17E237C"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -847,9 +1249,10 @@ dealloc(newmem)
             <Offset>168</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>95</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="85" RealAddress="19EC17E237C"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -863,9 +1266,10 @@ dealloc(newmem)
             <Offset>158</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>96</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="85" RealAddress="19EC17E237C"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -879,9 +1283,10 @@ dealloc(newmem)
             <Offset>1A8</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>97</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="85" RealAddress="19EC17E237C"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -895,9 +1300,10 @@ dealloc(newmem)
             <Offset>1A8</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>98</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="85" RealAddress="19EC17E237C"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -911,9 +1317,10 @@ dealloc(newmem)
             <Offset>160</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>99</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="85" RealAddress="19EC17E237C"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>
@@ -927,9 +1334,10 @@ dealloc(newmem)
             <Offset>228</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>100</ID>
           <Description>"pointerscan result"</Description>
+          <LastState Value="85" RealAddress="19EC17E237C"/>
           <Color>40BFBF</Color>
           <VariableType>Float</VariableType>
           <Address>"mono.dll"+00264110</Address>

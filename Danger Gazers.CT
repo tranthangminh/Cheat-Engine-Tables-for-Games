@@ -72,39 +72,38 @@ shellExecute("https://discord.com/users/@maxiechen")
     </CheatEntry>
     <CheatEntry>
       <ID>0</ID>
-      <Description>"Points ? 1"</Description>
+      <Description>"Crystals"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
       <VariableType>4 Bytes</VariableType>
-      <Address>24EB8BEC0B0</Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>1</ID>
-      <Description>"Points 1"</Description>
-      <VariableType>4 Bytes</VariableType>
-      <Address>24EB9F074B8</Address>
+      <Address>Danger Gazers.exe.text+71E</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>2</ID>
-      <Description>"Total Points 1"</Description>
+      <Description>"HP"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
       <VariableType>4 Bytes</VariableType>
-      <Address>24EB9F074BC</Address>
+      <Address>Danger Gazers.exe.text+2B697E</Address>
     </CheatEntry>
     <CheatEntry>
-      <ID>3</ID>
-      <Description>"Points"</Description>
+      <ID>1</ID>
+      <Description>"HP"</Description>
       <LastState/>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : GRIS
+      <AssemblerScript>{ Game   : Danger Gazers
   Version: 
-  Date   : 2025-08-11
+  Date   : 2026-01-02
   Author : Max
 
   This script does blah blah blah
 }
 
+define(address,"Danger Gazers.exe"+2B797E)
+define(bytes,F2 0F 11 0E 89 F0)
+
 [ENABLE]
 
-aobscanmodule(INJECT,UnityPlayer.dll,4C 89 76 18 48 C1 E7 04) // should be unique
-alloc(newmem,$1000,INJECT)
+assert(address,bytes)
+alloc(newmem,$1000)
 
 label(code)
 label(return)
@@ -112,50 +111,53 @@ label(return)
 newmem:
 
 code:
-  mov [rsi+18],r14
-  shl rdi,04
+  cmp [esi+29C],1
+  je return
+
+  movsd [esi],xmm1
+  mov eax,esi
   jmp return
 
-INJECT:
+address:
   jmp newmem
-  nop 3
+  nop
 return:
-registersymbol(INJECT)
 
 [DISABLE]
 
-INJECT:
-  db 4C 89 76 18 48 C1 E7 04
+address:
+  db bytes
+  // movsd [esi],xmm1
+  // mov eax,esi
 
-unregistersymbol(INJECT)
 dealloc(newmem)
 
 {
-// ORIGINAL CODE - INJECTION POINT: UnityPlayer.dll+4E6C9B
+// ORIGINAL CODE - INJECTION POINT: Danger Gazers.exe.text+2B697E
 
-UnityPlayer.dll+4E6C6F: 41 BD 01 00 00 00              - mov r13d,00000001
-UnityPlayer.dll+4E6C75: 4C 8D 77 01                    - lea r14,[rdi+01]
-UnityPlayer.dll+4E6C79: 4C 3B F2                       - cmp r14,rdx
-UnityPlayer.dll+4E6C7C: 76 1D                          - jna UnityPlayer.dll+4E6C9B
-UnityPlayer.dll+4E6C7E: 48 03 D2                       - add rdx,rdx
-UnityPlayer.dll+4E6C81: 49 3B D5                       - cmp rdx,r13
-UnityPlayer.dll+4E6C84: 49 0F 42 D5                    - cmovb rdx,r13
-UnityPlayer.dll+4E6C88: 48 83 C1 08                    - add rcx,08
-UnityPlayer.dll+4E6C8C: E8 3F C2 01 00                 - call UnityPlayer.dll+502ED0
-UnityPlayer.dll+4E6C91: 48 B8 FF FF FF FF FF FF FF 7F  - mov rax,7FFFFFFFFFFFFFFF
+Danger Gazers.exe.text+2B6955: DD 5C 24 20           - fstp qword ptr [esp+20]
+Danger Gazers.exe.text+2B6959: F2 0F 10 44 24 20     - movsd xmm0,[esp+20]
+Danger Gazers.exe.text+2B695F: EB 04                 - jmp Danger Gazers.exe.text+2B6965
+Danger Gazers.exe.text+2B6961: F2 0F 2A 06           - cvtsi2sd xmm0,[esi]
+Danger Gazers.exe.text+2B6965: F2 0F 5C 07           - subsd xmm0,[edi]
+Danger Gazers.exe.text+2B6969: F2 0F 11 06           - movsd [esi],xmm0
+Danger Gazers.exe.text+2B696D: C7 46 0C 00 00 00 00  - mov [esi+0C],00000000
+Danger Gazers.exe.text+2B6974: EB 0C                 - jmp Danger Gazers.exe.text+2B6982
+Danger Gazers.exe.text+2B6976: F2 0F 10 07           - movsd xmm0,[edi]
+Danger Gazers.exe.text+2B697A: F2 0F 5C C8           - subsd xmm1,xmm0
 // ---------- INJECTING HERE ----------
-UnityPlayer.dll+4E6C9B: 4C 89 76 18                    - mov [rsi+18],r14
+Danger Gazers.exe.text+2B697E: F2 0F 11 0E           - movsd [esi],xmm1
 // ---------- DONE INJECTING  ----------
-UnityPlayer.dll+4E6C9F: 48 C1 E7 04                    - shl rdi,04
-UnityPlayer.dll+4E6CA3: 48 03 7E 08                    - add rdi,[rsi+08]
-UnityPlayer.dll+4E6CA7: 48 89 2F                       - mov [rdi],rbp
-UnityPlayer.dll+4E6CAA: 44 89 67 08                    - mov [rdi+08],r12d
-UnityPlayer.dll+4E6CAE: 48 8D 7D 08                    - lea rdi,[rbp+08]
-UnityPlayer.dll+4E6CB2: 48 8B 5F 10                    - mov rbx,[rdi+10]
-UnityPlayer.dll+4E6CB6: 48 8B 57 18                    - mov rdx,[rdi+18]
-UnityPlayer.dll+4E6CBA: 48 23 D0                       - and rdx,rax
-UnityPlayer.dll+4E6CBD: 48 8D 6B 01                    - lea rbp,[rbx+01]
-UnityPlayer.dll+4E6CC1: 48 3B EA                       - cmp rbp,rdx
+Danger Gazers.exe.text+2B6982: 89 F0                 - mov eax,esi
+Danger Gazers.exe.text+2B6984: 8D 65 F8              - lea esp,[ebp-08]
+Danger Gazers.exe.text+2B6987: 5E                    - pop esi
+Danger Gazers.exe.text+2B6988: 5F                    - pop edi
+Danger Gazers.exe.text+2B6989: 5D                    - pop ebp
+Danger Gazers.exe.text+2B698A: C2 04 00              - ret 0004
+Danger Gazers.exe.text+2B698D: CC                    - int 3 
+Danger Gazers.exe.text+2B698E: CC                    - int 3 
+Danger Gazers.exe.text+2B698F: CC                    - int 3 
+Danger Gazers.exe.text+2B6990: 55                    - push ebp
 }
 </AssemblerScript>
     </CheatEntry>

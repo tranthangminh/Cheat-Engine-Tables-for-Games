@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>77</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"Oxygen, HP (100% text view only)"</Description>
+          <LastState Value="1090947393" RealAddress="14149C371"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Maneater-Win64-Shipping.exe.udata+149B371</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"Oxygen"</Description>
+          <LastState Value="2266042355" RealAddress="140D73C38"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Maneater-Win64-Shipping.exe.udata+D72C38</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16297</ID>
+          <Description>"HP - on shoot"</Description>
+          <LastState Value="1074794483" RealAddress="1407FCE55"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Maneater-Win64-Shipping.exe.udata+7FBE55</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"HP = 1400 (float), Oxy = 13s (float)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>72</ID>
+      <Description>"Active cheats"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"Oxygen"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Maneater  
+  Version: 
+  Date   : 2025-12-25
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"Maneater-Win64-Shipping.exe"+D73C38)
+define(bytes,F3 0F 11 87 E8 07 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"Maneater-Win64-Shipping.exe"+D73C38)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  cmp [rdi+9C],0
+  je return
+  movss [rdi+000007E8],xmm0
+  //movss [rdi+000007E8],xmm0
+  jmp return
+
+address:
+  jmp newmem
+  nop 3
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // movss [rdi+000007E8],xmm0
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Maneater-Win64-Shipping.exe.udata+D72C38
+
+Maneater-Win64-Shipping.exe.udata+D72C11: 7F 15                    - jg Maneater-Win64-Shipping.exe.udata+D72C28
+Maneater-Win64-Shipping.exe.udata+D72C13: 48 8B C8                 - mov rcx,rax
+Maneater-Win64-Shipping.exe.udata+D72C16: 48 8B 42 30              - mov rax,[rdx+30]
+Maneater-Win64-Shipping.exe.udata+D72C1A: 4C 39 04 C8              - cmp [rax+rcx*8],r8
+Maneater-Win64-Shipping.exe.udata+D72C1E: 75 08                    - jne Maneater-Win64-Shipping.exe.udata+D72C28
+Maneater-Win64-Shipping.exe.udata+D72C20: 48 8B CF                 - mov rcx,rdi
+Maneater-Win64-Shipping.exe.udata+D72C23: E8 F8 D5 02 00           - call Maneater-Win64-Shipping.exe.udata+DA0220
+Maneater-Win64-Shipping.exe.udata+D72C28: F3 0F 10 87 E8 07 00 00  - movss xmm0,[rdi+000007E8]
+Maneater-Win64-Shipping.exe.udata+D72C30: F3 0F 5C C7              - subss xmm0,xmm7
+Maneater-Win64-Shipping.exe.udata+D72C34: F3 0F 5F C6              - maxss xmm0,xmm6
+// ---------- INJECTING HERE ----------
+Maneater-Win64-Shipping.exe.udata+D72C38: F3 0F 11 87 E8 07 00 00  - movss [rdi+000007E8],xmm0
+// ---------- DONE INJECTING  ----------
+Maneater-Win64-Shipping.exe.udata+D72C40: 48 85 F6                 - test rsi,rsi
+Maneater-Win64-Shipping.exe.udata+D72C43: 74 0F                    - je Maneater-Win64-Shipping.exe.udata+D72C54
+Maneater-Win64-Shipping.exe.udata+D72C45: C6 86 C8 03 00 00 01     - mov byte ptr [rsi+000003C8],01
+Maneater-Win64-Shipping.exe.udata+D72C4C: F3 0F 10 87 E8 07 00 00  - movss xmm0,[rdi+000007E8]
+Maneater-Win64-Shipping.exe.udata+D72C54: 0F 2F C6                 - comiss xmm0,xmm6
+Maneater-Win64-Shipping.exe.udata+D72C57: 0F 87 83 02 00 00        - ja Maneater-Win64-Shipping.exe.udata+D72EE0
+Maneater-Win64-Shipping.exe.udata+D72C5D: 48 8B CF                 - mov rcx,rdi
+Maneater-Win64-Shipping.exe.udata+D72C60: E8 AB 19 F4 FF           - call Maneater-Win64-Shipping.exe.udata+CB4610
+Maneater-Win64-Shipping.exe.udata+D72C65: 48 8B D8                 - mov rbx,rax
+Maneater-Win64-Shipping.exe.udata+D72C68: 48 85 C0                 - test rax,rax
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16300</ID>
+          <Description>"HP"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16302</ID>
+              <Description>"HP - on shoot"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Maneater  
+  Version: 
+  Date   : 2026-01-04
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"Maneater-Win64-Shipping.exe"+D3C1F4)
+define(bytes,F3 0F 11 49 08)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"Maneater-Win64-Shipping.exe"+D3C1F4)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  cmp [r11+638+0+4],0
+  je return
+
+  movss [rcx+08],xmm1
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // movss [rcx+08],xmm1
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Maneater-Win64-Shipping.exe.udata+D3B1F4
+
+Maneater-Win64-Shipping.exe.udata+D3B1D0: 80 FA 04              - cmp dl,04
+Maneater-Win64-Shipping.exe.udata+D3B1D3: 75 09                 - jne Maneater-Win64-Shipping.exe.udata+D3B1DE
+Maneater-Win64-Shipping.exe.udata+D3B1D5: 80 B9 44 07 00 00 00  - cmp byte ptr [rcx+00000744],00
+Maneater-Win64-Shipping.exe.udata+D3B1DC: 77 10                 - ja Maneater-Win64-Shipping.exe.udata+D3B1EE
+Maneater-Win64-Shipping.exe.udata+D3B1DE: 48 8B 89 80 05 00 00  - mov rcx,[rcx+00000580]
+Maneater-Win64-Shipping.exe.udata+D3B1E5: 48 85 C9              - test rcx,rcx
+Maneater-Win64-Shipping.exe.udata+D3B1E8: 0F 85 72 18 F7 FF     - jne Maneater-Win64-Shipping.exe.udata+CACA60
+Maneater-Win64-Shipping.exe.udata+D3B1EE: C3                    - ret 
+Maneater-Win64-Shipping.exe.udata+D3B1EF: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3B1F0: 80 79 18 00           - cmp byte ptr [rcx+18],00
+// ---------- INJECTING HERE ----------
+Maneater-Win64-Shipping.exe.udata+D3B1F4: F3 0F 11 49 08        - movss [rcx+08],xmm1
+// ---------- DONE INJECTING  ----------
+Maneater-Win64-Shipping.exe.udata+D3B1F9: 74 07                 - je Maneater-Win64-Shipping.exe.udata+D3B202
+Maneater-Win64-Shipping.exe.udata+D3B1FB: 48 8B 01              - mov rax,[rcx]
+Maneater-Win64-Shipping.exe.udata+D3B1FE: 48 FF 60 28           - jmp qword ptr [rax+28]
+Maneater-Win64-Shipping.exe.udata+D3B202: C3                    - ret 
+Maneater-Win64-Shipping.exe.udata+D3B203: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3B204: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3B205: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3B206: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3B207: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3B208: CC                    - int 3 
+}
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16303</ID>
+              <Description>"HP - Oxy"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Maneater  
+  Version: 
+  Date   : 2026-01-04
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"Maneater-Win64-Shipping.exe"+D3CA74)
+define(bytes,F3 0F 11 49 0C)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"Maneater-Win64-Shipping.exe"+D3CA74)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  cmp [rbp+A84],1
+  je return
+
+  movss [rcx+0C],xmm1
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // movss [rcx+0C],xmm1
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Maneater-Win64-Shipping.exe.udata+D3BA74
+
+Maneater-Win64-Shipping.exe.udata+D3BA5D: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3BA5E: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3BA5F: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3BA60: 48 81 C1 48 0D 00 00  - add rcx,00000D48
+Maneater-Win64-Shipping.exe.udata+D3BA67: E9 B4 A0 50 00        - jmp Maneater-Win64-Shipping.exe.udata+1245B20
+Maneater-Win64-Shipping.exe.udata+D3BA6C: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3BA6D: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3BA6E: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3BA6F: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3BA70: 80 79 18 00           - cmp byte ptr [rcx+18],00
+// ---------- INJECTING HERE ----------
+Maneater-Win64-Shipping.exe.udata+D3BA74: F3 0F 11 49 0C        - movss [rcx+0C],xmm1
+// ---------- DONE INJECTING  ----------
+Maneater-Win64-Shipping.exe.udata+D3BA79: 74 07                 - je Maneater-Win64-Shipping.exe.udata+D3BA82
+Maneater-Win64-Shipping.exe.udata+D3BA7B: 48 8B 01              - mov rax,[rcx]
+Maneater-Win64-Shipping.exe.udata+D3BA7E: 48 FF 60 28           - jmp qword ptr [rax+28]
+Maneater-Win64-Shipping.exe.udata+D3BA82: C3                    - ret 
+Maneater-Win64-Shipping.exe.udata+D3BA83: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3BA84: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3BA85: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3BA86: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3BA87: CC                    - int 3 
+Maneater-Win64-Shipping.exe.udata+D3BA88: CC                    - int 3 
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>79</ID>
+      <Description>"Yellow"</Description>
+      <LastState Value="59541385" RealAddress="140DF0177"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>Maneater-Win64-Shipping.exe.udata+DEF177</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16292</ID>
+      <Description>"◀️ SOURCE: https://fearlessrevolution.com/viewtopic.php?t=12572"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://fearlessrevolution.com/viewtopic.php?t=12572")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>21</ID>
+          <Description>"Unlimited Health"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Maneater-Win64-Shipping.exe
+  Version: 
+  Date   : 2020-05-22
+  Author : STN
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+aobscanmodule(health,Maneater-Win64-Shipping.exe,F3 0F 10 41 0C C3) // should be unique
+aobscanmodule(addrcmp,Maneater-Win64-Shipping.exe,48 8B 5C 24 40 0F 2F F0) // should be unique
+
+alloc(newmem,$1000,health)
+
+label(code)
+label(return)
+
+newmem:
+code:
+  push rbx
+  mov rbx, addrcmp
+  cmp [rsp+8], rbx
+  pop rbx
+  jne @F
+
+  mov [rcx+08], (float)999.0
+
+@@:
+  movss xmm0, [rcx+0C]
+  jmp return
+
+health:
+  jmp newmem
+return:
+registersymbol(health)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+health:
+  db F3 0F 10 41 0C
+
+unregistersymbol(health)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Maneater-Win64-Shipping.exe"+458880
+
+"Maneater-Win64-Shipping.exe"+458876: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+458877: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+458878: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+458879: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+45887A: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+45887B: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+45887C: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+45887D: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+45887E: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+45887F: CC                       -  int 3 
+// ---------- INJECTING HERE ----------
+"Maneater-Win64-Shipping.exe"+458880: F3 0F 10 41 0C           -  movss xmm0,[rcx+0C]
+// ---------- DONE INJECTING  ----------
+"Maneater-Win64-Shipping.exe"+458885: C3                       -  ret 
+"Maneater-Win64-Shipping.exe"+458886: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+458887: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+458888: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+458889: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+45888A: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+45888B: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+45888C: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+45888D: CC                       -  int 3 
+"Maneater-Win64-Shipping.exe"+45888E: CC                       -  int 3 
+}
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>112</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"Unlimited Oxygen"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Maneater-Win64-Shipping.exe
+  Version:
+  Date   : 2020-05-22
+  Author : STN
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+aobscanmodule(oxygen,Maneater-Win64-Shipping.exe,F3 0F 59 BB 68 0A 00 00) // should be unique
+alloc(newmem,$1000,oxygen)
+
+label(code)
+label(return)
+
+newmem:
+code:
+  mov [rbx+00000A68], (float)9.0
+  mulss xmm7,[rbx+00000A68]
+  jmp return
+
+oxygen:
+  jmp newmem
+  nop
+  nop
+  nop
+return:
+registersymbol(oxygen)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+oxygen:
+  db F3 0F 59 BB 68 0A 00 00
+
+unregistersymbol(oxygen)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Maneater-Win64-Shipping.exe"+765154
+
+"Maneater-Win64-Shipping.exe"+76512B: 74 05                       -  je Maneater-Win64-Shipping.exe+765132
+"Maneater-Win64-Shipping.exe"+76512D: E8 4E 41 15 00              -  call Maneater-Win64-Shipping.exe+8B9280
+"Maneater-Win64-Shipping.exe"+765132: 48 8B 03                    -  mov rax,[rbx]
+"Maneater-Win64-Shipping.exe"+765135: 48 8B CB                    -  mov rcx,rbx
+"Maneater-Win64-Shipping.exe"+765138: FF 90 08 09 00 00           -  call qword ptr [rax+00000908]
+"Maneater-Win64-Shipping.exe"+76513E: F3 0F 10 35 42 E6 B1 02     -  movss xmm6,[Maneater-Win64-Shipping.exe+3283788]
+"Maneater-Win64-Shipping.exe"+765146: 41 0F 28 C8                 -  movaps xmm1,xmm8
+"Maneater-Win64-Shipping.exe"+76514A: 0F 28 FE                    -  movaps xmm7,xmm6
+"Maneater-Win64-Shipping.exe"+76514D: 48 8B CB                    -  mov rcx,rbx
+"Maneater-Win64-Shipping.exe"+765150: F3 0F 5E F8                 -  divss xmm7,xmm0
+// ---------- INJECTING HERE ----------
+"Maneater-Win64-Shipping.exe"+765154: F3 0F 59 BB 68 0A 00 00     -  mulss xmm7,[rbx+00000A68]
+// ---------- DONE INJECTING  ----------
+"Maneater-Win64-Shipping.exe"+76515C: E8 0F 4F F9 FF              -  call Maneater-Win64-Shipping.exe+6FA070
+"Maneater-Win64-Shipping.exe"+765161: 48 8B 03                    -  mov rax,[rbx]
+"Maneater-Win64-Shipping.exe"+765164: 48 8B CB                    -  mov rcx,rbx
+"Maneater-Win64-Shipping.exe"+765167: FF 90 08 09 00 00           -  call qword ptr [rax+00000908]
+"Maneater-Win64-Shipping.exe"+76516D: F3 0F 5E F0                 -  divss xmm6,xmm0
+"Maneater-Win64-Shipping.exe"+765171: F3 0F 59 B3 68 0A 00 00     -  mulss xmm6,[rbx+00000A68]
+"Maneater-Win64-Shipping.exe"+765179: 0F 2E B3 50 12 00 00        -  ucomiss xmm6,[rbx+00001250]
+"Maneater-Win64-Shipping.exe"+765180: 74 1F                       -  je Maneater-Win64-Shipping.exe+7651A1
+"Maneater-Win64-Shipping.exe"+765182: 48 8D 8B 40 12 00 00        -  lea rcx,[rbx+00001240]
+"Maneater-Win64-Shipping.exe"+765189: F3 0F 11 B3 50 12 00 00     -  movss [rbx+00001250],xmm6
+}
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>115</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"Collectibles"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Maneater-Win64-Shipping.exe
+  Version:
+  Date   : 2020-05-22
+  Author : STN
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+aobscanmodule(collect,Maneater-Win64-Shipping.exe,8B 95 4C 04 00 00) // should be unique
+alloc(newmem,$1000,collect)
+
+label(code)
+label(return)
+
+label(stats_addr)
+registersymbol(stats_addr)
+
+newmem:
+code:
+  mov [stats_addr], rbp
+  mov edx,[rbp+0000044C]
+  jmp return
+
+stats_addr:
+dq 0
+
+collect:
+  jmp newmem
+  nop
+return:
+registersymbol(collect)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+collect:
+  db 8B 95 4C 04 00 00
+
+unregistersymbol(collect)
+unregistersymbol(stats_addr)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "Maneater-Win64-Shipping.exe"+85F3D3
+
+"Maneater-Win64-Shipping.exe"+85F3AF: 8B C7                    -  mov eax,edi
+"Maneater-Win64-Shipping.exe"+85F3B1: F0 0F C1 43 0C           - lock  xadd [rbx+0C],eax
+"Maneater-Win64-Shipping.exe"+85F3B6: 83 F8 01                 -  cmp eax,01
+"Maneater-Win64-Shipping.exe"+85F3B9: 75 0C                    -  jne Maneater-Win64-Shipping.exe+85F3C7
+"Maneater-Win64-Shipping.exe"+85F3BB: 48 8B 03                 -  mov rax,[rbx]
+"Maneater-Win64-Shipping.exe"+85F3BE: 8D 57 02                 -  lea edx,[rdi+02]
+"Maneater-Win64-Shipping.exe"+85F3C1: 48 8B CB                 -  mov rcx,rbx
+"Maneater-Win64-Shipping.exe"+85F3C4: FF 50 08                 -  call qword ptr [rax+08]
+"Maneater-Win64-Shipping.exe"+85F3C7: 48 8B 86 38 02 00 00     -  mov rax,[rsi+00000238]
+"Maneater-Win64-Shipping.exe"+85F3CE: 4C 8D 4C 24 30           -  lea r9,[rsp+30]
+// ---------- INJECTING HERE ----------
+"Maneater-Win64-Shipping.exe"+85F3D3: 8B 95 4C 04 00 00        -  mov edx,[rbp+0000044C]
+// ---------- DONE INJECTING  ----------
+"Maneater-Win64-Shipping.exe"+85F3D9: 48 8D 4C 24 78           -  lea rcx,[rsp+78]
+"Maneater-Win64-Shipping.exe"+85F3DE: 0F 57 C0                 -  xorps xmm0,xmm0
+"Maneater-Win64-Shipping.exe"+85F3E1: 45 33 C0                 -  xor r8d,r8d
+"Maneater-Win64-Shipping.exe"+85F3E4: F3 0F 7F 44 24 30        -  movdqu [rsp+30],xmm0
+"Maneater-Win64-Shipping.exe"+85F3EA: 48 8B 18                 -  mov rbx,[rax]
+"Maneater-Win64-Shipping.exe"+85F3ED: E8 6E FC 07 00           -  call Maneater-Win64-Shipping.exe+8DF060
+"Maneater-Win64-Shipping.exe"+85F3F2: 48 8B 8E 38 02 00 00     -  mov rcx,[rsi+00000238]
+"Maneater-Win64-Shipping.exe"+85F3F9: 48 8B D0                 -  mov rdx,rax
+"Maneater-Win64-Shipping.exe"+85F3FC: FF 93 90 02 00 00        -  call qword ptr [rbx+00000290]
+"Maneater-Win64-Shipping.exe"+85F402: 48 8B 5C 24 38           -  mov rbx,[rsp+38]
+}
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Toggle Activation</Action>
+              <Keys>
+                <Key>112</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16293</ID>
+              <Description>"Proteins"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>stats_addr</Address>
+              <Offsets>
+                <Offset>448</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>116</Key>
+                  </Keys>
+                  <Value>500</Value>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16294</ID>
+              <Description>"Fats"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>stats_addr</Address>
+              <Offsets>
+                <Offset>44C</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>117</Key>
+                  </Keys>
+                  <Value>500</Value>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>5</ID>
+              <Description>"Minerals"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>stats_addr</Address>
+              <Offsets>
+                <Offset>450</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>118</Key>
+                  </Keys>
+                  <Value>500</Value>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>6</ID>
+              <Description>"Mutagen X"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>stats_addr</Address>
+              <Offsets>
+                <Offset>454</Offset>
+              </Offsets>
+              <Hotkeys>
+                <Hotkey>
+                  <Action>Increase Value</Action>
+                  <Keys>
+                    <Key>119</Key>
+                  </Keys>
+                  <Value>500</Value>
+                  <ID>0</ID>
+                </Hotkey>
+              </Hotkeys>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16298</ID>
+      <Description>"No description"</Description>
+      <VariableType>Float</VariableType>
+      <Address>11DAA9A68</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of movss [rsi+000003CC],xmm1</Description>
+      <AddressString>"Maneater-Win64-Shipping.exe"+D73A6B</AddressString>
+      <Before>
+        <Byte>8F</Byte>
+        <Byte>E8</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>8E</Byte>
+        <Byte>CC</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>07</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rcx+000002C8],xmm1</Description>
+      <AddressString>"Maneater-Win64-Shipping.exe"+2106574</AddressString>
+      <Before>
+        <Byte>CC</Byte>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>EC</Byte>
+        <Byte>48</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>89</Byte>
+        <Byte>C8</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>89</Byte>
+        <Byte>08</Byte>
+        <Byte>03</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rbx+00000FD0],xmm6</Description>
+      <AddressString>"Maneater-Win64-Shipping.exe"+DD5609</AddressString>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>C0</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>B3</Byte>
+        <Byte>D0</Byte>
+        <Byte>0F</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>54</Byte>
+        <Byte>24</Byte>
+        <Byte>70</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [r14],eax</Description>
+      <AddressString>"Maneater-Win64-Shipping.exe"+149C371</AddressString>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>74</Byte>
+        <Byte>0A</Byte>
+        <Byte>8B</Byte>
+        <Byte>06</Byte>
+      </Before>
+      <Actual>
+        <Byte>41</Byte>
+        <Byte>89</Byte>
+        <Byte>06</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>C6</Byte>
+        <Byte>46</Byte>
+        <Byte>04</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rcx+0C],xmm1</Description>
+      <AddressString>13FFF000D</AddressString>
+      <Before>
+        <Byte>84</Byte>
+        <Byte>6C</Byte>
+        <Byte>CA</Byte>
+        <Byte>D4</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>49</Byte>
+        <Byte>0C</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>62</Byte>
+        <Byte>CA</Byte>
+        <Byte>D4</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

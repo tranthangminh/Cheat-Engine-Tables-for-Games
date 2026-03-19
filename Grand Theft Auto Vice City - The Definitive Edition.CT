@@ -2,22 +2,85 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
-      <ID>126</ID>
-      <Description>"IN GAME"</Description>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
       <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>372</ID>
+      <Description>"WANTED LEVEL"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
       <LastState Value="" RealAddress="00000000"/>
+      <Color>40BF40</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
-          <ID>0</ID>
-          <Description>"MONEY"</Description>
-          <Color>40BFBF</Color>
-          <VariableType>4 Bytes</VariableType>
-          <Address>ViceCity.exe+5247B80</Address>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>361</ID>
-          <Description>"MONEY - won't reduce"</Description>
+          <ID>369</ID>
+          <Description>"0 Star"</Description>
           <LastState/>
           <Color>40BF40</Color>
           <VariableType>Auto Assembler Script</VariableType>
@@ -31,7 +94,7 @@
 
 [ENABLE]
 
-aobscanmodule(INJECT,ViceCity.exe,01 84 31 F0 00 00 00) // should be unique
+aobscanmodule(INJECT,ViceCity.exe,89 53 20 66 C7 43 19 03 02) // should be unique
 alloc(newmem,$1000,INJECT)
 
 label(code)
@@ -40,57 +103,59 @@ label(return)
 newmem:
 
 code:
-  //add [rcx+rsi+000000F0],eax
+  //mov [rbx+20],edx
+  mov [rbx+20],0
+  mov word ptr [rbx+19],0203
   jmp return
 
 INJECT:
   jmp newmem
-  nop 2
+  nop 4
 return:
 registersymbol(INJECT)
 
 [DISABLE]
 
 INJECT:
-  db 01 84 31 F0 00 00 00
+  db 89 53 20 66 C7 43 19 03 02
 
 unregistersymbol(INJECT)
 dealloc(newmem)
 
 {
-// ORIGINAL CODE - INJECTION POINT: ViceCity.exe+104EE65
+// ORIGINAL CODE - INJECTION POINT: ViceCity.exe+10DB095
 
-ViceCity.exe+104EE31: 32 C0                 - xor al,al
-ViceCity.exe+104EE33: E9 E1 10 00 00        - jmp ViceCity.exe+104FF19
-ViceCity.exe+104EE38: 41 B8 02 00 00 00     - mov r8d,00000002
-ViceCity.exe+104EE3E: 48 8D 57 18           - lea rdx,[rdi+18]
-ViceCity.exe+104EE42: 48 8B CF              - mov rcx,rdi
-ViceCity.exe+104EE45: E8 36 A1 FF FF        - call ViceCity.exe+1048F80
-ViceCity.exe+104EE4A: 48 63 05 8F 51 F3 03  - movsxd  rax,dword ptr [ViceCity.exe+4F83FE0]
-ViceCity.exe+104EE51: 48 8D 35 38 8C 1F 04  - lea rsi,[ViceCity.exe+5247A90]
-ViceCity.exe+104EE58: 48 69 C8 A8 01 00 00  - imul rcx,rax,000001A8
-ViceCity.exe+104EE5F: 8B 05 7F 51 F3 03     - mov eax,[ViceCity.exe+4F83FE4]
+ViceCity.exe+10DB072: 8D 42 09           - lea eax,[rdx+09]
+ViceCity.exe+10DB075: 66 C7 43 19 04 02  - mov word ptr [rbx+19],0204
+ViceCity.exe+10DB07B: EB 5A              - jmp ViceCity.exe+10DB0D7
+ViceCity.exe+10DB07D: 3D B4 00 00 00     - cmp eax,000000B4
+ViceCity.exe+10DB082: 7C 1C              - jl ViceCity.exe+10DB0A0
+ViceCity.exe+10DB084: BA 02 00 00 00     - mov edx,00000002
+ViceCity.exe+10DB089: 8B C2              - mov eax,edx
+ViceCity.exe+10DB08B: 2B C7              - sub eax,edi
+ViceCity.exe+10DB08D: 01 05 39 CB FA 03  - add [ViceCity.exe+5087BCC],eax
+ViceCity.exe+10DB093: 33 C0              - xor eax,eax
 // ---------- INJECTING HERE ----------
-ViceCity.exe+104EE65: 01 84 31 F0 00 00 00  - add [rcx+rsi+000000F0],eax
+ViceCity.exe+10DB095: 89 53 20           - mov [rbx+20],edx
 // ---------- DONE INJECTING  ----------
-ViceCity.exe+104EE6C: 0F 89 19 F7 FF FF     - jns ViceCity.exe+104E58B
-ViceCity.exe+104EE72: 33 DB                 - xor ebx,ebx
-ViceCity.exe+104EE74: 89 9C 31 F0 00 00 00  - mov [rcx+rsi+000000F0],ebx
-ViceCity.exe+104EE7B: 32 C0                 - xor al,al
-ViceCity.exe+104EE7D: E9 97 10 00 00        - jmp ViceCity.exe+104FF19
-ViceCity.exe+104EE82: 41 B8 02 00 00 00     - mov r8d,00000002
-ViceCity.exe+104EE88: 48 8D 57 18           - lea rdx,[rdi+18]
-ViceCity.exe+104EE8C: 48 8B CF              - mov rcx,rdi
-ViceCity.exe+104EE8F: E8 EC A0 FF FF        - call ViceCity.exe+1048F80
-ViceCity.exe+104EE94: 48 63 05 45 51 F3 03  - movsxd  rax,dword ptr [ViceCity.exe+4F83FE0]
+ViceCity.exe+10DB098: 66 C7 43 19 03 02  - mov word ptr [rbx+19],0203
+ViceCity.exe+10DB09E: EB 37              - jmp ViceCity.exe+10DB0D7
+ViceCity.exe+10DB0A0: 83 F8 32           - cmp eax,32
+ViceCity.exe+10DB0A3: 7C 1C              - jl ViceCity.exe+10DB0C1
+ViceCity.exe+10DB0A5: BA 01 00 00 00     - mov edx,00000001
+ViceCity.exe+10DB0AA: 8B C2              - mov eax,edx
+ViceCity.exe+10DB0AC: 2B C7              - sub eax,edi
+ViceCity.exe+10DB0AE: 01 05 18 CB FA 03  - add [ViceCity.exe+5087BCC],eax
+ViceCity.exe+10DB0B4: 33 C0              - xor eax,eax
+ViceCity.exe+10DB0B6: 89 53 20           - mov [rbx+20],edx
 }
 </AssemblerScript>
         </CheatEntry>
         <CheatEntry>
-          <ID>376</ID>
-          <Description>"All people are Invincible"</Description>
+          <ID>373</ID>
+          <Description>"Can't reduce Star"</Description>
           <LastState/>
-          <Color>4040BF</Color>
+          <Color>40BF40</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : Grand Theft Auto: Vice City – The Definitive Edition  
   Version: 
@@ -102,7 +167,7 @@ ViceCity.exe+104EE94: 48 63 05 45 51 F3 03  - movsxd  rax,dword ptr [ViceCity.ex
 
 [ENABLE]
 
-aobscanmodule(INJECT,ViceCity.exe,F3 41 0F 11 0E 32) // should be unique
+aobscanmodule(INJECT,ViceCity.exe,89 53 20 66 C7 43 19 03 02) // should be unique
 alloc(newmem,$1000,INJECT)
 
 label(code)
@@ -111,141 +176,399 @@ label(return)
 newmem:
 
 code:
-  //movss [r14],xmm1
+  //mov [rbx+20],edx
+  mov word ptr [rbx+19],0203
   jmp return
 
 INJECT:
   jmp newmem
+  nop 4
 return:
 registersymbol(INJECT)
 
 [DISABLE]
 
 INJECT:
-  db F3 41 0F 11 0E
+  db 89 53 20 66 C7 43 19 03 02
 
 unregistersymbol(INJECT)
 dealloc(newmem)
 
 {
-// ORIGINAL CODE - INJECTION POINT: ViceCity.exe+113C429
+// ORIGINAL CODE - INJECTION POINT: ViceCity.exe+10DB095
 
-ViceCity.exe+113C3FA: E8 B1 E5 EE FF           - call ViceCity.exe+102A9B0
-ViceCity.exe+113C3FF: 0F B6 05 95 B0 F4 03     - movzx eax,byte ptr [ViceCity.exe+508749B]
-ViceCity.exe+113C406: 48 69 C0 A8 01 00 00     - imul rax,rax,000001A8
-ViceCity.exe+113C40D: 48 8B 84 18 90 7A 24 05  - mov rax,[rax+rbx+05247A90]
-ViceCity.exe+113C415: 48 89 87 60 02 00 00     - mov [rdi+00000260],rax
-ViceCity.exe+113C41C: 45 84 FF                 - test r15b,r15b
-ViceCity.exe+113C41F: 74 04                    - je ViceCity.exe+113C425
-ViceCity.exe+113C421: B0 01                    - mov al,01
-ViceCity.exe+113C423: EB 0B                    - jmp ViceCity.exe+113C430
-ViceCity.exe+113C425: 41 0F 28 CC              - movaps xmm1,xmm12
+ViceCity.exe+10DB072: 8D 42 09           - lea eax,[rdx+09]
+ViceCity.exe+10DB075: 66 C7 43 19 04 02  - mov word ptr [rbx+19],0204
+ViceCity.exe+10DB07B: EB 5A              - jmp ViceCity.exe+10DB0D7
+ViceCity.exe+10DB07D: 3D B4 00 00 00     - cmp eax,000000B4
+ViceCity.exe+10DB082: 7C 1C              - jl ViceCity.exe+10DB0A0
+ViceCity.exe+10DB084: BA 02 00 00 00     - mov edx,00000002
+ViceCity.exe+10DB089: 8B C2              - mov eax,edx
+ViceCity.exe+10DB08B: 2B C7              - sub eax,edi
+ViceCity.exe+10DB08D: 01 05 39 CB FA 03  - add [ViceCity.exe+5087BCC],eax
+ViceCity.exe+10DB093: 33 C0              - xor eax,eax
 // ---------- INJECTING HERE ----------
-ViceCity.exe+113C429: F3 41 0F 11 0E           - movss [r14],xmm1
+ViceCity.exe+10DB095: 89 53 20           - mov [rbx+20],edx
 // ---------- DONE INJECTING  ----------
-ViceCity.exe+113C42E: 32 C0                    - xor al,al
-ViceCity.exe+113C430: 44 0F 28 64 24 40        - movaps xmm12,[rsp+40]
-ViceCity.exe+113C436: 4C 8D 9C 24 B0 00 00 00  - lea r11,[rsp+000000B0]
-ViceCity.exe+113C43E: 45 0F 28 43 D0           - movaps xmm8,[r11-30]
-ViceCity.exe+113C443: 45 0F 28 4B C0           - movaps xmm9,[r11-40]
-ViceCity.exe+113C448: 45 0F 28 53 B0           - movaps xmm10,[r11-50]
-ViceCity.exe+113C44D: 45 0F 28 5B A0           - movaps xmm11,[r11-60]
-ViceCity.exe+113C452: 45 0F 28 6B 80           - movaps xmm13,[r11-80]
-ViceCity.exe+113C457: 0F 28 BC 24 90 00 00 00  - movaps xmm7,[rsp+00000090]
-ViceCity.exe+113C45F: 0F 28 B4 24 A0 00 00 00  - movaps xmm6,[rsp+000000A0]
+ViceCity.exe+10DB098: 66 C7 43 19 03 02  - mov word ptr [rbx+19],0203
+ViceCity.exe+10DB09E: EB 37              - jmp ViceCity.exe+10DB0D7
+ViceCity.exe+10DB0A0: 83 F8 32           - cmp eax,32
+ViceCity.exe+10DB0A3: 7C 1C              - jl ViceCity.exe+10DB0C1
+ViceCity.exe+10DB0A5: BA 01 00 00 00     - mov edx,00000001
+ViceCity.exe+10DB0AA: 8B C2              - mov eax,edx
+ViceCity.exe+10DB0AC: 2B C7              - sub eax,edi
+ViceCity.exe+10DB0AE: 01 05 18 CB FA 03  - add [ViceCity.exe+5087BCC],eax
+ViceCity.exe+10DB0B4: 33 C0              - xor eax,eax
+ViceCity.exe+10DB0B6: 89 53 20           - mov [rbx+20],edx
 }
 </AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>375</ID>
+          <Description>"Can't rise Star"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Grand Theft Auto: Vice City – The Definitive Edition  
+  Version: 
+  Date   : 2025-08-16
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,ViceCity.exe,89 53 20 8D 42 09) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rbx+20],edx
+  lea eax,[rdx+09]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 53 20 8D 42 09
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: ViceCity.exe+10DB06F
+
+ViceCity.exe+10DB04B: 89 53 20           - mov [rbx+20],edx
+ViceCity.exe+10DB04E: 8D 42 0E           - lea eax,[rdx+0E]
+ViceCity.exe+10DB051: 66 C7 43 19 06 02  - mov word ptr [rbx+19],0206
+ViceCity.exe+10DB057: EB 7E              - jmp ViceCity.exe+10DB0D7
+ViceCity.exe+10DB059: 3D 26 02 00 00     - cmp eax,00000226
+ViceCity.exe+10DB05E: 7C 1D              - jl ViceCity.exe+10DB07D
+ViceCity.exe+10DB060: BA 03 00 00 00     - mov edx,00000003
+ViceCity.exe+10DB065: 8B C2              - mov eax,edx
+ViceCity.exe+10DB067: 2B C7              - sub eax,edi
+ViceCity.exe+10DB069: 01 05 5D CB FA 03  - add [ViceCity.exe+5087BCC],eax
+// ---------- INJECTING HERE ----------
+ViceCity.exe+10DB06F: 89 53 20           - mov [rbx+20],edx
+// ---------- DONE INJECTING  ----------
+ViceCity.exe+10DB072: 8D 42 09           - lea eax,[rdx+09]
+ViceCity.exe+10DB075: 66 C7 43 19 04 02  - mov word ptr [rbx+19],0204
+ViceCity.exe+10DB07B: EB 5A              - jmp ViceCity.exe+10DB0D7
+ViceCity.exe+10DB07D: 3D B4 00 00 00     - cmp eax,000000B4
+ViceCity.exe+10DB082: 7C 1C              - jl ViceCity.exe+10DB0A0
+ViceCity.exe+10DB084: BA 02 00 00 00     - mov edx,00000002
+ViceCity.exe+10DB089: 8B C2              - mov eax,edx
+ViceCity.exe+10DB08B: 2B C7              - sub eax,edi
+ViceCity.exe+10DB08D: 01 05 39 CB FA 03  - add [ViceCity.exe+5087BCC],eax
+ViceCity.exe+10DB093: 33 C0              - xor eax,eax
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>370</ID>
+          <Description>"6 Stars"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Grand Theft Auto: Vice City – The Definitive Edition  
+  Version: 
+  Date   : 2025-08-16
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,ViceCity.exe,89 53 20 8D 42 09) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  //mov [rbx+20],edx
+  mov [rbx+20],6
+  lea eax,[rdx+09]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 53 20 8D 42 09
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: ViceCity.exe+10DB06F
+
+ViceCity.exe+10DB04B: 89 53 20           - mov [rbx+20],edx
+ViceCity.exe+10DB04E: 8D 42 0E           - lea eax,[rdx+0E]
+ViceCity.exe+10DB051: 66 C7 43 19 06 02  - mov word ptr [rbx+19],0206
+ViceCity.exe+10DB057: EB 7E              - jmp ViceCity.exe+10DB0D7
+ViceCity.exe+10DB059: 3D 26 02 00 00     - cmp eax,00000226
+ViceCity.exe+10DB05E: 7C 1D              - jl ViceCity.exe+10DB07D
+ViceCity.exe+10DB060: BA 03 00 00 00     - mov edx,00000003
+ViceCity.exe+10DB065: 8B C2              - mov eax,edx
+ViceCity.exe+10DB067: 2B C7              - sub eax,edi
+ViceCity.exe+10DB069: 01 05 5D CB FA 03  - add [ViceCity.exe+5087BCC],eax
+// ---------- INJECTING HERE ----------
+ViceCity.exe+10DB06F: 89 53 20           - mov [rbx+20],edx
+// ---------- DONE INJECTING  ----------
+ViceCity.exe+10DB072: 8D 42 09           - lea eax,[rdx+09]
+ViceCity.exe+10DB075: 66 C7 43 19 04 02  - mov word ptr [rbx+19],0204
+ViceCity.exe+10DB07B: EB 5A              - jmp ViceCity.exe+10DB0D7
+ViceCity.exe+10DB07D: 3D B4 00 00 00     - cmp eax,000000B4
+ViceCity.exe+10DB082: 7C 1C              - jl ViceCity.exe+10DB0A0
+ViceCity.exe+10DB084: BA 02 00 00 00     - mov edx,00000002
+ViceCity.exe+10DB089: 8B C2              - mov eax,edx
+ViceCity.exe+10DB08B: 2B C7              - sub eax,edi
+ViceCity.exe+10DB08D: 01 05 39 CB FA 03  - add [ViceCity.exe+5087BCC],eax
+ViceCity.exe+10DB093: 33 C0              - xor eax,eax
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16293</ID>
+      <Description>"Active Cheats     ──────────────────────────────────────────────────────────────"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Activated="1"/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//Active Mono Features
+
+[ENABLE]
+
+{$lua}
+activateMono()
+{$asm}
+
+[DISABLE]
+{$lua}
+activateMono()
+{$asm}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16295</ID>
+          <Description>"Get Stats     ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{
+Game   : ViceCity.exe
+Author : Max Chen (Trần Thắng Minh) - Contact me:
+  🌐Facebook  : https://www.facebook.com/maxiechen
+  🌐Reddit    : https://www.reddit.com/user/maxiechen96
+  🌐Discord   : https://discord.com/users/@maxiechen
+
+Update Here
+  ☁️GoogleDrive: https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link
+  ☁️Github     : https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games
+   Date        : 2026-03-15
+}
+
+
+
+//HP - //INJECTION HERE: ViceCity.exe.text+112E441
+define(addressHP,ViceCity.exe.text+112E441)
+
+//Armor - //INJECTION HERE: ViceCity.exe.text+11A047B
+define(addressArmor,ViceCity.exe.text+11A047B)
+
+
+
+
+
+
+[ENABLE]
+
+//──────────────────────────────────────── HP
+//INJECTION HERE: ViceCity.exe.text+112E441
+
+alloc(newmemHP,$1000,ViceCity.exe.text+112E441)
+
+alloc(HP,8)
+registersymbol(HP)
+label(codeHP)
+label(returnHP)
+
+newmemHP:
+
+codeHP:
+ mov [HP],rdx //Save rdx address into HP
+ comiss xmm9,[rdx+000004E4]
+ jmp returnHP
+
+addressHP:
+ jmp newmemHP
+ nop 3
+returnHP:
+
+//──────────────────────────────────────── Armor
+//INJECTION HERE: ViceCity.exe.text+11A047B
+
+alloc(newmemArmor,$1000,ViceCity.exe.text+11A047B)
+
+alloc(Armor,8)
+registersymbol(Armor)
+label(codeArmor)
+label(returnArmor)
+
+newmemArmor:
+
+codeArmor:
+ mov [Armor],r12 //Save r12 address into Armor
+ movss xmm0,[r12+000004E8]
+ jmp returnArmor
+
+addressArmor:
+ jmp newmemArmor
+ nop 5
+returnArmor:
+
+
+
+
+
+
+
+[DISABLE]
+
+//──────────────────────────────────────── HP
+//INJECTION HERE: ViceCity.exe.text+112E441
+
+addressHP:
+ comiss xmm9,[rdx+000004E4]
+
+dealloc(newmemHP)
+dealloc(HP)
+unregistersymbol(HP)
+
+//──────────────────────────────────────── Armor
+//INJECTION HERE: ViceCity.exe.text+11A047B
+
+addressArmor:
+ movss xmm0,[r12+000004E8]
+
+dealloc(newmemArmor)
+dealloc(Armor)
+unregistersymbol(Armor)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16294</ID>
+              <Description>"HP"</Description>
+              <LastState Value="113.1327744" RealAddress="1FF989A04E4"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>HP</Address>
+              <Offsets>
+                <Offset>4E4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16296</ID>
+              <Description>"Armor"</Description>
+              <LastState Value="136.1399994" RealAddress="1FF989A04E8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>HP</Address>
+              <Offsets>
+                <Offset>4E8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16298</ID>
+              <Description>"Total Ammo"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>TotalAmmo</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>0</ID>
+              <Description>"Money"</Description>
+              <LastState Value="388831" RealAddress="7FF6C6DB7B80"/>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>ViceCity.exe+5247B80</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16299</ID>
+              <Description>"Speed"</Description>
+              <LastState Value="32.00204086" RealAddress="7FF6C6BB8CA8"/>
+              <VariableType>Float</VariableType>
+              <Address>ViceCity.exe+5048CA8</Address>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
         <CheatEntry>
           <ID>367</ID>
           <Description>"Invincible"</Description>
           <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
-          <LastState Value="" Activated="1" RealAddress="00000000"/>
+          <LastState Value="" RealAddress="00000000"/>
           <Color>40BF40</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="1" RestoreOnDeactivate="1">
+            <CheatEntry>
               <ID>374</ID>
-              <Description>"TAXI can Jump"</Description>
+              <Description>"TAXI can Jump (set 1)"</Description>
+              <LastState Value="1" RealAddress="7FF6C6FCE54C"/>
               <Color>40BF40</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+545E54C</Address>
             </CheatEntry>
             <CheatEntry>
-              <ID>363</ID>
-              <Description>"HP - won't reduce"</Description>
-              <LastState Activated="1"/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Grand Theft Auto: Vice City – The Definitive Edition  
-  Version: 
-  Date   : 2025-08-16
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,ViceCity.exe,F3 41 0F 11 0E 32) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  cmp [r14+AC],0
-  je return
-  movss [r14],xmm1
-  jmp return
-
-INJECT:
-  jmp newmem
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db F3 41 0F 11 0E
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: ViceCity.exe+113C429
-
-ViceCity.exe+113C3FA: E8 B1 E5 EE FF           - call ViceCity.exe+102A9B0
-ViceCity.exe+113C3FF: 0F B6 05 95 B0 F4 03     - movzx eax,byte ptr [ViceCity.exe+508749B]
-ViceCity.exe+113C406: 48 69 C0 A8 01 00 00     - imul rax,rax,000001A8
-ViceCity.exe+113C40D: 48 8B 84 18 90 7A 24 05  - mov rax,[rax+rbx+05247A90]
-ViceCity.exe+113C415: 48 89 87 60 02 00 00     - mov [rdi+00000260],rax
-ViceCity.exe+113C41C: 45 84 FF                 - test r15b,r15b
-ViceCity.exe+113C41F: 74 04                    - je ViceCity.exe+113C425
-ViceCity.exe+113C421: B0 01                    - mov al,01
-ViceCity.exe+113C423: EB 0B                    - jmp ViceCity.exe+113C430
-ViceCity.exe+113C425: 41 0F 28 CC              - movaps xmm1,xmm12
-// ---------- INJECTING HERE ----------
-ViceCity.exe+113C429: F3 41 0F 11 0E           - movss [r14],xmm1
-// ---------- DONE INJECTING  ----------
-ViceCity.exe+113C42E: 32 C0                    - xor al,al
-ViceCity.exe+113C430: 44 0F 28 64 24 40        - movaps xmm12,[rsp+40]
-ViceCity.exe+113C436: 4C 8D 9C 24 B0 00 00 00  - lea r11,[rsp+000000B0]
-ViceCity.exe+113C43E: 45 0F 28 43 D0           - movaps xmm8,[r11-30]
-ViceCity.exe+113C443: 45 0F 28 4B C0           - movaps xmm9,[r11-40]
-ViceCity.exe+113C448: 45 0F 28 53 B0           - movaps xmm10,[r11-50]
-ViceCity.exe+113C44D: 45 0F 28 5B A0           - movaps xmm11,[r11-60]
-ViceCity.exe+113C452: 45 0F 28 6B 80           - movaps xmm13,[r11-80]
-ViceCity.exe+113C457: 0F 28 BC 24 90 00 00 00  - movaps xmm7,[rsp+00000090]
-ViceCity.exe+113C45F: 0F 28 B4 24 A0 00 00 00  - movaps xmm6,[rsp+000000A0]
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
               <ID>364</ID>
-              <Description>"ARMOR - won't reduce"</Description>
+              <Description>"Infinite Armor"</Description>
               <LastState Activated="1"/>
               <Color>40BF40</Color>
               <VariableType>Auto Assembler Script</VariableType>
@@ -317,7 +640,7 @@ ViceCity.exe+113C0BA: 0F 2F C6                 - comiss xmm0,xmm6
             <CheatEntry>
               <ID>365</ID>
               <Description>"CAR - won't burn"</Description>
-              <LastState Activated="1"/>
+              <LastState/>
               <Color>40BF40</Color>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>{ Game   : Grand Theft Auto: Vice City – The Definitive Edition  
@@ -388,7 +711,7 @@ ViceCity.exe+11AB86F: D3 E0                          - shl eax,cl
             <CheatEntry>
               <ID>366</ID>
               <Description>"BIKE - won't burn"</Description>
-              <LastState Activated="1"/>
+              <LastState/>
               <Color>40BF40</Color>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>{ Game   : Grand Theft Auto: Vice City – The Definitive Edition  
@@ -459,7 +782,7 @@ ViceCity.exe+11BDE53: 76 7D                          - jna ViceCity.exe+11BDED2
             <CheatEntry>
               <ID>368</ID>
               <Description>"HELICOPTER/BOAT - won't burn"</Description>
-              <LastState Activated="1"/>
+              <LastState/>
               <Color>40BF40</Color>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>{ Game   : Grand Theft Auto: Vice City – The Definitive Edition  
@@ -529,7 +852,7 @@ ViceCity.exe+11DCD5A: 83 F9 01                 - cmp ecx,01
             </CheatEntry>
             <CheatEntry>
               <ID>357</ID>
-              <Description>"Ammo in MAGAZINE - won't reduce"</Description>
+              <Description>"No Reload needed"</Description>
               <LastState Activated="1"/>
               <Color>40BF40</Color>
               <VariableType>Auto Assembler Script</VariableType>
@@ -601,7 +924,7 @@ ViceCity.exe+11F8C6A: 74 13                    - je ViceCity.exe+11F8C7F
             </CheatEntry>
             <CheatEntry>
               <ID>358</ID>
-              <Description>"Total AMMO - won't reduce"</Description>
+              <Description>"Infinite Ammo"</Description>
               <LastState Activated="1"/>
               <Color>40BF40</Color>
               <VariableType>Auto Assembler Script</VariableType>
@@ -674,306 +997,6 @@ ViceCity.exe+11F8C9F: D3 ED                 - shr ebp,cl
           </CheatEntries>
         </CheatEntry>
         <CheatEntry>
-          <ID>372</ID>
-          <Description>"WANTED LEVEL"</Description>
-          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-          <LastState Value="" RealAddress="00000000"/>
-          <Color>40BF40</Color>
-          <GroupHeader>1</GroupHeader>
-          <CheatEntries>
-            <CheatEntry>
-              <ID>369</ID>
-              <Description>"0 Star"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Grand Theft Auto: Vice City – The Definitive Edition  
-  Version: 
-  Date   : 2025-08-16
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,ViceCity.exe,89 53 20 66 C7 43 19 03 02) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //mov [rbx+20],edx
-  mov [rbx+20],0
-  mov word ptr [rbx+19],0203
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop 4
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 89 53 20 66 C7 43 19 03 02
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: ViceCity.exe+10DB095
-
-ViceCity.exe+10DB072: 8D 42 09           - lea eax,[rdx+09]
-ViceCity.exe+10DB075: 66 C7 43 19 04 02  - mov word ptr [rbx+19],0204
-ViceCity.exe+10DB07B: EB 5A              - jmp ViceCity.exe+10DB0D7
-ViceCity.exe+10DB07D: 3D B4 00 00 00     - cmp eax,000000B4
-ViceCity.exe+10DB082: 7C 1C              - jl ViceCity.exe+10DB0A0
-ViceCity.exe+10DB084: BA 02 00 00 00     - mov edx,00000002
-ViceCity.exe+10DB089: 8B C2              - mov eax,edx
-ViceCity.exe+10DB08B: 2B C7              - sub eax,edi
-ViceCity.exe+10DB08D: 01 05 39 CB FA 03  - add [ViceCity.exe+5087BCC],eax
-ViceCity.exe+10DB093: 33 C0              - xor eax,eax
-// ---------- INJECTING HERE ----------
-ViceCity.exe+10DB095: 89 53 20           - mov [rbx+20],edx
-// ---------- DONE INJECTING  ----------
-ViceCity.exe+10DB098: 66 C7 43 19 03 02  - mov word ptr [rbx+19],0203
-ViceCity.exe+10DB09E: EB 37              - jmp ViceCity.exe+10DB0D7
-ViceCity.exe+10DB0A0: 83 F8 32           - cmp eax,32
-ViceCity.exe+10DB0A3: 7C 1C              - jl ViceCity.exe+10DB0C1
-ViceCity.exe+10DB0A5: BA 01 00 00 00     - mov edx,00000001
-ViceCity.exe+10DB0AA: 8B C2              - mov eax,edx
-ViceCity.exe+10DB0AC: 2B C7              - sub eax,edi
-ViceCity.exe+10DB0AE: 01 05 18 CB FA 03  - add [ViceCity.exe+5087BCC],eax
-ViceCity.exe+10DB0B4: 33 C0              - xor eax,eax
-ViceCity.exe+10DB0B6: 89 53 20           - mov [rbx+20],edx
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>373</ID>
-              <Description>"Can't reduce Star"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Grand Theft Auto: Vice City – The Definitive Edition  
-  Version: 
-  Date   : 2025-08-16
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,ViceCity.exe,89 53 20 66 C7 43 19 03 02) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //mov [rbx+20],edx
-  mov word ptr [rbx+19],0203
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop 4
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 89 53 20 66 C7 43 19 03 02
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: ViceCity.exe+10DB095
-
-ViceCity.exe+10DB072: 8D 42 09           - lea eax,[rdx+09]
-ViceCity.exe+10DB075: 66 C7 43 19 04 02  - mov word ptr [rbx+19],0204
-ViceCity.exe+10DB07B: EB 5A              - jmp ViceCity.exe+10DB0D7
-ViceCity.exe+10DB07D: 3D B4 00 00 00     - cmp eax,000000B4
-ViceCity.exe+10DB082: 7C 1C              - jl ViceCity.exe+10DB0A0
-ViceCity.exe+10DB084: BA 02 00 00 00     - mov edx,00000002
-ViceCity.exe+10DB089: 8B C2              - mov eax,edx
-ViceCity.exe+10DB08B: 2B C7              - sub eax,edi
-ViceCity.exe+10DB08D: 01 05 39 CB FA 03  - add [ViceCity.exe+5087BCC],eax
-ViceCity.exe+10DB093: 33 C0              - xor eax,eax
-// ---------- INJECTING HERE ----------
-ViceCity.exe+10DB095: 89 53 20           - mov [rbx+20],edx
-// ---------- DONE INJECTING  ----------
-ViceCity.exe+10DB098: 66 C7 43 19 03 02  - mov word ptr [rbx+19],0203
-ViceCity.exe+10DB09E: EB 37              - jmp ViceCity.exe+10DB0D7
-ViceCity.exe+10DB0A0: 83 F8 32           - cmp eax,32
-ViceCity.exe+10DB0A3: 7C 1C              - jl ViceCity.exe+10DB0C1
-ViceCity.exe+10DB0A5: BA 01 00 00 00     - mov edx,00000001
-ViceCity.exe+10DB0AA: 8B C2              - mov eax,edx
-ViceCity.exe+10DB0AC: 2B C7              - sub eax,edi
-ViceCity.exe+10DB0AE: 01 05 18 CB FA 03  - add [ViceCity.exe+5087BCC],eax
-ViceCity.exe+10DB0B4: 33 C0              - xor eax,eax
-ViceCity.exe+10DB0B6: 89 53 20           - mov [rbx+20],edx
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>375</ID>
-              <Description>"Can't rise Star"</Description>
-              <LastState Activated="1"/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Grand Theft Auto: Vice City – The Definitive Edition  
-  Version: 
-  Date   : 2025-08-16
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,ViceCity.exe,89 53 20 8D 42 09) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //mov [rbx+20],edx
-  lea eax,[rdx+09]
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 89 53 20 8D 42 09
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: ViceCity.exe+10DB06F
-
-ViceCity.exe+10DB04B: 89 53 20           - mov [rbx+20],edx
-ViceCity.exe+10DB04E: 8D 42 0E           - lea eax,[rdx+0E]
-ViceCity.exe+10DB051: 66 C7 43 19 06 02  - mov word ptr [rbx+19],0206
-ViceCity.exe+10DB057: EB 7E              - jmp ViceCity.exe+10DB0D7
-ViceCity.exe+10DB059: 3D 26 02 00 00     - cmp eax,00000226
-ViceCity.exe+10DB05E: 7C 1D              - jl ViceCity.exe+10DB07D
-ViceCity.exe+10DB060: BA 03 00 00 00     - mov edx,00000003
-ViceCity.exe+10DB065: 8B C2              - mov eax,edx
-ViceCity.exe+10DB067: 2B C7              - sub eax,edi
-ViceCity.exe+10DB069: 01 05 5D CB FA 03  - add [ViceCity.exe+5087BCC],eax
-// ---------- INJECTING HERE ----------
-ViceCity.exe+10DB06F: 89 53 20           - mov [rbx+20],edx
-// ---------- DONE INJECTING  ----------
-ViceCity.exe+10DB072: 8D 42 09           - lea eax,[rdx+09]
-ViceCity.exe+10DB075: 66 C7 43 19 04 02  - mov word ptr [rbx+19],0204
-ViceCity.exe+10DB07B: EB 5A              - jmp ViceCity.exe+10DB0D7
-ViceCity.exe+10DB07D: 3D B4 00 00 00     - cmp eax,000000B4
-ViceCity.exe+10DB082: 7C 1C              - jl ViceCity.exe+10DB0A0
-ViceCity.exe+10DB084: BA 02 00 00 00     - mov edx,00000002
-ViceCity.exe+10DB089: 8B C2              - mov eax,edx
-ViceCity.exe+10DB08B: 2B C7              - sub eax,edi
-ViceCity.exe+10DB08D: 01 05 39 CB FA 03  - add [ViceCity.exe+5087BCC],eax
-ViceCity.exe+10DB093: 33 C0              - xor eax,eax
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>370</ID>
-              <Description>"6 Stars"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Grand Theft Auto: Vice City – The Definitive Edition  
-  Version: 
-  Date   : 2025-08-16
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,ViceCity.exe,89 53 20 8D 42 09) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //mov [rbx+20],edx
-  mov [rbx+20],6
-  lea eax,[rdx+09]
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 89 53 20 8D 42 09
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: ViceCity.exe+10DB06F
-
-ViceCity.exe+10DB04B: 89 53 20           - mov [rbx+20],edx
-ViceCity.exe+10DB04E: 8D 42 0E           - lea eax,[rdx+0E]
-ViceCity.exe+10DB051: 66 C7 43 19 06 02  - mov word ptr [rbx+19],0206
-ViceCity.exe+10DB057: EB 7E              - jmp ViceCity.exe+10DB0D7
-ViceCity.exe+10DB059: 3D 26 02 00 00     - cmp eax,00000226
-ViceCity.exe+10DB05E: 7C 1D              - jl ViceCity.exe+10DB07D
-ViceCity.exe+10DB060: BA 03 00 00 00     - mov edx,00000003
-ViceCity.exe+10DB065: 8B C2              - mov eax,edx
-ViceCity.exe+10DB067: 2B C7              - sub eax,edi
-ViceCity.exe+10DB069: 01 05 5D CB FA 03  - add [ViceCity.exe+5087BCC],eax
-// ---------- INJECTING HERE ----------
-ViceCity.exe+10DB06F: 89 53 20           - mov [rbx+20],edx
-// ---------- DONE INJECTING  ----------
-ViceCity.exe+10DB072: 8D 42 09           - lea eax,[rdx+09]
-ViceCity.exe+10DB075: 66 C7 43 19 04 02  - mov word ptr [rbx+19],0204
-ViceCity.exe+10DB07B: EB 5A              - jmp ViceCity.exe+10DB0D7
-ViceCity.exe+10DB07D: 3D B4 00 00 00     - cmp eax,000000B4
-ViceCity.exe+10DB082: 7C 1C              - jl ViceCity.exe+10DB0A0
-ViceCity.exe+10DB084: BA 02 00 00 00     - mov edx,00000002
-ViceCity.exe+10DB089: 8B C2              - mov eax,edx
-ViceCity.exe+10DB08B: 2B C7              - sub eax,edi
-ViceCity.exe+10DB08D: 01 05 39 CB FA 03  - add [ViceCity.exe+5087BCC],eax
-ViceCity.exe+10DB093: 33 C0              - xor eax,eax
-}
-</AssemblerScript>
-            </CheatEntry>
-          </CheatEntries>
-        </CheatEntry>
-        <CheatEntry>
           <ID>134</ID>
           <Description>"Outfit unlocked?"</Description>
           <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
@@ -981,93 +1004,106 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
           <Color>40BF40</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="1" RestoreOnDeactivate="1">
+            <CheatEntry>
               <ID>129</ID>
               <Description>"Frankie Outfit (100% Complete)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB8108"/>
               <Color>40BF40</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5048108</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1" RestoreOnDeactivate="1">
+            <CheatEntry>
               <ID>130</ID>
               <Description>"Soiree Outfit"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB938C"/>
               <Color>40BF40</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504938C</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1" RestoreOnDeactivate="1">
+            <CheatEntry>
               <ID>131</ID>
               <Description>"Coveralls Outfit (Worker)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB9390"/>
               <Color>40BF40</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049390</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1" RestoreOnDeactivate="1">
+            <CheatEntry>
               <ID>132</ID>
               <Description>"Country Club Outfit (Golf)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB9394"/>
               <Color>40BF40</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049394</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1" RestoreOnDeactivate="1">
+            <CheatEntry>
               <ID>133</ID>
               <Description>"Havana Outfit (Gang)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB9398"/>
               <Color>40BF40</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049398</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1" RestoreOnDeactivate="1">
+            <CheatEntry>
               <ID>11</ID>
               <Description>"Cop Outfit"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB939C"/>
               <Color>40BF40</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504939C</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1" RestoreOnDeactivate="1">
+            <CheatEntry>
               <ID>12</ID>
               <Description>"Casual Outfit"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB93A0"/>
               <Color>40BF40</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50493A0</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1" RestoreOnDeactivate="1">
+            <CheatEntry>
               <ID>135</ID>
               <Description>"Mr. Vercetti Outfit"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB93A4"/>
               <Color>40BF40</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50493A4</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1" RestoreOnDeactivate="1">
+            <CheatEntry>
               <ID>14</ID>
               <Description>"Black Tracksuit"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB93A8"/>
               <Color>40BF40</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50493A8</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1" RestoreOnDeactivate="1">
+            <CheatEntry>
               <ID>15</ID>
               <Description>"Bank Job Outfit"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB93B8"/>
               <Color>40BF40</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50493B8</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1" RestoreOnDeactivate="1">
+            <CheatEntry>
               <ID>136</ID>
               <Description>"Street Outfit (Ocean View)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB93BC"/>
               <Color>40BF40</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50493BC</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1" RestoreOnDeactivate="1">
+            <CheatEntry>
               <ID>137</ID>
               <Description>"Street Outfit (Vercetti Estate)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB93C0"/>
               <Color>40BF40</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50493C0</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1" RestoreOnDeactivate="1">
+            <CheatEntry>
               <ID>138</ID>
               <Description>"Street Outfit (Hyman Condo)"</Description>
+              <LastState Value="1" RealAddress="7FF6C6BB9418"/>
               <Color>40BF40</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049418</Address>
@@ -1077,6 +1113,7 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
         <CheatEntry>
           <ID>127</ID>
           <Description>"If 0 - you can't start a mission"</Description>
+          <LastState Value="0" RealAddress="7FF6C6AE9D00"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+4F79D00</Address>
@@ -1084,398 +1121,449 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
         <CheatEntry>
           <ID>140</ID>
           <Description>"If 1 - you are in a mission"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8488"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048488</Address>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
-    <CheatEntry NoCheckbox="1">
+    <CheatEntry>
       <ID>355</ID>
       <Description>"STATS"</Description>
       <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
       <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>87</ID>
           <Description>"Mission attemps"</Description>
+          <LastState Value="21" RealAddress="7FF6C6C855A0"/>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+51155A0</Address>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>21</ID>
           <Description>"Days passed in game"</Description>
+          <LastState Value="17" RealAddress="7FF6C6C855B8"/>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+51155B8</Address>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>20</ID>
           <Description>"Safehouse visits 💾"</Description>
+          <LastState Value="11" RealAddress="7FF6C6C8557C"/>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+511557C</Address>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>91</ID>
           <Description>"RAMPAGE ------------------------------------------"</Description>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>89</ID>
               <Description>"Rampages passed (❌DON'T CHANGE❌)"</Description>
+              <LastState Value="35" RealAddress="7FF6C6C80DB8"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5110DB8</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>90</ID>
               <Description>"(✔️CHANGE THIS✔️) Objectives Left (in Rampage Mission)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6AE1FDC"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+4F71FDC</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="100">
+        <CheatEntry>
           <ID>81</ID>
           <Description>"_Hidden Packages found"</Description>
+          <LastState Value="100" RealAddress="7FF6C6DB7B88"/>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5247B88</Address>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>64</ID>
           <Description>"KILL ------------------------------------------"</Description>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>8</ID>
               <Description>"People you've wasted"</Description>
+              <LastState Value="981" RealAddress="7FF6C6C855BC"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+51155BC</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>42</ID>
               <Description>"People wasted by others"</Description>
+              <LastState Value="80" RealAddress="7FF6C6C855C4"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+51155C4</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>43</ID>
               <Description>"Criminals wasted"</Description>
+              <LastState Value="8" RealAddress="7FF6C6C85618"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5115618</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>19</ID>
               <Description>"Number of headshots"</Description>
+              <LastState Value="103" RealAddress="7FF6C6C855C0"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+51155C0</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>65</ID>
           <Description>"DESTROYED ------------------------------------------"</Description>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>9</ID>
               <Description>"Road Vehicles destroyed"</Description>
+              <LastState Value="113" RealAddress="7FF6C6C85630"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5115630</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>24</ID>
               <Description>"Boats destroyed"</Description>
+              <LastState Value="22" RealAddress="7FF6C6C855CC"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+51155CC</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>37</ID>
               <Description>"Planes &amp; Helicopters destroyed"</Description>
+              <LastState Value="13" RealAddress="7FF6C6C8562C"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+511562C</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>10</ID>
               <Description>"Tiers popped with gunfire"</Description>
+              <LastState Value="26" RealAddress="7FF6C6C80DB4"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5110DB4</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>66</ID>
           <Description>"WANTED STAR ------------------------------------------"</Description>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>17</ID>
               <Description>"Total number of wanted stars attained"</Description>
+              <LastState Value="115" RealAddress="7FF6C6BF7BCC"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5087BCC</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>18</ID>
               <Description>"Total number of wanted stars evaded"</Description>
+              <LastState Value="68" RealAddress="7FF6C6C8556C"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+511556C</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>69</ID>
           <Description>"BUSTED &amp; WASTED ------------------------------------------"</Description>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>27</ID>
               <Description>"Times busted"</Description>
+              <LastState Value="0" RealAddress="7FF6C6C85558"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5115558</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>25</ID>
               <Description>"Hospital visits"</Description>
+              <LastState Value="1" RealAddress="7FF6C6C85554"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5115554</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>41</ID>
               <Description>"Fishes Fed (Die in water)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6C80E74"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5110E74</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>67</ID>
           <Description>"BULLETS &amp; EXPLODE"</Description>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>39</ID>
               <Description>"Kgs of explosives used"</Description>
+              <LastState Value="167" RealAddress="7FF6C6C85560"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5115560</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>22</ID>
               <Description>"Bullets fired"</Description>
+              <LastState Value="2563" RealAddress="7FF6C6C80DAC"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5110DAC</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>23</ID>
               <Description>"Bullets that hit"</Description>
+              <LastState Value="1279" RealAddress="7FF6C6C80DB0"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5110DB0</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>83</ID>
           <Description>"JUMPS / STUNTS"</Description>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>82</ID>
               <Description>"Unique Jumps completed"</Description>
+              <LastState Value="35" RealAddress="7FF6C6C855B0"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+51155B0</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>36</ID>
               <Description>"Max. INSANE Jump rotation"</Description>
+              <LastState Value="644" RealAddress="7FF6C6C855A8"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+51155A8</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>88</ID>
           <Description>"Stores Knocked off"</Description>
+          <LastState Value="4294967295" RealAddress="7FF6C6BB97B4"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50497B4</Address>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
+          <ID>16300</ID>
+          <Description>"Property Destroyed"</Description>
+          <LastState Value="545594" RealAddress="7FF6C6C85570"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>ViceCity.exe+5115570</Address>
+        </CheatEntry>
+        <CheatEntry>
           <ID>44</ID>
           <Description>"'Ice Cream' Sold - Deals done"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBFE4C"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504FE4C</Address>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>40</ID>
           <Description>"Highest score with Keepie-Upply beach ball"</Description>
+          <LastState Value="0" RealAddress="7FF6C6C80EAC"/>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5110EAC</Address>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>46</ID>
           <Description>"Spraying"</Description>
+          <LastState Value="12" RealAddress="7FF6C6C85568"/>
           <Color>40BFBF</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5115568</Address>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
-    <CheatEntry NoCheckbox="1">
+    <CheatEntry>
       <ID>68</ID>
       <Description>"VEHICLE CHALLENGE"</Description>
-      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
       <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>60</ID>
           <Description>"POLICE"</Description>
-          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>34</ID>
               <Description>"Criminals killed on Vigilante Mission (default 78)"</Description>
+              <LastState Value="82" RealAddress="7FF6C6C80E50"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5110E50</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>35</ID>
               <Description>"Highest Vigilante Mission level"</Description>
+              <LastState Value="1" RealAddress="7FF6C6C80E48"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5110E48</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>72</ID>
               <Description>"(IN MISSION) Kills"</Description>
+              <LastState Value="3" RealAddress="7FF6C6BBEF40"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504EF40</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>79</ID>
               <Description>"(✔️✔️CHANGE THIS✔️✔️) Done Level"</Description>
+              <LastState Value="12" RealAddress="7FF6C6BBEF34"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504EF34</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>33</ID>
               <Description>"(IN MISSION) Current Level"</Description>
+              <LastState Value="13" RealAddress="7FF6C6BBEFEC"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504EFEC</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>74</ID>
               <Description>"(IN MISSION) Current Level (TEXT ONLY)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6CFF99C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+518F99C</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>71</ID>
               <Description>"(IN MISSION) Criminals Left"</Description>
+              <LastState Value="2" RealAddress="7FF6C6C91D18"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5121D18</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>59</ID>
           <Description>"TAXI"</Description>
-          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>139</ID>
               <Description>"Taxi can Jump"</Description>
+              <LastState Value="1" RealAddress="7FF6C6FCE54C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+545E54C</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>2</ID>
               <Description>"Passengers dropped off (✔️✔️100 PASSENGERS✔️✔️)"</Description>
+              <LastState Value="101" RealAddress="7FF6C6BB8570"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5048570</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>7</ID>
               <Description>"Cash made in taxi"</Description>
+              <LastState Value="352" RealAddress="7FF6C6C855A4"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+51155A4</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>45</ID>
               <Description>"(IN MISSION) Fares"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBEC38"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504EC38</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>61</ID>
           <Description>"AMBULANCE"</Description>
-          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>5</ID>
               <Description>"People saved in an Ambulance (default 78)"</Description>
+              <LastState Value="78" RealAddress="7FF6C6C80DA8"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5110DA8</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>6</ID>
               <Description>"Highest Paramedic Mission Level"</Description>
+              <LastState Value="12" RealAddress="7FF6C6C80E4C"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5110E4C</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>13</ID>
               <Description>"(IN MISSION) Current Level"</Description>
+              <LastState Value="1" RealAddress="7FF6C6BBECD0"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504ECD0</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>16</ID>
               <Description>"Saved people (✔️✔️CHANGE = CURRENT LEVEL✔️✔️) "</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBECF4"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
@@ -1483,35 +1571,39 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>62</ID>
           <Description>"FIRETRUCK"</Description>
-          <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>77</ID>
               <Description>"Total fires extinguished (default 78)"</Description>
+              <LastState Value="78" RealAddress="7FF6C6C80E54"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5110E54</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>38</ID>
               <Description>"Highest Fire Truck Mission level"</Description>
+              <LastState Value="12" RealAddress="7FF6C6C80E40"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5110E40</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>29</ID>
               <Description>"(IN MISSION) Objects left"</Description>
+              <LastState Value="12" RealAddress="7FF6C6BBEEA0"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504EEA0</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>28</ID>
               <Description>"Saved objects (✔️✔️CHANGE = CURRENT LEVEL✔️✔️)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBEE98"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
@@ -1519,56 +1611,61 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>63</ID>
           <Description>"PIZZA"</Description>
-          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>54</ID>
               <Description>"Pizza's Delivered (default 55)"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
               <Address>00000000</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>51</ID>
               <Description>"(IN MISSION) Pizzas Left (Limit at 6)"</Description>
+              <LastState Value="6" RealAddress="7FF6C6BC00B4"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50500B4</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>47</ID>
               <Description>"(IN MISSION) Pizzas to deliver (Text only)"</Description>
+              <LastState Value="9" RealAddress="7FF6C6BC014C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+505014C</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>93</ID>
               <Description>"(✔️✔️CHANGE THIS✔️✔️) Pizzas Delivered (default 55)"</Description>
+              <LastState Value="55" RealAddress="7FF6C6BC00E4"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50500E4</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>75</ID>
               <Description>"MUST CHANGE VALUE TOGETHER (✔️✔️10 LEVELS✔️✔️)"</Description>
               <LastState Value="" RealAddress="00000000"/>
               <Color>40BFBF</Color>
               <GroupHeader>1</GroupHeader>
               <CheatEntries>
-                <CheatEntry NoCheckbox="1">
+                <CheatEntry>
                   <ID>48</ID>
                   <Description>"Total Pizzas Delivered in Current Level"</Description>
+                  <LastState Value="10" RealAddress="7FF6C6BC007C"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>ViceCity.exe+505007C</Address>
                 </CheatEntry>
-                <CheatEntry NoCheckbox="1">
+                <CheatEntry>
                   <ID>49</ID>
                   <Description>"Current Level (change value after deliver ALL)"</Description>
+                  <LastState Value="10" RealAddress="7FF6C6BC0080"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>ViceCity.exe+5050080</Address>
@@ -1579,150 +1676,165 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
-    <CheatEntry NoCheckbox="1">
+    <CheatEntry>
       <ID>356</ID>
       <Description>"COMPETE MISSIONS"</Description>
       <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-      <LastState Value="" Activated="1" RealAddress="00000000"/>
+      <LastState Value="" RealAddress="00000000"/>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>96</ID>
           <Description>"STADIUM ------------------------------------------"</Description>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="32">
+            <CheatEntry>
               <ID>95</ID>
               <Description>"_DIRT RING - Checkpoints DONE (✔️✔️32 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="32" RealAddress="7FF6C6BBF488"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504F488</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>94</ID>
               <Description>"DIRT RING - Checkpoints LEFT"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBF740"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504F740</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>100</ID>
           <Description>"RC TOP RUN ------------------------------------------"</Description>
           <Options moRecursiveSetValue="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="50">
+            <CheatEntry>
               <ID>101</ID>
               <Description>"_RC Badit Race (Plane) - Checkpoints DONE (✔️✔️50 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BC0418"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5050418</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="28">
+            <CheatEntry>
               <ID>98</ID>
               <Description>"_RC Baron Race (Car) - Checkpoints DONE (✔️✔️28 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="3" RealAddress="7FF6C6BC07EC"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50507EC</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="20">
+            <CheatEntry>
               <ID>109</ID>
               <Description>"_RC Raider Pickup (Helicopter) - Checkpoints LEFT (✔️✔️20 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BC016C"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+505016C</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>116</ID>
           <Description>"SUNSHINE AUTOS RACES ------------------------------------------"</Description>
           <Options moRecursiveSetValue="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="23">
+            <CheatEntry>
               <ID>110</ID>
               <Description>"_RACE 1 - Checkpoints DONE (✔️✔️23 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="2" RealAddress="7FF6C6BBF7BC"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504F7BC</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="25">
+            <CheatEntry>
               <ID>111</ID>
               <Description>"_RACE 2 - Checkpoints DONE (✔️✔️25 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="2" RealAddress="7FF6C6BBF7BC"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504F7BC</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="28">
+            <CheatEntry>
               <ID>112</ID>
               <Description>"_RACE 3 - Checkpoints DONE (✔️✔️28 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="2" RealAddress="7FF6C6BBF7BC"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504F7BC</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="46">
+            <CheatEntry>
               <ID>113</ID>
               <Description>"_RACE 4 - Checkpoints DONE (✔️✔️46 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="2" RealAddress="7FF6C6BBF7BC"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504F7BC</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="48">
+            <CheatEntry>
               <ID>114</ID>
               <Description>"_RACE 5 - Checkpoints DONE (✔️✔️48 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="2" RealAddress="7FF6C6BBF7BC"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504F7BC</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="112">
+            <CheatEntry>
               <ID>115</ID>
               <Description>"_RACE 6 - Checkpoints DONE (✔️✔️112 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="2" RealAddress="7FF6C6BBF7BC"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504F7BC</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>105</ID>
           <Description>"OFF-ROAD MISSION ------------------------------------------"</Description>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="24">
+            <CheatEntry>
               <ID>102</ID>
               <Description>"_PCJ Playground  - Checkpoints DONE (✔️✔️24 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="24" RealAddress="7FF6C6BB9A70"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049A70</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>106</ID>
               <Description>"PCJ Playground  - Checkpoints LEFT"</Description>
+              <LastState Value="1" RealAddress="7FF6C6C959EC"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+51259EC</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5">
+            <CheatEntry>
               <ID>108</ID>
               <Description>"_Cone Crazy - Checkpoints DONE (✔️✔️5 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="24" RealAddress="7FF6C6BB9A70"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049A70</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>107</ID>
               <Description>"Cone Crazy - Checkpoints LEFT"</Description>
+              <LastState Value="1" RealAddress="7FF6C6C959EC"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+51259EC</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>119</ID>
           <Description>"THE SHOOTIST ------------------------------------------"</Description>
           <Options moRecursiveSetValue="1"/>
@@ -1732,49 +1844,55 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
             <CheatEntry>
               <ID>117</ID>
               <Description>"SCORE"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBBBC0"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504BBC0</Address>
             </CheatEntry>
-            <CheatEntry NoCheckbox="1">
+            <CheatEntry>
               <ID>118</ID>
               <Description>"SCORE (Text only)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBC058"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504C058</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
-        <CheatEntry NoCheckbox="1">
+        <CheatEntry>
           <ID>123</ID>
           <Description>"CHOPPER CHECKPOINT ------------------------------------------"</Description>
           <Options moRecursiveSetValue="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="29">
+            <CheatEntry>
               <ID>121</ID>
               <Description>"_Downtown - Checkpoints DONE (✔️✔️29 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBFEA4"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504FEA4</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="22">
+            <CheatEntry>
               <ID>122</ID>
               <Description>"_Little Haiti - Checkpoints DONE (✔️✔️22 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBFEA4"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504FEA4</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="17">
+            <CheatEntry>
               <ID>124</ID>
               <Description>"_Vice Point - Checkpoints DONE (✔️✔️17 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBFEA4"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504FEA4</Address>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="17">
+            <CheatEntry>
               <ID>125</ID>
               <Description>"_Ocean Beach - Checkpoints DONE (✔️✔️17 CHECKPOINTS✔️✔️)"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBFEA4"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
@@ -1801,78 +1919,91 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
             <CheatEntry>
               <ID>333</ID>
               <Description>"Phone. 1st call - Incall"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB922C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504922C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>334</ID>
               <Description>"Phone. 1st call - COMPLETED"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB91D8"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50491D8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>335</ID>
               <Description>"Phone. 2nd call - COMPLETED"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB91BC"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50491BC</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>336</ID>
               <Description>"PAYPHONE MISSION. 1st Phone"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB920C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504920C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>337</ID>
               <Description>"PAYPHONE MISSION. 1st Phone - start"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBE5E4"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504E5E4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>338</ID>
               <Description>"PAYPHONE MISSION. 1st Phone - COMPLETED"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB844C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504844C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>339</ID>
               <Description>"Phone. 3rd call - COMPLETED - open C mission"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB91A0"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50491A0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>340</ID>
               <Description>"PAYPHONE MISSION. 2nd Phone"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB9208"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049208</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>341</ID>
               <Description>"PAYPHONE MISSION. 2nd Phone - start"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBE640"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504E640</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>342</ID>
               <Description>"PAYPHONE MISSION. 2nd Phone - start"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBE62C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504E62C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>343</ID>
               <Description>"PAYPHONE MISSION. 2nd Phone - car burning"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBE63C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504E63C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>344</ID>
               <Description>"PAYPHONE MISSION. 2nd Phone - COMPLETED"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB8450"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5048450</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>345</ID>
               <Description>"Phone. 4th - Diaz call, open Starfish Island"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB91DC"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50491DC</Address>
@@ -1880,54 +2011,63 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
             <CheatEntry>
               <ID>346</ID>
               <Description>"Phone. 5th - COMPLETED - open C mission again"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB91EC"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50491EC</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>347</ID>
               <Description>"Phone. 5th - COMPLETED - open C mission again"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB985C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504985C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>348</ID>
               <Description>"PAYPHONE MISSION. 3RD Phone"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB9204"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049204</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>349</ID>
               <Description>"Phone. 6th - Lance"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB91D0"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50491D0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>350</ID>
               <Description>"Phone. 7th - Lance - Unlocked K Mission"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB916C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504916C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>351</ID>
               <Description>"Phone. 8th - Thomas - Unlocked D Mission kill Diaz"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB91A4"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50491A4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>352</ID>
               <Description>"Phone. 9th - Unlocked Lovefist Mission"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB91E8"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50491E8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>353</ID>
               <Description>"Phone. 10th - Avery"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB9188"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049188</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>354</ID>
               <Description>"Phone. 11th - Sonny"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB91C0"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50491C0</Address>
@@ -1944,72 +2084,84 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
             <CheatEntry>
               <ID>172</ID>
               <Description>"El Swanko Casa - BOUGHT"</Description>
+              <LastState Value="1" RealAddress="7FF6C6DB4F80"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5244F80</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>174</ID>
               <Description>"El Swanko Casa"</Description>
+              <LastState Value="1" RealAddress="7FF6C6BB9424"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049424</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>175</ID>
               <Description>"El Swanko Casa"</Description>
+              <LastState Value="1" RealAddress="7FF6C6BB9D6C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049D6C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>181</ID>
               <Description>"1102 Washington Street - BOUGHT"</Description>
+              <LastState Value="1" RealAddress="7FF6C6DB4F48"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5244F48</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>182</ID>
               <Description>"1102 Washington Street"</Description>
+              <LastState Value="1" RealAddress="7FF6C6BB9D64"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049D64</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>183</ID>
               <Description>"1102 Washington Street"</Description>
+              <LastState Value="1" RealAddress="7FF6C6BB941C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504941C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>184</ID>
               <Description>"Ocean Heights Apartment - BOUGHT"</Description>
+              <LastState Value="1" RealAddress="7FF6C6DB4FB8"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5244FB8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>185</ID>
               <Description>"Ocean Heights Apartment"</Description>
+              <LastState Value="1" RealAddress="7FF6C6BB9D74"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049D74</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>186</ID>
               <Description>"Ocean Heights Apartment"</Description>
+              <LastState Value="1" RealAddress="7FF6C6BB942C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504942C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>260</ID>
               <Description>"Hyman Condo - BOUGHT"</Description>
+              <LastState Value="1" RealAddress="7FF6C6DB5098"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5245098</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>262</ID>
               <Description>"Hyman Condo"</Description>
+              <LastState Value="1" RealAddress="7FF6C6BB9418"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049418</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>261</ID>
               <Description>"Hyman Condo"</Description>
+              <LastState Value="1" RealAddress="7FF6C6BB9D60"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049D60</Address>
             </CheatEntry>
@@ -2024,6 +2176,7 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
             <CheatEntry>
               <ID>143</ID>
               <Description>"Mostov"</Description>
+              <LastState Value="1" RealAddress="7FF6C6BB9644"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049644</Address>
             </CheatEntry>
@@ -2032,348 +2185,406 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
         <CheatEntry>
           <ID>141</ID>
           <Description>"In the beginning.. - Stop in the pink marker"</Description>
+          <LastState Value="1" RealAddress="7FF6C6BB80E4"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50480E4</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>145</ID>
           <Description>"In the beginning.. - Ocean view"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB7FD8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5047FD8</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>146</ID>
           <Description>"In the beginning.. - Walk into the pink maker"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8044"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048044</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>147</ID>
           <Description>"An Old Friend - start"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB985C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504985C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>148</ID>
           <Description>"L.The Party - Cutscene Bike"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA244"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A244</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>149</ID>
           <Description>"L.The Party - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8324"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048324</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>152</ID>
           <Description>"L.Back Alley Brawl - start"</Description>
+          <LastState Value="1" RealAddress="7FF6C6BB8F88"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048F88</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>153</ID>
           <Description>"L.Back Alley Brawl - Cutscene"</Description>
+          <LastState Value="1" RealAddress="7FF6C6BB9538"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5049538</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>154</ID>
           <Description>"L.Back Alley Brawl - Lance in car"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA300"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A300</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>155</ID>
           <Description>"L.Back Alley Brawl - Lance in car"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA280"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A280</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>156</ID>
           <Description>"L.Back Alley Brawl - Finish"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA2D8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A2D8</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>157</ID>
           <Description>"L.Back Alley Brawl - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8328"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048328</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>158</ID>
           <Description>"L.Back Alley Brawl - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA2FC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A2FC</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>159</ID>
           <Description>"Phone. 1st call - Incall"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB922C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504922C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>161</ID>
           <Description>"Phone. 1st call - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB91D8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50491D8</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>162</ID>
           <Description>"Jury Fury - hit a man"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA328"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A328</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>163</ID>
           <Description>"Jury Fury - hit a man"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA358"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A358</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>164</ID>
           <Description>"Jury Fury - Cutcene man run"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA32C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A32C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>165</ID>
           <Description>"Jury Fury - man run"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA338"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A338</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>167</ID>
           <Description>"Jury Fury - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB832C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504832C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>168</ID>
           <Description>"Jury Fury - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8D3C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048D3C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>170</ID>
           <Description>"Jury Fury - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA33C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A33C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>171</ID>
           <Description>"Phone. 2nd call - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB91BC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50491BC</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>177</ID>
           <Description>"PAYPHONE MISSION. 1st Phone"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB920C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504920C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>178</ID>
           <Description>"PAYPHONE MISSION. 1st Phone - start"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBE5E4"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504E5E4</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>180</ID>
           <Description>"PAYPHONE MISSION. 1st Phone - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB844C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504844C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>199</ID>
           <Description>"L. Riot - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6AE9B50"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+4F79B50</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>200</ID>
           <Description>"L. Riot - COMPLETED"</Description>
+          <LastState Value="1" RealAddress="7FF6C6BB8024"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048024</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>201</ID>
           <Description>"L. Riot - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8330"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048330</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>202</ID>
           <Description>"L. Riot - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8DD0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048DD0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>203</ID>
           <Description>"L. Riot - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB9390"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5049390</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>198</ID>
           <Description>"L. Riot - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6AE9AC0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+4F79AC0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>204</ID>
           <Description>"Phone. 3rd call - COMPLETED - open C mission"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB91A0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50491A0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>205</ID>
           <Description>"C. Treacherous Swine - Cutscene"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA4F4"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A4F4</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>206</ID>
           <Description>"C. Treacherous Swine - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6AE9A30"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+4F79A30</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>207</ID>
           <Description>"C. Treacherous Swine - COMPLETED"</Description>
+          <LastState Value="1" RealAddress="7FF6C6BB8144"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048144</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>208</ID>
           <Description>"C. Treacherous Swine - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8338"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048338</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>209</ID>
           <Description>"C. Treacherous Swine - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8DD4"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048DD4</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>210</ID>
           <Description>"C. Treacherous Swine - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB93A0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50493A0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>211</ID>
           <Description>"C. Mall Shootout - CUTSCENE"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB808C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504808C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>212</ID>
           <Description>"C. Mall Shootout - Object killed"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA53C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A53C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>213</ID>
           <Description>"C. Mall Shootout - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB833C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504833C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>214</ID>
           <Description>"C. Mall Shootout - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8DC8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048DC8</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>215</ID>
           <Description>"PAYPHONE MISSION. 2nd Phone"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB9208"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5049208</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>216</ID>
           <Description>"PAYPHONE MISSION. 2nd Phone - start"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBE640"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504E640</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>217</ID>
           <Description>"PAYPHONE MISSION. 2nd Phone - start"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBE62C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504E62C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>219</ID>
           <Description>"PAYPHONE MISSION. 2nd Phone - car burning"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBE63C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504E63C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>220</ID>
           <Description>"PAYPHONE MISSION. 2nd Phone - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8450"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048450</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>191</ID>
           <Description>"C.Guardian Angels - car destroyed"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA768"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A768</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>190</ID>
           <Description>"C.Guardian Angels - car destroyed"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA76C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A76C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>189</ID>
           <Description>"C.Guardian Angels - car destroyed"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA770"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A770</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>192</ID>
           <Description>"C.Guardian Angels - car destroyed"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA774"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A774</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>193</ID>
           <Description>"C.Guardian Angels - car destroyed"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA778"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A778</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>194</ID>
           <Description>"C.Guardian Angels - Cutscene"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA7B0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A7B0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>195</ID>
           <Description>"C.Guardian Angels - bike kill"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA810"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A810</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>196</ID>
           <Description>"C.Guardian Angels - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8340"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048340</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>197</ID>
           <Description>"C.Guardian Angels - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8DCC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048DCC</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>128</ID>
           <Description>"Phone. 4th - Diaz call, open Starfish Island"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB91DC"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50491DC</Address>
@@ -2381,288 +2592,336 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
         <CheatEntry>
           <ID>221</ID>
           <Description>"Open Starfish Island?"</Description>
+          <LastState Value="1" RealAddress="7FF6C6BB8054"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048054</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>222</ID>
           <Description>"Open Starfish Island?"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB91DC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50491DC</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>223</ID>
           <Description>"D. The Chase - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8350"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048350</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>224</ID>
           <Description>"D. The Chase - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8D40"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048D40</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>225</ID>
           <Description>"D. The Chase - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8D58"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048D58</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>228</ID>
           <Description>"D. Phnom Penh '86 - start (default 65793)"</Description>
+          <LastState Value="0" RealAddress="7FF6C6AE9BE0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+4F79BE0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>229</ID>
           <Description>"D. Phnom Penh '86 - Talk only"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB802C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504802C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>230</ID>
           <Description>"D. Phnom Penh '86 - Talk only"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8030"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048030</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>231</ID>
           <Description>"D. Phnom Penh '86 - Talk only"</Description>
+          <LastState Value="1" RealAddress="7FF6C6CAB210"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+513B210</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>232</ID>
           <Description>"D. Phnom Penh '86 - Talk only"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8034"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048034</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>233</ID>
           <Description>"D. Phnom Penh '86 - Talk only"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBAE78"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504AE78</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>234</ID>
           <Description>"D. Phnom Penh '86 - Mansion"</Description>
+          <LastState Value="1" RealAddress="7FF6C6EF6C60"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5386C60</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>235</ID>
           <Description>"D. Phnom Penh '86 - Mansion"</Description>
+          <LastState Value="0" RealAddress="7FF6C6EF6E60"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5386E60</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>236</ID>
           <Description>"D. Phnom Penh '86 - Alone"</Description>
+          <LastState Value="0" RealAddress="7FF6C6EF6E60"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5386E60</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>237</ID>
           <Description>"No description"</Description>
+          <LastState Value="0" RealAddress="7FF6C6EF6E60"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5386E60</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>226</ID>
           <Description>"D. Phnom Penh '86 - COMPLETED - all bridges OPEN"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8354"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048354</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>227</ID>
           <Description>"D. Phnom Penh '86 - COMPLETED - all bridges OPEN"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8CEC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048CEC</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>238</ID>
           <Description>"Phone. 5th - COMPLETED - open C mission again"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB91EC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50491EC</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>239</ID>
           <Description>"Phone. 5th - COMPLETED - open C mission again"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB985C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504985C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>240</ID>
           <Description>"D. The Fastest Boat - start (default 65793)"</Description>
+          <LastState Value="0" RealAddress="7FF6C6AE9BE0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+4F79BE0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>241</ID>
           <Description>"D. The Fastest Boat - boat drops"</Description>
+          <LastState Value="0" RealAddress="7FF6C6AF3FFC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+4F83FFC</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>243</ID>
           <Description>"D. The Fastest Boat - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8358"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048358</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>242</ID>
           <Description>"D. The Fastest Boat - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6AE9B50"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+4F79B50</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>244</ID>
           <Description>"PAYPHONE MISSION. 3RD Phone"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB9204"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5049204</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>245</ID>
           <Description>"D. Supply &amp; Demand - Boats Destroyed"</Description>
+          <LastState Value="1" RealAddress="7FF6C6BB9538"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5049538</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>246</ID>
           <Description>"D. Supply &amp; Demand - Go back to Starfish"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBAFF4"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504AFF4</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>247</ID>
           <Description>"D. Supply &amp; Demand - Helicopter Destroyed"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB7FB4"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5047FB4</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>249</ID>
           <Description>"D. Supply &amp; Demand - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB835C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504835C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>250</ID>
           <Description>"D. Supply &amp; Demand - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB93A8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50493A8</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>251</ID>
           <Description>"Phone. 6th - Lance"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB91D0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50491D0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>253</ID>
           <Description>"Sir - Yes, Sir - start"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBA948"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504A948</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>252</ID>
           <Description>"Sir - Yes, Sir - start"</Description>
+          <LastState Value="0" RealAddress="7FF6C6AE9AC0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+4F79AC0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>254</ID>
           <Description>"Sir, Yes Sir - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8344"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048344</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>255</ID>
           <Description>"Phone. 7th - Lance - Unlocked K Mission"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB916C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504916C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>256</ID>
           <Description>"K. Death Row - Lance is saved"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBB304"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504B304</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>257</ID>
           <Description>"K. Death Row - on the way to hospital"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8190"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048190</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>258</ID>
           <Description>"K. Death Row - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB836C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504836C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>259</ID>
           <Description>"Phone. 8th - Thomas - Unlocked D Mission kill Diaz"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB91A4"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50491A4</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>263</ID>
           <Description>"D. Rub Out - Inside Diaz mansion"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBB040"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504B040</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>264</ID>
           <Description>"D. Rub Out - Diaz hide in office"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BBB054"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+504B054</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>265</ID>
           <Description>"D. Rub Out - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6AE9A30"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+4F79A30</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>266</ID>
           <Description>"D. Rub Out - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6AE9AC0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+4F79AC0</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>267</ID>
           <Description>"D. Rub Out - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB7FE8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5047FE8</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>268</ID>
           <Description>"D. Rub Out - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8360"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048360</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>269</ID>
           <Description>"D. Rub Out - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8D0C"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048D0C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>270</ID>
           <Description>"D. Rub Out - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8DD8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048DD8</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>271</ID>
           <Description>"D. Rub Out - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB8DDC"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5048DDC</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>272</ID>
           <Description>"D. Rub Out - COMPLETED"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB93C0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50493C0</Address>
         </CheatEntry>
@@ -2675,324 +2934,378 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
             <CheatEntry>
               <ID>273</ID>
               <Description>"V. Shakedown - Inside Mall"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB953C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504953C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>274</ID>
               <Description>"V. Shakedown - Inside Mall"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB9540"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049540</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>275</ID>
               <Description>"V. Shakedown - Inside Mall"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB9544"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049544</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>276</ID>
               <Description>"V. Shakedown - Inside Mall"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA90"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA90</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>277</ID>
               <Description>"Glass broke - Family Jewels"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA34"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA34</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>278</ID>
               <Description>"Glass broke - Family Jewels"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA38"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA38</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>279</ID>
               <Description>"Glass broke - Family Jewels"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA3C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA3C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>280</ID>
               <Description>"No description"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB9548"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049548</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>281</ID>
               <Description>"No description"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB954C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504954C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>282</ID>
               <Description>"No description"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB9550"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049550</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>283</ID>
               <Description>"No description"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB9554"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5049554</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>284</ID>
               <Description>"Glass broke - Travel"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA40"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA40</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>285</ID>
               <Description>"Glass broke - Travel"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA44"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA44</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>286</ID>
               <Description>"No description"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA94"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA94</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>287</ID>
               <Description>"Glass broke - Clothes"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA7C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA7C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>288</ID>
               <Description>"Glass broke - Clothes"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA80"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA80</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>289</ID>
               <Description>"Glass broke - Clothes"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA78"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA78</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>290</ID>
               <Description>"Glass broke - Clothes"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA84"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA84</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>291</ID>
               <Description>"Glass broke - Clothes"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA88"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA88</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>292</ID>
               <Description>"Glass broke - Clothes"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA8C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA8C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>293</ID>
               <Description>"Glass broke - Clothes"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA98"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA98</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>296</ID>
               <Description>"Glass broke - Clothes 2nd floor"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA6C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA6C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>297</ID>
               <Description>"Glass broke - Clothes 2nd floor"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA70"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA70</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>298</ID>
               <Description>"Glass broke - Clothes 2nd floor"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA74"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA74</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>299</ID>
               <Description>"Glass broke - Clothes 2nd floor"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA9C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA9C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>300</ID>
               <Description>"Glass broke - Clothes 2nd floor"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA60"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA60</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>301</ID>
               <Description>"Glass broke - Clothes 2nd floor"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA64"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA64</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>302</ID>
               <Description>"Glass broke - Clothes 2nd floor"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA68"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA68</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>294</ID>
               <Description>"Glass broke - Coffee"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA2C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA2C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>295</ID>
               <Description>"Glass broke - Coffee"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA30"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA30</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>303</ID>
               <Description>"Glass broke - Disk"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA48"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA48</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>304</ID>
               <Description>"Glass broke - Disk"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA4C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA4C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>305</ID>
               <Description>"Glass broke - Disk"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA50"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA50</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>306</ID>
               <Description>"Glass broke - Disk"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA54"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA54</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>307</ID>
               <Description>"Glass broke - Disk"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA58"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA58</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>308</ID>
               <Description>"Glass broke - Disk"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA5C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA5C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>309</ID>
               <Description>"Glass broke - Disk"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCAA0"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CAA0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>310</ID>
               <Description>"Shakedown - Properties buyable"</Description>
+              <LastState Value="0" RealAddress="7FF6C6AE9640"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+4F79640</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>311</ID>
               <Description>"Shakedown - Properties buyable"</Description>
+              <LastState Value="0" RealAddress="7FF6C6AE96D0"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+4F796D0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>312</ID>
               <Description>"Shakedown - Properties buyable"</Description>
+              <LastState Value="0" RealAddress="7FF6C6AE9760"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+4F79760</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>313</ID>
               <Description>"Shakedown - Properties buyable"</Description>
+              <LastState Value="0" RealAddress="7FF6C6AE97F0"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+4F797F0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>314</ID>
               <Description>"Shakedown - Properties buyable"</Description>
+              <LastState Value="0" RealAddress="7FF6C6AE9880"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+4F79880</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>315</ID>
               <Description>"Shakedown - Properties buyable"</Description>
+              <LastState Value="0" RealAddress="7FF6C6AE9910"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+4F79910</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>316</ID>
               <Description>"Shakedown - Properties buyable"</Description>
+              <LastState Value="0" RealAddress="7FF6C6AE99A0"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+4F799A0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>317</ID>
               <Description>"Shakedown - Properties buyable"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCA0C"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CA0C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>318</ID>
               <Description>"Shakedown - Properties buyable"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BBCAA4"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+504CAA4</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>319</ID>
               <Description>"Shakedown - Properties buyable"</Description>
+              <LastState Value="0" RealAddress="7FF6C6DB5178"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5245178</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>320</ID>
               <Description>"Shakedown - Properties buyable"</Description>
+              <LastState Value="0" RealAddress="7FF6C6DB51B0"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+52451B0</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>321</ID>
               <Description>"Shakedown - Properties buyable"</Description>
+              <LastState Value="0" RealAddress="7FF6C6DB51E8"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+52451E8</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>323</ID>
               <Description>"No description"</Description>
+              <LastState Value="0" RealAddress="7FF6C6D97C04"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5227C04</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>324</ID>
               <Description>"No description"</Description>
+              <LastState Value="0" RealAddress="7FF6C6D97C40"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5227C40</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>326</ID>
               <Description>"Shakedown - COMPLETED"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB8D10"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5048D10</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>327</ID>
               <Description>"Shakedown - COMPLETED"</Description>
+              <LastState Value="0" RealAddress="7FF6C6DB5258"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+5245258</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>325</ID>
               <Description>"Shakedown - COMPLETED"</Description>
+              <LastState Value="0" RealAddress="7FF6C6BB83CC"/>
               <VariableType>4 Bytes</VariableType>
               <Address>ViceCity.exe+50483CC</Address>
             </CheatEntry>
@@ -3001,18 +3314,21 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
         <CheatEntry>
           <ID>328</ID>
           <Description>"Phone. 9th - Unlocked Lovefist Mission"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB91E8"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50491E8</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>329</ID>
           <Description>"Phone 10th - Avery"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB9188"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5049188</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>330</ID>
           <Description>"Phone 11th - Sonny"</Description>
+          <LastState Value="0" RealAddress="7FF6C6BB91C0"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+50491C0</Address>
@@ -3020,6 +3336,7 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
         <CheatEntry>
           <ID>331</ID>
           <Description>"No description"</Description>
+          <LastState Value="0" RealAddress="7FF6C6EF8660"/>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
           <Address>ViceCity.exe+5388660</Address>
@@ -3111,4 +3428,79 @@ ViceCity.exe+10DB093: 33 C0              - xor eax,eax
     </CodeEntry>
   </CheatCodes>
   <UserdefinedSymbols/>
+  <LuaScript>GameName = "ViceCity"
+
+if syntaxcheck then return end
+
+
+
+
+-- Title + Author
+getMainForm().Caption = "Grand Theft Auto: Vice City – The Definitive Edition | Created by Max (Tran Thang Minh)" --input GameName here
+
+
+
+
+-- Activate Mono Features
+function activateMono()
+
+  --if getOpenedProcessID() == 0 then
+      OpenProcess(GameName..".exe")--------------------------------------input GameName.exe here
+  --end
+
+  if getOpenedProcessID() == 0 then
+      showMessage(GameName.." not found")
+      return
+  end
+
+  -- check menu Mono có tồn tại không
+  if getMainForm().miMono ~= nil then
+    mono_initialize()
+    if monopipe==nil then
+      LaunchMonoDataCollector()
+    end
+  end
+end
+
+
+
+
+
+-- Toggle Compact / Full
+function toggleView(sender)
+  local f = getMainForm()
+  local state = (sender.Caption == "Compact View Mode")
+
+  f.Panel5.Visible = state
+  f.Splitter1.Visible = state
+  sender.Caption = state and "Full View Mode" or "Compact View Mode"
+end
+
+
+
+
+
+-- Check if menu already exists
+local parent = getMainForm().Menu.Items
+local exists = false
+
+for i=0,parent.Count-1 do
+  if parent[i].Caption == "Compact View Mode" or parent[i].Caption == "Full View Mode" then
+    exists = true
+    break
+  end
+end
+
+
+
+
+
+-- Create menu if not exists
+if not exists then
+  local m = createMenuItem(parent)
+  m.Caption = "Full View Mode"
+  m.OnClick = toggleView
+  parent.add(m)
+end
+</LuaScript>
 </CheatTable>

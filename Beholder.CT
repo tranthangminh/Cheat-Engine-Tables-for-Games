@@ -2,6 +2,75 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
       <ID>9</ID>
       <Description>"Memory Viewer"</Description>
       <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
@@ -12,7 +81,6 @@
         <CheatEntry>
           <ID>7</ID>
           <Description>"Inventory Item Base Add"</Description>
-          <LastState Value="2336509577" RealAddress="07568200"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>
@@ -21,7 +89,6 @@
         <CheatEntry>
           <ID>4</ID>
           <Description>"Inventory Item Base Decrease"</Description>
-          <LastState Value="2336507529" RealAddress="07568244"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>
@@ -30,7 +97,6 @@
         <CheatEntry>
           <ID>12</ID>
           <Description>"Inventory (Realtime)"</Description>
-          <LastState Value="2302951563" RealAddress="07567EC6"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>
@@ -39,7 +105,6 @@
         <CheatEntry>
           <ID>14</ID>
           <Description>"Props Inventory Item View (Realtime)"</Description>
-          <LastState Value="2302951563" RealAddress="07568196"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>
@@ -48,7 +113,6 @@
         <CheatEntry>
           <ID>23</ID>
           <Description>"Money"</Description>
-          <LastState Value="2004694761" RealAddress="075682C5"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>
@@ -57,7 +121,6 @@
         <CheatEntry>
           <ID>21</ID>
           <Description>"Money (Realtime)"</Description>
-          <LastState Value="2299805835" RealAddress="075680F4"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>
@@ -66,7 +129,6 @@
         <CheatEntry>
           <ID>13</ID>
           <Description>"Points"</Description>
-          <LastState Value="1987932905" RealAddress="07568289"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>
@@ -75,7 +137,6 @@
         <CheatEntry>
           <ID>18</ID>
           <Description>"Sell Item"</Description>
-          <LastState Value="3947120777" RealAddress="075683C0"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>
@@ -308,7 +369,7 @@ InventoryItemView:OnBuyClick+47: 39 09           - cmp [ecx],ecx
         <CheatEntry>
           <ID>25</ID>
           <Description>"Money = 50000 on use"</Description>
-          <LastState Activated="1"/>
+          <LastState/>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : Beholder
   Version: 
@@ -379,7 +440,7 @@ Funds:set_money+2b: 90        - nop
         <CheatEntry>
           <ID>15</ID>
           <Description>"Points = 50000 on use"</Description>
-          <LastState Activated="1"/>
+          <LastState/>
           <Color>40BF40</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : Beholder
@@ -551,7 +612,7 @@ dealloc(Player.threadstart)
         <CheatEntry>
           <ID>1</ID>
           <Description>"Player.Static"</Description>
-          <LastState Value="" RealAddress="0648BD30"/>
+          <LastState Value="" RealAddress="00000000"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>Pointer</VariableType>
           <Address>[Player.Static]</Address>
@@ -559,7 +620,7 @@ dealloc(Player.threadstart)
         <CheatEntry>
           <ID>2</ID>
           <Description>"Player.Class"</Description>
-          <LastState Value="" RealAddress="135C5CF0"/>
+          <LastState Value="" RealAddress="00000000"/>
           <ShowAsHex>1</ShowAsHex>
           <VariableType>Pointer</VariableType>
           <Address>[Player.Class]</Address>
@@ -580,14 +641,12 @@ dealloc(Player.threadstart)
     <CheatEntry>
       <ID>22</ID>
       <Description>"No Description"</Description>
-      <LastState Value="48503" RealAddress="27750084"/>
       <VariableType>4 Bytes</VariableType>
       <Address>27750084</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>24</ID>
       <Description>"No Description"</Description>
-      <LastState Value="50000" RealAddress="2775008C"/>
       <VariableType>4 Bytes</VariableType>
       <Address>2775008C</Address>
     </CheatEntry>

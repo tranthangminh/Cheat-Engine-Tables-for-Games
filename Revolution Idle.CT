@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Enable Speed 500"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+if syntaxcheck then return end
+
+local speedEntry = AddressList.getMemoryRecordByDescription("Speed Value")
+if speedEntry then
+    speedhack_setSpeed(tonumber(speedEntry.Value) or 500)
+end
+
+[DISABLE]
+{$lua}
+if syntaxcheck then return end
+speedhack_setSpeed(1.0)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Speed Value"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>speedEntry</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedhack_wantedspeed</Name>
+      <Address>132E88B0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>

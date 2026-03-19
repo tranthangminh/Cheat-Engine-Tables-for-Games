@@ -2,6 +2,75 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
       <ID>64</ID>
       <Description>"..Pointers"</Description>
       <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
@@ -47,7 +116,6 @@
         <CheatEntry>
           <ID>143</ID>
           <Description>"6 Laser 2"</Description>
-          <LastState Value="4278584838" RealAddress="0158F150"/>
           <VariableType>4 Bytes</VariableType>
           <Address>0158F150</Address>
         </CheatEntry>
@@ -102,7 +170,6 @@
         <CheatEntry>
           <ID>218</ID>
           <Description>"8 Canon 2"</Description>
-          <LastState Value="2206302593" RealAddress="4349EFD0"/>
           <VariableType>4 Bytes</VariableType>
           <Address>4349EFD0</Address>
         </CheatEntry>
@@ -197,10 +264,9 @@ Sam3.exe+4D4DD4: CC        - int 3
           <Color>40BFBF</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="50000">
+            <CheatEntry>
               <ID>65</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="47037" RealAddress="59533794"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFDC58</Address>
@@ -214,10 +280,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>A8</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="50000">
+            <CheatEntry>
               <ID>66</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="47037" RealAddress="59533794"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -231,10 +296,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>C</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="50000">
+            <CheatEntry>
               <ID>70</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="47037" RealAddress="59533794"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFFEB8</Address>
@@ -248,10 +312,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="50000">
+            <CheatEntry>
               <ID>74</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="47037" RealAddress="59533794"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C001D8</Address>
@@ -265,10 +328,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>A8</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="50000">
+            <CheatEntry>
               <ID>80</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="47037" RealAddress="59533794"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B92290</Address>
@@ -282,10 +344,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>C8</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="50000">
+            <CheatEntry>
               <ID>92</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="47037" RealAddress="59533794"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C00820</Address>
@@ -305,14 +366,13 @@ Sam3.exe+4D4DD4: CC        - int 3
           <ID>47</ID>
           <Description>"0 HP (MAX 200)"</Description>
           <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
-          <LastState Value="" Activated="1" RealAddress="00000000"/>
+          <LastState Value="" RealAddress="00000000"/>
           <Color>40BFBF</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="200">
+            <CheatEntry>
               <ID>19</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="200" Activated="1" RealAddress="59533780"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -326,10 +386,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="200">
+            <CheatEntry>
               <ID>43</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="200" Activated="1" RealAddress="59533780"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFFEB8</Address>
@@ -363,10 +422,9 @@ Sam3.exe+4D4DD4: CC        - int 3
           <Color>40BFBF</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>240</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -380,10 +438,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>18</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>241</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -397,10 +454,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>E8</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>242</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -414,10 +470,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>6C</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>243</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFEF18</Address>
@@ -431,10 +486,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>244</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C004F8</Address>
@@ -448,10 +502,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>245</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFE298</Address>
@@ -465,10 +518,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>246</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFFEB8</Address>
@@ -482,10 +534,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>247</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFEBF8</Address>
@@ -499,10 +550,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>248</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFE298</Address>
@@ -516,10 +566,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>249</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C004F8</Address>
@@ -533,10 +582,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>250</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFDC58</Address>
@@ -550,10 +598,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>251</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C00818</Address>
@@ -567,10 +614,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>252</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C00B38</Address>
@@ -584,10 +630,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>253</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFE298</Address>
@@ -601,10 +646,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>254</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFFB98</Address>
@@ -618,10 +662,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>256</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFEBF8</Address>
@@ -635,10 +678,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>257</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFE298</Address>
@@ -652,10 +694,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>258</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFEBF8</Address>
@@ -669,10 +710,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>259</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="996" RealAddress="59533E20"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BF481C</Address>
@@ -696,10 +736,9 @@ Sam3.exe+4D4DD4: CC        - int 3
           <Color>40BFBF</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>176</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="4644" RealAddress="59533E60"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFE298</Address>
@@ -712,10 +751,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>A8</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>177</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="4644" RealAddress="59533E60"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C004F8</Address>
@@ -729,10 +767,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>178</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="4644" RealAddress="59533E60"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C001D8</Address>
@@ -746,10 +783,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>179</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="4644" RealAddress="59533E60"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFF558</Address>
@@ -763,10 +799,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>182</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="4644" RealAddress="59533E60"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C001D8</Address>
@@ -780,10 +815,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>88</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>185</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="4644" RealAddress="59533E60"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFF238</Address>
@@ -797,10 +831,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>186</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="4644" RealAddress="59533E60"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFEBF8</Address>
@@ -814,10 +847,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>187</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="4644" RealAddress="59533E60"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFE2A0</Address>
@@ -831,10 +863,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>D0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>189</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="4644" RealAddress="59533E60"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C004F8</Address>
@@ -848,10 +879,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>A8</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>192</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="4644" RealAddress="59533E60"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFDF78</Address>
@@ -865,10 +895,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>195</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="4644" RealAddress="59533E60"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C001D8</Address>
@@ -892,10 +921,9 @@ Sam3.exe+4D4DD4: CC        - int 3
           <Color>40BFBF</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="500">
+            <CheatEntry>
               <ID>124</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="499" RealAddress="59533E40"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFFB98</Address>
@@ -909,10 +937,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="500">
+            <CheatEntry>
               <ID>125</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="499" RealAddress="59533E40"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFF558</Address>
@@ -926,10 +953,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="500">
+            <CheatEntry>
               <ID>126</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="499" RealAddress="59533E40"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFEBF8</Address>
@@ -953,10 +979,9 @@ Sam3.exe+4D4DD4: CC        - int 3
           <Color>40BFBF</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="100">
+            <CheatEntry>
               <ID>97</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="100" RealAddress="59533E50"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C00818</Address>
@@ -970,10 +995,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>A0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="100">
+            <CheatEntry>
               <ID>104</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="100" RealAddress="59533E50"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -987,10 +1011,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>28</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="100">
+            <CheatEntry>
               <ID>112</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="100" RealAddress="59533E50"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C00B38</Address>
@@ -1004,10 +1027,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="100">
+            <CheatEntry>
               <ID>113</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="100" RealAddress="59533E50"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BF4DD8</Address>
@@ -1021,10 +1043,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>4C</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="100">
+            <CheatEntry>
               <ID>114</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="100" RealAddress="59533E50"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BF4F24</Address>
@@ -1038,10 +1059,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>124</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="100">
+            <CheatEntry>
               <ID>115</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="100" RealAddress="59436BD8"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFE298</Address>
@@ -1055,7 +1075,7 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>88</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="100">
+            <CheatEntry>
               <ID>116</ID>
               <Description>"pointerscan result"</Description>
               <Color>40BFBF</Color>
@@ -1081,10 +1101,9 @@ Sam3.exe+4D4DD4: CC        - int 3
           <Color>40BFBF</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="4000">
+            <CheatEntry>
               <ID>261</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="3935" RealAddress="59533E90"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFF238</Address>
@@ -1098,10 +1117,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>A8</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="4000">
+            <CheatEntry>
               <ID>264</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="3935" RealAddress="59533E90"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BF4D48</Address>
@@ -1115,10 +1133,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>44</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="4000">
+            <CheatEntry>
               <ID>271</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="3935" RealAddress="59533E90"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFFB98</Address>
@@ -1132,10 +1149,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="4000">
+            <CheatEntry>
               <ID>273</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="3935" RealAddress="59533E90"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFFB98</Address>
@@ -1149,10 +1165,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="4000">
+            <CheatEntry>
               <ID>274</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="3935" RealAddress="59533E90"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFE298</Address>
@@ -1166,10 +1181,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="4000">
+            <CheatEntry>
               <ID>275</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="3935" RealAddress="59533E90"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C00818</Address>
@@ -1183,10 +1197,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="4000">
+            <CheatEntry>
               <ID>276</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="3935" RealAddress="59533E90"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C00818</Address>
@@ -1200,10 +1213,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="4000">
+            <CheatEntry>
               <ID>277</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="3935" RealAddress="59533E90"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFF238</Address>
@@ -1217,10 +1229,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="4000">
+            <CheatEntry>
               <ID>279</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="3935" RealAddress="59533E90"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFF238</Address>
@@ -1234,10 +1245,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="4000">
+            <CheatEntry>
               <ID>280</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="3935" RealAddress="59533E90"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C00B38</Address>
@@ -1251,10 +1261,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="4000">
+            <CheatEntry>
               <ID>281</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="3935" RealAddress="59533E90"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C00818</Address>
@@ -1278,10 +1287,9 @@ Sam3.exe+4D4DD4: CC        - int 3
           <Color>40BFBF</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>197</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -1295,10 +1303,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>E0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>198</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -1312,10 +1319,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>88</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>199</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -1329,7 +1335,7 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>A8</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>200</ID>
               <Description>"pointerscan result"</Description>
               <Color>40BFBF</Color>
@@ -1345,10 +1351,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>F4</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>201</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -1360,10 +1365,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>90</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>202</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -1377,10 +1381,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>D4</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>203</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -1394,10 +1397,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>B4</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>205</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BF4C48</Address>
@@ -1411,10 +1413,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>8</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>206</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BF4860</Address>
@@ -1428,10 +1429,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>10</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>208</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BF4F68</Address>
@@ -1445,10 +1445,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>54</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>209</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BF5068</Address>
@@ -1462,10 +1461,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>A8</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>210</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -1479,10 +1477,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>5C</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>212</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="1000" RealAddress="59436C08"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -1495,10 +1492,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>24</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>213</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -1512,10 +1508,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>14</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>214</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BF4AF0</Address>
@@ -1529,10 +1524,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>78</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>215</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -1546,10 +1540,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>94</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="1000">
+            <CheatEntry>
               <ID>216</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="989" RealAddress="59533E80"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BF4708</Address>
@@ -1573,10 +1566,9 @@ Sam3.exe+4D4DD4: CC        - int 3
           <Color>40BFBF</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="600">
+            <CheatEntry>
               <ID>219</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="574" RealAddress="59533E70"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BF4F68</Address>
@@ -1590,10 +1582,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>B8</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="600">
+            <CheatEntry>
               <ID>220</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="574" RealAddress="59533E70"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFFEB8</Address>
@@ -1607,10 +1598,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="600">
+            <CheatEntry>
               <ID>221</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="574" RealAddress="59533E70"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C00B38</Address>
@@ -1624,10 +1614,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="600">
+            <CheatEntry>
               <ID>227</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="574" RealAddress="59533E70"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C004F8</Address>
@@ -1641,10 +1630,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="600">
+            <CheatEntry>
               <ID>228</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="574" RealAddress="59533E70"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BF4B80</Address>
@@ -1658,10 +1646,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>48</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="600">
+            <CheatEntry>
               <ID>229</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="574" RealAddress="59533E70"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BF4578</Address>
@@ -1675,10 +1662,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>4A4</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="600">
+            <CheatEntry>
               <ID>230</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="574" RealAddress="59533E70"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BF4960</Address>
@@ -1692,10 +1678,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>BA4</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="600">
+            <CheatEntry>
               <ID>232</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="600" RealAddress="59436BF8"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -1708,10 +1693,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>10C</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="600">
+            <CheatEntry>
               <ID>233</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="574" RealAddress="59533E70"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -1725,7 +1709,7 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>64</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="600">
+            <CheatEntry>
               <ID>234</ID>
               <Description>"pointerscan result"</Description>
               <Color>40BFBF</Color>
@@ -1741,10 +1725,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>A0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="600">
+            <CheatEntry>
               <ID>235</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="574" RealAddress="59533E70"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C004F8</Address>
@@ -1758,10 +1741,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>40</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="600">
+            <CheatEntry>
               <ID>236</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="574" RealAddress="59533E70"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00C001D8</Address>
@@ -1775,10 +1757,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>A0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="600">
+            <CheatEntry>
               <ID>237</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="574" RealAddress="59533E70"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00B922A0</Address>
@@ -1792,10 +1773,9 @@ Sam3.exe+4D4DD4: CC        - int 3
                 <Offset>C0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="600">
+            <CheatEntry>
               <ID>238</ID>
               <Description>"pointerscan result"</Description>
-              <LastState Value="574" RealAddress="59533E70"/>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"Sam3.exe"+00BFF558</Address>

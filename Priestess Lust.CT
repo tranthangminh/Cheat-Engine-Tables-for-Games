@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Stamina (float 0-100)"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>NodeCanvas.Framework.Variable`1[System.Single]:set_value+9d</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of fstp dword ptr [edi+2C]</Description>
+      <AddressString>184874A5</AddressString>
+      <Before>
+        <Byte>EB</Byte>
+        <Byte>23</Byte>
+        <Byte>D9</Byte>
+        <Byte>45</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>D9</Byte>
+        <Byte>5F</Byte>
+        <Byte>2C</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>47</Byte>
+        <Byte>28</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

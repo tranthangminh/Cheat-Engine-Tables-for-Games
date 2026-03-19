@@ -2,6 +2,75 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
       <ID>3</ID>
       <Description>"Pointer"</Description>
       <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
@@ -141,6 +210,176 @@ server.dll+41E0A: CC                 - int 3
 </AssemblerScript>
     </CheatEntry>
     <CheatEntry>
+      <ID>9</ID>
+      <Description>"Get Stats"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1"/>
+      <LastState Activated="1"/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{Author: Max Chen (Trần Thắng Minh) - Contact me:
+ 🌐Facebook: https://www.facebook.com/maxiechen
+ 🌐Reddit: https://www.reddit.com/user/maxiechen96
+ 🌐Discord: https://discord.com/users/@maxiechen
+
+Update Here:
+ ☁️GoogleDrive: https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link
+ ☁️Github: https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games
+Created on: 03-03-2026}
+
+
+
+//HP
+define(addressHP,"server.dll"+3A60D5)
+define(bytesHP,8B 8F EC 00 00 00)
+
+//HP_Bot1
+define(addressHP_Bot1,"server.dll"+3A6061)
+define(bytesHP_Bot1,8B 87 EC 00 00 00)
+
+//HP_Bot2
+define(addressHP_Bot2,"server.dll"+18959F)
+define(bytesHP_Bot2,8B 83 EC 00 00 00)
+
+
+
+
+
+
+[ENABLE]
+
+//==============================HP
+
+assert(addressHP,bytesHP)
+alloc(newmemHP,$1000)
+
+alloc(HP,4)
+registersymbol(HP)
+
+label(codeHP)
+label(returnHP)
+
+newmemHP:
+
+codeHP:
+ mov [HP],edi //Save edi address into HP
+ mov ecx,[edi+000000EC]
+ jmp returnHP
+
+addressHP:
+ jmp newmemHP
+ nop
+returnHP:
+
+//==============================HP_Bot1
+
+assert(addressHP_Bot1,bytesHP_Bot1)
+alloc(newmemHP_Bot1,$1000)
+
+alloc(HP_Bot1,4)
+registersymbol(HP_Bot1)
+
+label(codeHP_Bot1)
+label(returnHP_Bot1)
+
+newmemHP_Bot1:
+
+codeHP_Bot1:
+ mov [HP_Bot1],edi //Save edi address into HP_Bot1
+ mov eax,[edi+000000EC]
+ jmp returnHP_Bot1
+
+addressHP_Bot1:
+ jmp newmemHP_Bot1
+ nop
+returnHP_Bot1:
+
+//==============================HP_Bot2
+
+assert(addressHP_Bot2,bytesHP_Bot2)
+alloc(newmemHP_Bot2,$1000)
+
+alloc(HP_Bot2,4)
+registersymbol(HP_Bot2)
+
+label(codeHP_Bot2)
+label(returnHP_Bot2)
+
+newmemHP_Bot2:
+
+codeHP_Bot2:
+ mov [HP_Bot2],ebx //Save ebx address into HP_Bot2
+ mov eax,[ebx+000000EC]
+ jmp returnHP_Bot2
+
+addressHP_Bot2:
+ jmp newmemHP_Bot2
+ nop
+returnHP_Bot2:
+
+
+
+
+
+
+
+[DISABLE]
+
+//==============================HP
+
+addressHP:
+ db bytesHP
+ // mov ecx,[edi+000000EC]
+
+dealloc(newmemHP)
+dealloc(HP)
+unregistersymbol(HP)
+
+//==============================HP_Bot1
+
+addressHP_Bot1:
+ db bytesHP_Bot1
+ // mov eax,[edi+000000EC]
+
+dealloc(newmemHP_Bot1)
+dealloc(HP_Bot1)
+unregistersymbol(HP_Bot1)
+
+//==============================HP_Bot2
+
+addressHP_Bot2:
+ db bytesHP_Bot2
+ // mov eax,[ebx+000000EC]
+
+dealloc(newmemHP_Bot2)
+dealloc(HP_Bot2)
+unregistersymbol(HP_Bot2)
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16299</ID>
+          <Description>"HP"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>HP</Address>
+          <Offsets>
+            <Offset>EC</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16301</ID>
+          <Description>"1st Bot"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>40BFBF</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>HP_Bot1</Address>
+          <Offsets>
+            <Offset>EC</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
       <ID>130</ID>
       <Description>"Weapons"</Description>
       <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
@@ -152,14 +391,14 @@ server.dll+41E0A: CC                 - int 3
           <ID>83</ID>
           <Description>"1 AMMO ∞"</Description>
           <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
-          <LastState Value="" RealAddress="00000000"/>
+          <LastState Value="" Activated="1" RealAddress="00000000"/>
           <Color>40BF40</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
               <ID>1</ID>
               <Description>"Auto Assemble script"</Description>
-              <LastState/>
+              <LastState Activated="1"/>
               <Color>40BF40</Color>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript Async="1">{ Game   : Left 4 Dead 2 - Direct3D 9
@@ -230,7 +469,7 @@ server.dll+3E95AA: 0F 57 C9           - xorps xmm1,xmm1
             <CheatEntry>
               <ID>82</ID>
               <Description>"Auto Assemble script"</Description>
-              <LastState/>
+              <LastState Activated="1"/>
               <Color>40BF40</Color>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>{ Game   : Left 4 Dead 2 - Direct3D 9
@@ -585,7 +824,7 @@ server.dll+3CF957: 8B CE              - mov ecx,esi
 </AssemblerScript>
         </CheatEntry>
         <CheatEntry>
-          <ID>9</ID>
+          <ID>16292</ID>
           <Description>"2 CHAINSAW ∞"</Description>
           <LastState/>
           <Color>40BF40</Color>
@@ -658,7 +897,7 @@ server.dll+3CAB39: 52                       - push edx
         <CheatEntry>
           <ID>33</ID>
           <Description>"3 GRENADE ∞"</Description>
-          <LastState/>
+          <LastState Activated="1"/>
           <Color>40BF40</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : Left 4 Dead 2 - Direct3D 9
@@ -741,15 +980,15 @@ server.dll+46D4F: CC                    - int 3
       <CheatEntries>
         <CheatEntry>
           <ID>31</ID>
-          <Description>"_HP"</Description>
+          <Description>"HP"</Description>
           <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <Color>40BFBF</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>29</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"vphysics.dll"+0017D1D4</Address>
@@ -763,9 +1002,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>131</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"vphysics.dll"+0017D1D4</Address>
@@ -779,9 +1018,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>132</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"vphysics.dll"+0017D1D4</Address>
@@ -795,9 +1034,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>133</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"vphysics.dll"+0017D1D4</Address>
@@ -811,9 +1050,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>134</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"vphysics.dll"+0017D1D4</Address>
@@ -831,15 +1070,15 @@ server.dll+46D4F: CC                    - int 3
         </CheatEntry>
         <CheatEntry>
           <ID>80</ID>
-          <Description>"_1st Bot HP"</Description>
+          <Description>"1st Bot HP"</Description>
           <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <Color>40BFBF</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>94</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"1st Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"engine.dll"+00429310</Address>
@@ -853,9 +1092,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>28</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>99</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"1st Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"engine.dll"+00645774</Address>
@@ -867,9 +1106,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>28</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>104</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"1st Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"engine.dll"+00429310</Address>
@@ -883,9 +1122,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>C</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>106</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"1st Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"engine.dll"+00645774</Address>
@@ -899,9 +1138,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>2C</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>135</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"1st Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"engine.dll"+00429310</Address>
@@ -919,15 +1158,15 @@ server.dll+46D4F: CC                    - int 3
         </CheatEntry>
         <CheatEntry>
           <ID>58</ID>
-          <Description>"_2nd Bot HP"</Description>
+          <Description>"2nd Bot HP"</Description>
           <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <Color>40BFBF</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>136</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"2nd Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"engine.dll"+00429310</Address>
@@ -941,9 +1180,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>8</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>137</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"2nd Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"engine.dll"+00429310</Address>
@@ -957,9 +1196,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>18</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>138</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"2nd Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"engine.dll"+00429310</Address>
@@ -973,9 +1212,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>2C</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>139</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"2nd Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"engine.dll"+00429310</Address>
@@ -989,9 +1228,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>C</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>140</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"2nd Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"engine.dll"+00429310</Address>
@@ -1009,15 +1248,15 @@ server.dll+46D4F: CC                    - int 3
         </CheatEntry>
         <CheatEntry>
           <ID>109</ID>
-          <Description>"_3rd Bot HP"</Description>
+          <Description>"3rd Bot HP"</Description>
           <Options moRecursiveSetValue="1" moAlwaysHideChildren="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
           <LastState Value="" RealAddress="00000000"/>
           <Color>40BFBF</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>141</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"3rd Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"vphysics.dll"+0017D1D4</Address>
@@ -1031,9 +1270,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>142</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"3rd Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"vphysics.dll"+0017D1D4</Address>
@@ -1047,9 +1286,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>143</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"3rd Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"vphysics.dll"+0017D1D4</Address>
@@ -1063,9 +1302,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>144</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"3rd Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"vphysics.dll"+0017D1D4</Address>
@@ -1079,9 +1318,9 @@ server.dll+46D4F: CC                    - int 3
                 <Offset>0</Offset>
               </Offsets>
             </CheatEntry>
-            <CheatEntry ValueOnActivate="5000">
+            <CheatEntry>
               <ID>145</ID>
-              <Description>"pointerscan result"</Description>
+              <Description>"3rd Bot HP"</Description>
               <Color>40BFBF</Color>
               <VariableType>4 Bytes</VariableType>
               <Address>"vphysics.dll"+0017D1D4</Address>
@@ -1100,12 +1339,7 @@ server.dll+46D4F: CC                    - int 3
       </CheatEntries>
     </CheatEntry>
   </CheatEntries>
-  <UserdefinedSymbols>
-    <SymbolEntry>
-      <Name>speedhack_wantedspeed</Name>
-      <Address>00FE0000</Address>
-    </SymbolEntry>
-  </UserdefinedSymbols>
+  <UserdefinedSymbols/>
   <Comments>Info about this table:
 </Comments>
 </CheatTable>

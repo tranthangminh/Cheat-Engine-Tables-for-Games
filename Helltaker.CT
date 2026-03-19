@@ -2,77 +2,416 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
-      <ID>22</ID>
-      <Description>"Infinite Moves"</Description>
-      <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
-      <Color>BFBF40</Color>
-      <GroupHeader>1</GroupHeader>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
       <CheatEntries>
         <CheatEntry>
-          <ID>24</ID>
-          <Description>"pointerscan result"</Description>
-          <Color>BFBF40</Color>
-          <VariableType>4 Bytes</VariableType>
-          <Address>"mono-2.0-bdwgc.dll"+0049AC48</Address>
-          <Offsets>
-            <Offset>7C8</Offset>
-            <Offset>70</Offset>
-            <Offset>60</Offset>
-            <Offset>0</Offset>
-            <Offset>18</Offset>
-          </Offsets>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>25</ID>
-          <Description>"pointerscan result"</Description>
-          <Color>BFBF40</Color>
-          <VariableType>4 Bytes</VariableType>
-          <Address>"mono-2.0-bdwgc.dll"+00492DE0</Address>
-          <Offsets>
-            <Offset>7C8</Offset>
-            <Offset>70</Offset>
-            <Offset>30</Offset>
-            <Offset>18</Offset>
-          </Offsets>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>26</ID>
-          <Description>"pointerscan result"</Description>
-          <Color>BFBF40</Color>
-          <VariableType>4 Bytes</VariableType>
-          <Address>"mono-2.0-bdwgc.dll"+0049AC48</Address>
-          <Offsets>
-            <Offset>7C8</Offset>
-            <Offset>70</Offset>
-            <Offset>30</Offset>
-            <Offset>18</Offset>
-          </Offsets>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>23</ID>
-          <Description>"pointerscan result"</Description>
-          <Color>BFBF40</Color>
-          <VariableType>4 Bytes</VariableType>
-          <Address>"mono-2.0-bdwgc.dll"+00492DE0</Address>
-          <Offsets>
-            <Offset>7C8</Offset>
-            <Offset>70</Offset>
-            <Offset>60</Offset>
-            <Offset>0</Offset>
-            <Offset>18</Offset>
-          </Offsets>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>33</ID>
-      <Description>"Infinite Moves"</Description>
-      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <ID>77</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
+          <ID>35</ID>
+          <Description>"HP"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>UnityPlayer.dll+767516</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16293</ID>
+      <Description>"◀️ SOURCE: https://fearlessrevolution.com/viewtopic.php?t=12876"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://fearlessrevolution.com/viewtopic.php?t=12876")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>27</ID>
+          <Description>"[Infinite Movement] Move ingame -&gt; Activate"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2</ID>
+              <Description>"Infinite Movement Activator"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscan(INF_MOVE,89 86 34 01 00 00 85 C0 0F 84 55 00 00 00)
+
+INF_MOVE:
+  db 90 90 90 90 90 90
+  registersymbol(INF_MOVE)
+
+[DISABLE]
+
+INF_MOVE:
+  db 89 86 34 01 00 00
+  unregistersymbol(INF_MOVE)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 200D83F9968
+
+200D83F994A: 00 00                          -  add [rax],al
+200D83F994C: 00 00                          -  add [rax],al
+200D83F994E: 00 00                          -  add [rax],al
+200D83F9950: 55                             -  push rbp
+200D83F9951: 48 8B EC                       -  mov rbp,rsp
+200D83F9954: 48 83 EC 30                    -  sub rsp,30
+200D83F9958: 48 89 75 F8                    -  mov [rbp-08],rsi
+200D83F995C: 48 8B F1                       -  mov rsi,rcx
+200D83F995F: 48 63 86 34 01 00 00           -  movsxd  rax,dword ptr [rsi+00000134]
+200D83F9966: FF C8                          -  dec eax
+// ---------- INJECTING HERE ----------
+200D83F9968: 89 86 34 01 00 00              -  mov [rsi+00000134],eax
+// ---------- DONE INJECTING  ----------
+200D83F996E: 85 C0                          -  test eax,eax
+200D83F9970: 0F 84 55 00 00 00              -  je 200D83F99CB
+200D83F9976: 48 63 86 34 01 00 00           -  movsxd  rax,dword ptr [rsi+00000134]
+200D83F997D: 83 F8 32                       -  cmp eax,32
+200D83F9980: 0F 8D 45 00 00 00              -  jnl 200D83F99CB
+200D83F9986: 48 8B 86 88 00 00 00           -  mov rax,[rsi+00000088]
+200D83F998D: 48 89 45 F0                    -  mov [rbp-10],rax
+200D83F9991: 48 85 F6                       -  test rsi,rsi
+200D83F9994: 0F 84 58 00 00 00              -  je 200D83F99F2
+200D83F999A: 48 8D 8E 34 01 00 00           -  lea rcx,[rsi+00000134]
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>46</ID>
+          <Description>"[Godmode][INFO] Get damage -&gt; Activate"</Description>
+          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>40BF40</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>49</ID>
+              <Description>"Chain Godmode V2 Activator"</Description>
+              <LastState/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscan(GMDV3,85 FF 74 10 83 FF 01 0F 84 3A)
+
+GMDV3+2:
+  db 90 90 90 90 90
+
+registersymbol(GMDV3)
+
+[DISABLE]
+
+GMDV3+2:
+  db 74 10 83 FF 01
+
+unregistersymbol(GMDV3)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 1CCF2F4EA94
+
+1CCF2F4EA6F: 00 55 48                       -  add [rbp+48],dl
+1CCF2F4EA72: 8B EC                          -  mov ebp,esp
+1CCF2F4EA74: 48 81 EC 30 01 00 00           -  sub rsp,00000130
+1CCF2F4EA7B: 48 89 75 E8                    -  mov [rbp-18],rsi
+1CCF2F4EA7F: 48 89 7D F0                    -  mov [rbp-10],rdi
+1CCF2F4EA83: 4C 89 7D F8                    -  mov [rbp-08],r15
+1CCF2F4EA87: 48 8B F1                       -  mov rsi,rcx
+1CCF2F4EA8A: 48 63 7E 20                    -  movsxd  rdi,dword ptr [rsi+20]
+1CCF2F4EA8E: 4C 8B 7E 18                    -  mov r15,[rsi+18]
+1CCF2F4EA92: 85 FF                          -  test edi,edi
+// ---------- INJECTING HERE ----------
+1CCF2F4EA94: 74 10                          -  je 1CCF2F4EAA6
+1CCF2F4EA96: 83 FF 01                       -  cmp edi,01
+// ---------- DONE INJECTING  ----------
+1CCF2F4EA99: 0F 84 3A 04 00 00              -  je 1CCF2F4EED9
+1CCF2F4EA9F: 33 C0                          -  xor eax,eax
+1CCF2F4EAA1: E9 44 04 00 00                 -  jmp 1CCF2F4EEEA
+1CCF2F4EAA6: C7 46 20 FF FF FF FF           -  mov [rsi+20],FFFFFFFF
+1CCF2F4EAAD: 41 C6 87 40 01 00 00 01        -  mov byte ptr [r15+00000140],01
+1CCF2F4EAB5: 49 8B 87 20 01 00 00           -  mov rax,[r15+00000120]
+1CCF2F4EABC: 49 63 8F 44 01 00 00           -  movsxd  rcx,dword ptr [r15+00000144]
+1CCF2F4EAC3: 48 63 C9                       -  movsxd  rcx,ecx
+1CCF2F4EAC6: 39 48 18                       -  cmp [rax+18],ecx
+1CCF2F4EAC9: 0F 86 2D 04 00 00              -  jbe 1CCF2F4EEFC
+}
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16292</ID>
+          <Description>"No Key Required"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscan(NKEY,0F B6 87 28 01 00 00 85 C0)
+
+NKEY:
+  db B8 01 00 00 00 90 90
+
+registersymbol(NKEY)
+
+[DISABLE]
+
+NKEY:
+  db 0F B6 87 28 01 00 00
+
+unregistersymbol(NKEY)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 28748FD292B
+
+28748FD28F6: 49 BB A0 31 FD 48 87 02 00 00  -  mov r11,0000028748FD31A0
+28748FD2900: 41 FF D3                       -  call r11
+28748FD2903: 48 8B C8                       -  mov rcx,rax
+28748FD2906: 48 BA 80 BA 5D 46 87 02 00 00  -  mov rdx,00000287465DBA80
+28748FD2910: 48 8D 64 24 00                 -  lea rsp,[rsp+00]
+28748FD2915: 90                             -  nop 
+28748FD2916: 49 BB E0 70 07 3A 87 02 00 00  -  mov r11,000002873A0770E0
+28748FD2920: 41 FF D3                       -  call r11
+28748FD2923: 85 C0                          -  test eax,eax
+28748FD2925: 0F 84 B5 00 00 00              -  je 28748FD29E0
+// ---------- INJECTING HERE ----------
+28748FD292B: 0F B6 87 28 01 00 00           -  movzx eax,byte ptr [rdi+00000128]
+// ---------- DONE INJECTING  ----------
+28748FD2932: 85 C0                          -  test eax,eax
+28748FD2934: 0F 84 A6 00 00 00              -  je 28748FD29E0
+28748FD293A: 48 8B CE                       -  mov rcx,rsi
+28748FD293D: 83 3E 00                       -  cmp dword ptr [rsi],00
+28748FD2940: 48 8D 64 24 00                 -  lea rsp,[rsp+00]
+28748FD2945: 90                             -  nop 
+28748FD2946: 49 BB F0 DB 39 46 87 02 00 00  -  mov r11,000002874639DBF0
+28748FD2950: 41 FF D3                       -  call r11
+28748FD2953: 48 8B C8                       -  mov rcx,rax
+28748FD2956: 83 38 00                       -  cmp dword ptr [rax],00
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>20</ID>
+          <Description>"No Frame Freeze"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscan(NoFreeze,41 C6 47 7C 01 48 B8)
+
+NoFreeze:
+  db 90 90 90 90 90
+registersymbol(NoFreeze)
+
+[DISABLE]
+
+NoFreeze:
+  db 41 C6 47 7C 01
+unregistersymbol(NoFreeze)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 2F5669285F9
+
+2F5669285CC: C7 85 70 FE FF FF 00 00 00 00  -  mov [rbp-00000190],00000000
+2F5669285D6: 48 63 7E 20                    -  movsxd  rdi,dword ptr [rsi+20]
+2F5669285DA: 4C 8B 7E 18                    -  mov r15,[rsi+18]
+2F5669285DE: 85 FF                          -  test edi,edi
+2F5669285E0: 74 10                          -  je 2F5669285F2
+2F5669285E2: 83 FF 01                       -  cmp edi,01
+2F5669285E5: 0F 84 DE 04 00 00              -  je 2F566928AC9
+2F5669285EB: 33 C0                          -  xor eax,eax
+2F5669285ED: E9 80 05 00 00                 -  jmp 2F566928B72
+2F5669285F2: C7 46 20 FF FF FF FF           -  mov [rsi+20],FFFFFFFF
+// ---------- INJECTING HERE ----------
+2F5669285F9: 41 C6 47 7C 01                 -  mov byte ptr [r15+7C],01
+// ---------- DONE INJECTING  ----------
+2F5669285FE: 48 B8 40 3D 27 5E F5 02 00 00  -  mov rax,000002F55E273D40
+2F566928608: 48 8B 00                       -  mov rax,[rax]
+2F56692860B: 48 89 85 30 FE FF FF           -  mov [rbp-000001D0],rax
+2F566928612: 49 8B 47 38                    -  mov rax,[r15+38]
+2F566928616: 48 89 85 28 FE FF FF           -  mov [rbp-000001D8],rax
+2F56692861D: 49 8B CF                       -  mov rcx,r15
+2F566928620: 48 8D 64 24 00                 -  lea rsp,[rsp+00]
+2F566928625: 90                             -  nop 
+2F566928626: 49 BB 40 94 DA 6C F5 02 00 00  -  mov r11,000002F56CDA9440
+2F566928630: 41 FF D3                       -  call r11
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>72</ID>
+      <Description>"Active cheats"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>34</ID>
+          <Description>"HP"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Helltaker
+  Version: 
+  Date   : 2025-09-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,UnityPlayer.dll,48 FF 48 18 49 FF C2) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  cmp [rax+18],2
+  je return
+  dec qword ptr [rax+18]
+  inc r10
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 2
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 48 FF 48 18 49 FF C2
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: UnityPlayer.dll+767516
+
+UnityPlayer.dll+7674F4: 4C 03 40 08        - add r8,[rax+08]
+UnityPlayer.dll+7674F8: 49 8B 10           - mov rdx,[r8]
+UnityPlayer.dll+7674FB: 49 63 48 08        - movsxd  rcx,dword ptr [r8+08]
+UnityPlayer.dll+7674FF: 48 83 C2 08        - add rdx,08
+UnityPlayer.dll+767503: 83 F9 FF           - cmp ecx,-01
+UnityPlayer.dll+767506: 74 0A              - je UnityPlayer.dll+767512
+UnityPlayer.dll+767508: 48 C1 E1 04        - shl rcx,04
+UnityPlayer.dll+76750C: 48 03 0A           - add rcx,[rdx]
+UnityPlayer.dll+76750F: 48 8B D1           - mov rdx,rcx
+UnityPlayer.dll+767512: 44 89 4A 08        - mov [rdx+08],r9d
+// ---------- INJECTING HERE ----------
+UnityPlayer.dll+767516: 48 FF 48 18        - dec qword ptr [rax+18]
+// ---------- DONE INJECTING  ----------
+UnityPlayer.dll+76751A: 49 FF C2           - inc r10
+UnityPlayer.dll+76751D: 49 83 C3 10        - add r11,10
+UnityPlayer.dll+767521: 4C 3B 53 18        - cmp r10,[rbx+18]
+UnityPlayer.dll+767525: 0F 82 75 FF FF FF  - jb UnityPlayer.dll+7674A0
+UnityPlayer.dll+76752B: 48 8B 4B 08        - mov rcx,[rbx+08]
+UnityPlayer.dll+76752F: 48 85 C9           - test rcx,rcx
+UnityPlayer.dll+767532: 74 12              - je UnityPlayer.dll+767546
+UnityPlayer.dll+767534: 0F B6 43 20        - movzx eax,byte ptr [rbx+20]
+UnityPlayer.dll+767538: F6 D0              - not al
+UnityPlayer.dll+76753A: A8 01              - test al,01
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
           <ID>32</ID>
-          <Description>"Auto Assemble script"</Description>
+          <Description>"Infinite Moves"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>{ Game   : Helltaker
   Version: 
@@ -142,84 +481,68 @@ dealloc(newmem)
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>34</ID>
-      <Description>"HP"</Description>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : Helltaker
-  Version: 
-  Date   : 2025-09-01
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,UnityPlayer.dll,48 FF 48 18 49 FF C2) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  cmp [rax+18],2
-  je return
-  dec qword ptr [rax+18]
-  inc r10
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop 2
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 48 FF 48 18 49 FF C2
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: UnityPlayer.dll+767516
-
-UnityPlayer.dll+7674F4: 4C 03 40 08        - add r8,[rax+08]
-UnityPlayer.dll+7674F8: 49 8B 10           - mov rdx,[r8]
-UnityPlayer.dll+7674FB: 49 63 48 08        - movsxd  rcx,dword ptr [r8+08]
-UnityPlayer.dll+7674FF: 48 83 C2 08        - add rdx,08
-UnityPlayer.dll+767503: 83 F9 FF           - cmp ecx,-01
-UnityPlayer.dll+767506: 74 0A              - je UnityPlayer.dll+767512
-UnityPlayer.dll+767508: 48 C1 E1 04        - shl rcx,04
-UnityPlayer.dll+76750C: 48 03 0A           - add rcx,[rdx]
-UnityPlayer.dll+76750F: 48 8B D1           - mov rdx,rcx
-UnityPlayer.dll+767512: 44 89 4A 08        - mov [rdx+08],r9d
-// ---------- INJECTING HERE ----------
-UnityPlayer.dll+767516: 48 FF 48 18        - dec qword ptr [rax+18]
-// ---------- DONE INJECTING  ----------
-UnityPlayer.dll+76751A: 49 FF C2           - inc r10
-UnityPlayer.dll+76751D: 49 83 C3 10        - add r11,10
-UnityPlayer.dll+767521: 4C 3B 53 18        - cmp r10,[rbx+18]
-UnityPlayer.dll+767525: 0F 82 75 FF FF FF  - jb UnityPlayer.dll+7674A0
-UnityPlayer.dll+76752B: 48 8B 4B 08        - mov rcx,[rbx+08]
-UnityPlayer.dll+76752F: 48 85 C9           - test rcx,rcx
-UnityPlayer.dll+767532: 74 12              - je UnityPlayer.dll+767546
-UnityPlayer.dll+767534: 0F B6 43 20        - movzx eax,byte ptr [rbx+20]
-UnityPlayer.dll+767538: F6 D0              - not al
-UnityPlayer.dll+76753A: A8 01              - test al,01
-}
-</AssemblerScript>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>35</ID>
-      <Description>"HP"</Description>
-      <ShowAsSigned>0</ShowAsSigned>
-      <Color>BF4040</Color>
-      <VariableType>4 Bytes</VariableType>
-      <Address>UnityPlayer.dll+767516</Address>
+      <ID>22</ID>
+      <Description>"Infinite Moves"</Description>
+      <Options moRecursiveSetValue="1" moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BFBF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>24</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>BFBF40</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"+0049AC48</Address>
+          <Offsets>
+            <Offset>7C8</Offset>
+            <Offset>70</Offset>
+            <Offset>60</Offset>
+            <Offset>0</Offset>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>25</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>BFBF40</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"+00492DE0</Address>
+          <Offsets>
+            <Offset>7C8</Offset>
+            <Offset>70</Offset>
+            <Offset>30</Offset>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>BFBF40</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"+0049AC48</Address>
+          <Offsets>
+            <Offset>7C8</Offset>
+            <Offset>70</Offset>
+            <Offset>30</Offset>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>23</ID>
+          <Description>"pointerscan result"</Description>
+          <Color>BFBF40</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"+00492DE0</Address>
+          <Offsets>
+            <Offset>7C8</Offset>
+            <Offset>70</Offset>
+            <Offset>60</Offset>
+            <Offset>0</Offset>
+            <Offset>18</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
     </CheatEntry>
   </CheatEntries>
   <CheatCodes>

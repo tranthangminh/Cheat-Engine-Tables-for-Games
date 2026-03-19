@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>77</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>78</ID>
+          <Description>"Magic EXP"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Magic Archery.exe.text+287F1A5</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>79</ID>
+          <Description>"Gold"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Magic Archery.exe"+27B2F65</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>72</ID>
+      <Description>"Active cheats"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"Get Stats"</Description>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Magic Archery
+  Version: 
+  Date   : 2026-02-17
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(addressGold,"Magic Archery.exe"+27B2F65)
+define(bytesGold,F2 0F 11 41 08)
+
+define(addressMagicEXP,"Magic Archery.exe"+28801A5)
+define(bytesMagicEXP,F2 48 0F 2A 72 08)
+
+[ENABLE]
+
+assert(addressGold,bytesGold)
+alloc(newmemGold,$1000,"Magic Archery.exe"+27B2F65)
+
+alloc(Gold,4)
+registersymbol(Gold)
+
+label(codeGold)
+label(returnGold)
+
+newmemGold:
+
+codeGold:
+  movsd [rcx+08],xmm0
+  mov [Gold], rcx
+  jmp returnGold
+
+addressGold:
+  jmp newmemGold
+returnGold:
+
+
+
+assert(addressMagicEXP,bytesMagicEXP)
+alloc(newmemMagicEXP,$1000,"Magic Archery.exe"+28801A5)
+
+alloc(MagicEXP,4)
+registersymbol(MagicEXP)
+
+label(codeMagicEXP)
+label(returnMagicEXP)
+
+newmemMagicEXP:
+
+codeMagicEXP:
+  mov [MagicEXP],rdx
+  cvtsi2sd xmm6,[rdx+08]
+  jmp returnMagicEXP
+
+addressMagicEXP:
+  jmp newmemMagicEXP
+  nop
+returnMagicEXP:
+
+[DISABLE]
+
+addressGold:
+  db bytesGold
+  // movsd [rcx+08],xmm0
+
+dealloc(newmemGold)
+dealloc(Gold,4)
+unregistersymbol(Gold)
+
+
+
+addressMagicEXP:
+  db bytesMagicEXP
+  // cvtsi2sd xmm6,[rdx+08]
+
+dealloc(newmemMagicEXP)
+dealloc(MagicEXP,4)
+unregistersymbol(MagicEXP)
+
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>2</ID>
+              <Description>"Magic EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>MagicEXP</Address>
+              <Offsets>
+                <Offset>-92C1470</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1</ID>
+              <Description>"Gold"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Double</VariableType>
+              <Address>Gold</Address>
+              <Offsets>
+                <Offset>-B14A58</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

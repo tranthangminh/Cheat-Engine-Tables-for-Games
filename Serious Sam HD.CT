@@ -2,6 +2,75 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
       <ID>3</ID>
       <Description>"Pointers"</Description>
       <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
@@ -188,7 +257,7 @@ SamHD.exe+63041C: CC                             - int 3
       <Color>40BFBF</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>7</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -204,7 +273,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>50</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>8</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -220,7 +289,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>A0</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>9</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -236,7 +305,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>60</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>12</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -250,7 +319,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>8C</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>13</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -266,7 +335,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>A4</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>23</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -282,7 +351,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>9C</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>40</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -298,7 +367,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>A8</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>41</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -314,7 +383,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>50</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>42</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -330,7 +399,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>48</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="200">
+        <CheatEntry>
           <ID>43</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -356,7 +425,7 @@ SamHD.exe+63041C: CC                             - int 3
       <Color>40BFBF</Color>
       <GroupHeader>1</GroupHeader>
       <CheatEntries>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>28</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -372,7 +441,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>80</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>30</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -388,7 +457,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>6C</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>31</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -404,7 +473,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>58</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>32</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -420,7 +489,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>58</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>33</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -436,7 +505,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>4C</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>34</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -452,7 +521,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>84</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>35</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -468,7 +537,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>5C</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>36</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -483,7 +552,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>68</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>37</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>
@@ -499,7 +568,7 @@ SamHD.exe+63041C: CC                             - int 3
             <Offset>60</Offset>
           </Offsets>
         </CheatEntry>
-        <CheatEntry ValueOnActivate="50000">
+        <CheatEntry>
           <ID>38</ID>
           <Description>"pointerscan result"</Description>
           <Color>40BFBF</Color>

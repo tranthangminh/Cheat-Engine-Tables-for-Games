@@ -1,0 +1,1256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>16290</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16291</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16292</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16293</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16296</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16278</ID>
+      <Description>"◀️ IMPORTANT: Enable this checkbox to ACTIVE Mono features FIRST"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Activated="1"/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+mono_initialize()
+LaunchMonoDataCollector()
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16279</ID>
+          <Description>"Active Mono (Menu bar ➜ Mono ➜ Active mono features)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16280</ID>
+          <Description>"Make sure you have Cheat Engine 7.4 or later"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16281</ID>
+          <Description>"◀️ Enable this checkbox to Download the latest version from: https://www.cheatengine.org/"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.cheatengine.org/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>77</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"Get Fill Bar Amount"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>UnityEngine.UI.Image:get_fillAmount+c</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"Get Variable Attribute (realtime)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Framework.FrameworkCore.Attributes.Logic.VariableAttribute:get_Current+24</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>17</ID>
+          <Description>"HP, Mana"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Float</VariableType>
+          <Address>Framework.FrameworkCore.Attributes.Logic.VariableAttribute:set_Current+30</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16294</ID>
+      <Description>"◀️ SOURCE: https://fearlessrevolution.com/viewtopic.php?t=10231"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://fearlessrevolution.com/viewtopic.php?t=10231")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>21</ID>
+          <Description>"Enable Dev Console (F1 To Toggle)"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Blasphemous.exe
+  Version: 
+  Date   : 2019-11-06
+  Author : cfe
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanregion(aobMonoConsole,Gameplay.UI.Widgets:ConsoleWidget:Update,Gameplay.UI.Widgets:ConsoleWidget:Update+200,85 C0 74 26) // should be unique
+
+aobMonoConsole:
+  db 90 90
+
+registersymbol(aobMonoConsole)
+
+[DISABLE]
+
+aobMonoConsole:
+  db 85 C0
+
+unregistersymbol(aobMonoConsole)
+dealloc(newmem)
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>128</ID>
+          <Description>"Enable 4.0.67"</Description>
+          <Options moManualExpandCollapse="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+{$lua}
+LaunchMonoDataCollector()
+{$asm}
+alloc(pPlat,8)
+registersymbol(pPlat)
+alloc(bParryActiv,4)
+registersymbol(bParryActiv)
+alloc(dParryChance,4)
+registersymbol(dParryChance)
+alloc(bChanceActiv,1)
+registersymbol(bChanceActiv)
+alloc(dAutoKey,4)
+registersymbol(dAutoKey)
+
+dParryChance:
+dd #50
+bChanceActiv:
+db 0
+dAutoKey:
+dd #74
+
+[DISABLE]
+
+unregistersymbol(pPlat)
+unregistersymbol(bParryActiv)
+unregistersymbol(dParryChance)
+unregistersymbol(bChanceActiv)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>121</ID>
+              <Description>"Hook"</Description>
+              <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState Activated="1"/>
+              <Color>40BF40</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Blasphemous.exe
+  Version:
+  Date   : 2021-02-18
+  Author : cfe
+
+  This script does blah blah blah
+}
+
+define(address,Gameplay.GameControllers.Penitent:Penitent:OnUpdate)
+define(bytes,55 48 8B EC 56)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,Gameplay.GameControllers.Penitent:Penitent:OnUpdate)
+
+label(code)
+label(return)
+label(pPenitent)
+registersymbol(pPenitent)
+
+newmem:
+
+code:
+  push rbp
+  mov rbp,rsp
+  push rsi
+  mov [pPenitent],rcx
+  jmp return
+pPenitent:
+dq 0
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // push rbp
+  // mov rbp,rsp
+  // push rsi
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16297</ID>
+                  <Description>"Basic Stats"</Description>
+                  <LastState Value="" Activated="1" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>123</ID>
+                      <Description>"Fervour"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <Color>40BFBF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>pPenitent</Address>
+                      <Offsets>
+                        <Offset>48</Offset>
+                        <Offset>28</Offset>
+                        <Offset>88</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>122</ID>
+                      <Description>"Health"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <Color>40BFBF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>pPenitent</Address>
+                      <Offsets>
+                        <Offset>48</Offset>
+                        <Offset>38</Offset>
+                        <Offset>88</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>124</ID>
+                      <Description>"Souls/Purge"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <Color>40BFBF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>pPenitent</Address>
+                      <Offsets>
+                        <Offset>48</Offset>
+                        <Offset>90</Offset>
+                        <Offset>88</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>132</ID>
+                      <Description>"Flasks"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <Color>40BFBF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>pPenitent</Address>
+                      <Offsets>
+                        <Offset>48</Offset>
+                        <Offset>60</Offset>
+                        <Offset>88</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>38</ID>
+                  <Description>"God Mode"</Description>
+                  <LastState/>
+                  <Color>40BF40</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+Gameplay.GameControllers.Penitent.Damage:PenitentDamageArea:TakeDamage:
+db C3
+
+ 
+[DISABLE]
+Gameplay.GameControllers.Penitent.Damage:PenitentDamageArea:TakeDamage:
+db 55
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>36</ID>
+                  <Description>"Ignore Flask"</Description>
+                  <LastState Activated="1"/>
+                  <Color>40BF40</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Blasphemous.exe
+  Version: 
+  Date   : 2020-01-12
+  Author : cfe
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanregion(aobIgnoreFlask,Gameplay.UI.Others.UIGameLogic:PlayerFlask:RefreshFlask,Gameplay.UI.Others.UIGameLogic:PlayerFlask:RefreshFlask+500,F3 0F 5A C8) // should be unique
+alloc(newmem,$1000,aobIgnoreFlask)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+cmp [rdi+48],0
+jne @f
+mov [rdi+48],(float)1
+@@:
+  cvtss2sd xmm1,xmm0
+  movsd xmm0,[rbp-30]
+  jmp return
+
+aobIgnoreFlask:
+  jmp newmem
+  nop 4
+return:
+registersymbol(aobIgnoreFlask)
+
+[DISABLE]
+
+aobIgnoreFlask:
+  db F3 0F 5A C8 F2 0F 10 45 D0
+
+unregistersymbol(aobIgnoreFlask)
+dealloc(newmem)
+
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>150</ID>
+                  <Description>"Remove Spike Instant Death"</Description>
+                  <LastState Activated="1"/>
+                  <Color>40BF40</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Blasphemous.exe
+  Version: 
+  Date   : 2021-12-10
+  Author : cfe
+
+  This script does blah blah blah
+}
+
+define(address,Gameplay.GameControllers.Entities:CheckTrap:OnTriggerStay2D )
+define(bytes,55 48 8B EC 56)
+
+[ENABLE]
+Gameplay.GameControllers.Entities:CheckTrap:SpikeTrapDamage:
+db C3
+
+assert(address,bytes)
+alloc(newmem,$1000,Gameplay.GameControllers.Entities:CheckTrap:OnTriggerStay2D )
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  push rbp
+  mov rbp,rsp
+  push rsi
+  mov byte ptr[rcx+31],0
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // push rbp
+  // mov rbp,rsp
+  // push rsi
+
+dealloc(newmem)
+
+Gameplay.GameControllers.Entities:CheckTrap:SpikeTrapDamage:
+db 55
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>144</ID>
+                  <Description>"Parry Mod."</Description>
+                  <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+                  <LastState Activated="1"/>
+                  <Color>40BF40</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Blasphemous.exe
+  Version: 
+  Date   : 2020-05-15
+  Author : cfe
+
+  This script does blah blah blah
+}
+
+
+define(address2,Gameplay.GameControllers.Penitent.Abilities:Parry:OnUpdate)
+define(bytes2,55 48 8B EC 56)
+
+define(address3,Gameplay.GameControllers.Penitent:Penitent:Damage)
+define(bytes3,55 48 8B EC 56)
+
+[ENABLE]
+
+{$lua}
+--Based on TheyCallMeTim13's lua keylistener script -&gt; thx for this!
+--http://fearlessrevolution.com/viewtopic.php?f=4&amp;t=6041&amp;start=60#p62657
+local function CheckParryThread(thread2)
+	local addr2 = getAddressSafe('bParryActiv')
+    local addchance = getAddressSafe('dParryChance')
+    local addchanceactiv = getAddressSafe('bChanceActiv')
+    local keycode = getAddressSafe('dAutoKey')
+    local KeyPressed
+	while runCheckParryThread do
+        sleep(100)
+        KeyPressed = 0
+		if addr2 and addchance and addchanceactiv then
+            if ( isKeyPressed(readInteger(keycode))) then
+			    writeBytes(addr2, 1)
+                KeyPressed = 1
+            else
+                writeBytes(addr2, 0)
+            end
+
+            if readBytes(addchanceactiv,0x01) == 0x01 and KeyPressed == 0 then
+               if (math.random(1,100) &lt;= readInteger(addchance))then
+                              writeBytes(addr2, 1)
+
+                          else
+                              writeBytes(addr2, 0)
+                          end
+            end
+
+		else
+			addr2 = getAddressSafe('bParryActiv')
+            addchance = getAddressSafe('dParryChance')
+            addchanceactiv = getAddressSafe('bChanceActiv')
+            keycode = getAddressSafe('dAutoKey')
+		end
+	end
+	thread2.terminate()
+end
+----------------------------------
+if syntaxcheck then return end
+runCheckParryThread = true
+createThread(CheckParryThread)
+{$asm}
+
+//
+
+aobscanregion(aobInvFlag,Gameplay.GameControllers.Penitent.Abilities:Parry:ParrySuccess,Gameplay.GameControllers.Penitent.Abilities:Parry:ParrySuccess+150,C6 40 11 01) // should be unique
+
+aobInvFlag+3:
+  db 00 // EntityStatus0x11 = Inv
+
+//
+
+registersymbol(aobInvFlag)
+
+assert(address2,bytes2)
+alloc(newmem2,$1000,Gameplay.GameControllers.Penitent.Abilities:Parry:OnUpdate)
+
+label(code2)
+label(return2)
+
+newmem2:
+
+code2:
+  push rbp
+  mov rbp,rsp
+  push rsi
+  mov byte ptr[rcx+B4],00 // SuccessParry
+  jmp return2
+
+address2:
+  jmp newmem2
+return2:
+//
+
+assert(address3,bytes3)
+alloc(newmem3,$1000,Gameplay.GameControllers.Penitent:Penitent:Damage)
+
+label(code3)
+label(return3)
+
+newmem3:
+
+code3:
+  push rbp
+  mov rbp,rsp
+  push rsi
+  mov rsi,[rcx+158] // parry
+  push rax
+  mov rax,bParryActiv
+  cmp byte ptr[rax],0
+  pop rax
+   je return3
+  mov byte ptr[rsi+B5],01 // IsOnParryChance
+  jmp return3
+
+address3:
+  jmp newmem3
+return3:
+
+[DISABLE]
+
+
+{$lua}
+if syntaxcheck then return end
+runCheckParryThread = false
+{$asm}
+
+aobInvFlag+3:
+  db 01
+
+unregistersymbol(aobInvFlag)
+
+
+//aobSetParryStatus:
+  //db 0F B6 86 B5 00 00 00
+
+//unregistersymbol(aobSetParryStatus)
+address2:
+  db bytes2
+  // push rbp
+  // mov rbp,rsp
+  // push rsi
+
+dealloc(newmem2)
+
+address3:
+  db bytes3
+  // push rbp
+  // mov rbp,rsp
+  // push rsi
+
+dealloc(newmem3)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Gameplay.GameControllers.Penitent:Penitent:Damage
+
+286344D718C: 01 04 01                       - add [rcx+rax],eax
+286344D718F: 00 04 02                       - add [rdx+rax],al
+286344D7192: 00 00                          - add [rax],al
+286344D7194: 00 00                          - add [rax],al
+286344D7196: 00 00                          - add [rax],al
+286344D7198: 00 00                          - add [rax],al
+286344D719A: 00 00                          - add [rax],al
+286344D719C: 00 00                          - add [rax],al
+286344D719E: 00 00                          - add [rax],al
+Gameplay.GameControllers.Penitent:Penitent:Damage: 55                             - push rbp
+// ---------- INJECTING HERE ----------
+Gameplay.GameControllers.Penitent:Penitent:Damage+1: 48 8B EC                       - mov rbp,rsp
+// ---------- DONE INJECTING  ----------
+Gameplay.GameControllers.Penitent:Penitent:Damage+4: 56                             - push rsi
+Gameplay.GameControllers.Penitent:Penitent:Damage+5: 48 81 EC D8 00 00 00           - sub rsp,000000D8
+Gameplay.GameControllers.Penitent:Penitent:Damage+c: 48 8B F1                       - mov rsi,rcx
+Gameplay.GameControllers.Penitent:Penitent:Damage+f: 48 8B 8E B0 01 00 00           - mov rcx,[rsi+000001B0]
+Gameplay.GameControllers.Penitent:Penitent:Damage+16: 48 83 EC 20                    - sub rsp,20
+Gameplay.GameControllers.Penitent:Penitent:Damage+1a: 49 BB 20 98 43 43 86 02 00 00  - mov r11,UnityEngine:Object:op_Implicit
+Gameplay.GameControllers.Penitent:Penitent:Damage+24: 41 FF D3                       - call r11
+Gameplay.GameControllers.Penitent:Penitent:Damage+27: 48 83 C4 20                    - add rsp,20
+Gameplay.GameControllers.Penitent:Penitent:Damage+2b: 85 C0                          - test eax,eax
+Gameplay.GameControllers.Penitent:Penitent:Damage+2d: 0F 84 2F 03 00 00              - je Gameplay.GameControllers.Penitent:Penitent:Damage+362
+}
+</AssemblerScript>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>145</ID>
+                      <Description>"Activate Auto. Parry Chance"</Description>
+                      <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+                      <LastState Activated="1"/>
+                      <Color>40BF40</Color>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+bChanceActiv:
+db 1
+
+ 
+[DISABLE]
+bChanceActiv:
+db 0
+</AssemblerScript>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>146</ID>
+                          <Description>"Parry Chance %"</Description>
+                          <Color>40BFBF</Color>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>dParryChance</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>147</ID>
+                          <Description>"Auto Parry Key (Default J)"</Description>
+                          <ShowAsHex>1</ShowAsHex>
+                          <ShowAsSigned>1</ShowAsSigned>
+                          <Color>40BFBF</Color>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>dAutoKey</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>32</ID>
+                  <Description>"Jump &amp; Speed Mods."</Description>
+                  <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+                  <LastState/>
+                  <Color>40BF40</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Blasphemous.exe
+  Version: 
+  Date   : 2020-01-08
+  Author : cfe
+
+  This script does blah blah blah
+}
+
+define(address,CreativeSpore.SmartColliders:PlatformCharacterController:Update )
+define(bytes,55 48 8B EC 56)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,CreativeSpore.SmartColliders:PlatformCharacterController:Update )
+
+label(code)
+label(return)
+label(isActiv)
+registersymbol(isActiv)
+label(fSpeed)
+registersymbol(fSpeed)
+
+newmem:
+
+code:
+  push rbp
+  mov rbp,rsp
+  push rsi
+
+  mov rsi,[fSpeed]
+  mov [rcx+7C],esi
+
+  push rcx
+  cmp [isActiv],1
+  je DoubleJump
+  add rcx,18
+  mov rcx,[rcx]
+  mov [rcx+40],(float)3
+  jmp jOut
+
+  DoubleJump:
+  mov [rcx+A4],0
+  add rcx,18
+  mov rcx,[rcx]
+  movss xmm0,[rcx+20]
+  mov rsi,fMax
+  movss xmm1,[rsi]
+  maxss xmm0,xmm1
+  movss [rcx+20],xmm0
+
+  jOut:
+  pop rcx
+  jmp return
+isActiv:
+dd 0
+fSpeed:
+dd (float)1.75
+fMax:
+dd (float)-10
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+{$lua}
+default = getAddress('[pPlat]+40')
+writeFloat(default,3.0)
+{$asm}
+
+address:
+  db bytes
+  // push rbp
+  // mov rbp,rsp
+  // push rsi
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: CreativeSpore.SmartColliders:PlatformCharacterController:Update 
+
+24C6DB71DBA: 00 00                    -  add [rax],al
+24C6DB71DBC: 01 04 01                 -  add [rcx+rax],eax
+24C6DB71DBF: 00 04 02                 -  add [rdx+rax],al
+24C6DB71DC2: 00 00                    -  add [rax],al
+24C6DB71DC4: 00 00                    -  add [rax],al
+24C6DB71DC6: 00 00                    -  add [rax],al
+24C6DB71DC8: 00 00                    -  add [rax],al
+24C6DB71DCA: 00 00                    -  add [rax],al
+24C6DB71DCC: 00 00                    -  add [rax],al
+24C6DB71DCE: 00 00                    -  add [rax],al
+// ---------- INJECTING HERE ----------
+24C6DB71DD0: 55                       -  push rbp
+24C6DB71DD1: 48 8B EC                 -  mov rbp,rsp
+24C6DB71DD4: 56                       -  push rsi
+// ---------- DONE INJECTING  ----------
+24C6DB71DD5: 41 56                    -  push r14
+24C6DB71DD7: 48 81 EC 40 04 00 00     -  sub rsp,00000440
+24C6DB71DDE: 48 8B F1                 -  mov rsi,rcx
+24C6DB71DE1: 33 C0                    -  xor eax,eax
+24C6DB71DE3: 48 89 85 F8 FB FF FF     -  mov [rbp-00000408],rax
+24C6DB71DEA: 89 85 00 FC FF FF        -  mov [rbp-00000400],eax
+24C6DB71DF0: 48 89 85 08 FC FF FF     -  mov [rbp-000003F8],rax
+24C6DB71DF7: 89 85 10 FC FF FF        -  mov [rbp-000003F0],eax
+24C6DB71DFD: 48 89 85 18 FC FF FF     -  mov [rbp-000003E8],rax
+24C6DB71E04: 89 85 20 FC FF FF        -  mov [rbp-000003E0],eax
+}
+</AssemblerScript>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>33</ID>
+                      <Description>"Super Jump Enable"</Description>
+                      <LastState/>
+                      <Color>40BF40</Color>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+isActiv:
+dd 1
+
+ 
+ 
+[DISABLE]
+isActiv:
+dd 0
+</AssemblerScript>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>149</ID>
+                          <Description>"Move Speed"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <Color>40BFBF</Color>
+                          <VariableType>Float</VariableType>
+                          <Address>fSpeed</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>125</ID>
+                  <Description>"Damage Multiplier x?"</Description>
+                  <Options moManualExpandCollapse="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+                  <LastState/>
+                  <Color>40BF40</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>{ Game   : Blasphemous.exe
+  Version: 
+  Date   : 2020-05-15
+  Author : cfe
+
+  This script does blah blah blah
+}
+
+define(address,Gameplay.GameControllers.Entities:Entity:Damage)
+define(bytes,55 48 8B EC 56)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,Gameplay.GameControllers.Entities:Entity:Damage)
+
+label(code)
+label(return)
+label(fDamMul)
+registersymbol(fDamMul)
+
+newmem:
+
+code:
+  push rbp
+  mov rbp,rsp
+  push rsi
+  cmp rcx,[pPenitent]
+  je return
+  mulss xmm1,[fDamMul]
+  jmp return
+
+fDamMul:
+dd (float)2
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // push rbp
+  // mov rbp,rsp
+  // push rsi
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Gameplay.GameControllers.Entities:Entity:Damage
+
+2140568CB0A: E9 61 63 FB FF                 -  jmp 21405642E70
+2140568CB0F: 00 00                          -  add [rax],al
+2140568CB11: 00 00                          -  add [rax],al
+2140568CB13: 00 00                          -  add [rax],al
+2140568CB15: 00 00                          -  add [rax],al
+2140568CB17: 00 00                          -  add [rax],al
+2140568CB19: 00 00                          -  add [rax],al
+2140568CB1B: 00 00                          -  add [rax],al
+2140568CB1D: 00 00                          -  add [rax],al
+2140568CB1F: 00 55                          - db 00 55  // SHORTENED TO HIT INJECTION FROM:  add [rbp+48],dl
+// ---------- INJECTING HERE ----------
+2140568CB21: 48 8B EC                       -  mov rbp,rsp
+2140568CB24: 56                             -  push rsi
+// ---------- DONE INJECTING  ----------
+2140568CB25: 57                             -  push rdi
+2140568CB26: 48 83 EC 40                    -  sub rsp,40
+2140568CB2A: 48 8B F9                       -  mov rdi,rcx
+2140568CB2D: F3 0F 11 4D C0                 -  movss [rbp-40],xmm1
+2140568CB32: 49 8B F0                       -  mov rsi,r8
+2140568CB35: 48 8B CE                       -  mov rcx,rsi
+2140568CB38: 48 83 EC 20                    -  sub rsp,20
+2140568CB3C: 49 BB B0 3C 9A 14 14 02 00 00  -  mov r11,00000214149A3CB0
+2140568CB46: 41 FF D3                       -  call r11
+2140568CB49: 48 83 C4 20                    -  add rsp,20
+}
+</AssemblerScript>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>126</ID>
+                      <Description>"x?"</Description>
+                      <Color>40BFBF</Color>
+                      <VariableType>Float</VariableType>
+                      <Address>fDamMul</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16</ID>
+          <Description>""</Description>
+          <Options moHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>111</ID>
+              <Description>"Background"</Description>
+              <LastState Activated="1"/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+aobscanregion(activate,UnityEngine:Application:set_runInBackground,UnityEngine:Application:set_runInBackground+5,55)
+aobscanregion(aobMono64,UnityEngine:Camera:get_clearFlags,UnityEngine:Camera:get_clearFlags+100,0F 84 ** ** ** ** **) // should be unique
+alloc(newmem,$1000,aobMono64)
+
+label(code)
+label(return)
+
+alloc(orig64,6)
+registersymbol(orig64)
+
+orig64:
+readmem(aobMono64,6)
+
+newmem:
+
+code:
+  reassemble(aobMono64)
+  mov ecx,1
+  mov r11,"UnityEngine:Application:set_runInBackground"
+  call r11
+  jmp return
+
+aobMono64:
+  jmp newmem
+  nop
+return:
+registersymbol(aobMono64)
+
+[DISABLE]
+
+aobMono64:
+  readmem(orig64,6)
+
+unregistersymbol(aobMono64)
+dealloc(newmem)
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>138</ID>
+              <Description>"Parry Mod."</Description>
+              <Options moHideChildren="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+              <LastState/>
+              <Color>FF8000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{ Game   : Blasphemous.exe
+  Version: 
+  Date   : 2020-05-15
+  Author : cfe
+
+  This script does blah blah blah
+}
+
+
+define(address2,Gameplay.GameControllers.Penitent.Abilities:Parry:OnUpdate)
+define(bytes2,55 48 8B EC 56)
+
+[ENABLE]
+
+aobscanregion(aobCheckParry,Gameplay.GameControllers.Penitent:Penitent:Damage,Gameplay.GameControllers.Penitent:Penitent:Damage+500,0F B6 80 B5 00 00 00) // should be unique
+alloc(newmem,$1000,aobCheckParry)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  movzx eax,byte ptr [rax+000000B5]
+  cmp byte ptr[bParryActiv],1
+  jne @f
+  mov eax,1
+  mov byte ptr[bParryActiv],0
+  @@:
+  jmp return
+
+aobCheckParry:
+  jmp newmem
+  nop 2
+return:
+
+registersymbol(aobCheckParry)
+
+{$lua}
+--Based on TheyCallMeTim13's lua keylistener script -&gt; thx for this!
+--http://fearlessrevolution.com/viewtopic.php?f=4&amp;t=6041&amp;start=60#p62657
+local function CheckParryThread(thread2)
+	local addr2 = getAddressSafe('bParryActiv')
+    local addchance = getAddressSafe('dParryChance')
+    local addchanceactiv = getAddressSafe('bChanceActiv')
+    local keycode = getAddressSafe('dAutoKey')
+    local KeyPressed
+	while runCheckParryThread do
+        sleep(100)
+        KeyPressed = 0
+		if addr2 and addchance and addchanceactiv then
+            if ( isKeyPressed(readInteger(keycode))) then
+			    writeBytes(addr2, 1)
+                KeyPressed = 1
+            else
+                writeBytes(addr2, 0)
+            end
+
+            if readBytes(addchanceactiv,0x01) == 0x01 and KeyPressed == 0 then
+               if (math.random(1,100) &lt;= readInteger(addchance))then
+                              writeBytes(addr2, 1)
+                          else
+                              writeBytes(addr2, 0)
+                          end
+            end
+
+		else
+			addr2 = getAddressSafe('bParryActiv')
+            addchance = getAddressSafe('dParryChance')
+            addchanceactiv = getAddressSafe('bChanceActiv')
+            keycode = getAddressSafe('dAutoKey')
+		end
+	end
+	thread2.terminate()
+end
+----------------------------------
+if syntaxcheck then return end
+runCheckParryThread = true
+createThread(CheckParryThread)
+{$asm}
+
+//
+
+aobscanregion(aobInvFlag,Gameplay.GameControllers.Penitent.Abilities:Parry:ParrySuccess,Gameplay.GameControllers.Penitent.Abilities:Parry:ParrySuccess+150,C6 40 11 01) // should be unique
+
+aobInvFlag+3:
+  db 00
+
+//
+
+registersymbol(aobInvFlag)
+
+assert(address2,bytes2)
+alloc(newmem2,$1000,Gameplay.GameControllers.Penitent.Abilities:Parry:OnUpdate)
+
+label(code2)
+label(return2)
+
+newmem2:
+
+code2:
+  push rbp
+  mov rbp,rsp
+  push rsi
+  mov byte ptr[rcx+B4],00
+  jmp return2
+
+address2:
+  jmp newmem2
+return2:
+
+[DISABLE]
+
+aobCheckParry:
+  db 0F B6 80 B5 00 00 00
+
+unregistersymbol(aobCheckParry)
+dealloc(newmem)
+
+{$lua}
+if syntaxcheck then return end
+runCheckParryThread = false
+{$asm}
+
+aobInvFlag+3:
+  db 01
+
+unregistersymbol(aobInvFlag)
+
+
+//aobSetParryStatus:
+  //db 0F B6 86 B5 00 00 00
+
+//unregistersymbol(aobSetParryStatus)
+address2:
+  db bytes2
+  // push rbp
+  // mov rbp,rsp
+  // push rsi
+
+dealloc(newmem2)
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>117</ID>
+                  <Description>"Activate Auto. Parry Chance"</Description>
+                  <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+bChanceActiv:
+db 1
+
+ 
+[DISABLE]
+bChanceActiv:
+db 0
+</AssemblerScript>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>118</ID>
+                      <Description>"Parry Chance %"</Description>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>dParryChance</Address>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>119</ID>
+                  <Description>"Auto Parry Key (Default J)"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>dAutoKey</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>143</ID>
+              <Description>"No description"</Description>
+              <VariableType>Byte</VariableType>
+              <Address>bParryActiv</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of movss [rsi+000000D8],xmm5</Description>
+      <AddressString>27742FD3E00</AddressString>
+      <Before>
+        <Byte>C0</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>5A</Byte>
+        <Byte>E8</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>AE</Byte>
+        <Byte>D8</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>86</Byte>
+        <Byte>D8</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss xmm0,[rsi]</Description>
+      <AddressString>27713AEA087</AddressString>
+      <Before>
+        <Byte>D3</Byte>
+        <Byte>48</Byte>
+        <Byte>83</Byte>
+        <Byte>C4</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>10</Byte>
+        <Byte>06</Byte>
+      </Actual>
+      <After>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>5A</Byte>
+        <Byte>C0</Byte>
+        <Byte>F3</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of movss [rsi],xmm5</Description>
+      <AddressString>27713AEA0D4</AddressString>
+      <Before>
+        <Byte>C0</Byte>
+        <Byte>F2</Byte>
+        <Byte>0F</Byte>
+        <Byte>5A</Byte>
+        <Byte>E8</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>2E</Byte>
+      </Actual>
+      <After>
+        <Byte>BF</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+  <Comments>Info about this table:
+</Comments>
+</CheatTable>

@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16282</ID>
+      <Description>"◀️ IMPORTANT: Enable this checkbox to ACTIVE Mono features FIRST"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+mono_initialize()
+LaunchMonoDataCollector()
+{$asm}
+
+[DISABLE]
+{$lua}
+mono_initialize()
+LaunchMonoDataCollector()
+{$asm}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16283</ID>
+          <Description>"Active Mono (Menu bar ➜ Mono ➜ Active mono features)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16284</ID>
+          <Description>"Make sure you have Cheat Engine 7.4 or later"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16285</ID>
+          <Description>"◀️ Enable checkbox to Download the latest version from: https://www.cheatengine.org/"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.cheatengine.org/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>77</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16296</ID>
+          <Description>"Battle Pass (realtime)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+21415D</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16302</ID>
+          <Description>"Building Level (realtime on touch)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+140F8B</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16322</ID>
+          <Description>"Building Process (realtime)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+12EDC3</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"Everything (Currency,Money, Diamonds, Lightbulb, EXP) (realtime)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+DAAEB</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16295</ID>
+          <Description>"Everything (Gifts) (realtime)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+67CED</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16309</ID>
+          <Description>"get_LocationId"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Game.Scripts.UI.Windows.LocationSelect.SelectLocationView.get_LocationId</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16297</ID>
+          <Description>"Magnet"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+7f</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16312</ID>
+          <Description>"Money, Diamonds, Workers, Energy, Lightbulbs, EXP, Hammer (realtime)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Game.Scripts.Engine.Profiles.GameResources.ResourcesManager:GetResourceAmount+4b</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16315</ID>
+          <Description>"Open box times"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+13DABC</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16314</ID>
+          <Description>"Timer"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+23D01F</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16303</ID>
+          <Description>"[COLLECTIONS] Cards (realtime)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Game.Scripts.UI.Windows.ContactList.ContactProgressView:Refresh+47</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16306</ID>
+          <Description>"[COLLECTIONS] Levels (realtime)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Game.Scripts.Contacts.ContactController:GetNextLevelData+13</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16325</ID>
+          <Description>"[EVENT-Smash] Exp (realtime)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Game.Scripts.Affair.ChallengeAffairInfo:get_Exp+15</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16299</ID>
+          <Description>"[EVENT] Everything (Gifts) (realtime)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Game.Scripts.Inventory.InventorySlotController:GetItemsAmount+f</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16294</ID>
+          <Description>"[ORGASMS] Items"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+BBB3C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16308</ID>
+          <Description>"[ROMANCE] Score (realtime)"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>GameAssembly.dll.il2cpp+67962</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16323</ID>
+          <Description>"[SHOP] Summon Girls Cards"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+C529D</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>72</ID>
+      <Description>"Active cheats"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16293</ID>
+          <Description>"Orgasms Items = 999.999"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : PassionIndustry
+  Version: 
+  Date   : 2026-01-20
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+4D7B3C)
+define(bytes,89 4A 20 EB AF)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"GameAssembly.dll"+4D7B3C)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rdx+20],(int)999999
+  //mov [rdx+20],ecx
+  jmp GameAssembly.dll.il2cpp+BBAF0
+  jmp return
+
+address:
+  jmp newmem
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [rdx+20],ecx
+  // jmp GameAssembly.dll.il2cpp+BBAF0
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll.il2cpp+BBB3C
+
+GameAssembly.dll.il2cpp+BBB1D: 48 8B D3        - mov rdx,rbx
+GameAssembly.dll.il2cpp+BBB20: E8 3B 1E EA FF  - call GameAssembly.dll.text+378960
+GameAssembly.dll.il2cpp+BBB25: EB C9           - jmp GameAssembly.dll.il2cpp+BBAF0
+GameAssembly.dll.il2cpp+BBB27: 48 8B 54 24 50  - mov rdx,[rsp+50]
+GameAssembly.dll.il2cpp+BBB2C: 48 85 D2        - test rdx,rdx
+GameAssembly.dll.il2cpp+BBB2F: 74 10           - je GameAssembly.dll.il2cpp+BBB41
+GameAssembly.dll.il2cpp+BBB31: 8B 4A 20        - mov ecx,[rdx+20]
+GameAssembly.dll.il2cpp+BBB34: 03 CF           - add ecx,edi
+GameAssembly.dll.il2cpp+BBB36: 85 C9           - test ecx,ecx
+GameAssembly.dll.il2cpp+BBB38: 41 0F 4E CE     - cmovle ecx,r14d
+// ---------- INJECTING HERE ----------
+GameAssembly.dll.il2cpp+BBB3C: 89 4A 20        - mov [rdx+20],ecx
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll.il2cpp+BBB3F: EB AF           - jmp GameAssembly.dll.il2cpp+BBAF0
+GameAssembly.dll.il2cpp+BBB41: E8 EA 2B EA FF  - call GameAssembly.dll.text+379730
+GameAssembly.dll.il2cpp+BBB46: CC              - int 3 
+GameAssembly.dll.il2cpp+BBB47: E8 D4 2B EA FF  - call GameAssembly.dll.text+379720
+GameAssembly.dll.il2cpp+BBB4C: CC              - int 3 
+GameAssembly.dll.il2cpp+BBB4D: CC              - int 3 
+GameAssembly.dll.il2cpp+BBB4E: CC              - int 3 
+GameAssembly.dll.il2cpp+BBB4F: CC              - int 3 
+Game.Scripts.Engine.Profiles.StorageManager.Clear: 48 89 5C 24 10  - mov [rsp+10],rbx
+GameAssembly.dll.il2cpp+BBB55: 57              - push rdi
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16317</ID>
+          <Description>"Open the box only once"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : PassionIndustry
+  Version: 
+  Date   : 2026-01-22
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+559ABC)
+define(bytes,FF 41 18 48 8B 43 10)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"GameAssembly.dll"+559ABC)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [rcx+18],(int)9
+  //inc [rcx+18]
+  mov rax,[rbx+10]
+  jmp return
+
+address:
+  jmp newmem
+  nop 2
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // inc [rcx+18]
+  // mov rax,[rbx+10]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll.il2cpp+13DABC
+
+GameAssembly.dll.il2cpp+13DA91: 48 8B 48 38           - mov rcx,[rax+38]
+GameAssembly.dll.il2cpp+13DA95: 48 85 C9              - test rcx,rcx
+GameAssembly.dll.il2cpp+13DA98: 0F 84 9D 02 00 00     - je GameAssembly.dll.il2cpp+13DD3B
+GameAssembly.dll.il2cpp+13DA9E: 44 88 71 22           - mov [rcx+22],r14b
+GameAssembly.dll.il2cpp+13DAA2: 48 8B 4B 10           - mov rcx,[rbx+10]
+GameAssembly.dll.il2cpp+13DAA6: 48 85 C9              - test rcx,rcx
+GameAssembly.dll.il2cpp+13DAA9: 0F 84 8C 02 00 00     - je GameAssembly.dll.il2cpp+13DD3B
+GameAssembly.dll.il2cpp+13DAAF: 48 8B 49 38           - mov rcx,[rcx+38]
+GameAssembly.dll.il2cpp+13DAB3: 48 85 C9              - test rcx,rcx
+GameAssembly.dll.il2cpp+13DAB6: 0F 84 7F 02 00 00     - je GameAssembly.dll.il2cpp+13DD3B
+// ---------- INJECTING HERE ----------
+GameAssembly.dll.il2cpp+13DABC: FF 41 18              - inc [rcx+18]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll.il2cpp+13DABF: 48 8B 43 10           - mov rax,[rbx+10]
+GameAssembly.dll.il2cpp+13DAC3: 48 85 C0              - test rax,rax
+GameAssembly.dll.il2cpp+13DAC6: 0F 84 6F 02 00 00     - je GameAssembly.dll.il2cpp+13DD3B
+GameAssembly.dll.il2cpp+13DACC: 48 8B 80 88 00 00 00  - mov rax,[rax+00000088]
+GameAssembly.dll.il2cpp+13DAD3: 48 85 C0              - test rax,rax
+GameAssembly.dll.il2cpp+13DAD6: 0F 84 5F 02 00 00     - je GameAssembly.dll.il2cpp+13DD3B
+GameAssembly.dll.il2cpp+13DADC: 48 8B 48 40           - mov rcx,[rax+40]
+GameAssembly.dll.il2cpp+13DAE0: 48 85 C9              - test rcx,rcx
+GameAssembly.dll.il2cpp+13DAE3: 0F 84 52 02 00 00     - je GameAssembly.dll.il2cpp+13DD3B
+GameAssembly.dll.il2cpp+13DAE9: 33 D2                 - xor edx,edx
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16316</ID>
+          <Description>"Open the box = 3"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : PassionIndustry
+  Version: 
+  Date   : 2026-01-22
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+559ABC)
+define(bytes,FF 41 18 48 8B 43 10)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"GameAssembly.dll"+559ABC)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rcx+18],(int)3
+  //inc [rcx+18]
+  mov rax,[rbx+10]
+  jmp return
+
+address:
+  jmp newmem
+  nop 2
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // inc [rcx+18]
+  // mov rax,[rbx+10]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll.il2cpp+13DABC
+
+GameAssembly.dll.il2cpp+13DA91: 48 8B 48 38           - mov rcx,[rax+38]
+GameAssembly.dll.il2cpp+13DA95: 48 85 C9              - test rcx,rcx
+GameAssembly.dll.il2cpp+13DA98: 0F 84 9D 02 00 00     - je GameAssembly.dll.il2cpp+13DD3B
+GameAssembly.dll.il2cpp+13DA9E: 44 88 71 22           - mov [rcx+22],r14b
+GameAssembly.dll.il2cpp+13DAA2: 48 8B 4B 10           - mov rcx,[rbx+10]
+GameAssembly.dll.il2cpp+13DAA6: 48 85 C9              - test rcx,rcx
+GameAssembly.dll.il2cpp+13DAA9: 0F 84 8C 02 00 00     - je GameAssembly.dll.il2cpp+13DD3B
+GameAssembly.dll.il2cpp+13DAAF: 48 8B 49 38           - mov rcx,[rcx+38]
+GameAssembly.dll.il2cpp+13DAB3: 48 85 C9              - test rcx,rcx
+GameAssembly.dll.il2cpp+13DAB6: 0F 84 7F 02 00 00     - je GameAssembly.dll.il2cpp+13DD3B
+// ---------- INJECTING HERE ----------
+GameAssembly.dll.il2cpp+13DABC: FF 41 18              - inc [rcx+18]
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll.il2cpp+13DABF: 48 8B 43 10           - mov rax,[rbx+10]
+GameAssembly.dll.il2cpp+13DAC3: 48 85 C0              - test rax,rax
+GameAssembly.dll.il2cpp+13DAC6: 0F 84 6F 02 00 00     - je GameAssembly.dll.il2cpp+13DD3B
+GameAssembly.dll.il2cpp+13DACC: 48 8B 80 88 00 00 00  - mov rax,[rax+00000088]
+GameAssembly.dll.il2cpp+13DAD3: 48 85 C0              - test rax,rax
+GameAssembly.dll.il2cpp+13DAD6: 0F 84 5F 02 00 00     - je GameAssembly.dll.il2cpp+13DD3B
+GameAssembly.dll.il2cpp+13DADC: 48 8B 48 40           - mov rcx,[rax+40]
+GameAssembly.dll.il2cpp+13DAE0: 48 85 C9              - test rcx,rcx
+GameAssembly.dll.il2cpp+13DAE3: 0F 84 52 02 00 00     - je GameAssembly.dll.il2cpp+13DD3B
+GameAssembly.dll.il2cpp+13DAE9: 33 D2                 - xor edx,edx
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16313</ID>
+          <Description>"Money, Diamonds, Workers, Energy, Lightbulbs, EXP, Hammer = 987.654"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Passion Industry
+  Version:
+  Date   : 2026-02-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+22)
+define(bytes,41 89 45 24 F2 41 0F 10 45 30)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+22)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [r13+24],(int)987654
+  //mov [r13+24],eax
+  movsd xmm0,[r13+30]
+  jmp return
+
+address:
+  jmp newmem
+  nop 5
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [r13+24],eax
+  // movsd xmm0,[r13+30]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+22
+
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue: 55                             - push rbp
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+1: 48 8B EC                       - mov rbp,rsp
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+4: 48 83 EC 40                    - sub rsp,40
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+8: 4C 89 6D F0                    - mov [rbp-10],r13
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+c: 4C 89 7D F8                    - mov [rbp-08],r15
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+10: 4C 8B E9                       - mov r13,rcx
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+13: 48 89 55 E8                    - mov [rbp-18],rdx
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+17: 4D 8B F8                       - mov r15,r8
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+1a: 4C 89 4D E0                    - mov [rbp-20],r9
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+1e: 48 63 45 E8                    - movsxd  rax,dword ptr [rbp-18]
+// ---------- INJECTING HERE ----------
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+22: 41 89 45 24                    - mov [r13+24],eax
+// ---------- DONE INJECTING  ----------
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+26: F2 41 0F 10 45 30              - movsd xmm0,[r13+30]
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+2c: F2 41 0F 2A CF                 - cvtsi2sd xmm1,r15d
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+31: F2 0F 58 C1                    - addsd xmm0,xmm1
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+35: F2 41 0F 11 45 30              - movsd [r13+30],xmm0
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+3b: 49 8B CD                       - mov rcx,r13
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+3e: 49 8B D7                       - mov rdx,r15
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+41: 4C 63 45 E0                    - movsxd  r8,dword ptr [rbp-20]
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+45: 4C 8B 4D 30                    - mov r9,[rbp+30]
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+49: 48 8D 64 24 00                 - lea rsp,[rsp+00]
+Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:SetValue+4e: 49 BB 30 3D 00 FD 36 01 00 00  - mov r11,Game.Scripts.Engine.Profiles.GameResources.ResourceProfile:AppendDelta
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16298</ID>
+          <Description>"Magnet = 99"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Passion Industry
+  Version:
+  Date   : 2026-02-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+7f)
+define(bytes,89 48 14 48 8B 46 18)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+7f)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rax+14],(int)99
+  //mov [rax+14],ecx
+  mov rax,[rsi+18]
+  jmp return
+
+address:
+  jmp newmem
+  nop 2
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [rax+14],ecx
+  // mov rax,[rsi+18]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+7f
+
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+5e: 41 03 C8                       - add ecx,r8d
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+61: 89 48 10                       - mov [rax+10],ecx
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+64: 48 8B 46 18                    - mov rax,[rsi+18]
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+68: 48 8B D0                       - mov rdx,rax
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+6b: 48 8B 4E 18                    - mov rcx,[rsi+18]
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+6f: 48 63 49 14                    - movsxd  rcx,dword ptr [rcx+14]
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+73: FF C9                          - dec ecx
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+75: 45 33 C0                       - xor r8d,r8d
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+78: 41 3B C8                       - cmp ecx,r8d
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+7b: 41 0F 4C C8                    - cmovl ecx,r8d
+// ---------- INJECTING HERE ----------
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+7f: 89 48 14                       - mov [rax+14],ecx
+// ---------- DONE INJECTING  ----------
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+82: 48 8B 46 18                    - mov rax,[rsi+18]
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+86: 48 8B D0                       - mov rdx,rax
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+89: 48 63 48 18                    - movsxd  rcx,dword ptr [rax+18]
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+8d: FF C1                          - inc ecx
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+8f: 89 48 18                       - mov [rax+18],ecx
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+92: 33 C0                          - xor eax,eax
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+94: 48 89 45 C0                    - mov [rbp-40],rax
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+98: 48 89 45 C8                    - mov [rbp-38],rax
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+9c: 48 B8 E0 61 C1 64 10 02 00 00  - mov rax,0000021064C161E0
+Game.Scripts.Engine.Profiles.MagicWand.MagicWandProfileManagerBase:OnItemsSorted+a6: 48 89 45 B8                    - mov [rbp-48],rax
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16311</ID>
+          <Description>"Items Upgrade = 3 stars"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : PassionIndustry
+  Version: 
+  Date   : 2026-01-22
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,"GameAssembly.dll"+57DD71)
+define(bytes,89 45 20 48 8B 47 38)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,"GameAssembly.dll"+57DD71)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rbp+20],(int)50
+  //mov [rbp+20],eax
+  mov rax,[rdi+38]
+  jmp return
+
+address:
+  jmp newmem
+  nop 2
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [rbp+20],eax
+  // mov rax,[rdi+38]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll.il2cpp+161D71
+
+GameAssembly.dll.il2cpp+161D53: 48 8B 6F 38           - mov rbp,[rdi+38]
+GameAssembly.dll.il2cpp+161D57: 48 85 ED              - test rbp,rbp
+GameAssembly.dll.il2cpp+161D5A: 74 6C                 - je GameAssembly.dll.il2cpp+161DC8
+GameAssembly.dll.il2cpp+161D5C: 8B 5D 20              - mov ebx,[rbp+20]
+GameAssembly.dll.il2cpp+161D5F: 33 D2                 - xor edx,edx
+GameAssembly.dll.il2cpp+161D61: 48 8B CF              - mov rcx,rdi
+GameAssembly.dll.il2cpp+161D64: E8 47 0D 00 00        - call Game.Scripts.Engine.MergeSpace.Items.Features.BigGenerator.ItemFeatureBigGeneratorController.get_MaxRepairs
+GameAssembly.dll.il2cpp+161D69: 8D 4B 01              - lea ecx,[rbx+01]
+GameAssembly.dll.il2cpp+161D6C: 3B C8                 - cmp ecx,eax
+GameAssembly.dll.il2cpp+161D6E: 0F 4C C1              - cmovl eax,ecx
+// ---------- INJECTING HERE ----------
+GameAssembly.dll.il2cpp+161D71: 89 45 20              - mov [rbp+20],eax
+// ---------- DONE INJECTING  ----------
+GameAssembly.dll.il2cpp+161D74: 48 8B 47 38           - mov rax,[rdi+38]
+GameAssembly.dll.il2cpp+161D78: 48 85 C0              - test rax,rax
+GameAssembly.dll.il2cpp+161D7B: 74 4B                 - je GameAssembly.dll.il2cpp+161DC8
+GameAssembly.dll.il2cpp+161D7D: C7 40 1C 00 00 00 00  - mov [rax+1C],00000000
+GameAssembly.dll.il2cpp+161D84: 48 8B CF              - mov rcx,rdi
+GameAssembly.dll.il2cpp+161D87: 48 8B 15 FA 92 F0 02  - mov rdx,[GameAssembly.dll.data+107088]
+GameAssembly.dll.il2cpp+161D8E: 48 8B 5F 38           - mov rbx,[rdi+38]
+GameAssembly.dll.il2cpp+161D92: E8 19 BC 25 01        - call GameAssembly.dll.il2cpp+13BD9B0
+GameAssembly.dll.il2cpp+161D97: 48 85 DB              - test rbx,rbx
+GameAssembly.dll.il2cpp+161D9A: 74 2C                 - je GameAssembly.dll.il2cpp+161DC8
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16305</ID>
+          <Description>"Cards = 9876"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Passion Industry
+  Version:
+  Date   : 2026-02-01
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,Game.Scripts.Contacts.ContactController:SpendTokens+40)
+define(bytes,89 48 1C 48 8B 34 24)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,Game.Scripts.Contacts.ContactController:SpendTokens+40)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rax+1C],(int)9876
+  //mov [rax+1C],ecx
+  mov rsi,[rsp]
+  jmp return
+
+address:
+  jmp newmem
+  nop 2
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // mov [rax+1C],ecx
+  // mov rsi,[rsp]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Game.Scripts.Contacts.ContactController:SpendTokens+40
+
+Game.Scripts.Contacts.ContactController:SpendTokens+21: 48 0F B6 C0     - movzx rax,al
+Game.Scripts.Contacts.ContactController:SpendTokens+25: 85 C0           - test eax,eax
+Game.Scripts.Contacts.ContactController:SpendTokens+27: 40 0F 94 C0     - sete al
+Game.Scripts.Contacts.ContactController:SpendTokens+2b: 48 0F B6 C0     - movzx rax,al
+Game.Scripts.Contacts.ContactController:SpendTokens+2f: 85 C0           - test eax,eax
+Game.Scripts.Contacts.ContactController:SpendTokens+31: 74 10           - je Game.Scripts.Contacts.ContactController:SpendTokens+43
+Game.Scripts.Contacts.ContactController:SpendTokens+33: 48 8B 47 18     - mov rax,[rdi+18]
+Game.Scripts.Contacts.ContactController:SpendTokens+37: 48 8B D0        - mov rdx,rax
+Game.Scripts.Contacts.ContactController:SpendTokens+3a: 48 63 48 1C     - movsxd  rcx,dword ptr [rax+1C]
+Game.Scripts.Contacts.ContactController:SpendTokens+3e: 2B CE           - sub ecx,esi
+// ---------- INJECTING HERE ----------
+Game.Scripts.Contacts.ContactController:SpendTokens+40: 89 48 1C        - mov [rax+1C],ecx
+// ---------- DONE INJECTING  ----------
+Game.Scripts.Contacts.ContactController:SpendTokens+43: 48 8B 34 24     - mov rsi,[rsp]
+Game.Scripts.Contacts.ContactController:SpendTokens+47: 48 8B 7C 24 08  - mov rdi,[rsp+08]
+Game.Scripts.Contacts.ContactController:SpendTokens+4c: 48 83 C4 18     - add rsp,18
+Game.Scripts.Contacts.ContactController:SpendTokens+50: C3              - ret
+136FD0C3061: 00 00           - add [rax],al
+136FD0C3063: 00 00           - add [rax],al
+136FD0C3065: 00 00           - add [rax],al
+136FD0C3067: 00 01           - add [rcx],al
+136FD0C3069: 04 01           - add al,01
+136FD0C306B: 00 04 22        - add [rdx],al
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16310</ID>
+      <Description>"sdaf"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>GameAssembly.dll.il2cpp+161D71</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16324</ID>
+      <Description>"No description"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>2102919A7E4</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16326</ID>
+      <Description>"No Description"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>1372862EB1C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16327</ID>
+      <Description>"No Description"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>1372862EBDC</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

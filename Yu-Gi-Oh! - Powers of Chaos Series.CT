@@ -2,6 +2,75 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
       <ID>46</ID>
       <Description>"Yugi the Destiny"</Description>
       <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
@@ -12,7 +81,6 @@
         <CheatEntry>
           <ID>89</ID>
           <Description>"Cards"</Description>
-          <LastState Value="3963946238" RealAddress="00536FD9"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>
@@ -21,7 +89,6 @@
         <CheatEntry>
           <ID>2</ID>
           <Description>"minus LP"</Description>
-          <LastState Value="2284339593" RealAddress="00454565"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>
@@ -261,7 +328,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>101</ID>
               <Description>"LOB-115 Drooling Lizard"</Description>
-              <LastState Value="4" RealAddress="00A06140"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+606140</Address>
@@ -269,7 +335,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>94</ID>
               <Description>"SDY-024 Ancient Elf"</Description>
-              <LastState Value="17" RealAddress="00A061BC"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+6061BC</Address>
@@ -277,7 +342,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>102</ID>
               <Description>"LOB-071 Reaper of the Cards"</Description>
-              <LastState Value="4" RealAddress="00A061F4"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+6061F4</Address>
@@ -285,7 +349,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>106</ID>
               <Description>"LOB-018 Firegrass"</Description>
-              <LastState Value="3" RealAddress="00A06206"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+606206</Address>
@@ -293,7 +356,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>86</ID>
               <Description>"SDY-018 Claw Reacher"</Description>
-              <LastState Value="11" RealAddress="00A062A2"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+6062A2</Address>
@@ -301,7 +363,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>93</ID>
               <Description>"SDY-034 Wall of Illusion"</Description>
-              <LastState Value="11" RealAddress="00A0630E"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+60630E</Address>
@@ -309,7 +370,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>98</ID>
               <Description>"LOB-053 Raigeki"</Description>
-              <LastState Value="15" RealAddress="00A0639E"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+60639E</Address>
@@ -317,7 +377,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>99</ID>
               <Description>"Raigeki"</Description>
-              <LastState Value="12" RealAddress="00A063A2"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+6063A2</Address>
@@ -325,7 +384,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>92</ID>
               <Description>"LOB-012 Trial of Nightmare"</Description>
-              <LastState Value="7" RealAddress="00A063B6"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+6063B6</Address>
@@ -333,7 +391,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>107</ID>
               <Description>"SDY-036 Baron of the Fiend Sword"</Description>
-              <LastState Value="4" RealAddress="00A063FC"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+6063FC </Address>
@@ -341,7 +398,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>87</ID>
               <Description>"LOB-014 The 13th Grave"</Description>
-              <LastState Value="7" RealAddress="00A0640C"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+60640C</Address>
@@ -349,7 +405,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>91</ID>
               <Description>"LOB-020 Dark King of the Abyss"</Description>
-              <LastState Value="4" RealAddress="00A06436"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+606436</Address>
@@ -357,7 +412,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>103</ID>
               <Description>"LOB-049 Sogen"</Description>
-              <LastState Value="9" RealAddress="00A064C0"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+6064C0</Address>
@@ -365,7 +419,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>96</ID>
               <Description>"LOB-000 Tri-Horned Dragon"</Description>
-              <LastState Value="6" RealAddress="00A065F0"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+6065F0</Address>
@@ -373,7 +426,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>104</ID>
               <Description>"SDY-022 Dark Hole"</Description>
-              <LastState Value="7" RealAddress="00A06730"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+606730</Address>
@@ -381,7 +433,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>108</ID>
               <Description>"LOB-015 Charubin the Fire Knight"</Description>
-              <LastState Value="6" RealAddress="00A0679C"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+60679C </Address>
@@ -389,7 +440,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>97</ID>
               <Description>"SDY-029 De-Spell"</Description>
-              <LastState Value="5" RealAddress="00A06814"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+606814</Address>
@@ -397,7 +447,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>82</ID>
               <Description>"SDY-020 Sword of Dark Destruction"</Description>
-              <LastState Value="8" RealAddress="00A068E0"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+6068E0</Address>
@@ -405,7 +454,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>109</ID>
               <Description>"LOB-125 Gaia the Dragon Champion"</Description>
-              <LastState Value="6" RealAddress="00A0693C"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+60693C </Address>
@@ -413,7 +461,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>105</ID>
               <Description>"LOB-034 Green Phantom King"</Description>
-              <LastState Value="4" RealAddress="00A06942"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+606942</Address>
@@ -421,7 +468,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>85</ID>
               <Description>"LOB-032 Root Water"</Description>
-              <LastState Value="3" RealAddress="00A06946"/>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Byte</VariableType>
               <Address>yugi_pc.exe+606946</Address>
@@ -438,7 +484,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>78</ID>
               <Description>"Yugi LP"</Description>
-              <LastState Value="0" Activated="1" RealAddress="00A086BC"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>40BFBF</Color>
               <VariableType>2 Bytes</VariableType>
@@ -447,7 +492,6 @@ yugi_pc.exe+136FEF: 90                    - nop
             <CheatEntry>
               <ID>77</ID>
               <Description>"You LP"</Description>
-              <LastState Value="8000" RealAddress="00A07924"/>
               <ShowAsSigned>0</ShowAsSigned>
               <Color>40BFBF</Color>
               <VariableType>2 Bytes</VariableType>
@@ -473,7 +517,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>30</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="0" RealAddress="03C8717C"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A5738</Address>
@@ -484,7 +527,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>45</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="0" RealAddress="03C8717C"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A586C</Address>
@@ -495,7 +537,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>32</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="0" RealAddress="03C8717C"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A576C</Address>
@@ -506,7 +547,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>33</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="0" RealAddress="03C8717C"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A586C</Address>
@@ -518,7 +558,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>34</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="0" RealAddress="03C87400"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A57E4</Address>
@@ -552,7 +591,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>37</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="0" RealAddress="03C6FD98"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A57E4</Address>
@@ -564,7 +602,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>38</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="5847348" RealAddress="03C874A4"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A57E4</Address>
@@ -576,7 +613,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>39</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="0" RealAddress="03C8717C"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+0019E9F4</Address>
@@ -588,7 +624,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>40</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="0" RealAddress="03C8717C"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A586C</Address>
@@ -610,7 +645,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>19</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="0" RealAddress="03C8713C"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A586C</Address>
@@ -621,7 +655,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>20</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="0" RealAddress="03C8713C"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A576C</Address>
@@ -632,7 +665,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>21</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="0" RealAddress="03C8713C"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A586C</Address>
@@ -644,7 +676,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>22</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="0" RealAddress="03C8713C"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+0019E9F4</Address>
@@ -667,7 +698,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>24</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="5847348" RealAddress="03C873C0"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A57E4</Address>
@@ -679,7 +709,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>25</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="1800" RealAddress="03C87464"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A57E4</Address>
@@ -702,7 +731,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>27</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="0" RealAddress="03C6FD58"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A57E4</Address>
@@ -714,7 +742,6 @@ yugi_pc.exe+136FEF: 90                    - nop
                 <CheatEntry>
                   <ID>18</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="0" RealAddress="03C8713C"/>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
                   <Address>"yugi_pc.exe"+001A5738</Address>
@@ -897,7 +924,6 @@ unregistersymbol(FirstLP)
                 <CheatEntry>
                   <ID>65</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="63459204" RealAddress="03C8732C"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>
@@ -1073,7 +1099,6 @@ unregistersymbol(FirstLP)
                 <CheatEntry>
                   <ID>57</ID>
                   <Description>"pointerscan result"</Description>
-                  <LastState Value="5834232" RealAddress="03C872EC"/>
                   <ShowAsSigned>0</ShowAsSigned>
                   <Color>40BFBF</Color>
                   <VariableType>4 Bytes</VariableType>

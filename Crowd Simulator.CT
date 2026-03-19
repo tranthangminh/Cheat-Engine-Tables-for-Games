@@ -2,20 +2,146 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
-      <ID>1</ID>
-      <Description>"Kill Robbers"</Description>
-      <LastState Value="3573348841" RealAddress="1CFB8C70302"/>
-      <ShowAsSigned>0</ShowAsSigned>
-      <Color>BF4040</Color>
-      <VariableType>4 Bytes</VariableType>
-      <Address>Scene10Manager:killoneenemy+12</Address>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>2</ID>
-      <Description>"+10 Kill Robbers"</Description>
-      <LastState/>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : Crowd Simulator
+      <ID>77</ID>
+      <Description>"Memory Viewer"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"Kill Robbers"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Scene10Manager:killoneenemy+12</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"Level 7 - Timer"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>UnityPlayer.dll.text+C9551E</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"Level 7 - Timer 2"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>UnityPlayer.dll.text+C9E3D6</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>72</ID>
+      <Description>"Active cheats"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>40BF40</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"Get Lv.7 Timer address"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(Lv7.Timer,B5 64 72 42 C9)
+registersymbol(Lv7.Timer)
+
+[DISABLE]
+unregistersymbol(Lv7.Timer)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>6</ID>
+              <Description>"Timer"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>Lv7.Timer</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"+10 Kill Robbers"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Crowd Simulator
   Version: 
   Date   : 2025-11-02
   Author : Max
@@ -81,47 +207,6 @@ Scene10Manager:killoneenemy+3b: 48 83 C4 20                    - add rsp,20
 Scene10Manager:killoneenemy+3f: 48 8B D0                       - mov rdx,rax
 }
 </AssemblerScript>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>3</ID>
-      <Description>"Level 7 - Timer"</Description>
-      <LastState Value="217358.1406" RealAddress="7FF9CC9D651E"/>
-      <ShowAsSigned>0</ShowAsSigned>
-      <Color>BF4040</Color>
-      <VariableType>Float</VariableType>
-      <Address>UnityPlayer.dll.text+C9551E</Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>4</ID>
-      <Description>"Level 7 - Timer 2"</Description>
-      <LastState Value="37135.94922" RealAddress="7FF9CC9DF3D6"/>
-      <ShowAsSigned>0</ShowAsSigned>
-      <Color>BF4040</Color>
-      <VariableType>Float</VariableType>
-      <Address>UnityPlayer.dll.text+C9E3D6</Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>7</ID>
-      <Description>"Get Lv.7 Timer address"</Description>
-      <LastState Activated="1"/>
-      <Color>40BF40</Color>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>[ENABLE]
-aobscan(Lv7.Timer,B5 64 72 42 C9)
-registersymbol(Lv7.Timer)
-
-[DISABLE]
-unregistersymbol(Lv7.Timer)
-</AssemblerScript>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>6</ID>
-          <Description>"Timer"</Description>
-          <LastState Value="61.07832718" RealAddress="1CFAA779FE0"/>
-          <ShowAsSigned>0</ShowAsSigned>
-          <Color>40BFBF</Color>
-          <VariableType>Float</VariableType>
-          <Address>Lv7.Timer</Address>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>

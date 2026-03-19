@@ -2,1622 +2,68 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
-      <ID>26</ID>
-      <Description>"Get Resources"</Description>
-      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
-      <LastState Value="" RealAddress="00000000"/>
-      <Color>40BF40</Color>
-      <GroupHeader>1</GroupHeader>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>22</ID>
-          <Description>"+50000 Amber when used"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,29 5A 30 48 8B 05 A8 CE 4C 02) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  add [rdx+30],(int)50000
-  //sub [rdx+30],ebx
-  mov rax,[GameAssembly.dll+2FB1440]
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop 5
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 29 5A 30 48 8B 05 A8 CE 4C 02
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+AE458E
-
-GameAssembly.dll+AE4555: 48 8D 0D 0C 34 4F 02  - lea rcx,[GameAssembly.dll+2FD7968]
-GameAssembly.dll+AE455C: E8 EF 9F 7C FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+AE4561: 48 8D 0D 38 48 4F 02  - lea rcx,[GameAssembly.dll+2FD8DA0]
-GameAssembly.dll+AE4568: E8 E3 9F 7C FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+AE456D: C6 05 21 70 66 02 01  - mov byte ptr [GameAssembly.dll+314B595],01
-GameAssembly.dll+AE4574: 48 8B 05 C5 CE 4C 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE457B: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE4582: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+AE4585: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+AE4588: 0F 84 19 02 00 00     - je GameAssembly.dll+AE47A7
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+AE458E: 29 5A 30              - sub [rdx+30],ebx
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+AE4591: 48 8B 05 A8 CE 4C 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE4598: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE459F: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+AE45A2: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+AE45A5: 0F 84 FC 01 00 00     - je GameAssembly.dll+AE47A7
-GameAssembly.dll+AE45AB: 29 9A 50 0B 00 00     - sub [rdx+00000B50],ebx
-GameAssembly.dll+AE45B1: 48 8B 05 88 CE 4C 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE45B8: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE45BF: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+AE45C2: 48 85 D2              - test rdx,rdx
-}
-</AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>23</ID>
-          <Description>"+100 Keys when used"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,29 5A 34 48 8B 05 D4 47 4D 02) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  add [rdx+34],(int)100
-  //sub [rdx+34],ebx
-  mov rax,[GameAssembly.dll+2FB1440]
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop 5
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 29 5A 34 48 8B 05 D4 47 4D 02
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+ADCC62
-
-GameAssembly.dll+ADCC29: 48 8D 0D 38 AD 4F 02  - lea rcx,[GameAssembly.dll+2FD7968]
-GameAssembly.dll+ADCC30: E8 1B 19 7D FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+ADCC35: 48 8D 0D 64 C1 4F 02  - lea rcx,[GameAssembly.dll+2FD8DA0]
-GameAssembly.dll+ADCC3C: E8 0F 19 7D FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+ADCC41: C6 05 5D E9 66 02 01  - mov byte ptr [GameAssembly.dll+314B5A5],01
-GameAssembly.dll+ADCC48: 48 8B 05 F1 47 4D 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+ADCC4F: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+ADCC56: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+ADCC59: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+ADCC5C: 0F 84 F2 01 00 00     - je GameAssembly.dll+ADCE54
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+ADCC62: 29 5A 34              - sub [rdx+34],ebx
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+ADCC65: 48 8B 05 D4 47 4D 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+ADCC6C: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+ADCC73: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+ADCC76: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+ADCC79: 0F 84 D5 01 00 00     - je GameAssembly.dll+ADCE54
-GameAssembly.dll+ADCC7F: 29 9A 54 0B 00 00     - sub [rdx+00000B54],ebx
-GameAssembly.dll+ADCC85: 48 8B 05 B4 47 4D 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+ADCC8C: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+ADCC93: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+ADCC96: 48 85 D2              - test rdx,rdx
-}
-</AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>24</ID>
-          <Description>"+5000 Metals when used"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,41 29 58 3C 48 8B 05 87 05 4F 02) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  add [r8+3C],(int)5000
-  //sub [r8+3C],ebx
-  mov rax,[GameAssembly.dll+2FD7968]
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop 6
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 41 29 58 3C 48 8B 05 87 05 4F 02
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+AE73D6
-
-GameAssembly.dll+AE73A1: 48 8D 0D 98 A0 4C 02  - lea rcx,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE73A8: E8 A3 71 7C FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+AE73AD: 48 8D 0D B4 05 4F 02  - lea rcx,[GameAssembly.dll+2FD7968]
-GameAssembly.dll+AE73B4: E8 97 71 7C FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+AE73B9: C6 05 A6 41 66 02 01  - mov byte ptr [GameAssembly.dll+314B566],01
-GameAssembly.dll+AE73C0: 48 8B 05 79 A0 4C 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE73C7: 48 8B 90 B8 00 00 00  - mov rdx,[rax+000000B8]
-GameAssembly.dll+AE73CE: 4C 8B 02              - mov r8,[rdx]
-GameAssembly.dll+AE73D1: 4D 85 C0              - test r8,r8
-GameAssembly.dll+AE73D4: 74 26                 - je GameAssembly.dll+AE73FC
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+AE73D6: 41 29 58 3C           - sub [r8+3C],ebx
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+AE73DA: 48 8B 05 87 05 4F 02  - mov rax,[GameAssembly.dll+2FD7968]
-GameAssembly.dll+AE73E1: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE73E8: 48 8B 09              - mov rcx,[rcx]
-GameAssembly.dll+AE73EB: 48 85 C9              - test rcx,rcx
-GameAssembly.dll+AE73EE: 74 0C                 - je GameAssembly.dll+AE73FC
-GameAssembly.dll+AE73F0: 33 D2                 - xor edx,edx
-GameAssembly.dll+AE73F2: 48 83 C4 20           - add rsp,20
-GameAssembly.dll+AE73F6: 5B                    - pop rbx
-GameAssembly.dll+AE73F7: E9 D4 61 92 FF        - jmp GameAssembly.dll+40D5D0
-GameAssembly.dll+AE73FC: E8 5F 73 7C FF        - call GameAssembly.dll+2AE760
-}
-</AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>25</ID>
-          <Description>"+500 Eggs when used"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,29 5A 38 48 8B 05 EE 02 4D 02) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  add [rdx+38],(int)500
-  //sub [rdx+38],ebx
-  mov rax,[GameAssembly.dll+2FB1440]
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop 5
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 29 5A 38 48 8B 05 EE 02 4D 02
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+AE1148
-
-GameAssembly.dll+AE1111: 48 8D 0D 68 5C 4D 02  - lea rcx,[GameAssembly.dll+2FB6D80]
-GameAssembly.dll+AE1118: E8 33 D4 7C FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+AE111D: C6 05 23 A4 66 02 01  - mov byte ptr [GameAssembly.dll+314B547],01
-GameAssembly.dll+AE1124: 48 8B 05 15 03 4D 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE112B: 48 89 74 24 40        - mov [rsp+40],rsi
-GameAssembly.dll+AE1130: 48 89 7C 24 48        - mov [rsp+48],rdi
-GameAssembly.dll+AE1135: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE113C: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+AE113F: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+AE1142: 0F 84 56 02 00 00     - je GameAssembly.dll+AE139E
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+AE1148: 29 5A 38              - sub [rdx+38],ebx
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+AE114B: 48 8B 05 EE 02 4D 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE1152: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE1159: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+AE115C: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+AE115F: 0F 84 39 02 00 00     - je GameAssembly.dll+AE139E
-GameAssembly.dll+AE1165: 29 9A 58 0B 00 00     - sub [rdx+00000B58],ebx
-GameAssembly.dll+AE116B: 48 8B 05 D6 5A 4F 02  - mov rax,[GameAssembly.dll+2FD6C48]
-GameAssembly.dll+AE1172: 83 B8 E0 00 00 00 00  - cmp dword ptr [rax+000000E0],00
-GameAssembly.dll+AE1179: 75 0F                 - jne GameAssembly.dll+AE118A
-GameAssembly.dll+AE117B: 48 8B C8              - mov rcx,rax
-}
-</AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>27</ID>
-          <Description>"+500 Rare Recruit when used"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,C7 01 00 00 29 9A E0 07 00 00) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  add [rdx+000007E0],(int)500
-  //sub [rdx+000007E0],ebx
-  jmp return
-
-INJECT+04:
-  jmp newmem
-  nop
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT+04:
-  db 29 9A E0 07 00 00
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+AEB36C
-
-GameAssembly.dll+AEB335: 48 8D 0D 44 BA 4C 02  - lea rcx,[GameAssembly.dll+2FB6D80]
-GameAssembly.dll+AEB33C: E8 0F 32 7C FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+AEB341: C6 05 37 02 66 02 01  - mov byte ptr [GameAssembly.dll+314B57F],01
-GameAssembly.dll+AEB348: 48 8B 05 F1 60 4C 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AEB34F: 48 89 74 24 30        - mov [rsp+30],rsi
-GameAssembly.dll+AEB354: 48 89 7C 24 38        - mov [rsp+38],rdi
-GameAssembly.dll+AEB359: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AEB360: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+AEB363: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+AEB366: 0F 84 C7 01 00 00     - je GameAssembly.dll+AEB533
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+AEB36C: 29 9A E0 07 00 00     - sub [rdx+000007E0],ebx
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+AEB372: 48 8B 05 C7 60 4C 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AEB379: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AEB380: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+AEB383: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+AEB386: 0F 84 A7 01 00 00     - je GameAssembly.dll+AEB533
-GameAssembly.dll+AEB38C: 29 9A 68 0B 00 00     - sub [rdx+00000B68],ebx
-GameAssembly.dll+AEB392: 48 8B 05 CF C5 4E 02  - mov rax,[GameAssembly.dll+2FD7968]
-GameAssembly.dll+AEB399: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AEB3A0: 48 8B 09              - mov rcx,[rcx]
-GameAssembly.dll+AEB3A3: 48 85 C9              - test rcx,rcx
-}
-</AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>28</ID>
-          <Description>"+500 Epic Recruit when used"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,F7 01 00 00 29 9A FC 07 00 00) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  add [rdx+000007FC],(int)500
-  //sub [rdx+000007FC],ebx
-  jmp return
-
-INJECT+04:
-  jmp newmem
-  nop
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT+04:
-  db 29 9A FC 07 00 00
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+ADE103
-
-GameAssembly.dll+ADE0CC: 48 8D 0D AD 8C 4D 02  - lea rcx,[GameAssembly.dll+2FB6D80]
-GameAssembly.dll+ADE0D3: E8 78 04 7D FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+ADE0D8: C6 05 0D D5 66 02 01  - mov byte ptr [GameAssembly.dll+314B5EC],01
-GameAssembly.dll+ADE0DF: 48 8B 05 5A 33 4D 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+ADE0E6: 48 89 6C 24 30        - mov [rsp+30],rbp
-GameAssembly.dll+ADE0EB: 48 89 7C 24 38        - mov [rsp+38],rdi
-GameAssembly.dll+ADE0F0: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+ADE0F7: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+ADE0FA: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+ADE0FD: 0F 84 F7 01 00 00     - je GameAssembly.dll+ADE2FA
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+ADE103: 29 9A FC 07 00 00     - sub [rdx+000007FC],ebx
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+ADE109: 48 8B 05 30 33 4D 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+ADE110: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+ADE117: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+ADE11A: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+ADE11D: 0F 84 D7 01 00 00     - je GameAssembly.dll+ADE2FA
-GameAssembly.dll+ADE123: 29 9A 6C 0B 00 00     - sub [rdx+00000B6C],ebx
-GameAssembly.dll+ADE129: 48 8B 05 38 98 4F 02  - mov rax,[GameAssembly.dll+2FD7968]
-GameAssembly.dll+ADE130: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+ADE137: 48 8B 09              - mov rcx,[rcx]
-GameAssembly.dll+ADE13A: 48 85 C9              - test rcx,rcx
-}
-</AssemblerScript>
-        </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>20</ID>
-      <Description>"E skill - Timer"</Description>
-      <ShowAsSigned>0</ShowAsSigned>
-      <Color>BF4040</Color>
-      <VariableType>4 Bytes</VariableType>
-      <Address>GameAssembly.dll+9EBACA </Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>30</ID>
-      <Description>"Coins"</Description>
-      <ShowAsSigned>0</ShowAsSigned>
-      <Color>BF4040</Color>
-      <VariableType>4 Bytes</VariableType>
-      <Address>GameAssembly.dll+ADE5B6</Address>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>32</ID>
-      <Description>"E - Reset to 0"</Description>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
       <LastState/>
-      <Color>40BF40</Color>
+      <Color>BF40BF</Color>
       <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-22
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,C0 F3 0F 11 80 1C 03 00 00 48 8B 05) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  mov [rax+0000031C],0
-  //movss [rax+0000031C],xmm0
-  jmp return
-
-INJECT+01:
-  jmp newmem
-  nop 3
-return:
-registersymbol(INJECT)
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
 
 [DISABLE]
-
-INJECT+01:
-  db F3 0F 11 80 1C 03 00 00
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+9EBACA
-
-GameAssembly.dll+9EBA8E: F3 0F 58 80 1C 03 00 00  - addss xmm0,[rax+0000031C]
-GameAssembly.dll+9EBA96: F3 0F 11 80 1C 03 00 00  - movss [rax+0000031C],xmm0
-GameAssembly.dll+9EBA9E: E9 24 01 00 00           - jmp GameAssembly.dll+9EBBC7
-GameAssembly.dll+9EBAA3: 48 8B 05 96 59 5C 02     - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+9EBAAA: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
-GameAssembly.dll+9EBAB1: 48 8B 01                 - mov rax,[rcx]
-GameAssembly.dll+9EBAB4: 48 85 C0                 - test rax,rax
-GameAssembly.dll+9EBAB7: 0F 84 72 06 00 00        - je GameAssembly.dll+9EC12F
-GameAssembly.dll+9EBABD: F3 0F 10 80 1C 03 00 00  - movss xmm0,[rax+0000031C]
-GameAssembly.dll+9EBAC5: F3 41 0F 5C C0           - subss xmm0,xmm8
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+9EBACA: F3 0F 11 80 1C 03 00 00  - movss [rax+0000031C],xmm0
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+9EBAD2: 48 8B 05 67 59 5C 02     - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+9EBAD9: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
-GameAssembly.dll+9EBAE0: 48 8B 01                 - mov rax,[rcx]
-GameAssembly.dll+9EBAE3: 48 85 C0                 - test rax,rax
-GameAssembly.dll+9EBAE6: 0F 84 43 06 00 00        - je GameAssembly.dll+9EC12F
-GameAssembly.dll+9EBAEC: F3 0F 10 80 1C 03 00 00  - movss xmm0,[rax+0000031C]
-GameAssembly.dll+9EBAF4: 0F 2F C7                 - comiss xmm0,xmm7
-GameAssembly.dll+9EBAF7: 48 8B 05 DA D9 60 02     - mov rax,[GameAssembly.dll+2FF94D8]
-GameAssembly.dll+9EBAFE: 77 27                    - ja GameAssembly.dll+9EBB27
-GameAssembly.dll+9EBB00: 44 39 B0 E0 00 00 00     - cmp [rax+000000E0],r14d
-}
 </AssemblerScript>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>8</ID>
-      <Description>"Ready to play"</Description>
-      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
-      <LastState Value="" RealAddress="00000000"/>
-      <Color>40BF40</Color>
-      <GroupHeader>1</GroupHeader>
       <CheatEntries>
         <CheatEntry>
-          <ID>18</ID>
-          <Description>"Q skill - No Cooldown"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,F3 0F 11 87 D8 02 00 00 B0) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //movss [rdi+000002D8],xmm0
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop 3
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db F3 0F 11 87 D8 02 00 00
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+9E5CC9
-
-GameAssembly.dll+9E5C98: 0F 84 3C 01 00 00        - je GameAssembly.dll+9E5DDA
-GameAssembly.dll+9E5C9E: 0F 10 80 04 06 00 00     - movups xmm0,[rax+00000604]
-GameAssembly.dll+9E5CA5: 8B 80 14 06 00 00        - mov eax,[rax+00000614]
-GameAssembly.dll+9E5CAB: 48 8D 4C 24 20           - lea rcx,[rsp+20]
-GameAssembly.dll+9E5CB0: 33 D2                    - xor edx,edx
-GameAssembly.dll+9E5CB2: 89 44 24 30              - mov [rsp+30],eax
-GameAssembly.dll+9E5CB6: 0F 29 44 24 20           - movaps [rsp+20],xmm0
-GameAssembly.dll+9E5CBB: E8 C0 A7 93 FF           - call CodeStage.AntiCheat.ObscuredTypes.ObscuredFloat.op_Implicit
-GameAssembly.dll+9E5CC0: 48 85 FF                 - test rdi,rdi
-GameAssembly.dll+9E5CC3: 0F 84 11 01 00 00        - je GameAssembly.dll+9E5DDA
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+9E5CC9: F3 0F 11 87 D8 02 00 00  - movss [rdi+000002D8],xmm0
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+9E5CD1: B0 01                    - mov al,01
-GameAssembly.dll+9E5CD3: C6 83 A8 00 00 00 00     - mov byte ptr [rbx+000000A8],00
-GameAssembly.dll+9E5CDA: 48 8B 5C 24 50           - mov rbx,[rsp+50]
-GameAssembly.dll+9E5CDF: 48 83 C4 40              - add rsp,40
-GameAssembly.dll+9E5CE3: 5F                       - pop rdi
-GameAssembly.dll+9E5CE4: C3                       - ret 
-GameAssembly.dll+9E5CE5: 80 7B 78 00              - cmp byte ptr [rbx+78],00
-GameAssembly.dll+9E5CE9: 0F 84 DE 00 00 00        - je GameAssembly.dll+9E5DCD
-GameAssembly.dll+9E5CEF: 45 33 C0                 - xor r8d,r8d
-GameAssembly.dll+9E5CF2: 48 8B CB                 - mov rcx,rbx
-}
-</AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>19</ID>
-          <Description>"W skill - No Cooldown"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,99 93 FF 48 85 DB 74 35 F3 0F 11 83 98 02 00 00) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //movss [rbx+00000298],xmm0
-  jmp return
-
-INJECT+08:
-  jmp newmem
-  nop 3
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT+08:
-  db F3 0F 11 83 98 02 00 00
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+9E6B32
-
-GameAssembly.dll+9E6B09: 74 5C                    - je GameAssembly.dll+9E6B67
-GameAssembly.dll+9E6B0B: 0F 10 80 B0 05 00 00     - movups xmm0,[rax+000005B0]
-GameAssembly.dll+9E6B12: 8B 80 C0 05 00 00        - mov eax,[rax+000005C0]
-GameAssembly.dll+9E6B18: 48 8D 4C 24 20           - lea rcx,[rsp+20]
-GameAssembly.dll+9E6B1D: 33 D2                    - xor edx,edx
-GameAssembly.dll+9E6B1F: 89 44 24 30              - mov [rsp+30],eax
-GameAssembly.dll+9E6B23: 0F 29 44 24 20           - movaps [rsp+20],xmm0
-GameAssembly.dll+9E6B28: E8 53 99 93 FF           - call CodeStage.AntiCheat.ObscuredTypes.ObscuredFloat.op_Implicit
-GameAssembly.dll+9E6B2D: 48 85 DB                 - test rbx,rbx
-GameAssembly.dll+9E6B30: 74 35                    - je GameAssembly.dll+9E6B67
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+9E6B32: F3 0F 11 83 98 02 00 00  - movss [rbx+00000298],xmm0
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+9E6B3A: 48 8B 5C 24 50           - mov rbx,[rsp+50]
-GameAssembly.dll+9E6B3F: 48 83 C4 40              - add rsp,40
-GameAssembly.dll+9E6B43: 5F                       - pop rdi
-GameAssembly.dll+9E6B44: C3                       - ret 
-GameAssembly.dll+9E6B45: 8B 47 58                 - mov eax,[rdi+58]
-GameAssembly.dll+9E6B48: 89 47 5C                 - mov [rdi+5C],eax
-GameAssembly.dll+9E6B4B: 48 8B 5C 24 50           - mov rbx,[rsp+50]
-GameAssembly.dll+9E6B50: 48 83 C4 40              - add rsp,40
-GameAssembly.dll+9E6B54: 5F                       - pop rdi
-GameAssembly.dll+9E6B55: C3                       - ret 
-}
-</AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>31</ID>
-          <Description>"E - won't decrease"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-22
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,C0 F3 0F 11 80 1C 03 00 00 48 8B 05) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //movss [rax+0000031C],xmm0
-  jmp return
-
-INJECT+01:
-  jmp newmem
-  nop 3
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT+01:
-  db F3 0F 11 80 1C 03 00 00
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+9EBACA
-
-GameAssembly.dll+9EBA8E: F3 0F 58 80 1C 03 00 00  - addss xmm0,[rax+0000031C]
-GameAssembly.dll+9EBA96: F3 0F 11 80 1C 03 00 00  - movss [rax+0000031C],xmm0
-GameAssembly.dll+9EBA9E: E9 24 01 00 00           - jmp GameAssembly.dll+9EBBC7
-GameAssembly.dll+9EBAA3: 48 8B 05 96 59 5C 02     - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+9EBAAA: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
-GameAssembly.dll+9EBAB1: 48 8B 01                 - mov rax,[rcx]
-GameAssembly.dll+9EBAB4: 48 85 C0                 - test rax,rax
-GameAssembly.dll+9EBAB7: 0F 84 72 06 00 00        - je GameAssembly.dll+9EC12F
-GameAssembly.dll+9EBABD: F3 0F 10 80 1C 03 00 00  - movss xmm0,[rax+0000031C]
-GameAssembly.dll+9EBAC5: F3 41 0F 5C C0           - subss xmm0,xmm8
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+9EBACA: F3 0F 11 80 1C 03 00 00  - movss [rax+0000031C],xmm0
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+9EBAD2: 48 8B 05 67 59 5C 02     - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+9EBAD9: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
-GameAssembly.dll+9EBAE0: 48 8B 01                 - mov rax,[rcx]
-GameAssembly.dll+9EBAE3: 48 85 C0                 - test rax,rax
-GameAssembly.dll+9EBAE6: 0F 84 43 06 00 00        - je GameAssembly.dll+9EC12F
-GameAssembly.dll+9EBAEC: F3 0F 10 80 1C 03 00 00  - movss xmm0,[rax+0000031C]
-GameAssembly.dll+9EBAF4: 0F 2F C7                 - comiss xmm0,xmm7
-GameAssembly.dll+9EBAF7: 48 8B 05 DA D9 60 02     - mov rax,[GameAssembly.dll+2FF94D8]
-GameAssembly.dll+9EBAFE: 77 27                    - ja GameAssembly.dll+9EBB27
-GameAssembly.dll+9EBB00: 44 39 B0 E0 00 00 00     - cmp [rax+000000E0],r14d
-}
-</AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>1</ID>
-          <Description>"5 collect +25 points Event Mission"</Description>
-          <LastState/>
-          <Color>40BF40</Color>
-          <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,DE 00 00 00 FF 82 60 01 00 00) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //inc [rdx+00000160]
-  add [rdx+00000160],(int)25
-  jmp return
-
-INJECT+04:
-  jmp newmem
-  nop
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT+04:
-  db FF 82 60 01 00 00
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+9A9B8B
-
-GameAssembly.dll+9A9B58: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+9A9B5F: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+9A9B62: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+9A9B65: 0F 84 FE 00 00 00     - je GameAssembly.dll+9A9C69
-GameAssembly.dll+9A9B6B: FF 82 64 01 00 00     - inc [rdx+00000164]
-GameAssembly.dll+9A9B71: 48 8B 05 C8 78 60 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+9A9B78: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+9A9B7F: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+9A9B82: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+9A9B85: 0F 84 DE 00 00 00     - je GameAssembly.dll+9A9C69
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+9A9B8B: FF 82 60 01 00 00     - inc [rdx+00000160]
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+9A9B91: 48 8B 05 A8 78 60 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+9A9B98: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+9A9B9F: 48 8B 09              - mov rcx,[rcx]
-GameAssembly.dll+9A9BA2: 48 85 C9              - test rcx,rcx
-GameAssembly.dll+9A9BA5: 0F 84 BE 00 00 00     - je GameAssembly.dll+9A9C69
-GameAssembly.dll+9A9BAB: 48 8B 89 58 01 00 00  - mov rcx,[rcx+00000158]
-GameAssembly.dll+9A9BB2: 48 85 C9              - test rcx,rcx
-GameAssembly.dll+9A9BB5: 0F 84 AE 00 00 00     - je GameAssembly.dll+9A9C69
-GameAssembly.dll+9A9BBB: 44 3B 79 18           - cmp r15d,[rcx+18]
-GameAssembly.dll+9A9BBF: 0F 83 AA 00 00 00     - jae GameAssembly.dll+9A9C6F
-}
-</AssemblerScript>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>29</ID>
-          <Description>"Won’t decrease on use"</Description>
-          <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
           <LastState Value="" RealAddress="00000000"/>
-          <Color>40BF40</Color>
           <GroupHeader>1</GroupHeader>
           <CheatEntries>
             <CheatEntry>
-              <ID>21</ID>
-              <Description>"Amber"</Description>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
               <LastState/>
-              <Color>40BF40</Color>
               <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
+              <AssemblerScript>[ENABLE]
 
-  This script does blah blah blah
-}
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
 
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,29 5A 30 48 8B 05 A8 CE 4C 02) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //sub [rdx+30],ebx
-  mov rax,[GameAssembly.dll+2FB1440]
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop 5
-return:
-registersymbol(INJECT)
-
+{$asm}
 [DISABLE]
-
-INJECT:
-  db 29 5A 30 48 8B 05 A8 CE 4C 02
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+AE458E
-
-GameAssembly.dll+AE4555: 48 8D 0D 0C 34 4F 02  - lea rcx,[GameAssembly.dll+2FD7968]
-GameAssembly.dll+AE455C: E8 EF 9F 7C FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+AE4561: 48 8D 0D 38 48 4F 02  - lea rcx,[GameAssembly.dll+2FD8DA0]
-GameAssembly.dll+AE4568: E8 E3 9F 7C FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+AE456D: C6 05 21 70 66 02 01  - mov byte ptr [GameAssembly.dll+314B595],01
-GameAssembly.dll+AE4574: 48 8B 05 C5 CE 4C 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE457B: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE4582: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+AE4585: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+AE4588: 0F 84 19 02 00 00     - je GameAssembly.dll+AE47A7
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+AE458E: 29 5A 30              - sub [rdx+30],ebx
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+AE4591: 48 8B 05 A8 CE 4C 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE4598: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE459F: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+AE45A2: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+AE45A5: 0F 84 FC 01 00 00     - je GameAssembly.dll+AE47A7
-GameAssembly.dll+AE45AB: 29 9A 50 0B 00 00     - sub [rdx+00000B50],ebx
-GameAssembly.dll+AE45B1: 48 8B 05 88 CE 4C 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE45B8: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE45BF: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+AE45C2: 48 85 D2              - test rdx,rdx
-}
 </AssemblerScript>
             </CheatEntry>
             <CheatEntry>
-              <ID>3</ID>
-              <Description>"Coins"</Description>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
               <LastState/>
-              <Color>40BF40</Color>
               <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
+              <AssemblerScript>[ENABLE]
 
-  This script does blah blah blah
-}
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
 
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,55 01 00 00 F2 0F 10 40 10 F2 0F 5C C6 F2 0F 11 40 10) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //movsd [rax+10],xmm0
-  jmp return
-
-INJECT+0D:
-  jmp newmem
-return:
-registersymbol(INJECT)
-
+{$asm}
 [DISABLE]
-
-INJECT+0D:
-  db F2 0F 11 40 10
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+AE5409
-
-GameAssembly.dll+AE53D9: 0F 57 FF                 - xorps xmm7,xmm7
-GameAssembly.dll+AE53DC: 66 0F 2F FE              - comisd xmm7,xmm6
-GameAssembly.dll+AE53E0: 0F 83 60 01 00 00        - jae GameAssembly.dll+AE5546
-GameAssembly.dll+AE53E6: 48 8B 05 53 C0 4C 02     - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE53ED: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE53F4: 48 8B 01                 - mov rax,[rcx]
-GameAssembly.dll+AE53F7: 48 85 C0                 - test rax,rax
-GameAssembly.dll+AE53FA: 0F 84 55 01 00 00        - je GameAssembly.dll+AE5555
-GameAssembly.dll+AE5400: F2 0F 10 40 10           - movsd xmm0,[rax+10]
-GameAssembly.dll+AE5405: F2 0F 5C C6              - subsd xmm0,xmm6
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+AE5409: F2 0F 11 40 10           - movsd [rax+10],xmm0
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+AE540E: 48 8B 05 2B C0 4C 02     - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE5415: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE541C: 48 8B 01                 - mov rax,[rcx]
-GameAssembly.dll+AE541F: 48 85 C0                 - test rax,rax
-GameAssembly.dll+AE5422: 0F 84 2D 01 00 00        - je GameAssembly.dll+AE5555
-GameAssembly.dll+AE5428: F2 0F 10 80 38 0B 00 00  - movsd xmm0,[rax+00000B38]
-GameAssembly.dll+AE5430: F2 0F 5C C6              - subsd xmm0,xmm6
-GameAssembly.dll+AE5434: F2 0F 11 80 38 0B 00 00  - movsd [rax+00000B38],xmm0
-GameAssembly.dll+AE543C: 48 8B 05 05 18 4F 02     - mov rax,[GameAssembly.dll+2FD6C48]
-GameAssembly.dll+AE5443: 83 B8 E0 00 00 00 00     - cmp dword ptr [rax+000000E0],00
-}
 </AssemblerScript>
             </CheatEntry>
             <CheatEntry>
-              <ID>6</ID>
-              <Description>"Elixir"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,05 01 00 00 F2 0F 10 40 18 F2 0F 5C C6 F2 0F 11 40 18) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //movsd [rax+18],xmm0
-  jmp return
-
-INJECT+0D:
-  jmp newmem
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT+0D:
-  db F2 0F 11 40 18
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+AEC647
-
-GameAssembly.dll+AEC611: 48 8D 0D 30 A6 4E 02     - lea rcx,[GameAssembly.dll+2FD6C48]
-GameAssembly.dll+AEC618: E8 33 1F 7C FF           - call GameAssembly.dll+2AE550
-GameAssembly.dll+AEC61D: C6 05 74 EF 65 02 01     - mov byte ptr [GameAssembly.dll+314B598],01
-GameAssembly.dll+AEC624: 48 8B 05 15 4E 4C 02     - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AEC62B: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
-GameAssembly.dll+AEC632: 48 8B 01                 - mov rax,[rcx]
-GameAssembly.dll+AEC635: 48 85 C0                 - test rax,rax
-GameAssembly.dll+AEC638: 0F 84 05 01 00 00        - je GameAssembly.dll+AEC743
-GameAssembly.dll+AEC63E: F2 0F 10 40 18           - movsd xmm0,[rax+18]
-GameAssembly.dll+AEC643: F2 0F 5C C6              - subsd xmm0,xmm6
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+AEC647: F2 0F 11 40 18           - movsd [rax+18],xmm0
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+AEC64C: 48 8B 05 ED 4D 4C 02     - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AEC653: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
-GameAssembly.dll+AEC65A: 48 8B 01                 - mov rax,[rcx]
-GameAssembly.dll+AEC65D: 48 85 C0                 - test rax,rax
-GameAssembly.dll+AEC660: 0F 84 DD 00 00 00        - je GameAssembly.dll+AEC743
-GameAssembly.dll+AEC666: F2 0F 10 80 40 0B 00 00  - movsd xmm0,[rax+00000B40]
-GameAssembly.dll+AEC66E: F2 0F 5C C6              - subsd xmm0,xmm6
-GameAssembly.dll+AEC672: F2 0F 11 80 40 0B 00 00  - movsd [rax+00000B40],xmm0
-GameAssembly.dll+AEC67A: 48 8B 05 C7 A5 4E 02     - mov rax,[GameAssembly.dll+2FD6C48]
-GameAssembly.dll+AEC681: 83 B8 E0 00 00 00 00     - cmp dword ptr [rax+000000E0],00
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>4</ID>
-              <Description>"Metals"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,41 29 58 3C 48 8B 05 87 05 4F 02) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //sub [r8+3C],ebx
-  mov rax,[GameAssembly.dll+2FD7968]
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop 6
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 41 29 58 3C 48 8B 05 87 05 4F 02
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+AE73D6
-
-GameAssembly.dll+AE73A1: 48 8D 0D 98 A0 4C 02  - lea rcx,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE73A8: E8 A3 71 7C FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+AE73AD: 48 8D 0D B4 05 4F 02  - lea rcx,[GameAssembly.dll+2FD7968]
-GameAssembly.dll+AE73B4: E8 97 71 7C FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+AE73B9: C6 05 A6 41 66 02 01  - mov byte ptr [GameAssembly.dll+314B566],01
-GameAssembly.dll+AE73C0: 48 8B 05 79 A0 4C 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE73C7: 48 8B 90 B8 00 00 00  - mov rdx,[rax+000000B8]
-GameAssembly.dll+AE73CE: 4C 8B 02              - mov r8,[rdx]
-GameAssembly.dll+AE73D1: 4D 85 C0              - test r8,r8
-GameAssembly.dll+AE73D4: 74 26                 - je GameAssembly.dll+AE73FC
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+AE73D6: 41 29 58 3C           - sub [r8+3C],ebx
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+AE73DA: 48 8B 05 87 05 4F 02  - mov rax,[GameAssembly.dll+2FD7968]
-GameAssembly.dll+AE73E1: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE73E8: 48 8B 09              - mov rcx,[rcx]
-GameAssembly.dll+AE73EB: 48 85 C9              - test rcx,rcx
-GameAssembly.dll+AE73EE: 74 0C                 - je GameAssembly.dll+AE73FC
-GameAssembly.dll+AE73F0: 33 D2                 - xor edx,edx
-GameAssembly.dll+AE73F2: 48 83 C4 20           - add rsp,20
-GameAssembly.dll+AE73F6: 5B                    - pop rbx
-GameAssembly.dll+AE73F7: E9 D4 61 92 FF        - jmp GameAssembly.dll+40D5D0
-GameAssembly.dll+AE73FC: E8 5F 73 7C FF        - call GameAssembly.dll+2AE760
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>5</ID>
-              <Description>"Keys"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,29 5A 34 48 8B 05 D4 47 4D 02) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //sub [rdx+34],ebx
-  mov rax,[GameAssembly.dll+2FB1440]
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop 5
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 29 5A 34 48 8B 05 D4 47 4D 02
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+ADCC62
-
-GameAssembly.dll+ADCC29: 48 8D 0D 38 AD 4F 02  - lea rcx,[GameAssembly.dll+2FD7968]
-GameAssembly.dll+ADCC30: E8 1B 19 7D FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+ADCC35: 48 8D 0D 64 C1 4F 02  - lea rcx,[GameAssembly.dll+2FD8DA0]
-GameAssembly.dll+ADCC3C: E8 0F 19 7D FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+ADCC41: C6 05 5D E9 66 02 01  - mov byte ptr [GameAssembly.dll+314B5A5],01
-GameAssembly.dll+ADCC48: 48 8B 05 F1 47 4D 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+ADCC4F: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+ADCC56: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+ADCC59: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+ADCC5C: 0F 84 F2 01 00 00     - je GameAssembly.dll+ADCE54
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+ADCC62: 29 5A 34              - sub [rdx+34],ebx
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+ADCC65: 48 8B 05 D4 47 4D 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+ADCC6C: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+ADCC73: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+ADCC76: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+ADCC79: 0F 84 D5 01 00 00     - je GameAssembly.dll+ADCE54
-GameAssembly.dll+ADCC7F: 29 9A 54 0B 00 00     - sub [rdx+00000B54],ebx
-GameAssembly.dll+ADCC85: 48 8B 05 B4 47 4D 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+ADCC8C: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+ADCC93: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+ADCC96: 48 85 D2              - test rdx,rdx
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>15</ID>
-              <Description>"Hero EXP"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-define(address,"GameAssembly.dll"+AEE10A)
-define(bytes,F3 0F 11 80 60 08 00 00)
-
-[ENABLE]
-
-assert(address,bytes)
-alloc(newmem,$1000,"GameAssembly.dll"+AEE10A)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //movss [rax+00000860],xmm0
-  jmp return
-
-address:
-  jmp newmem
-  nop 3
-return:
-
-[DISABLE]
-
-address:
-  db bytes
-  // movss [rax+00000860],xmm0
-
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+AEE10A
-
-GameAssembly.dll+AEE0D5: 48 8D 0D 64 33 4C 02     - lea rcx,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AEE0DC: E8 6F 04 7C FF           - call GameAssembly.dll+2AE550
-GameAssembly.dll+AEE0E1: C6 05 E8 D4 65 02 01     - mov byte ptr [GameAssembly.dll+314B5D0],01
-GameAssembly.dll+AEE0E8: 48 8B 05 51 33 4C 02     - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AEE0EF: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
-GameAssembly.dll+AEE0F6: 48 8B 01                 - mov rax,[rcx]
-GameAssembly.dll+AEE0F9: 48 85 C0                 - test rax,rax
-GameAssembly.dll+AEE0FC: 74 6E                    - je GameAssembly.dll+AEE16C
-GameAssembly.dll+AEE0FE: F3 0F 10 80 60 08 00 00  - movss xmm0,[rax+00000860]
-GameAssembly.dll+AEE106: F3 0F 5C C6              - subss xmm0,xmm6
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+AEE10A: F3 0F 11 80 60 08 00 00  - movss [rax+00000860],xmm0
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+AEE112: 48 8B 05 27 33 4C 02     - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AEE119: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
-GameAssembly.dll+AEE120: 48 8B 01                 - mov rax,[rcx]
-GameAssembly.dll+AEE123: 48 85 C0                 - test rax,rax
-GameAssembly.dll+AEE126: 74 44                    - je GameAssembly.dll+AEE16C
-GameAssembly.dll+AEE128: F3 0F 10 80 78 0B 00 00  - movss xmm0,[rax+00000B78]
-GameAssembly.dll+AEE130: F3 0F 5C C6              - subss xmm0,xmm6
-GameAssembly.dll+AEE134: F3 0F 11 80 78 0B 00 00  - movss [rax+00000B78],xmm0
-GameAssembly.dll+AEE13C: 48 8B 05 FD 32 4C 02     - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AEE143: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>16</ID>
-              <Description>"Blue Dust"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,29 7C 99 20 48 8B 05 53 FE 4C 02) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //sub [rcx+rbx*4+20],edi
-  mov rax,[GameAssembly.dll+2FB1440]
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop 6
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 29 7C 99 20 48 8B 05 53 FE 4C 02
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+AE15E2
-
-GameAssembly.dll+AE15BB: 48 8B 05 7E FE 4C 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE15C2: 4C 8B 80 B8 00 00 00  - mov r8,[rax+000000B8]
-GameAssembly.dll+AE15C9: 49 8B 08              - mov rcx,[r8]
-GameAssembly.dll+AE15CC: 48 85 C9              - test rcx,rcx
-GameAssembly.dll+AE15CF: 74 4B                 - je GameAssembly.dll+AE161C
-GameAssembly.dll+AE15D1: 48 8B 89 C0 07 00 00  - mov rcx,[rcx+000007C0]
-GameAssembly.dll+AE15D8: 48 85 C9              - test rcx,rcx
-GameAssembly.dll+AE15DB: 74 3F                 - je GameAssembly.dll+AE161C
-GameAssembly.dll+AE15DD: 3B 59 18              - cmp ebx,[rcx+18]
-GameAssembly.dll+AE15E0: 73 40                 - jae GameAssembly.dll+AE1622
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+AE15E2: 29 7C 99 20           - sub [rcx+rbx*4+20],edi
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+AE15E6: 48 8B 05 53 FE 4C 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE15ED: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE15F4: 48 8B 09              - mov rcx,[rcx]
-GameAssembly.dll+AE15F7: 48 85 C9              - test rcx,rcx
-GameAssembly.dll+AE15FA: 74 20                 - je GameAssembly.dll+AE161C
-GameAssembly.dll+AE15FC: 48 8B 89 80 0B 00 00  - mov rcx,[rcx+00000B80]
-GameAssembly.dll+AE1603: 48 85 C9              - test rcx,rcx
-GameAssembly.dll+AE1606: 74 14                 - je GameAssembly.dll+AE161C
-GameAssembly.dll+AE1608: 3B 59 18              - cmp ebx,[rcx+18]
-GameAssembly.dll+AE160B: 73 15                 - jae GameAssembly.dll+AE1622
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>11</ID>
-              <Description>"Rare Recruit"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,C7 01 00 00 29 9A E0 07 00 00) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //sub [rdx+000007E0],ebx
-  jmp return
-
-INJECT+04:
-  jmp newmem
-  nop
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT+04:
-  db 29 9A E0 07 00 00
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+AEB36C
-
-GameAssembly.dll+AEB335: 48 8D 0D 44 BA 4C 02  - lea rcx,[GameAssembly.dll+2FB6D80]
-GameAssembly.dll+AEB33C: E8 0F 32 7C FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+AEB341: C6 05 37 02 66 02 01  - mov byte ptr [GameAssembly.dll+314B57F],01
-GameAssembly.dll+AEB348: 48 8B 05 F1 60 4C 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AEB34F: 48 89 74 24 30        - mov [rsp+30],rsi
-GameAssembly.dll+AEB354: 48 89 7C 24 38        - mov [rsp+38],rdi
-GameAssembly.dll+AEB359: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AEB360: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+AEB363: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+AEB366: 0F 84 C7 01 00 00     - je GameAssembly.dll+AEB533
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+AEB36C: 29 9A E0 07 00 00     - sub [rdx+000007E0],ebx
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+AEB372: 48 8B 05 C7 60 4C 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AEB379: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AEB380: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+AEB383: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+AEB386: 0F 84 A7 01 00 00     - je GameAssembly.dll+AEB533
-GameAssembly.dll+AEB38C: 29 9A 68 0B 00 00     - sub [rdx+00000B68],ebx
-GameAssembly.dll+AEB392: 48 8B 05 CF C5 4E 02  - mov rax,[GameAssembly.dll+2FD7968]
-GameAssembly.dll+AEB399: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AEB3A0: 48 8B 09              - mov rcx,[rcx]
-GameAssembly.dll+AEB3A3: 48 85 C9              - test rcx,rcx
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>10</ID>
-              <Description>"Epic Recruit"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,F7 01 00 00 29 9A FC 07 00 00) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //sub [rdx+000007FC],ebx
-  jmp return
-
-INJECT+04:
-  jmp newmem
-  nop
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT+04:
-  db 29 9A FC 07 00 00
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+ADE103
-
-GameAssembly.dll+ADE0CC: 48 8D 0D AD 8C 4D 02  - lea rcx,[GameAssembly.dll+2FB6D80]
-GameAssembly.dll+ADE0D3: E8 78 04 7D FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+ADE0D8: C6 05 0D D5 66 02 01  - mov byte ptr [GameAssembly.dll+314B5EC],01
-GameAssembly.dll+ADE0DF: 48 8B 05 5A 33 4D 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+ADE0E6: 48 89 6C 24 30        - mov [rsp+30],rbp
-GameAssembly.dll+ADE0EB: 48 89 7C 24 38        - mov [rsp+38],rdi
-GameAssembly.dll+ADE0F0: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+ADE0F7: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+ADE0FA: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+ADE0FD: 0F 84 F7 01 00 00     - je GameAssembly.dll+ADE2FA
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+ADE103: 29 9A FC 07 00 00     - sub [rdx+000007FC],ebx
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+ADE109: 48 8B 05 30 33 4D 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+ADE110: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+ADE117: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+ADE11A: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+ADE11D: 0F 84 D7 01 00 00     - je GameAssembly.dll+ADE2FA
-GameAssembly.dll+ADE123: 29 9A 6C 0B 00 00     - sub [rdx+00000B6C],ebx
-GameAssembly.dll+ADE129: 48 8B 05 38 98 4F 02  - mov rax,[GameAssembly.dll+2FD7968]
-GameAssembly.dll+ADE130: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+ADE137: 48 8B 09              - mov rcx,[rcx]
-GameAssembly.dll+ADE13A: 48 85 C9              - test rcx,rcx
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>9</ID>
-              <Description>"Eggs"</Description>
-              <LastState/>
-              <Color>40BF40</Color>
-              <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-20
-  Author : Max
-
-  This script does blah blah blah
-}
-
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,29 5A 38 48 8B 05 EE 02 4D 02) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //sub [rdx+38],ebx
-  mov rax,[GameAssembly.dll+2FB1440]
-  jmp return
-
-INJECT:
-  jmp newmem
-  nop 5
-return:
-registersymbol(INJECT)
-
-[DISABLE]
-
-INJECT:
-  db 29 5A 38 48 8B 05 EE 02 4D 02
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+AE1148
-
-GameAssembly.dll+AE1111: 48 8D 0D 68 5C 4D 02  - lea rcx,[GameAssembly.dll+2FB6D80]
-GameAssembly.dll+AE1118: E8 33 D4 7C FF        - call GameAssembly.dll+2AE550
-GameAssembly.dll+AE111D: C6 05 23 A4 66 02 01  - mov byte ptr [GameAssembly.dll+314B547],01
-GameAssembly.dll+AE1124: 48 8B 05 15 03 4D 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE112B: 48 89 74 24 40        - mov [rsp+40],rsi
-GameAssembly.dll+AE1130: 48 89 7C 24 48        - mov [rsp+48],rdi
-GameAssembly.dll+AE1135: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE113C: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+AE113F: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+AE1142: 0F 84 56 02 00 00     - je GameAssembly.dll+AE139E
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+AE1148: 29 5A 38              - sub [rdx+38],ebx
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+AE114B: 48 8B 05 EE 02 4D 02  - mov rax,[GameAssembly.dll+2FB1440]
-GameAssembly.dll+AE1152: 48 8B 88 B8 00 00 00  - mov rcx,[rax+000000B8]
-GameAssembly.dll+AE1159: 48 8B 11              - mov rdx,[rcx]
-GameAssembly.dll+AE115C: 48 85 D2              - test rdx,rdx
-GameAssembly.dll+AE115F: 0F 84 39 02 00 00     - je GameAssembly.dll+AE139E
-GameAssembly.dll+AE1165: 29 9A 58 0B 00 00     - sub [rdx+00000B58],ebx
-GameAssembly.dll+AE116B: 48 8B 05 D6 5A 4F 02  - mov rax,[GameAssembly.dll+2FD6C48]
-GameAssembly.dll+AE1172: 83 B8 E0 00 00 00 00  - cmp dword ptr [rax+000000E0],00
-GameAssembly.dll+AE1179: 75 0F                 - jne GameAssembly.dll+AE118A
-GameAssembly.dll+AE117B: 48 8B C8              - mov rcx,rax
-}
-</AssemblerScript>
-            </CheatEntry>
-            <CheatEntry>
-              <ID>34</ID>
-              <Description>"Coins - Events"</Description>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
               <LastState/>
               <VariableType>Auto Assembler Script</VariableType>
-              <AssemblerScript>{ Game   : Tap Ninja
-  Version: 
-  Date   : 2025-08-27
-  Author : Max
+              <AssemblerScript>[ENABLE]
 
-  This script does blah blah blah
-}
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
 
-[ENABLE]
-
-aobscanmodule(INJECT,GameAssembly.dll,5E 01 00 00 F2 0F 10 40 10 F2 0F 5C C6 F2 0F 11 40 10) // should be unique
-alloc(newmem,$1000,INJECT)
-
-label(code)
-label(return)
-
-newmem:
-
-code:
-  //movsd [rax+10],xmm0
-  jmp return
-
-INJECT+0D:
-  jmp newmem
-return:
-registersymbol(INJECT)
-
+{$asm}
 [DISABLE]
-
-INJECT+0D:
-  db F2 0F 11 40 10
-
-unregistersymbol(INJECT)
-dealloc(newmem)
-
-{
-// ORIGINAL CODE - INJECTION POINT: GameAssembly.dll+813ACD
-
-GameAssembly.dll+813A9D: 0F 57 FF                 - xorps xmm7,xmm7
-GameAssembly.dll+813AA0: 66 0F 2F FE              - comisd xmm7,xmm6
-GameAssembly.dll+813AA4: 0F 83 60 01 00 00        - jae GameAssembly.dll+813C0A
-GameAssembly.dll+813AAA: 48 8B 05 27 92 98 02     - mov rax,[GameAssembly.dll+319CCD8]
-GameAssembly.dll+813AB1: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
-GameAssembly.dll+813AB8: 48 8B 01                 - mov rax,[rcx]
-GameAssembly.dll+813ABB: 48 85 C0                 - test rax,rax
-GameAssembly.dll+813ABE: 0F 84 5E 01 00 00        - je GameAssembly.dll+813C22
-GameAssembly.dll+813AC4: F2 0F 10 40 10           - movsd xmm0,[rax+10]
-GameAssembly.dll+813AC9: F2 0F 5C C6              - subsd xmm0,xmm6
-// ---------- INJECTING HERE ----------
-GameAssembly.dll+813ACD: F2 0F 11 40 10           - movsd [rax+10],xmm0
-// ---------- DONE INJECTING  ----------
-GameAssembly.dll+813AD2: 48 8B 05 FF 91 98 02     - mov rax,[GameAssembly.dll+319CCD8]
-GameAssembly.dll+813AD9: 48 8B 88 B8 00 00 00     - mov rcx,[rax+000000B8]
-GameAssembly.dll+813AE0: 48 8B 01                 - mov rax,[rcx]
-GameAssembly.dll+813AE3: 48 85 C0                 - test rax,rax
-GameAssembly.dll+813AE6: 0F 84 36 01 00 00        - je GameAssembly.dll+813C22
-GameAssembly.dll+813AEC: F2 0F 10 80 D0 07 00 00  - movsd xmm0,[rax+000007D0]
-GameAssembly.dll+813AF4: F2 0F 5C C6              - subsd xmm0,xmm6
-GameAssembly.dll+813AF8: F2 0F 11 80 D0 07 00 00  - movsd [rax+000007D0],xmm0
-GameAssembly.dll+813B00: 48 8B 05 69 15 9A 02     - mov rax,[GameAssembly.dll+31B5070]
-GameAssembly.dll+813B07: 83 B8 E0 00 00 00 00     - cmp dword ptr [rax+000000E0],00
-}
 </AssemblerScript>
             </CheatEntry>
           </CheatEntries>
@@ -1625,18 +71,1738 @@ GameAssembly.dll+813B07: 83 B8 E0 00 00 00 00     - cmp dword ptr [rax+000000E0]
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>33</ID>
-      <Description>"Coins - Events"</Description>
-      <ShowAsSigned>0</ShowAsSigned>
-      <Color>BF4040</Color>
-      <VariableType>4 Bytes</VariableType>
-      <Address>GameAssembly.dll+8147F9</Address>
+      <ID>16317</ID>
+      <Description>"◀️ IMPORTANT: Enable this checkbox to ACTIVE Mono features FIRST"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+mono_initialize()
+LaunchMonoDataCollector()
+{$asm}
+
+[DISABLE]
+{$lua}
+mono_initialize()
+LaunchMonoDataCollector()
+{$asm}
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16318</ID>
+          <Description>"Active Mono (Menu bar ➜ Mono ➜ Active mono features)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16319</ID>
+          <Description>"Make sure you have Cheat Engine 7.4 or later"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16320</ID>
+          <Description>"◀️ Enable checkbox to Download the latest version from: https://www.cheatengine.org/"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.cheatengine.org/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>35</ID>
-      <Description>"No description"</Description>
-      <VariableType>Double</VariableType>
-      <Address>18CE15FC010</Address>
+      <ID>45</ID>
+      <Description>"This games use Scientific Notation for Double type (1Ex = 1 × 10^x)"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF40BF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>46</ID>
+          <Description>"1E3 = 1 × 10³ = 1000 (3 zeros)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>103</ID>
+          <Description>"5.3E9 = 5.3 × 10⁹ = 5,300,000,000 (9 zeros / 5.3 billion)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>47</ID>
+          <Description>"3.51E15 = 3.51 × 10¹⁵ = 3,510,000,000,000,000 (15 zeros / 3.51 quadrillion)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>77</ID>
+      <Description>"Memory Viewer     ──────────────────────────────────────────────────────────────────────────────────"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16294</ID>
+          <Description>"ALL Mastery Points"</Description>
+          <LastState Value="2156613058" RealAddress="7FFB1297C442"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+147442</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16355</ID>
+          <Description>"ALL Coin Multiplier"</Description>
+          <LastState Value="-107374176" RealAddress="7FFB13169FB5"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>GameAssembly.dll.il2cpp+934FB5</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16306</ID>
+          <Description>"Dust (realtime)"</Description>
+          <LastState Value="2077878482" RealAddress="7FFB1312CFB1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+8F7FB1</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16312</ID>
+          <Description>"Feather (realtime)"</Description>
+          <LastState Value="227232769" RealAddress="7FFB1312CE61"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"GameAssembly.dll"+BFCE61</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16324</ID>
+          <Description>"Everything (Achievements)"</Description>
+          <LastState Value="860160000" RealAddress="7FFB142AB2DD"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+1A762DD</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16331</ID>
+          <Description>"ALL Bonus Timer (realtime)"</Description>
+          <LastState Value="1.42981893E-9" RealAddress="7FFB1316A92C"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>GameAssembly.dll.il2cpp+93592C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16348</ID>
+          <Description>"Achievements ??"</Description>
+          <LastState Value="860160000" RealAddress="7FFB142AB2DD"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+1A762DD</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16357</ID>
+          <Description>"ALL Castle Level"</Description>
+          <LastState Value="123240843" RealAddress="7FFB12E0EC0C"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+5D9C0C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16349</ID>
+          <Description>"ALL Castle Level"</Description>
+          <LastState Value="2236090433" RealAddress="7FFB12DDB574"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+5A6574</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16328</ID>
+          <Description>"ALL Heroes Levels (realtime)"</Description>
+          <LastState Value="2236092811" RealAddress="7FFB12C0368D"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+3CE68D</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16338</ID>
+          <Description>"ALL Pets Stars (realtime)"</Description>
+          <LastState Value="34963422" RealAddress="7FFB135A104E"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+D6C04E</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16327</ID>
+          <Description>"ALL Heroes Stars (realtime)"</Description>
+          <LastState Value="1207995208" RealAddress="7FFB1294C06E"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>GameAssembly.dll.il2cpp+11706E</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16282</ID>
+      <Description>"Active Cheats     ──────────────────────────────────────────────────────────────"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//Active Mono Features
+
+[ENABLE]
+{$lua}
+mono_initialize()
+LaunchMonoDataCollector()
+{$asm}
+
+[DISABLE]
+{$lua}
+mono_initialize()
+LaunchMonoDataCollector()
+{$asm}
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16292</ID>
+          <Description>"Get Stats in Conquest     ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・"</Description>
+          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>//Gold
+define(addressGold,"GameAssembly.dll"+BFD527)
+define(bytesGold,F2 0F 58 40 10)
+
+//Amber
+define(addressAmber,"GameAssembly.dll"+BF5140)
+define(bytesAmber,8B 40 24 48 83 C4 28)
+
+//Elixir
+define(addressElixir,"GameAssembly.dll"+BF97B6)
+define(bytesElixir,F2 0F 10 40 18)
+
+//Key
+define(addressKey,"GameAssembly.dll"+BFCD78)
+define(bytesKey,66 0F 6E 4A 30)
+
+//Medal
+define(addressMedal,"GameAssembly.dll"+BF5CD6)
+define(bytesMedal,8B 40 38 48 83 C4 28)
+
+//Dash
+define(addressDash,"GameAssembly.dll"+F6750E)
+define(bytesDash,F3 0F 10 80 74 02 00 00)
+
+//RopeHook
+define(addressRopeHook,"GameAssembly.dll"+F66B7E)
+define(bytesRopeHook,F3 0F 10 80 30 02 00 00)
+
+//ShurikenVortex
+define(addressShurikenVortex,"GameAssembly.dll"+F66EF4)
+define(bytesShurikenVortex,F3 0F 10 80 F0 01 00 00)
+
+//QuestBoardProgress
+define(addressQuestBoardProgress,"GameAssembly.dll"+CFCBD4)
+define(bytesQuestBoardProgress,66 0F 6E 88 0C 05 00 00)
+
+//HolidayTasks
+define(addressHolidayTasks,"GameAssembly.dll"+54B175)
+define(bytesHolidayTasks,44 8B B1 20 03 00 00)
+
+//SkillTreeUnlockedCount
+define(addressSkillTreeUnlockedCount,"GameAssembly.dll"+F9C53C)
+define(bytesSkillTreeUnlockedCount,39 4A 28 48 8B D0)
+
+//MasteryPoints
+define(addressMasteryPoints,"GameAssembly.dll"+44C442)
+define(bytesMasteryPoints,41 03 1C 00 FF C2)
+
+
+
+
+
+
+[ENABLE]
+
+//==============================Gold
+
+assert(addressGold,bytesGold)
+alloc(newmemGold,$1000,"GameAssembly.dll"+BFD527)
+
+alloc(Gold,4)
+registersymbol(Gold)
+
+label(codeGold)
+label(returnGold)
+
+newmemGold:
+
+codeGold:
+ mov [Gold],rax
+ addsd xmm0,[rax+10]
+ jmp returnGold
+
+addressGold:
+ jmp newmemGold
+returnGold:
+
+//==============================Amber
+
+assert(addressAmber,bytesAmber)
+alloc(newmemAmber,$1000,"GameAssembly.dll"+BF5140)
+
+alloc(Amber,4)
+registersymbol(Amber)
+
+label(codeAmber)
+label(returnAmber)
+
+newmemAmber:
+
+codeAmber:
+ mov [Amber],rax
+ mov eax,[rax+24]
+ add rsp,28
+ jmp returnAmber
+
+addressAmber:
+ jmp newmemAmber
+ nop 2
+returnAmber:
+
+//==============================Elixir
+
+assert(addressElixir,bytesElixir)
+alloc(newmemElixir,$1000,"GameAssembly.dll"+BF97B6)
+
+alloc(Elixir,4)
+registersymbol(Elixir)
+
+label(codeElixir)
+label(returnElixir)
+
+newmemElixir:
+
+codeElixir:
+ mov [Elixir],rax
+ movsd xmm0,[rax+18]
+ jmp returnElixir
+
+addressElixir:
+ jmp newmemElixir
+returnElixir:
+
+//==============================Key
+
+assert(addressKey,bytesKey)
+alloc(newmemKey,$1000,"GameAssembly.dll"+BFCD78)
+
+alloc(Key,4)
+registersymbol(Key)
+
+label(codeKey)
+label(returnKey)
+
+newmemKey:
+
+codeKey:
+ mov [Key],rdx
+ movd xmm1,[rdx+30]
+ jmp returnKey
+
+addressKey:
+ jmp newmemKey
+returnKey:
+
+//==============================Medal
+
+assert(addressMedal,bytesMedal)
+alloc(newmemMedal,$1000,"GameAssembly.dll"+BF5CD6)
+
+alloc(Medal,4)
+registersymbol(Medal)
+
+label(codeMedal)
+label(returnMedal)
+
+newmemMedal:
+
+codeMedal:
+ mov [Medal],rax
+ mov eax,[rax+38]
+ add rsp,28
+ jmp returnMedal
+
+addressMedal:
+ jmp newmemMedal
+ nop 2
+returnMedal:
+
+//==============================Dash
+
+assert(addressDash,bytesDash)
+alloc(newmemDash,$1000,"GameAssembly.dll"+F6750E)
+
+alloc(Dash,4)
+registersymbol(Dash)
+
+label(codeDash)
+label(returnDash)
+
+newmemDash:
+
+codeDash:
+ mov [Dash],rax
+ movss xmm0,[rax+00000274]
+ jmp returnDash
+
+addressDash:
+ jmp newmemDash
+ nop 3
+returnDash:
+
+//==============================RopeHook
+
+assert(addressRopeHook,bytesRopeHook)
+alloc(newmemRopeHook,$1000,"GameAssembly.dll"+F66B7E)
+
+alloc(RopeHook,4)
+registersymbol(RopeHook)
+
+label(codeRopeHook)
+label(returnRopeHook)
+
+newmemRopeHook:
+
+codeRopeHook:
+ mov [RopeHook],rax
+ movss xmm0,[rax+00000230]
+ jmp returnRopeHook
+
+addressRopeHook:
+ jmp newmemRopeHook
+ nop 3
+returnRopeHook:
+
+//==============================ShurikenVortex
+
+assert(addressShurikenVortex,bytesShurikenVortex)
+alloc(newmemShurikenVortex,$1000,"GameAssembly.dll"+F66EF4)
+
+alloc(ShurikenVortex,4)
+registersymbol(ShurikenVortex)
+
+label(codeShurikenVortex)
+label(returnShurikenVortex)
+
+newmemShurikenVortex:
+
+codeShurikenVortex:
+ mov [ShurikenVortex],rax
+ movss xmm0,[rax+000001F0]
+ jmp returnShurikenVortex
+
+addressShurikenVortex:
+ jmp newmemShurikenVortex
+ nop 3
+returnShurikenVortex:
+
+//==============================QuestBoardProgress
+
+assert(addressQuestBoardProgress,bytesQuestBoardProgress)
+alloc(newmemQuestBoardProgress,$1000,"GameAssembly.dll"+CFCBD4)
+
+alloc(QuestBoardProgress,4)
+registersymbol(QuestBoardProgress)
+
+label(codeQuestBoardProgress)
+label(returnQuestBoardProgress)
+
+newmemQuestBoardProgress:
+
+codeQuestBoardProgress:
+ mov [QuestBoardProgress],rax
+ movd xmm1,[rax+0000050C]
+ jmp returnQuestBoardProgress
+
+addressQuestBoardProgress:
+ jmp newmemQuestBoardProgress
+ nop 3
+returnQuestBoardProgress:
+
+//==============================HolidayTasks
+
+assert(addressHolidayTasks,bytesHolidayTasks)
+alloc(newmemHolidayTasks,$1000,"GameAssembly.dll"+54B175)
+
+alloc(HolidayTasks,4)
+registersymbol(HolidayTasks)
+
+label(codeHolidayTasks)
+label(returnHolidayTasks)
+
+newmemHolidayTasks:
+
+codeHolidayTasks:
+ mov [HolidayTasks],rcx
+ mov r14d,[rcx+00000320]
+ jmp returnHolidayTasks
+
+addressHolidayTasks:
+ jmp newmemHolidayTasks
+ nop 2
+returnHolidayTasks:
+
+//==============================SkillTreeUnlockedCount
+
+assert(addressSkillTreeUnlockedCount,bytesSkillTreeUnlockedCount)
+alloc(newmemSkillTreeUnlockedCount,$1000,"GameAssembly.dll"+F9C53C)
+
+alloc(SkillTreeUnlockedCount,4)
+registersymbol(SkillTreeUnlockedCount)
+
+label(codeSkillTreeUnlockedCount)
+label(returnSkillTreeUnlockedCount)
+
+newmemSkillTreeUnlockedCount:
+
+codeSkillTreeUnlockedCount:
+ mov [SkillTreeUnlockedCount],rdx //Save rdx address into SkillTreeUnlockedCount
+ cmp [rdx+28],ecx
+ mov rdx,rax
+ jmp returnSkillTreeUnlockedCount
+
+addressSkillTreeUnlockedCount:
+ jmp newmemSkillTreeUnlockedCount
+ nop
+returnSkillTreeUnlockedCount:
+
+//==============================MasteryPoints
+
+assert(addressMasteryPoints,bytesMasteryPoints)
+alloc(newmemMasteryPoints,$1000,"GameAssembly.dll"+44C442)
+
+alloc(MasteryPoints,4)
+registersymbol(MasteryPoints)
+
+label(codeMasteryPoints)
+label(returnMasteryPoints)
+
+newmemMasteryPoints:
+
+codeMasteryPoints:
+ push ebx
+ lea ebx,[r8+rax] //Save r8+rax address into ebx
+ mov [MasteryPoints],ebx //Save ebx address into MasteryPoints
+ pop ebx
+
+ add ebx,[r8+rax]
+ inc edx
+ jmp returnMasteryPoints
+
+addressMasteryPoints:
+ jmp newmemMasteryPoints
+ nop
+returnMasteryPoints:
+
+
+
+
+
+
+
+[DISABLE]
+
+//==============================Gold
+
+addressGold:
+ db bytesGold
+ // addsd xmm0,[rax+10]
+
+dealloc(newmemGold)
+dealloc(Gold)
+unregistersymbol(Gold)
+
+//==============================Amber
+
+addressAmber:
+ db bytesAmber
+ // mov eax,[rax+24]
+ // add rsp,28
+
+dealloc(newmemAmber)
+dealloc(Amber)
+unregistersymbol(Amber)
+
+//==============================Elixir
+
+addressElixir:
+ db bytesElixir
+ // movsd xmm0,[rax+18]
+
+dealloc(newmemElixir)
+dealloc(Elixir)
+unregistersymbol(Elixir)
+
+//==============================Key
+
+addressKey:
+ db bytesKey
+ // movd xmm1,[rdx+30]
+
+dealloc(newmemKey)
+dealloc(Key)
+unregistersymbol(Key)
+
+//==============================Medal
+
+addressMedal:
+ db bytesMedal
+ // mov eax,[rax+38]
+ // add rsp,28
+
+dealloc(newmemMedal)
+dealloc(Medal)
+unregistersymbol(Medal)
+
+//==============================Dash
+
+addressDash:
+ db bytesDash
+ // movss xmm0,[rax+00000274]
+
+dealloc(newmemDash)
+dealloc(Dash)
+unregistersymbol(Dash)
+
+//==============================RopeHook
+
+addressRopeHook:
+ db bytesRopeHook
+ // movss xmm0,[rax+00000230]
+
+dealloc(newmemRopeHook)
+dealloc(RopeHook)
+unregistersymbol(RopeHook)
+
+//==============================ShurikenVortex
+
+addressShurikenVortex:
+ db bytesShurikenVortex
+ // movss xmm0,[rax+000001F0]
+
+dealloc(newmemShurikenVortex)
+dealloc(ShurikenVortex)
+unregistersymbol(ShurikenVortex)
+
+//==============================QuestBoardProgress
+
+addressQuestBoardProgress:
+ db bytesQuestBoardProgress
+ // movd xmm1,[rax+0000050C]
+
+dealloc(newmemQuestBoardProgress)
+dealloc(QuestBoardProgress)
+unregistersymbol(QuestBoardProgress)
+
+//==============================HolidayTasks
+
+addressHolidayTasks:
+ db bytesHolidayTasks
+ // mov r14d,[rcx+00000320]
+
+dealloc(newmemHolidayTasks)
+dealloc(HolidayTasks)
+unregistersymbol(HolidayTasks)
+
+//==============================SkillTreeUnlockedCount
+
+addressSkillTreeUnlockedCount:
+ db bytesSkillTreeUnlockedCount
+ // cmp [rdx+28],ecx
+ // mov rdx,rax
+
+dealloc(newmemSkillTreeUnlockedCount)
+dealloc(SkillTreeUnlockedCount)
+unregistersymbol(SkillTreeUnlockedCount)
+
+//==============================MasteryPoints
+
+addressMasteryPoints:
+ db bytesMasteryPoints
+ // add ebx,[r8+rax]
+ // inc edx
+
+dealloc(newmemMasteryPoints)
+dealloc(MasteryPoints)
+unregistersymbol(MasteryPoints)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16340</ID>
+              <Description>"Currency"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16332</ID>
+                  <Description>"Amber"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>Amber</Address>
+                  <Offsets>
+                    <Offset>24</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16325</ID>
+                  <Description>"Medal"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>Medal</Address>
+                  <Offsets>
+                    <Offset>38</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16311</ID>
+                  <Description>"Key"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>Key</Address>
+                  <Offsets>
+                    <Offset>30</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16321</ID>
+                  <Description>"Elixir"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Double</VariableType>
+                  <Address>Elixir</Address>
+                  <Offsets>
+                    <Offset>18</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16301</ID>
+                  <Description>"Gold"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>Double</VariableType>
+                  <Address>Gold</Address>
+                  <Offsets>
+                    <Offset>10</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16354</ID>
+              <Description>"Mastery Points"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>16356</ID>
+                  <Description>"ALL Mastery Points"</Description>
+                  <LastState Value="2156613058" RealAddress="7FFB1297C442"/>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>BF4040</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>GameAssembly.dll.il2cpp+147442</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16310</ID>
+                  <Description>"Mastery Points"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>40BFBF</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>MasteryPoints</Address>
+                  <Offsets>
+                    <Offset>0</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16339</ID>
+              <Description>"ALL Coin Multiplier"</Description>
+              <LastState Value="-107374176" RealAddress="7FFB13169FB5"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>Float</VariableType>
+              <Address>GameAssembly.dll.il2cpp+934FB5</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16352</ID>
+              <Description>"ALL Elixir Multiplier"</Description>
+              <LastState Value="1.10226508E18" RealAddress="7FFB1316A25C"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>Float</VariableType>
+              <Address>GameAssembly.dll.il2cpp+93525C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16351</ID>
+              <Description>"ALL Bonus Timer (realtime)"</Description>
+              <LastState Value="1.42981893E-9" RealAddress="7FFB1316A92C"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>Float</VariableType>
+              <Address>GameAssembly.dll.il2cpp+93592C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16353</ID>
+              <Description>"Skill Tree Unlocked Count"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SkillTreeUnlockedCount</Address>
+              <Offsets>
+                <Offset>28</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16341</ID>
+              <Description>"Holiday Tasks"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>HolidayTasks</Address>
+              <Offsets>
+                <Offset>320</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16296</ID>
+              <Description>"Quest Board Progress"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>QuestBoardProgress</Address>
+              <Offsets>
+                <Offset>50C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16295</ID>
+              <Description>"Dash (timer)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>Dash</Address>
+              <Offsets>
+                <Offset>274</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16323</ID>
+              <Description>"Rope Hook (timer)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>RopeHook</Address>
+              <Offsets>
+                <Offset>230</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16322</ID>
+              <Description>"Shuriken Vortex (timer)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>ShurikenVortex</Address>
+              <Offsets>
+                <Offset>1F0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16342</ID>
+          <Description>"Get Stats in Ascension Skill Tree     ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・"</Description>
+          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>//ElementOfVoid
+define(addressElementOfVoid,"GameAssembly.dll"+865DA3)
+define(bytesElementOfVoid,8B 80 C0 01 00 00)
+
+
+
+
+
+
+[ENABLE]
+
+
+
+//==============================ElementOfVoid
+
+assert(addressElementOfVoid,bytesElementOfVoid)
+alloc(newmemElementOfVoid,$1000,"GameAssembly.dll"+865DA3)
+
+alloc(ElementOfVoid,4)
+registersymbol(ElementOfVoid)
+
+label(codeElementOfVoid)
+label(returnElementOfVoid)
+
+newmemElementOfVoid:
+
+codeElementOfVoid:
+ mov [ElementOfVoid],rax //Save rax address into ElementOfVoid
+ mov eax,[rax+000001C0]
+ jmp returnElementOfVoid
+
+addressElementOfVoid:
+ jmp newmemElementOfVoid
+ nop
+returnElementOfVoid:
+
+
+
+
+
+
+
+[DISABLE]
+
+
+
+//==============================ElementOfVoid
+
+addressElementOfVoid:
+ db bytesElementOfVoid
+ // mov eax,[rax+000001C0]
+
+dealloc(newmemElementOfVoid)
+dealloc(ElementOfVoid)
+unregistersymbol(ElementOfVoid)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16343</ID>
+              <Description>"Element Of Water Level"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>ElementOfVoid</Address>
+              <Offsets>
+                <Offset>1CC</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16346</ID>
+              <Description>"Element Of Fire Level"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>ElementOfVoid</Address>
+              <Offsets>
+                <Offset>1C8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16345</ID>
+              <Description>"Element Of Wind Level"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>ElementOfVoid</Address>
+              <Offsets>
+                <Offset>1C4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16344</ID>
+              <Description>"Element Of Void Level"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>ElementOfVoid</Address>
+              <Offsets>
+                <Offset>1C0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16297</ID>
+          <Description>"Get Stats in Conquest     ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・"</Description>
+          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>//Lumber
+define(addressLumber,"GameAssembly.dll"+BF92CF)
+define(bytesLumber,F3 0F 10 80 48 06 00 00)
+
+//Ore
+define(addressOre,"GameAssembly.dll"+BF4C4F)
+define(bytesOre,F3 0F 10 80 68 06 00 00)
+
+//CastleLevel
+define(addressCastleLevel,"GameAssembly.dll"+8DEC0C)
+define(bytesCastleLevel,8B 44 8A 20 33 D2)
+
+
+
+
+
+
+[ENABLE]
+
+//==============================Lumber
+
+assert(addressLumber,bytesLumber)
+alloc(newmemLumber,$1000,"GameAssembly.dll"+BF92CF)
+
+alloc(Lumber,4)
+registersymbol(Lumber)
+
+label(codeLumber)
+label(returnLumber)
+
+newmemLumber:
+
+codeLumber:
+ mov [Lumber],rax
+ movss xmm0,[rax+00000648]
+ jmp returnLumber
+
+addressLumber:
+ jmp newmemLumber
+ nop 3
+returnLumber:
+
+//==============================Ore
+
+assert(addressOre,bytesOre)
+alloc(newmemOre,$1000,"GameAssembly.dll"+BF4C4F)
+
+alloc(Ore,4)
+registersymbol(Ore)
+
+label(codeOre)
+label(returnOre)
+
+newmemOre:
+
+codeOre:
+ mov [Ore],rax
+ movss xmm0,[rax+00000668]
+ jmp returnOre
+
+addressOre:
+ jmp newmemOre
+ nop 3
+returnOre:
+
+//==============================CastleLevel
+
+assert(addressCastleLevel,bytesCastleLevel)
+alloc(newmemCastleLevel,$1000,"GameAssembly.dll"+8DEC0C)
+
+alloc(CastleLevel,4)
+registersymbol(CastleLevel)
+
+label(codeCastleLevel)
+label(returnCastleLevel)
+
+newmemCastleLevel:
+
+codeCastleLevel:
+ push ebx
+ lea ebx,[rdx+rcx*4+20] //Save rdx+rcx*4+20 address into eax
+ mov [CastleLevel],ebx //Save eax address into CastleLevel
+ pop ebx
+
+ mov eax,[rdx+rcx*4+20]
+ xor edx,edx
+ jmp returnCastleLevel
+
+addressCastleLevel:
+ jmp newmemCastleLevel
+ nop
+returnCastleLevel:
+
+
+
+
+
+
+
+[DISABLE]
+
+//==============================Lumber
+
+addressLumber:
+ db bytesLumber
+ // movss xmm0,[rax+00000648]
+
+dealloc(newmemLumber)
+dealloc(Lumber)
+unregistersymbol(Lumber)
+
+//==============================Ore
+
+addressOre:
+ db bytesOre
+ // movss xmm0,[rax+00000668]
+
+dealloc(newmemOre)
+dealloc(Ore)
+unregistersymbol(Ore)
+
+//==============================CastleLevel
+
+addressCastleLevel:
+ db bytesCastleLevel
+ // mov eax,[rdx+rcx*4+20]
+ // xor edx,edx
+
+dealloc(newmemCastleLevel)
+dealloc(CastleLevel)
+unregistersymbol(CastleLevel)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16347</ID>
+              <Description>"Capture Process"</Description>
+              <LastState Value="2336751715" RealAddress="7FFB12B0BFE1"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>GameAssembly.dll.il2cpp+2D6FE1</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16360</ID>
+              <Description>"ALL Castle Level"</Description>
+              <LastState Value="2236090433" RealAddress="7FFB12DDB574"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"GameAssembly.dll"+8AB574</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16298</ID>
+              <Description>"Castle Level"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>CastleLevel</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16330</ID>
+              <Description>"Ore"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>Ore</Address>
+              <Offsets>
+                <Offset>668</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16329</ID>
+              <Description>"Lumber"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>Lumber</Address>
+              <Offsets>
+                <Offset>648</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16299</ID>
+          <Description>"Get Stats in Heroes / Pets     ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・"</Description>
+          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>//HeroEXP
+define(addressHeroEXP,"GameAssembly.dll"+BF7610)
+define(bytesHeroEXP,F3 0F 10 80 50 02 00 00)
+
+//EpicScrolls
+define(addressEpicScrolls,"GameAssembly.dll"+BFD163)
+define(bytesEpicScrolls,41 8B 98 24 06 00 00)
+
+//DustAllType
+define(addressDustAllType,"GameAssembly.dll"+BFCFB1)
+define(bytesDustAllType,8B 2C 03 48 8B 82 B8 00 00 00)
+
+//Feather
+define(addressFeather,"GameAssembly.dll"+BFCE61)
+define(bytesFeather,45 8B 3C 06 48 8B 82 B8 00 00 00)
+
+//RareScrolls
+define(addressRareScrolls,"GameAssembly.dll"+BFD0A8)
+define(bytesRareScrolls,8B 99 08 06 00 00)
+
+//SummoningEgg
+define(addressSummoningEgg,"GameAssembly.dll"+BFCDB4)
+define(bytesSummoningEgg,66 0F 6E 4A 34)
+
+
+
+
+
+
+[ENABLE]
+
+//==============================HeroEXP
+
+assert(addressHeroEXP,bytesHeroEXP)
+alloc(newmemHeroEXP,$1000,"GameAssembly.dll"+BF7610)
+
+alloc(HeroEXP,4)
+registersymbol(HeroEXP)
+
+label(codeHeroEXP)
+label(returnHeroEXP)
+
+newmemHeroEXP:
+
+codeHeroEXP:
+ mov [HeroEXP],rax
+ movss xmm0,[rax+00000250]
+ jmp returnHeroEXP
+
+addressHeroEXP:
+ jmp newmemHeroEXP
+ nop 3
+returnHeroEXP:
+
+//==============================EpicScrolls
+
+assert(addressEpicScrolls,bytesEpicScrolls)
+alloc(newmemEpicScrolls,$1000,"GameAssembly.dll"+BFD163)
+
+alloc(EpicScrolls,4)
+registersymbol(EpicScrolls)
+
+label(codeEpicScrolls)
+label(returnEpicScrolls)
+
+newmemEpicScrolls:
+
+codeEpicScrolls:
+ mov [EpicScrolls],r8
+ mov ebx,[r8+00000624]
+ jmp returnEpicScrolls
+
+addressEpicScrolls:
+ jmp newmemEpicScrolls
+ nop 2
+returnEpicScrolls:
+
+//==============================DustAllType
+
+assert(addressDustAllType,bytesDustAllType)
+alloc(newmemDustAllType,$1000,"GameAssembly.dll"+BFCFB1)
+
+alloc(DustAllType,4)
+registersymbol(DustAllType)
+
+label(codeDustAllType)
+label(returnDustAllType)
+
+newmemDustAllType:
+
+codeDustAllType:
+ lea rcx,[rbx+rax]
+ mov [DustAllType],rcx
+ mov ebp,[rbx+rax]
+ mov rax,[rdx+000000B8]
+ jmp returnDustAllType
+
+addressDustAllType:
+ jmp newmemDustAllType
+ nop 5
+returnDustAllType:
+
+//==============================Feather
+
+assert(addressFeather,bytesFeather)
+alloc(newmemFeather,$1000,"GameAssembly.dll"+BFCE61)
+
+alloc(Feather,4)
+registersymbol(Feather)
+
+label(codeFeather)
+label(returnFeather)
+
+newmemFeather:
+
+codeFeather:
+ lea rcx,[r14+rax]
+ mov [Feather],rcx
+ mov r15d,[r14+rax]
+ mov rax,[rdx+000000B8]
+ jmp returnFeather
+
+addressFeather:
+ jmp newmemFeather
+ nop 6
+returnFeather:
+
+//==============================RareScrolls
+
+assert(addressRareScrolls,bytesRareScrolls)
+alloc(newmemRareScrolls,$1000,"GameAssembly.dll"+BFD0A8)
+
+alloc(RareScrolls,4)
+registersymbol(RareScrolls)
+
+label(codeRareScrolls)
+label(returnRareScrolls)
+
+newmemRareScrolls:
+
+codeRareScrolls:
+ mov [RareScrolls],rcx
+ mov ebx,[rcx+00000608]
+ jmp returnRareScrolls
+
+addressRareScrolls:
+ jmp newmemRareScrolls
+ nop
+returnRareScrolls:
+
+//==============================SummoningEgg
+
+assert(addressSummoningEgg,bytesSummoningEgg)
+alloc(newmemSummoningEgg,$1000,"GameAssembly.dll"+BFCDB4)
+
+alloc(SummoningEgg,4)
+registersymbol(SummoningEgg)
+
+label(codeSummoningEgg)
+label(returnSummoningEgg)
+
+newmemSummoningEgg:
+
+codeSummoningEgg:
+ mov [SummoningEgg],rdx //Save rdx address into SummoningEgg
+ movd xmm1,[rdx+34]
+ jmp returnSummoningEgg
+
+addressSummoningEgg:
+ jmp newmemSummoningEgg
+returnSummoningEgg:
+
+
+
+
+
+
+
+[DISABLE]
+
+//==============================HeroEXP
+
+addressHeroEXP:
+ db bytesHeroEXP
+ // movss xmm0,[rax+00000250]
+
+dealloc(newmemHeroEXP)
+dealloc(HeroEXP)
+unregistersymbol(HeroEXP)
+
+//==============================EpicScrolls
+
+addressEpicScrolls:
+ db bytesEpicScrolls
+ // mov ebx,[r8+00000624]
+
+dealloc(newmemEpicScrolls)
+dealloc(EpicScrolls)
+unregistersymbol(EpicScrolls)
+
+//==============================DustAllType
+
+addressDustAllType:
+ db bytesDustAllType
+ // mov ebp,[rbx+rax]
+ // mov rax,[rdx+000000B8]
+
+dealloc(newmemDustAllType)
+dealloc(DustAllType)
+unregistersymbol(DustAllType)
+
+//==============================Feather
+
+addressFeather:
+ db bytesFeather
+ // mov r15d,[r14+rax]
+ // mov rax,[rdx+000000B8]
+
+dealloc(newmemFeather)
+dealloc(Feather)
+unregistersymbol(Feather)
+
+//==============================RareScrolls
+
+addressRareScrolls:
+ db bytesRareScrolls
+ // mov ebx,[rcx+00000608]
+
+dealloc(newmemRareScrolls)
+dealloc(RareScrolls)
+unregistersymbol(RareScrolls)
+
+//==============================SummoningEgg
+
+addressSummoningEgg:
+ db bytesSummoningEgg
+ // movd xmm1,[rdx+34]
+
+dealloc(newmemSummoningEgg)
+dealloc(SummoningEgg)
+unregistersymbol(SummoningEgg)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16336</ID>
+              <Description>"ALL Pets Stars (realtime)"</Description>
+              <LastState Value="34963422" RealAddress="7FFB135A104E"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>GameAssembly.dll.il2cpp+D6C04E</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16337</ID>
+              <Description>"ALL Pets Level (realtime)"</Description>
+              <LastState Value="2336816927" RealAddress="7FFB135A173A"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>GameAssembly.dll.il2cpp+D6C73A</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16334</ID>
+              <Description>"ALL Heroes Levels (realtime)"</Description>
+              <LastState Value="2236092811" RealAddress="7FFB12C0368D"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>GameAssembly.dll.il2cpp+3CE68D</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16335</ID>
+              <Description>"ALL Heroes Stars (realtime)"</Description>
+              <LastState Value="1207995208" RealAddress="7FFB1294C06E"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>GameAssembly.dll.il2cpp+11706E</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16304</ID>
+              <Description>"Hero EXP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>HeroEXP</Address>
+              <Offsets>
+                <Offset>250</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16293</ID>
+              <Description>"Summoning Egg"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>SummoningEgg</Address>
+              <Offsets>
+                <Offset>34</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16305</ID>
+              <Description>"Rare Scrolls"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>RareScrolls</Address>
+              <Offsets>
+                <Offset>608</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16326</ID>
+              <Description>"Epic Scrolls"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>EpicScrolls</Address>
+              <Offsets>
+                <Offset>624</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16313</ID>
+              <Description>"Dust Red (Heroes)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>DustAllType</Address>
+              <Offsets>
+                <Offset>-C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16309</ID>
+              <Description>"Dust Yellow (Heroes)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>DustAllType</Address>
+              <Offsets>
+                <Offset>-8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16308</ID>
+              <Description>"Dust Green (Heroes)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>DustAllType</Address>
+              <Offsets>
+                <Offset>-4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16307</ID>
+              <Description>"Dust Blue (Heroes)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>DustAllType</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16316</ID>
+              <Description>"Feather Green (Pets)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Feather</Address>
+              <Offsets>
+                <Offset>-C</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16315</ID>
+              <Description>"Feather Red (Pets)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Feather</Address>
+              <Offsets>
+                <Offset>-8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16314</ID>
+              <Description>"Feather Yellow (Pets)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Feather</Address>
+              <Offsets>
+                <Offset>-4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16300</ID>
+              <Description>"Feather Blue (Pets)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Feather</Address>
+              <Offsets>
+                <Offset>0</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16302</ID>
+          <Description>"Get Stats in Achievements     ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・"</Description>
+          <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>//CollectXCoins
+define(addressCollectXCoins,"GameAssembly.dll"+F9B9EC)
+define(bytesCollectXCoins,F2 0F 10 70 20)
+
+//CompleteXHolidayTasks
+define(addressCompleteXHolidayTasks,"GameAssembly.dll"+F9F062)
+define(bytesCompleteXHolidayTasks,45 8B 80 24 03 00 00)
+
+
+
+
+
+
+[ENABLE]
+
+//==============================CollectXCoins
+
+assert(addressCollectXCoins,bytesCollectXCoins)
+alloc(newmemCollectXCoins,$1000,"GameAssembly.dll"+F9B9EC)
+
+alloc(CollectXCoins,4)
+registersymbol(CollectXCoins)
+
+label(codeCollectXCoins)
+label(returnCollectXCoins)
+
+newmemCollectXCoins:
+
+codeCollectXCoins:
+ mov [CollectXCoins],rax
+ movsd xmm6,[rax+20]
+ jmp returnCollectXCoins
+
+addressCollectXCoins:
+ jmp newmemCollectXCoins
+returnCollectXCoins:
+
+//==============================CompleteXHolidayTasks
+
+assert(addressCompleteXHolidayTasks,bytesCompleteXHolidayTasks)
+alloc(newmemCompleteXHolidayTasks,$1000,"GameAssembly.dll"+F9F062)
+
+alloc(CompleteXHolidayTasks,4)
+registersymbol(CompleteXHolidayTasks)
+
+label(codeCompleteXHolidayTasks)
+label(returnCompleteXHolidayTasks)
+
+newmemCompleteXHolidayTasks:
+
+codeCompleteXHolidayTasks:
+ mov [CompleteXHolidayTasks],r8
+ mov r8d,[r8+00000324]
+ jmp returnCompleteXHolidayTasks
+
+addressCompleteXHolidayTasks:
+ jmp newmemCompleteXHolidayTasks
+ nop 2
+returnCompleteXHolidayTasks:
+
+
+
+
+
+
+
+[DISABLE]
+
+//==============================CollectXCoins
+
+addressCollectXCoins:
+ db bytesCollectXCoins
+ // movsd xmm6,[rax+20]
+
+dealloc(newmemCollectXCoins)
+dealloc(CollectXCoins)
+unregistersymbol(CollectXCoins)
+
+//==============================CompleteXHolidayTasks
+
+addressCompleteXHolidayTasks:
+ db bytesCompleteXHolidayTasks
+ // mov r8d,[r8+00000324]
+
+dealloc(newmemCompleteXHolidayTasks)
+dealloc(CompleteXHolidayTasks)
+unregistersymbol(CompleteXHolidayTasks)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16358</ID>
+              <Description>"Achievements ??"</Description>
+              <LastState Value="860160000" RealAddress="7FFB142AB2DD"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>BF4040</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>GameAssembly.dll.il2cpp+1A762DD</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16303</ID>
+              <Description>"Quests: Complete X Holiday Tasks levels"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>CompleteXHolidayTasks</Address>
+              <Offsets>
+                <Offset>324</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16333</ID>
+              <Description>"Coins: Collect X Coins"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Double</VariableType>
+              <Address>CollectXCoins</Address>
+              <Offsets>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
     </CheatEntry>
   </CheatEntries>
   <CheatCodes>
@@ -1669,10 +1835,5 @@ GameAssembly.dll+813B07: 83 B8 E0 00 00 00 00     - cmp dword ptr [rax+000000E0]
       </After>
     </CodeEntry>
   </CheatCodes>
-  <UserdefinedSymbols>
-    <SymbolEntry>
-      <Name>speedhack_wantedspeed</Name>
-      <Address>17B9F2E0000</Address>
-    </SymbolEntry>
-  </UserdefinedSymbols>
+  <UserdefinedSymbols/>
 </CheatTable>

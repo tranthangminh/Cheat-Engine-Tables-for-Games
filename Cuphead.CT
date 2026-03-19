@@ -2,24 +2,115 @@
 <CheatTable CheatEngineTableVersion="46">
   <CheatEntries>
     <CheatEntry>
-      <ID>42</ID>
-      <Description>"IMPORTANT: Active Mono first (Menu bar ➜ Mono ➜ Active mono features)"</Description>
-      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
-      <LastState Value="" RealAddress="00000000"/>
+      <ID>16290</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
       <Color>BF40BF</Color>
-      <GroupHeader>1</GroupHeader>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
       <CheatEntries>
         <CheatEntry>
-          <ID>43</ID>
+          <ID>16291</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16292</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16293</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16294</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16296</ID>
+      <Description>"◀️ IMPORTANT: Enable this checkbox to ACTIVE Mono features FIRST"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+mono_initialize()
+LaunchMonoDataCollector()
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16297</ID>
+          <Description>"Active Mono (Menu bar ➜ Mono ➜ Active mono features)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16298</ID>
           <Description>"Make sure you have Cheat Engine 7.4 or later"</Description>
           <LastState Value="" RealAddress="00000000"/>
           <GroupHeader>1</GroupHeader>
         </CheatEntry>
         <CheatEntry>
-          <ID>44</ID>
-          <Description>"Download lastest version here: https://www.cheatengine.org/"</Description>
-          <LastState Value="" RealAddress="00000000"/>
-          <GroupHeader>1</GroupHeader>
+          <ID>16285</ID>
+          <Description>"◀️ Enable this checkbox to Download the latest version from: https://www.cheatengine.org/"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.cheatengine.org/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
@@ -65,7 +156,6 @@
         <CheatEntry>
           <ID>108</ID>
           <Description>"Total Parry - Boss"</Description>
-          <LastState Value="410421580" RealAddress="7FFB5F4B7E0B"/>
           <ShowAsSigned>0</ShowAsSigned>
           <Color>BF4040</Color>
           <VariableType>4 Bytes</VariableType>
@@ -82,16 +172,210 @@
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>76</ID>
-      <Description>"Active this"</Description>
-      <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
-      <LastState Value="" RealAddress="00000000"/>
+      <ID>16299</ID>
+      <Description>"Active cheats"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
       <Color>40BF40</Color>
-      <GroupHeader>1</GroupHeader>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//Active Mono Features
+
+[ENABLE]
+{$lua}
+mono_initialize()
+LaunchMonoDataCollector()
+{$asm}
+
+[DISABLE]
+{$lua}
+mono_initialize()
+LaunchMonoDataCollector()
+{$asm}
+</AssemblerScript>
       <CheatEntries>
         <CheatEntry>
+          <ID>16295</ID>
+          <Description>"Get Stats (Freezing the value below may crash the game)"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{Author: Max Chen (Trần Thắng Minh) - Contact me:
+ 🌐Facebook: https://www.facebook.com/maxiechen
+ 🌐Reddit: https://www.reddit.com/user/maxiechen96
+ 🌐Discord: https://discord.com/users/@maxiechen
+
+Update Here:
+ ☁️GoogleDrive: https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link
+ ☁️Github: https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games
+Created on: 27-02-2026}
+
+
+
+//HP
+define(addressHP,AbstractPlayerController:get_IsDead+39)
+define(bytesHP,48 63 80 B4 00 00 00)
+
+//Energy
+define(addressEnergy,PlayerStatsManager:OnDealDamage+32)
+define(bytesEnergy,F3 0F 10 87 D8 00 00 00)
+
+//Timer
+define(addressTimer,Level:Update+2f)
+define(bytesTimer,F3 0F 10 86 40 01 00 00)
+
+
+
+
+
+
+[ENABLE]
+
+//==============================HP
+
+assert(addressHP,bytesHP)
+alloc(newmemHP,$1000,AbstractPlayerController:get_IsDead+39)
+
+alloc(HP,4)
+registersymbol(HP)
+
+label(codeHP)
+label(returnHP)
+
+newmemHP:
+
+codeHP:
+ mov [HP],rax //Save rax address into HP
+ movsxd rax,dword ptr [rax+000000B4]
+ jmp returnHP
+
+addressHP:
+ jmp newmemHP
+ nop 2
+returnHP:
+
+//==============================Energy
+
+assert(addressEnergy,bytesEnergy)
+alloc(newmemEnergy,$1000,PlayerStatsManager:OnDealDamage+32)
+
+alloc(Energy,4)
+registersymbol(Energy)
+
+label(codeEnergy)
+label(returnEnergy)
+
+newmemEnergy:
+
+codeEnergy:
+ mov [Energy],rdi //Save rdi address into Energy
+ movss xmm0,[rdi+000000D8]
+ jmp returnEnergy
+
+addressEnergy:
+ jmp newmemEnergy
+ nop 3
+returnEnergy:
+
+//==============================Timer
+
+assert(addressTimer,bytesTimer)
+alloc(newmemTimer,$1000,Level:Update+2f)
+
+alloc(Timer,4)
+registersymbol(Timer)
+
+label(codeTimer)
+label(returnTimer)
+
+newmemTimer:
+
+codeTimer:
+ mov [Timer],rsi //Save rsi address into Timer
+ movss xmm0,[rsi+00000140]
+ jmp returnTimer
+
+addressTimer:
+ jmp newmemTimer
+ nop 3
+returnTimer:
+
+
+
+
+
+
+
+[DISABLE]
+
+//==============================HP
+
+addressHP:
+ db bytesHP
+ // movsxd rax,dword ptr [rax+000000B4]
+
+dealloc(newmemHP)
+dealloc(HP)
+unregistersymbol(HP)
+
+//==============================Energy
+
+addressEnergy:
+ db bytesEnergy
+ // movss xmm0,[rdi+000000D8]
+
+dealloc(newmemEnergy)
+dealloc(Energy)
+unregistersymbol(Energy)
+
+//==============================Timer
+
+addressTimer:
+ db bytesTimer
+ // movss xmm0,[rsi+00000140]
+
+dealloc(newmemTimer)
+dealloc(Timer)
+unregistersymbol(Timer)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16300</ID>
+              <Description>"Energy (MAX = 50)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>Energy</Address>
+              <Offsets>
+                <Offset>D8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16303</ID>
+              <Description>"HP (MAX = 3)"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>HP</Address>
+              <Offsets>
+                <Offset>B4</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16307</ID>
+              <Description>"Timer"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>Timer</Address>
+              <Offsets>
+                <Offset>140</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
           <ID>83</ID>
-          <Description>"HP - won't reduce"</Description>
+          <Description>"HP = 3"</Description>
           <LastState/>
           <Color>40BF40</Color>
           <VariableType>Auto Assembler Script</VariableType>
@@ -114,6 +398,7 @@ label(return)
 newmem:
 
 code:
+  mov [rsi+000000B4],3
   //mov [rsi+000000B4],eax
   jmp return
 
@@ -590,26 +875,27 @@ PlayerData+PlayerInventory:Buy+b4: B8 01 00 00 00                 - mov eax,0000
 }
 </AssemblerScript>
         </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>93</ID>
-      <Description>"Parry count won't reset"</Description>
-      <LastState/>
-      <Color>40BF40</Color>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : Cuphead
-  Version: 
-  Date   : 2025-10-24
+        <CheatEntry>
+          <ID>93</ID>
+          <Description>"Parry count won't reset"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Cuphead
+  Version:
+  Date   : 2026-02-27
   Author : Max
 
   This script does blah blah blah
 }
 
+define(address,LevelPlayerMotor:LeaveGround+e4)
+define(bytes,C7 80 E8 00 00 00 00 00 00 00)
+
 [ENABLE]
 
-define(INJECT,LevelPlayerMotor:LeaveGround+e4) // should be unique
-alloc(newmem,$1000,INJECT)
+assert(address,bytes)
+alloc(newmem,$1000,LevelPlayerMotor:LeaveGround+e4)
 
 label(code)
 label(return)
@@ -617,22 +903,20 @@ label(return)
 newmem:
 
 code:
-  //add [rax+000000E8],1
   //mov [rax+000000E8],00000000
   jmp return
 
-INJECT:
+address:
   jmp newmem
   nop 5
 return:
-registersymbol(INJECT)
 
 [DISABLE]
 
-INJECT:
-  db C7 80 E8 00 00 00 00 00 00 00
+address:
+  db bytes
+  // mov [rax+000000E8],00000000
 
-unregistersymbol(INJECT)
 dealloc(newmem)
 
 {
@@ -643,7 +927,7 @@ LevelPlayerMotor:LeaveGround+bf: 48 8B 47 68                    - mov rax,[rdi+6
 LevelPlayerMotor:LeaveGround+c3: 48 8B C8                       - mov rcx,rax
 LevelPlayerMotor:LeaveGround+c6: 48 83 EC 20                    - sub rsp,20
 LevelPlayerMotor:LeaveGround+ca: 83 38 00                       - cmp dword ptr [rax],00
-LevelPlayerMotor:LeaveGround+cd: 49 BB 70 BC 04 1C B9 01 00 00  - mov r11,AbstractPlayerController:get_stats
+LevelPlayerMotor:LeaveGround+cd: 49 BB 10 BD BE DB EC 01 00 00  - mov r11,AbstractPlayerController:get_stats
 LevelPlayerMotor:LeaveGround+d7: 41 FF D3                       - call r11
 LevelPlayerMotor:LeaveGround+da: 48 83 C4 20                    - add rsp,20
 LevelPlayerMotor:LeaveGround+de: 48 8B C8                       - mov rcx,rax
@@ -653,16 +937,18 @@ LevelPlayerMotor:LeaveGround+e4: C7 80 E8 00 00 00 00 00 00 00  - mov [rax+00000
 // ---------- DONE INJECTING  ----------
 LevelPlayerMotor:LeaveGround+ee: 48 8B CF                       - mov rcx,rdi
 LevelPlayerMotor:LeaveGround+f1: 48 83 EC 20                    - sub rsp,20
-LevelPlayerMotor:LeaveGround+f5: 49 BB 70 0D 08 1C B9 01 00 00  - mov r11,LevelPlayerMotor:ResetSuperAndEx
+LevelPlayerMotor:LeaveGround+f5: 49 BB 10 B2 C7 DB EC 01 00 00  - mov r11,LevelPlayerMotor:ResetSuperAndEx
 LevelPlayerMotor:LeaveGround+ff: 41 FF D3                       - call r11
 LevelPlayerMotor:LeaveGround+102: 48 83 C4 20                    - add rsp,20
 LevelPlayerMotor:LeaveGround+106: 48 8B 47 68                    - mov rax,[rdi+68]
 LevelPlayerMotor:LeaveGround+10a: 48 8B C8                       - mov rcx,rax
 LevelPlayerMotor:LeaveGround+10d: 48 83 EC 20                    - sub rsp,20
 LevelPlayerMotor:LeaveGround+111: 83 38 00                       - cmp dword ptr [rax],00
-LevelPlayerMotor:LeaveGround+114: 49 BB 20 D4 04 1C B9 01 00 00  - mov r11,LevelPlayerController:get_weaponManager
+LevelPlayerMotor:LeaveGround+114: 49 BB E0 1E C6 DB EC 01 00 00  - mov r11,LevelPlayerController:get_weaponManager
 }
 </AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
     </CheatEntry>
     <CheatEntry>
       <ID>109</ID>
@@ -1014,5 +1300,54 @@ UnityPlayer.dll.text+4E6E31: 48 3B EA                       - cmp rbp,rdx
       </After>
     </CodeEntry>
   </CheatCodes>
-  <UserdefinedSymbols/>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>speedhack_wantedspeed</Name>
+      <Address>18FD0000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <LuaScript>if syntaxcheck then return end
+
+-- Title + Author
+getMainForm().Caption = "Cuphead | Created by Max (Tran Thang Minh)"
+
+
+
+
+
+-- Toggle Compact / Full
+function toggleView(sender)
+  local f = getMainForm()
+  local state = (sender.Caption == "Compact View Mode")
+
+  f.Panel5.Visible = state
+  f.Splitter1.Visible = state
+  sender.Caption = state and "Full View Mode" or "Compact View Mode"
+end
+
+
+
+
+
+-- Check if menu already exists
+local parent = getMainForm().Menu.Items
+local exists = false
+
+for i=0,parent.Count-1 do
+  if parent[i].Caption == "Compact View Mode" or parent[i].Caption == "Full View Mode" then
+    exists = true
+    break
+  end
+end
+
+-- Create menu if not exists
+if not exists then
+  local m = createMenuItem(parent)
+  m.Caption = "Compact View Mode"
+  m.OnClick = toggleView
+  parent.add(m)
+end
+
+
+</LuaScript>
 </CheatTable>

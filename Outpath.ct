@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>16287</ID>
+      <Description>"◀️ Enable this checkbox to UPDATE or DOWNLOAD more game tables"</Description>
+      <Options moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+shellExecute("https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link")
+shellExecute("https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games")
+{$asm}
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16288</ID>
+          <Description>"◀️ Author: Max Chen (Trần Thắng Minh)"</Description>
+          <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16289</ID>
+              <Description>"◀️ Facebook"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.facebook.com/maxiechen/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16290</ID>
+              <Description>"◀️ Reddit"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.reddit.com/user/maxiechen96/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16291</ID>
+              <Description>"◀️ Discord"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://discord.com/users/@maxiechen")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16282</ID>
+      <Description>"◀️ IMPORTANT: Enable this checkbox to ACTIVE Mono features FIRST"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Activated="1"/>
+      <Color>BF40BF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//Activate Mono Features
+
+[ENABLE]
+
+{$lua}
+activateMono()
+{$asm}
+
+[DISABLE]
+{$lua}
+activateMono()
+{$asm}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16283</ID>
+          <Description>"Active Mono (Menu bar ➜ Mono ➜ Active mono features)"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16284</ID>
+          <Description>"Make sure you have Cheat Engine 7.4 or later"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16285</ID>
+          <Description>"◀️ Enable checkbox to Download the latest version from: https://www.cheatengine.org/"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+{$lua}
+shellExecute("https://www.cheatengine.org/")
+
+{$asm}
+[DISABLE]
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>77</ID>
+      <Description>"Memory Viewer     ──────────────────────────────────────────────────────────────────────────────────"</Description>
+      <Options moAlwaysHideChildren="1" moManualExpandCollapse="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>BF4040</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16293</ID>
+          <Description>"Hits left"</Description>
+          <LastState Value="-5.498500903E37" RealAddress="2BBA947DA85"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>Float</VariableType>
+          <Address>TakeOutResource:TryTakeOut_General+105</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16301</ID>
+          <Description>"Inventories (press Tab to get Value)"</Description>
+          <LastState Value="2197840712" RealAddress="2BBA004D1F1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>InventoryManager:UpdateInvCategories+91</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16304</ID>
+          <Description>"Crafting Time"</Description>
+          <LastState Value="2148536307" RealAddress="2BBA004D46D"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <Color>BF4040</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>CraftManager:UpdateItemCrafting+13d</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16292</ID>
+      <Description>"Active Cheats     ──────────────────────────────────────────────────────────────"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1" moAllowManualCollapseAndExpand="1"/>
+      <LastState/>
+      <Color>40BF40</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//Activate Mono Features
+
+[ENABLE]
+
+{$lua}
+activateMono()
+{$asm}
+
+[DISABLE]
+{$lua}
+activateMono()
+{$asm}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>16295</ID>
+          <Description>"Get Stats     ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{
+Game   : Outpath
+Author : Max Chen (Trần Thắng Minh) - Contact me:
+  🌐Facebook  : https://www.facebook.com/maxiechen
+  🌐Reddit    : https://www.reddit.com/user/maxiechen96
+  🌐Discord   : https://discord.com/users/@maxiechen
+
+Update Here
+  ☁️GoogleDrive: https://drive.google.com/drive/folders/1psd4TzcmHOUAO7NIBKI0lf47hKGp-qkK?usp=drive_link
+  ☁️Github     : https://github.com/tranthangminh/Cheat-Engine-Tables-for-Games
+   Date        : 2026-03-10
+}
+
+
+
+//Credits
+define(addressCredits,PlayerGarden:UpdateCreditsText+29)
+
+//Energy
+define(addressEnergy,PlayerGarden:AddStat_Energy+bb)
+
+
+
+
+
+
+[ENABLE]
+
+//──────────────────────────────────────── Credits
+
+alloc(newmemCredits,$1000,PlayerGarden:UpdateCreditsText+29)
+
+alloc(Credits,8)
+registersymbol(Credits)
+
+label(codeCredits)
+label(returnCredits)
+
+newmemCredits:
+
+codeCredits:
+ mov [Credits],rsi //Save rsi address into Credits
+ movsxd rcx,dword ptr [rsi+00000164]
+ jmp returnCredits
+
+addressCredits:
+ jmp newmemCredits
+ nop 2
+returnCredits:
+
+//──────────────────────────────────────── Energy
+
+alloc(newmemEnergy,$1000,PlayerGarden:AddStat_Energy+bb)
+
+alloc(Energy,8)
+registersymbol(Energy)
+label(codeEnergy)
+label(returnEnergy)
+
+newmemEnergy:
+
+codeEnergy:
+ mov [Energy],rsi //Save rsi address into Energy
+ movss xmm0,[rsi+00000188]
+ jmp returnEnergy
+
+addressEnergy:
+ jmp newmemEnergy
+ nop 3
+returnEnergy:
+
+
+
+
+
+
+
+[DISABLE]
+
+//──────────────────────────────────────── Credits
+
+addressCredits:
+ movsxd rcx,dword ptr [rsi+00000164]
+
+dealloc(newmemCredits)
+dealloc(Credits)
+unregistersymbol(Credits)
+
+//──────────────────────────────────────── Energy
+
+addressEnergy:
+ movss xmm0,[rsi+00000188]
+
+dealloc(newmemEnergy)
+dealloc(Energy)
+unregistersymbol(Energy)
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>16305</ID>
+              <Description>"Energy"</Description>
+              <LastState Value="95.47826385" RealAddress="2BE676246C4"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>Energy</Address>
+              <Offsets>
+                <Offset>184</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16306</ID>
+              <Description>"Food"</Description>
+              <LastState Value="35.07896042" RealAddress="2BE676246C8"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>Float</VariableType>
+              <Address>Energy</Address>
+              <Offsets>
+                <Offset>188</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>16294</ID>
+              <Description>"Credits"</Description>
+              <LastState Value="727" RealAddress="2BE676246A4"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <Color>40BFBF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>Credits</Address>
+              <Offsets>
+                <Offset>164</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16300</ID>
+          <Description>"Only one hit"</Description>
+          <LastState Activated="1"/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Outpath
+  Version: 
+  Date   : 2026-03-06
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,TakeOutResource:TryTakeOut_General+105)
+define(bytes,F3 41 0F 10 87 A4 00 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,TakeOutResource:TryTakeOut_General+105)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  xorps xmm0,xmm0
+  //movss xmm0,[r15+000000A4]
+  jmp return
+
+address:
+  jmp newmem
+  nop 4
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // movss xmm0,[r15+000000A4]
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: TakeOutResource:TryTakeOut_General+105
+
+TakeOutResource:TryTakeOut_General+d4: F3 0F 5A C9                    - cvtss2sd xmm1,xmm1
+TakeOutResource:TryTakeOut_General+d8: F3 0F 10 55 C4                 - movss xmm2,[rbp-3C]
+TakeOutResource:TryTakeOut_General+dd: F3 0F 5A D2                    - cvtss2sd xmm2,xmm2
+TakeOutResource:TryTakeOut_General+e1: F2 0F 59 CA                    - mulsd xmm1,xmm2
+TakeOutResource:TryTakeOut_General+e5: F3 0F 10 15 C3 0F 00 00        - movss xmm2,[TakeOutResource:TryTakeOut_General+10b0]
+TakeOutResource:TryTakeOut_General+ed: F3 0F 5A D2                    - cvtss2sd xmm2,xmm2
+TakeOutResource:TryTakeOut_General+f1: F2 0F 5E CA                    - divsd xmm1,xmm2
+TakeOutResource:TryTakeOut_General+f5: F2 0F 58 C1                    - addsd xmm0,xmm1
+TakeOutResource:TryTakeOut_General+f9: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+TakeOutResource:TryTakeOut_General+fd: F3 0F 11 AD 10 FE FF FF        - movss [rbp-000001F0],xmm5
+// ---------- INJECTING HERE ----------
+TakeOutResource:TryTakeOut_General+105: F3 41 0F 10 87 A4 00 00 00     - movss xmm0,[r15+000000A4]
+// ---------- DONE INJECTING  ----------
+TakeOutResource:TryTakeOut_General+10e: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+TakeOutResource:TryTakeOut_General+112: F3 0F 10 8D 10 FE FF FF        - movss xmm1,[rbp-000001F0]
+TakeOutResource:TryTakeOut_General+11a: F3 0F 5A C9                    - cvtss2sd xmm1,xmm1
+TakeOutResource:TryTakeOut_General+11e: F2 0F 5C C1                    - subsd xmm0,xmm1
+TakeOutResource:TryTakeOut_General+122: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+TakeOutResource:TryTakeOut_General+126: F3 41 0F 11 AF A4 00 00 00     - movss [r15+000000A4],xmm5
+TakeOutResource:TryTakeOut_General+12f: 48 B8 00 38 EE 41 E4 02 00 00  - mov rax,000002E441EE3800
+TakeOutResource:TryTakeOut_General+139: 48 8B 00                       - mov rax,[rax]
+TakeOutResource:TryTakeOut_General+13c: 48 89 85 E8 FD FF FF           - mov [rbp-00000218],rax
+TakeOutResource:TryTakeOut_General+143: 49 8B 47 38                    - mov rax,[r15+38]
+}
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16303</ID>
+          <Description>"Crafting Time = 0"</Description>
+          <LastState/>
+          <Color>40BF40</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{ Game   : Outpath
+  Version:
+  Date   : 2026-03-06
+  Author : Max
+
+  This script does blah blah blah
+}
+
+define(address,Build_Craft:SetItemToCraft+14b)
+define(bytes,F3 41 0F 11 AE 98 00 00 00)
+
+[ENABLE]
+
+assert(address,bytes)
+alloc(newmem,$1000,Build_Craft:SetItemToCraft+14b)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [r14+00000098],0
+  //movss [r14+00000098],xmm5
+  jmp return
+
+address:
+  jmp newmem
+  nop 4
+return:
+
+[DISABLE]
+
+address:
+  db bytes
+  // movss [r14+00000098],xmm5
+
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: Build_Craft:SetItemToCraft+14b
+
+Build_Craft:SetItemToCraft+118: F2 0F 10 4D B0                 - movsd xmm1,[rbp-50]
+Build_Craft:SetItemToCraft+11d: F3 0F 2A D0                    - cvtsi2ss xmm2,eax
+Build_Craft:SetItemToCraft+121: F3 0F 5A D2                    - cvtss2sd xmm2,xmm2
+Build_Craft:SetItemToCraft+125: F2 0F 59 CA                    - mulsd xmm1,xmm2
+Build_Craft:SetItemToCraft+129: F2 0F 5C C1                    - subsd xmm0,xmm1
+Build_Craft:SetItemToCraft+12d: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+Build_Craft:SetItemToCraft+131: F3 41 0F 11 AE 94 00 00 00     - movss [r14+00000094],xmm5
+Build_Craft:SetItemToCraft+13a: F3 41 0F 10 86 94 00 00 00     - movss xmm0,[r14+00000094]
+Build_Craft:SetItemToCraft+143: F3 0F 5A C0                    - cvtss2sd xmm0,xmm0
+Build_Craft:SetItemToCraft+147: F2 0F 5A E8                    - cvtsd2ss xmm5,xmm0
+// ---------- INJECTING HERE ----------
+Build_Craft:SetItemToCraft+14b: F3 41 0F 11 AE 98 00 00 00     - movss [r14+00000098],xmm5
+// ---------- DONE INJECTING  ----------
+Build_Craft:SetItemToCraft+154: 49 63 87 30 01 00 00           - movsxd  rax,dword ptr [r15+00000130]
+Build_Craft:SetItemToCraft+15b: 41 89 86 9C 00 00 00           - mov [r14+0000009C],eax
+Build_Craft:SetItemToCraft+162: 49 8B 46 18                    - mov rax,[r14+18]
+Build_Craft:SetItemToCraft+166: 48 8B C8                       - mov rcx,rax
+Build_Craft:SetItemToCraft+169: 83 38 00                       - cmp dword ptr [rax],00
+Build_Craft:SetItemToCraft+16c: 66 90                          - nop 2
+Build_Craft:SetItemToCraft+16e: 49 BB 50 DD BC EB E5 02 00 00  - mov r11,UnityEngine.Events.UnityEvent:Invoke
+Build_Craft:SetItemToCraft+178: 41 FF D3                       - call r11
+Build_Craft:SetItemToCraft+17b: 49 63 8E 90 00 00 00           - movsxd  rcx,dword ptr [r14+00000090]
+Build_Craft:SetItemToCraft+182: C7 45 E0 03 00 00 00           - mov [rbp-20],00000003
+}
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>Info about this table:
+</Comments>
+  <LuaScript>GameName = "Outpath"
+
+if syntaxcheck then return end
+
+
+
+
+-- Title + Author
+getMainForm().Caption = GameName.. " | Created by Max (Tran Thang Minh)" --input GameName here
+
+
+
+
+-- Activate Mono Features
+function activateMono()
+  if getOpenedProcessID() == 0 then
+      OpenProcess(GameName..".exe") --------------------------------------input GameName.exe here
+  end
+  if getOpenedProcessID()== 0 then
+      showMessage(GameName.. " not found")
+      return
+  end
+
+  -- initialize mono
+  mono_initialize()
+
+  -- kiểm tra game có mono hay không
+  local domains = mono_enumDomains()
+
+  if domains==nil or #domains==0 then
+      --showMessage("Mono not found in this game")
+      return
+  end
+
+  sleep(100)
+
+  if monopipe==nil then
+      LaunchMonoDataCollector()
+  end
+  beep()
+
+end
+
+
+
+
+
+-- Toggle Compact / Full
+function toggleView(sender)
+  local f = getMainForm()
+  local state = (sender.Caption == "Compact View Mode")
+
+  f.Panel5.Visible = state
+  f.Splitter1.Visible = state
+  sender.Caption = state and "Full View Mode" or "Compact View Mode"
+end
+
+
+
+
+
+-- Check if menu already exists
+local parent = getMainForm().Menu.Items
+local exists = false
+
+for i=0,parent.Count-1 do
+  if parent[i].Caption == "Compact View Mode" or parent[i].Caption == "Full View Mode" then
+    exists = true
+    break
+  end
+end
+
+
+
+
+
+-- Create menu if not exists
+if not exists then
+  local m = createMenuItem(parent)
+  m.Caption = "Compact View Mode"
+  m.OnClick = toggleView
+  parent.add(m)
+end
+</LuaScript>
+</CheatTable>
